@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Owned by the settle-up area (docs/groups-build-plan.md), with GroupNotifications. -->
+    <!-- "Groups" notifications (docs/server.md 9.7): what friends did that involves the person. Names and amounts only. -->
+    <string name="notify_channel">Groups</string>
+    <string name="notify_channel_description">When friends add an expense with you, pay you back, confirm a payment, join a group or remind you.</string>
+    <!-- %1$s is the friend ("Rahul"), %2$s what it was for ("Swiggy"), %3$s the person's share ("₹150"). -->
+    <string name="notify_expense_added">%1$s added %2$s · you owe %3$s</string>
+    <!-- %1$s is the friend, %2$s the amount. -->
+    <string name="notify_marked_paid">%1$s marked %2$s as paid</string>
+    <!-- Not in the design: the button on "Priya marked ₹1,200 as paid" when the person may confirm it (docs/server.md 9.7). -->
+    <string name="notify_action_confirm">Confirm</string>
+    <!-- Not in the design: a friend confirmed a payment the person marked as paid. %1$s is the friend, %2$s the amount. -->
+    <string name="notify_confirmed">%1$s confirmed %2$s as paid</string>
+    <!-- %1$s is the joining account's own name, %2$s the group. -->
+    <string name="notify_joined">%1$s joined %2$s</string>
+    <!-- %1$s is the friend, %2$s what the person owes them, %3$s the group. -->
+    <string name="notify_reminded">%1$s reminded you: %2$s for %3$s</string>
+
+    <!-- Settling up from SMS (docs/server.md 9.5). Design 02-everyday/04, second notification. -->
+    <!-- %1$s is the friend ("Rahul"), %2$s what arrived ("₹1,200"). -->
+    <string name="notify_repaid_title">%1$s paid you %2$s</string>
+    <!-- %1$s is the group ("Flat 302"). -->
+    <string name="notify_cleared_group">%1$s balance cleared. Nothing to tick.</string>
+    <!-- Not in the design: the balance cleared was a direct split with the friend, which has no group name. -->
+    <string name="notify_cleared_direct">Balance cleared. Nothing to tick.</string>
+    <!-- Not in the design: one money-in SMS cleared the friend's balance in several groups. %d is how many. -->
+    <plurals name="notify_cleared_groups">
+        <item quantity="one">Balance in %d group cleared. Nothing to tick.</item>
+        <item quantity="other">Balances in %d groups cleared. Nothing to tick.</item>
+    </plurals>
+    <!-- Not in the design: the payer's side, when the person's Pay by UPI went through and the balance closed by
+         itself (flow lane 05 "Both people are notified"). %1$s is the friend, %2$s the amount. The text under it is
+         notify_cleared_group, _direct or _groups. -->
+    <string name="notify_paid_title">You paid %1$s %2$s</string>
+    <!-- The question of 03-getting-paid-back/02; the notification itself is not in the design. %1$s is the friend. -->
+    <string name="notify_ask_title">Was this %1$s paying you back?</string>
+    <!-- Not in the design: under notify_ask_title. %1$s is what arrived ("₹1,200"), %2$s the friend. -->
+    <string name="notify_ask_body">%1$s arrived. It matches what %2$s owes.</string>
+</resources>

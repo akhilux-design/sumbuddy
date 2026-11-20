@@ -1,0 +1,53 @@
+{
+  "name": "Google Button", "id": "432:661", "properties": {"State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}},
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Google Button", "x": 0, "y": 36, "w": 378, "h": 178, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "State=Default", "x": 25, "y": 25, "w": 328, "h": 52, "lay": "row", "gap": 10, "pad": [16, 12, 16, 12],
+        "main": "CENTER", "cross": "CENTER", "size": ["FIXED", "HUG"], "r": 999, "fill": ["color/google/button-fill"],
+        "stroke": ["color/google/button-stroke"], "sw": 1, "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Google logo", "x": 82, "y": 16, "w": 20, "h": 20, "size": ["FIXED", "FIXED"], "clip": true,
+            "c": [
+              {"t": "VECTOR", "n": "Vector", "x": 1, "y": 0, "w": 15.6, "h": 8.1, "size": ["FIXED", "FIXED"], "fill": ["#EA4335"]},
+              {"t": "VECTOR", "n": "Vector", "x": 10, "y": 8, "w": 9.6, "h": 9.3, "size": ["FIXED", "FIXED"], "fill": ["#4285F4"]},
+              {"t": "VECTOR", "n": "Vector", "x": 0, "y": 6, "w": 4.4, "h": 9, "size": ["FIXED", "FIXED"], "fill": ["#FBBC05"]},
+              {"t": "VECTOR", "n": "Vector", "x": 1, "y": 12, "w": 15.6, "h": 8.1, "size": ["FIXED", "FIXED"], "fill": ["#34A853"]}
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Label", "x": 112, "y": 16, "w": 135, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/google/button-text"],
+            "text": "Continue with Google", "font": "Roboto Medium 14"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "State=Pressed", "x": 25, "y": 101, "w": 328, "h": 52, "lay": "row", "gap": 10, "pad": [16, 12, 16, 12],
+        "main": "CENTER", "cross": "CENTER", "size": ["FIXED", "HUG"], "r": 999, "fill": ["color/google/button-fill"],
+        "stroke": ["color/google/button-stroke"], "sw": 1, "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Google logo", "x": 82, "y": 16, "w": 20, "h": 20, "size": ["FIXED", "FIXED"], "clip": true,
+            "c": [
+              {"t": "VECTOR", "n": "Vector", "x": 1, "y": 0, "w": 15.6, "h": 8.1, "size": ["FIXED", "FIXED"], "fill": ["#EA4335"]},
+              {"t": "VECTOR", "n": "Vector", "x": 10, "y": 8, "w": 9.6, "h": 9.3, "size": ["FIXED", "FIXED"], "fill": ["#4285F4"]},
+              {"t": "VECTOR", "n": "Vector", "x": 0, "y": 6, "w": 4.4, "h": 9, "size": ["FIXED", "FIXED"], "fill": ["#FBBC05"]},
+              {"t": "VECTOR", "n": "Vector", "x": 1, "y": 12, "w": 15.6, "h": 8.1, "size": ["FIXED", "FIXED"], "fill": ["#34A853"]}
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Label", "x": 112, "y": 16, "w": 135, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/google/button-text"],
+            "text": "Continue with Google", "font": "Roboto Medium 14"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 52, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 999,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

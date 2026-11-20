@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity tab. Wording from design/spec/screens/02-everyday/16-activity.json and 17-activity-empty.json. -->
+    <string name="activity_title">Activity</string>
+    <string name="activity_add">+ Add</string>
+
+    <!-- %1$s is the short month name, for example Nov. Shown in capitals. -->
+    <string name="activity_stat_spent">Spent in %1$s</string>
+    <string name="activity_stat_from_splits">From splits</string>
+
+    <string name="activity_filter_all">All</string>
+    <string name="activity_filter_me">Me</string>
+    <string name="activity_filter_family">Family</string>
+    <string name="activity_filter_splits">Splits</string>
+    <string name="activity_filter_ignored">Ignored</string>
+
+    <string name="activity_day_today">Today</string>
+    <string name="activity_day_yesterday">Yesterday</string>
+
+    <!-- Second line of a row: %1$s is the category, %2$s how it was paid, for example UPI. -->
+    <string name="activity_row_paid_with">%1$s · %2$s</string>
+    <!-- Second line of a split row: %1$s is the category, %2$s the whole bill, for example ₹450. -->
+    <string name="activity_row_your_share">%1$s · your share of %2$s</string>
+    <string name="activity_row_just_you">Just you</string>
+    <string name="activity_row_review_subtitle">Could not read · tap to fix</string>
+    <string name="activity_row_review_meta">Check this</string>
+    <!-- Amount of a message whose amount could not be read. -->
+    <string name="activity_row_amount_unknown">₹ ?</string>
+    <!-- Title of a payment that names nobody. -->
+    <string name="activity_row_untitled">Payment</string>
+    <!-- Money that came in (refund, cashback, money received): title when it names nobody, and the first part of the
+         second line. -->
+    <string name="activity_row_money_in">Money in</string>
+    <!-- Amount of money that came in. %1$s is the amount, for example ₹1,200. -->
+    <string name="activity_row_money_in_amount">+%1$s</string>
+    <string name="activity_row_not_spending">Not spending</string>
+    <string name="activity_row_ignored">Ignored</string>
+    <!-- Note under the amount of an expense shared with the person's family. -->
+    <string name="activity_row_family">Family</string>
+
+    <!-- How a payment was made. %1$s is the account name, %2$s its last digits. -->
+    <string name="activity_paid_with_account">%1$s ••%2$s</string>
+    <string name="activity_paid_with_cash">Cash</string>
+    <string name="activity_paid_with_upi">UPI</string>
+    <string name="activity_paid_with_card">Card</string>
+    <string name="activity_paid_with_bank_transfer">Bank transfer</string>
+    <string name="activity_paid_with_wallet">Wallet</string>
+    <string name="activity_paid_with_atm">ATM</string>
+    <string name="activity_paid_with_other">Bank</string>
+
+    <!-- Shown when the chosen filter matches nothing. -->
+    <string name="activity_filter_empty_title">Nothing here</string>
+    <string name="activity_filter_empty_body">No payments match this filter yet.</string>
+
+    <!-- What tapping a month tile does, for screen readers. -->
+    <string name="activity_open_month">See the month</string>
+
+    <string name="activity_empty_title">Nothing here yet</string>
+    <string name="activity_empty_body">Payments you add or split are listed here, newest first.</string>
+    <string name="activity_empty_action">Add one by hand</string>
+</resources>

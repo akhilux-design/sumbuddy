@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Family (docs/family.md 8.6; design/spec/screens/06-family): Set up Family (00, 09 to 12), Join Family (01, 13 to
+         16), Family settings (17 to 24), Month view (Family) (27) and the invite message. Home's Family side is in
+         strings_home.xml, the You row in strings_you.xml, the family Sign in copy in strings_signin.xml. -->
+    <string name="family_title">Family</string>
+
+    <!-- Set up Family (06-family/00). -->
+    <string name="family_setup_headline">One month for the two of you</string>
+    <string name="family_setup_body">Pool what you both spend into one monthly total. Nobody owes anybody.</string>
+    <string name="family_name_label">Family name</string>
+    <!-- The name Set up Family starts with. -->
+    <string name="family_name_default">Home</string>
+    <string name="family_name_invalid">That does not look right.</string>
+    <string name="family_fact_invite_title">Invite your partner</string>
+    <string name="family_fact_invite_body">They join with a link and need the app.</string>
+    <string name="family_fact_counts_title">Counts in both</string>
+    <string name="family_fact_counts_body">What you pay for the family also shows in your own month.</string>
+    <string name="family_fact_private_title">Personal stays private</string>
+    <string name="family_fact_private_body">Only expenses marked Family are shared.</string>
+    <string name="family_fact_sms_title">SMS stays on each phone</string>
+    <string name="family_fact_sms_body">Only the expense entry is shared.</string>
+    <!-- Set up Family (09) and Join Family (13): shown only when this phone has Family expenses that would be shared. -->
+    <string name="family_fact_earlier_title">Earlier Family expenses</string>
+    <!-- %d is how many of this phone's Family expenses are shared on set up or join. The "one" form is not drawn. -->
+    <plurals name="family_fact_earlier_body">
+        <item quantity="one">Your %d Family expense on this phone is shared too.</item>
+        <item quantity="other">Your %d Family expenses on this phone are shared too.</item>
+    </plurals>
+    <string name="family_invite_button">Invite partner</string>
+
+    <!-- The banners of Set up Family (11, 12), Join Family (14, 15) and Family settings (23, 24). -->
+    <string name="family_offline_title">You\'re offline</string>
+    <string name="family_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <string name="family_failed_title">Could not do that now</string>
+    <string name="family_failed_body">Try again in a moment.</string>
+
+    <!-- The invite message, sent with the system share sheet (docs/family.md 1.3): line 1, line 2, the link, line 3.
+         %1$s is the sender's first name, %2$s the family's name, %3$s the app's name. -->
+    <string name="family_invite_line1">%1$s invited you to %2$s on %3$s: one monthly total for the two of you.</string>
+    <string name="family_invite_line2">Get the app, then open this link on your phone to join:</string>
+    <string name="family_invite_line3">Only expenses you mark Family are shared. Never your SMS.</string>
+
+    <!-- Join Family (06-family/01). %1$s is who sent the link, %2$s the family, for example "Arjun invited you to Home". -->
+    <string name="family_join_headline">%1$s invited you to %2$s</string>
+    <string name="family_join_body">One monthly total for the two of you. Nobody owes anybody.</string>
+    <string name="family_join_private_body">Only expenses you mark Family are shared.</string>
+    <string name="family_join_button">Join Family</string>
+    <string name="family_join_not_now">Not now</string>
+    <!-- Join Family (already in a family) (06-family/16). -->
+    <string name="family_already_headline">You\'re already in a family</string>
+    <string name="family_already_body">You can be in one family at a time. Leave your family on the You tab first, then open this link again.</string>
+    <string name="family_already_ok">OK</string>
+
+    <!-- Family settings (06-family/17 to 22). -->
+    <string name="family_people">People</string>
+    <string name="family_you">You</string>
+    <string name="family_partner">Partner</string>
+    <string name="family_invited_title">Your partner</string>
+    <string name="family_invited_subtitle">Invite sent · not joined yet</string>
+    <string name="family_invite_row_title">Invite partner</string>
+    <string name="family_invite_row_subtitle">They join with a link and need the app.</string>
+    <string name="family_leaving">Leaving</string>
+    <string name="family_leave_title">Leave Family</string>
+    <!-- %1$s is the family's name. -->
+    <string name="family_leave_subtitle">Your Family expenses leave %1$s and stay on this phone.</string>
+    <string name="family_leave_confirm_title">Leave %1$s?</string>
+    <string name="family_leave_confirm_body">Your Family expenses leave %1$s and stay on this phone as yours. You can join again with a new link.</string>
+    <string name="family_leave_confirm">Leave Family</string>
+    <string name="family_leave_stay">Stay</string>
+    <!-- %1$s is the partner's first name, %2$s the family's name. -->
+    <string name="family_remove_confirm_title">Remove %1$s from %2$s?</string>
+    <string name="family_remove_confirm_body">%1$s\'s Family expenses leave %2$s. They stay on %1$s\'s phone.</string>
+    <string name="family_remove_confirm">Remove</string>
+    <string name="family_remove_keep">Keep</string>
+    <!-- The invite sheet (06-family/20). %1$s is the family's name. -->
+    <string name="family_sheet_link_title">Link is on</string>
+    <string name="family_sheet_link_body">Anyone with it can join %1$s as your partner.</string>
+    <string name="family_sheet_note">Send it again if it got lost. Cancel invite turns the link off.</string>
+    <string name="family_sheet_send">Send link again</string>
+    <string name="family_sheet_cancel_invite">Cancel invite</string>
+    <string name="family_sheet_close">Close</string>
+
+    <!-- Month view (Family) (06-family/27). %1$s is the family's name, %2$s the month, for example
+         "Home · November 2026". -->
+    <string name="family_month_title">%1$s · %2$s</string>
+    <string name="family_month_spent">Family spent</string>
+    <string name="family_month_last">Last month</string>
+</resources>

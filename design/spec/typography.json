@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Display/XL",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "ExtraBold",
+    "fontSize": 44,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 46
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -2
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Display/L",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "ExtraBold",
+    "fontSize": 32,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 36
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -1.5
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Amount/XL",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "ExtraBold",
+    "fontSize": 52,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 56
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -2
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Amount/L",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "ExtraBold",
+    "fontSize": 32,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 36
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -1
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Amount/M",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "Bold",
+    "fontSize": 18,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 22
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Heading/L",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "Bold",
+    "fontSize": 24,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 28
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -1
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Heading/M",
+    "fontFamily": "Bricolage Grotesque",
+    "fontStyle": "Bold",
+    "fontSize": 20,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 24
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": -0.5
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Title",
+    "fontFamily": "DM Sans",
+    "fontStyle": "SemiBold",
+    "fontSize": 16,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 22
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Body/L",
+    "fontFamily": "DM Sans",
+    "fontStyle": "Regular",
+    "fontSize": 16,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 24
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Body/M",
+    "fontFamily": "DM Sans",
+    "fontStyle": "Regular",
+    "fontSize": 14,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 20
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Body/M Strong",
+    "fontFamily": "DM Sans",
+    "fontStyle": "SemiBold",
+    "fontSize": 14,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 20
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Caption",
+    "fontFamily": "DM Sans",
+    "fontStyle": "Medium",
+    "fontSize": 14,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 18
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Button",
+    "fontFamily": "DM Sans",
+    "fontStyle": "Bold",
+    "fontSize": 16,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 20
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 0
+    },
+    "textCase": "ORIGINAL",
+    "textDecoration": "NONE"
+  },
+  {
+    "name": "Label",
+    "fontFamily": "DM Sans",
+    "fontStyle": "Bold",
+    "fontSize": 14,
+    "lineHeight": {
+      "unit": "PIXELS",
+      "value": 16
+    },
+    "letterSpacing": {
+      "unit": "PERCENT",
+      "value": 6
+    },
+    "textCase": "UPPER",
+    "textDecoration": "NONE"
+  }
+]

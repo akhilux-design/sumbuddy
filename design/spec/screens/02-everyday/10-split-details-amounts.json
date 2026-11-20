@@ -1,0 +1,1072 @@
+{
+  "name": "Split details (amounts)",
+  "group": "Group/02 Everyday",
+  "index": 10,
+  "darkId": "97:3610",
+  "lightId": "98:4787",
+  "tree": {
+    "t": "FRAME",
+    "n": "Split details (amounts)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "Split it"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "Split it",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 0,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": ""
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 590,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          0,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Expense Row",
+            "x": 16,
+            "y": 0,
+            "w": 328,
+            "h": 68,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "comp": "Expense Row",
+            "variant": "Kind=Shared, State=Default",
+            "props": {
+              "Meta": "You paid",
+              "Icon": "Icon/food / Style=3D",
+              "Amount": "₹450",
+              "Subtitle": "Today · HDFC card ••4521",
+              "Title": "Swiggy"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Swiggy",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "Today · HDFC card ••4521",
+                "style": "Caption",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹450",
+                "style": "Amount/M",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Meta",
+                "text": "You paid",
+                "style": "Caption",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/food",
+                "variant": "Style=3D"
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "With",
+            "x": 16,
+            "y": 80,
+            "w": 39,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "With",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Group chips",
+            "x": 16,
+            "y": 108,
+            "w": 328,
+            "h": 36,
+            "lay": "row",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 0,
+                "y": 0,
+                "w": 87,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "comp": "Chip",
+                "variant": "Selected=True, State=Default",
+                "props": {
+                  "Label": "Flat 302"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Flat 302",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 95,
+                "y": 0,
+                "w": 87,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Chip",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Label": "Goa trip"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Goa trip",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 190,
+                "y": 0,
+                "w": 73,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Chip",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Label": "+ New"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "+ New",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "How",
+            "x": 16,
+            "y": 156,
+            "w": 37,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "How",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Split chips",
+            "x": 16,
+            "y": 184,
+            "w": 328,
+            "h": 36,
+            "lay": "row",
+            "gap": 4,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/4",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 0,
+                "y": 0,
+                "w": 81,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Chip",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Label": "Equally"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Equally",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 85,
+                "y": 0,
+                "w": 94,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "comp": "Chip",
+                "variant": "Selected=True, State=Default",
+                "props": {
+                  "Label": "Amounts"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Amounts",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 183,
+                "y": 0,
+                "w": 45,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Chip",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Label": "%"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "%",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chip",
+                "x": 232,
+                "y": 0,
+                "w": 78,
+                "h": 36,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Chip",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Label": "Shares"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Shares",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "People",
+            "x": 16,
+            "y": 232,
+            "w": 328,
+            "h": 240,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              4,
+              0,
+              4,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 4,
+                "w": 328,
+                "h": 84,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Settled, State=Default",
+                "props": {
+                  "Detail": "your share · counts in November",
+                  "Amount": "₹200",
+                  "Name": "You"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "A",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "You",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "your share · counts in November",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹200",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/tertiary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Purple",
+                    "props": {
+                      "Initial": "A"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 96,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Owes you, State=Default",
+                "props": {
+                  "Amount": "+₹150",
+                  "Detail": "will owe you",
+                  "Name": "Rahul"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "R",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Rahul",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "will owe you",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "+₹150",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/positive"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Green",
+                    "props": {
+                      "Initial": "R"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 170,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Owes you, State=Default",
+                "props": {
+                  "Amount": "+₹100",
+                  "Detail": "will owe you",
+                  "Name": "Priya"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "P",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Priya",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "will owe you",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "+₹100",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/positive"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Pink",
+                    "props": {
+                      "Initial": "P"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Share note",
+            "x": 16,
+            "y": 484,
+            "w": 328,
+            "h": 36,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/brand"
+            ],
+            "text": "Amounts add up to ₹450. Only your ₹200 share goes into your November expenses.",
+            "style": "Caption"
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Setting Row",
+            "x": 16,
+            "y": 532,
+            "w": 328,
+            "h": 68,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "comp": "Setting Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/repeat / Style=3D",
+              "Subtitle": "Flat 302, by amounts",
+              "Title": "Do this every time"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Do this every time",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "Flat 302, by amounts",
+                "style": "Caption",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/repeat",
+                "variant": "Style=3D"
+              },
+              {
+                "n": "Switch",
+                "w": 52,
+                "h": 32,
+                "comp": "Switch",
+                "variant": "On=True"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 700,
+        "w": 360,
+        "h": 76,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 52,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Split ₹450"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Split ₹450",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

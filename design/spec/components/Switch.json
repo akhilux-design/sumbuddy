@@ -1,0 +1,138 @@
+{
+  "name": "Switch",
+  "id": "20:70",
+  "properties": {
+    "On": {
+      "type": "VARIANT",
+      "defaultValue": "False",
+      "variantOptions": [
+        "False",
+        "True"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Switch",
+    "x": 0,
+    "y": 36,
+    "w": 178,
+    "h": 82,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "size": [
+      "HUG",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "On=False",
+        "x": 25,
+        "y": 25,
+        "w": 52,
+        "h": 32,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "ELLIPSE",
+            "n": "Knob",
+            "x": 6,
+            "y": 4,
+            "w": 24,
+            "h": 24,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "On=True",
+        "x": 101,
+        "y": 25,
+        "w": 52,
+        "h": 32,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MAX",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/brand/primary"
+        ],
+        "c": [
+          {
+            "t": "ELLIPSE",
+            "n": "Knob",
+            "x": 24,
+            "y": 4,
+            "w": 24,
+            "h": 24,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

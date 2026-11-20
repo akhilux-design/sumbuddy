@@ -1,0 +1,405 @@
+{
+  "name": "Groups (not signed in)",
+  "group": "Group/02 Everyday",
+  "index": 39,
+  "darkId": "166:10834",
+  "lightId": "166:11003",
+  "tree": {
+    "t": "FRAME",
+    "n": "Groups (not signed in)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 634,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Header",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Groups",
+                "x": 0,
+                "y": 8,
+                "w": 111,
+                "h": 36,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Groups",
+                "style": "Display/L"
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Empty state",
+            "x": 16,
+            "y": 72,
+            "w": 328,
+            "h": 247,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              24,
+              24,
+              24,
+              24
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 24,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Icon",
+                "x": 144,
+                "y": 26,
+                "w": 40,
+                "h": 40,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "comp": "Icon/users",
+                "variant": "Style=3D"
+              },
+              {
+                "t": "TEXT",
+                "n": "Split with friends",
+                "x": 26,
+                "y": 78,
+                "w": 277,
+                "h": 28,
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Split with friends",
+                "style": "Heading/L",
+                "align": "CENTER"
+              },
+              {
+                "t": "TEXT",
+                "n": "Reason",
+                "x": 26,
+                "y": 118,
+                "w": 277,
+                "h": 40,
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Sign in to split with friends. Your SMS stay on this phone.",
+                "style": "Body/M",
+                "align": "CENTER"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Google button",
+                "x": 26,
+                "y": 170,
+                "w": 277,
+                "h": 52,
+                "lay": "row",
+                "gap": 10,
+                "pad": [
+                  16,
+                  12,
+                  16,
+                  12
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/google/button-fill"
+                ],
+                "stroke": [
+                  "color/google/button-stroke"
+                ],
+                "sw": 1,
+                "clip": true,
+                "comp": "Google Button",
+                "variant": "State=Default",
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Continue with Google",
+                    "font": "Roboto Medium 14",
+                    "fill": [
+                      "color/google/button-text"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Info Row",
+            "x": 16,
+            "y": 331,
+            "w": 328,
+            "h": 64,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Info Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/link / Style=3D",
+              "Subtitle": "They get a web link to see what they owe and pay.",
+              "Title": "Friends do not need the app"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Friends do not need the app",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "They get a web link to see what they owe and pay.",
+                "style": "Body/M",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/link",
+                "variant": "Style=3D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Bottom Nav",
+        "x": 0,
+        "y": 680,
+        "w": 360,
+        "h": 96,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Bottom Nav",
+        "variant": "Active=Groups",
+        "texts": [
+          {
+            "n": "Label",
+            "text": "Groups",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Tab/Home",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Home, State=Default"
+          },
+          {
+            "n": "Tab/Groups",
+            "w": 114,
+            "h": 53,
+            "comp": "Bottom Nav Pill",
+            "variant": "Tab=Groups, State=Default"
+          },
+          {
+            "n": "Tab/Activity",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Activity, State=Default"
+          },
+          {
+            "n": "Tab/You",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=You, State=Default"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

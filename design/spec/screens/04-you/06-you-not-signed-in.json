@@ -1,0 +1,1092 @@
+{
+  "name": "You (not signed in)",
+  "group": "Group/04 You",
+  "index": 6,
+  "darkId": "166:10732",
+  "lightId": "166:10901",
+  "tree": {
+    "t": "FRAME",
+    "n": "You (not signed in)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 634,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Profile",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 56,
+            "lay": "row",
+            "gap": 16,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/16",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Avatar",
+                "x": 0,
+                "y": 0,
+                "w": 56,
+                "h": 56,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 1398.5999755859375,
+                "fill": [
+                  "color/accent/purple"
+                ],
+                "comp": "Avatar",
+                "variant": "Color=Purple",
+                "props": {
+                  "Initial": "A"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "A",
+                    "font": "DM Sans SemiBold 22.399999618530273",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Text",
+                "x": 72,
+                "y": 5,
+                "w": 256,
+                "h": 46,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/0",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Arjun",
+                    "x": 0,
+                    "y": 0,
+                    "w": 63,
+                    "h": 28,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Arjun",
+                    "style": "Heading/L"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Account",
+                    "x": 0,
+                    "y": 28,
+                    "w": 87,
+                    "h": 18,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "Not signed in",
+                    "style": "Caption"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Sign in card",
+            "x": 16,
+            "y": 76,
+            "w": 328,
+            "h": 88,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 64,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/user / Style=3D",
+                  "Subtitle": "To split with friends. Your SMS stay on this phone.",
+                  "Title": "Sign in with Google"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Sign in with Google",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "To split with friends. Your SMS stay on this phone.",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/user",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Tracking",
+            "x": 16,
+            "y": 176,
+            "w": 77,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Tracking",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Tracking",
+            "x": 16,
+            "y": 204,
+            "w": 328,
+            "h": 236,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/mail / Style=3D",
+                  "Subtitle": "4 accounts and cards",
+                  "Title": "SMS auto-tracking"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "SMS auto-tracking",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "4 accounts and cards",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/mail",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "n": "Switch",
+                    "w": 52,
+                    "h": 32,
+                    "comp": "Switch",
+                    "variant": "On=True"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 76,
+                "w": 328,
+                "h": 84,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/clock / Style=3D",
+                  "Subtitle": "3 days before a card bill is due",
+                  "Title": "Automatic reminders"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Automatic reminders",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "3 days before a card bill is due",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/clock",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "n": "Switch",
+                    "w": 52,
+                    "h": 32,
+                    "comp": "Switch",
+                    "variant": "On=True"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "List card",
+                "x": 0,
+                "y": 168,
+                "w": 328,
+                "h": 68,
+                "lay": "col",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Info Row",
+                    "x": 12,
+                    "y": 12,
+                    "w": 304,
+                    "h": 44,
+                    "lay": "row",
+                    "gap": 12,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "CENTER",
+                    "gapVar": "space/12",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "comp": "Info Row",
+                    "variant": "State=Default",
+                    "props": {
+                      "Icon": "Icon/calendar / Style=3D",
+                      "Subtitle": "1 Nov 2026",
+                      "Title": "Tracking start date"
+                    },
+                    "texts": [
+                      {
+                        "n": "Title",
+                        "text": "Tracking start date",
+                        "style": "Title",
+                        "fill": [
+                          "color/text/primary"
+                        ]
+                      },
+                      {
+                        "n": "Subtitle",
+                        "text": "1 Nov 2026",
+                        "style": "Body/M",
+                        "fill": [
+                          "color/text/secondary"
+                        ]
+                      }
+                    ],
+                    "nested": [
+                      {
+                        "n": "Icon",
+                        "w": 30,
+                        "h": 30,
+                        "comp": "Icon/calendar",
+                        "variant": "Style=3D"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Privacy",
+            "x": 16,
+            "y": 452,
+            "w": 64,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Privacy",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "List card",
+            "x": 16,
+            "y": 480,
+            "w": 328,
+            "h": 124,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/eye / Style=3D",
+                  "Subtitle": "214 messages · 0 sent off this phone",
+                  "Title": "What we've read"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "What we've read",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "214 messages · 0 sent off this phone",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/eye",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 68,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/receipt / Style=3D",
+                  "Subtitle": "The SMS reader is public",
+                  "Title": "See the code"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "See the code",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "The SMS reader is public",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/receipt",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Family",
+            "x": 16,
+            "y": 616,
+            "w": 53,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Family",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "List card",
+            "x": 16,
+            "y": 644,
+            "w": 328,
+            "h": 88,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 64,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/users / Style=3D",
+                  "Subtitle": "Share a monthly total with your partner",
+                  "Title": "Family"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Family",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Share a monthly total with your partner",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/users",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "More",
+            "x": 16,
+            "y": 744,
+            "w": 43,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "More",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "List card",
+            "x": 16,
+            "y": 772,
+            "w": 328,
+            "h": 124,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/repeat / Style=3D",
+                  "Subtitle": "Bring groups and balances",
+                  "Title": "Import from Splitwise"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Import from Splitwise",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Bring groups and balances",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/repeat",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 68,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/heart / Style=3D",
+                  "Subtitle": "Extras for power users",
+                  "Title": "SumBuddy Plus"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "SumBuddy Plus",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Extras for power users",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/heart",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Bottom Nav",
+        "x": 0,
+        "y": 680,
+        "w": 360,
+        "h": 96,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Bottom Nav",
+        "variant": "Active=You",
+        "texts": [
+          {
+            "n": "Label",
+            "text": "You",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Tab/Home",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Home, State=Default"
+          },
+          {
+            "n": "Tab/Groups",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Groups, State=Default"
+          },
+          {
+            "n": "Tab/Activity",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Activity, State=Default"
+          },
+          {
+            "n": "Tab/You",
+            "w": 89,
+            "h": 53,
+            "comp": "Bottom Nav Pill",
+            "variant": "Tab=You, State=Default"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

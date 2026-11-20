@@ -1,0 +1,37 @@
+{
+  "name": "Top Bar Action", "id": "430:576",
+  "properties": {
+    "Label#430:0": {"type": "TEXT", "defaultValue": "Edit"}, "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Top Bar Action", "x": 0, "y": 308, "w": 176, "h": 98, "lay": "row", "gap": 48, "pad": [38, 36, 38, 36], "main": "MIN",
+    "cross": "CENTER", "wrap": true, "crossGap": 24, "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "State=Default", "x": 37, "y": 39, "w": 27, "h": 20, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "MIN",
+        "cross": "CENTER", "size": ["HUG", "HUG"],
+        "c": [
+          {
+            "t": "TEXT", "n": "Label", "x": 0, "y": 0, "w": 27, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/brand"], "text": "Edit",
+            "style": "Body/M Strong"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "State=Pressed", "x": 112, "y": 39, "w": 27, "h": 20, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "MIN",
+        "cross": "CENTER", "size": ["HUG", "HUG"],
+        "c": [
+          {
+            "t": "TEXT", "n": "Label", "x": 0, "y": 0, "w": 27, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/brand"], "text": "Edit",
+            "style": "Body/M Strong"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": -12, "y": -14, "w": 51, "h": 48, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true,
+            "r": 999, "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

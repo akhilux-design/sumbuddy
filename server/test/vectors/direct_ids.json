@@ -1,0 +1,48 @@
+{
+  "about": "docs/server.md 4.6. UUID v5 (SHA-1). groupId = v5(NS, 'direct:' + min(uidA, uidB) + ':' + max(uidA, uidB)); memberIdX = v5(NS, 'member:' + groupId + ':' + uidX).",
+  "namespace": "6f1c2a4e-3b8d-4c1e-9a57-2d0e8b6f4a13",
+  "cases": [
+    {
+      "userA": "3f2b8c1e-9d4a-4e6b-8a1f-0c5d7e9b2a41",
+      "userB": "8a7c6e5d-4b3a-4c2d-9e1f-0a9b8c7d6e5f",
+      "groupId": "1edff898-3bc4-580a-a44e-586e905cecc7",
+      "memberIdA": "c6dcacb8-9d43-5a25-92c4-c10711524092",
+      "memberIdB": "f882f261-1f55-5d7e-8185-4adf70145698"
+    },
+    {
+      "userA": "8a7c6e5d-4b3a-4c2d-9e1f-0a9b8c7d6e5f",
+      "userB": "3f2b8c1e-9d4a-4e6b-8a1f-0c5d7e9b2a41",
+      "groupId": "1edff898-3bc4-580a-a44e-586e905cecc7",
+      "memberIdA": "f882f261-1f55-5d7e-8185-4adf70145698",
+      "memberIdB": "c6dcacb8-9d43-5a25-92c4-c10711524092"
+    },
+    {
+      "userA": "00000000-0000-4000-8000-000000000001",
+      "userB": "00000000-0000-4000-8000-000000000002",
+      "groupId": "5c9e18b3-cda8-542f-8513-97f8b4051d85",
+      "memberIdA": "d9799d98-618a-5c5c-8644-3a0016d6c3e9",
+      "memberIdB": "a1cfede5-6544-59b5-87d1-2dfa9ca0459d"
+    },
+    {
+      "userA": "ffffffff-ffff-4fff-bfff-ffffffffffff",
+      "userB": "00000000-0000-4000-8000-000000000000",
+      "groupId": "094e67df-b32a-5901-afdb-ffed5c77039e",
+      "memberIdA": "b1be7c1f-8f40-5ea7-abb5-c87ec90ba3e2",
+      "memberIdB": "8703b651-e61b-583a-92b9-0aab2156e160"
+    },
+    {
+      "userA": "5b1e0a3c-2f4d-4a6b-b8c9-d0e1f2a3b4c5",
+      "userB": "5b1e0a3c-2f4d-4a6b-b8c9-d0e1f2a3b4c6",
+      "groupId": "c6bfbd86-cb96-5082-9bf2-8abb4dacd24b",
+      "memberIdA": "c2591f0d-c2a8-51ad-b698-05e12f8ff26e",
+      "memberIdB": "76cc5056-7091-5695-8141-1c0210622976"
+    },
+    {
+      "userA": "c1d2e3f4-a5b6-4c7d-8e9f-a0b1c2d3e4f5",
+      "userB": "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+      "groupId": "ae828e88-f509-5ee1-ae01-64a1ac2c3dce",
+      "memberIdA": "3bdc0bba-1874-548c-bd66-27ee1d7fc27a",
+      "memberIdB": "97203576-d907-5192-9981-de5c25ba39ad"
+    }
+  ]
+}

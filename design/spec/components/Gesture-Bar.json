@@ -1,0 +1,8 @@
+{
+  "name": "Gesture Bar", "id": "72:37", "properties": {},
+  "tree": {
+    "t": "COMPONENT", "n": "Gesture Bar", "x": 0, "y": 170, "w": 360, "h": 24, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+    "cross": "CENTER", "size": ["FIXED", "FIXED"],
+    "c": [{"t": "RECTANGLE", "n": "Pill", "x": 126, "y": 10, "w": 108, "h": 4, "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/text/primary"]}]
+  }
+}

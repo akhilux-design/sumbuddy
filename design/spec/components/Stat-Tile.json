@@ -1,0 +1,505 @@
+{
+  "name": "Stat Tile",
+  "id": "41:145",
+  "properties": {
+    "Label#41:0": {
+      "type": "TEXT",
+      "defaultValue": "Spent in Nov"
+    },
+    "Value#41:4": {
+      "type": "TEXT",
+      "defaultValue": "₹18,240"
+    },
+    "Tone": {
+      "type": "VARIANT",
+      "defaultValue": "Neutral",
+      "variantOptions": [
+        "Neutral",
+        "Positive",
+        "Negative"
+      ]
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Default",
+      "variantOptions": [
+        "Default",
+        "Pressed"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Stat Tile",
+    "x": 0,
+    "y": 36,
+    "w": 572,
+    "h": 214,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "wrap": true,
+    "crossGap": 24,
+    "size": [
+      "FIXED",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Neutral, State=Default",
+        "x": 25,
+        "y": 25,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Positive, State=Default",
+        "x": 207,
+        "y": 25,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/positive"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Negative, State=Default",
+        "x": 389,
+        "y": 25,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/negative"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Neutral, State=Pressed",
+        "x": 25,
+        "y": 119,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Pressed overlay",
+            "x": 0,
+            "y": 0,
+            "w": 158,
+            "h": 70,
+            "op": 0.1,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "abs": true,
+            "r": 16,
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Positive, State=Pressed",
+        "x": 207,
+        "y": 119,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/positive"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Pressed overlay",
+            "x": 0,
+            "y": 0,
+            "w": 158,
+            "h": 70,
+            "op": 0.1,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "abs": true,
+            "r": 16,
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Negative, State=Pressed",
+        "x": 389,
+        "y": 119,
+        "w": 158,
+        "h": 70,
+        "lay": "col",
+        "gap": 2,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/2",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 16,
+        "fill": [
+          "color/bg/surface"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 12,
+            "w": 105,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Spent in Nov",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "TEXT",
+            "n": "Value",
+            "x": 16,
+            "y": 30,
+            "w": 87,
+            "h": 28,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/negative"
+            ],
+            "text": "₹18,240",
+            "style": "Heading/L"
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Pressed overlay",
+            "x": 0,
+            "y": 0,
+            "w": 158,
+            "h": 70,
+            "op": 0.1,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "abs": true,
+            "r": 16,
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+<!-- Generated from design/icons/svg/lock_3d.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M20.375,15V10.25C20.375,7.636 18.343,5.625 16,5.625C13.657,5.625 11.625,7.636 11.625,10.25V15C11.625,15.898 10.898,16.625 10,16.625C9.103,16.625 8.375,15.898 8.375,15V10.25C8.375,5.964 11.743,2.375 16,2.375C20.257,2.375 23.625,5.964 23.625,10.25V15C23.625,15.898 22.897,16.625 22,16.625C21.103,16.625 20.375,15.898 20.375,15Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="10"
+          android:startY="4"
+          android:endX="22"
+          android:endY="4"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFF0F3F8"/>
+        <item android:offset="0.5" android:color="#FFC5CEDA"/>
+        <item android:offset="1" android:color="#FF9AA6B6"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M23.5,15H8.5C6.567,15 5,16.567 5,18.5V26.75C5,28.683 6.567,30.25 8.5,30.25H23.5C25.433,30.25 27,28.683 27,26.75V18.5C27,16.567 25.433,15 23.5,15Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="5"
+          android:startY="15"
+          android:endX="5"
+          android:endY="30.25"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFCF9A26"/>
+        <item android:offset="1" android:color="#FFA77A18"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M23.5,13.75H8.5C6.567,13.75 5,15.317 5,17.25V25.5C5,27.433 6.567,29 8.5,29H23.5C25.433,29 27,27.433 27,25.5V17.25C27,15.317 25.433,13.75 23.5,13.75Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="5"
+          android:startY="13.75"
+          android:endX="19.28"
+          android:endY="34.351"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFFCDD82"/>
+        <item android:offset="0.5" android:color="#FFEEBB3E"/>
+        <item android:offset="1" android:color="#FFCF9A26"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M24.675,14.45H7.325C7.146,14.45 7,14.595 7,14.775C7,14.954 7.146,15.1 7.325,15.1H24.675C24.854,15.1 25,14.954 25,14.775C25,14.595 24.854,14.45 24.675,14.45Z"
+      android:strokeAlpha="0.5"
+      android:fillColor="#ffffff"
+      android:fillAlpha="0.5"/>
+  <path
+      android:pathData="M16,22.1C17.215,22.1 18.2,21.115 18.2,19.9C18.2,18.685 17.215,17.7 16,17.7C14.785,17.7 13.8,18.685 13.8,19.9C13.8,21.115 14.785,22.1 16,22.1Z"
+      android:fillColor="#3A3B41"/>
+  <path
+      android:pathData="M17,21.25C17,20.698 16.552,20.25 16,20.25C15.448,20.25 15,20.698 15,21.25V24C15,24.552 15.448,25 16,25C16.552,25 17,24.552 17,24V21.25Z"
+      android:fillColor="#3A3B41"/>
+</vector>

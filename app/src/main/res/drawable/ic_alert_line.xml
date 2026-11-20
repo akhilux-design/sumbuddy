@@ -1,0 +1,28 @@
+<!-- Generated from design/icons/svg/alert_line.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M10.3,3.9L1.8,18C1.626,18.302 1.533,18.644 1.532,18.992C1.531,19.34 1.62,19.683 1.792,19.986C1.964,20.289 2.212,20.542 2.511,20.72C2.811,20.898 3.152,20.994 3.5,21H20.5C20.848,20.994 21.189,20.898 21.489,20.72C21.788,20.542 22.036,20.289 22.208,19.986C22.38,19.683 22.469,19.34 22.468,18.992C22.467,18.644 22.374,18.302 22.2,18L13.7,3.9C13.521,3.611 13.27,3.372 12.973,3.206C12.675,3.041 12.34,2.954 12,2.954C11.66,2.954 11.325,3.041 11.027,3.206C10.73,3.372 10.479,3.611 10.3,3.9Z"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M12,9V13"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M12,17H12.01"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+</vector>

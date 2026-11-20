@@ -1,0 +1,128 @@
+[
+  {
+    "id": "rv-accuracy-wallet-balance-debited-by",
+    "sender": "AX-AMAZON",
+    "body": "Your Amazon Pay balance has been debited by Rs.299.00 for your order 403-1234567-7654321 on 16-11-2026. Updated balance: Rs.120.50",
+    "receivedAt": "2026-11-16T12:10:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 29900, "currency": "INR", "bank": "Amazon Pay", "instrumentType": "WALLET", "balanceMinor": 12050 }
+  },
+  {
+    "id": "rv-accuracy-foreign-vnd-spend",
+    "sender": "AX-ICICIB",
+    "body": "VND 1,250,000.00 spent using ICICI Bank Card XX5521 on 14-Nov-26 at PHO THIN HANOI. Avl Lmt: INR 1,47,650.00. If not you, call 1800 2662.",
+    "receivedAt": "2026-11-14T13:05:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 1250000, "currency": "VND", "instrumentLast4": "5521", "balanceMinor": null, "occurredAt": "2026-11-14T00:00:00+05:30" }
+  },
+  {
+    "id": "rv-accuracy-foreign-three-decimals",
+    "sender": "AX-ICICIB",
+    "body": "OMR 4.125 spent using ICICI Bank Card XX5521 on 12-Nov-26 at LULU HYPERMARKET MUSCAT. Avl Lmt: INR 1,46,980.00. If not you, call 1800 2662.",
+    "receivedAt": "2026-11-12T18:40:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 4125, "currency": "OMR", "instrumentLast4": "5521" }
+  },
+  {
+    "id": "rv-accuracy-reversed-to-account",
+    "sender": "JD-SBIUPI-S",
+    "body": "Dear Customer, Rs.250.00 has been reversed to your A/c XX4321 on 16-11-26 against UPI Ref 632012345601. Avl Bal Rs.4,250.00 -SBI",
+    "receivedAt": "2026-11-16T15:00:00+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 25000, "instrumentLast4": "4321", "referenceId": "632012345601", "balanceMinor": 425000 }
+  },
+  {
+    "id": "rv-accuracy-card-amount-reversed",
+    "sender": "AX-ICICIB",
+    "body": "INR 1,299.00 reversed to your ICICI Bank Credit Card XX7003 by AMAZON on 16-Nov-26. Avl Limit: INR 1,48,701.00.",
+    "receivedAt": "2026-11-16T17:30:00+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 129900, "counterparty": "Amazon", "instrumentType": "CREDIT_CARD", "instrumentLast4": "7003", "balanceMinor": null }
+  },
+  {
+    "id": "rv-accuracy-sent-after-amount",
+    "sender": "AX-FEDBNK",
+    "body": "Rs.500.00 sent to rahul.example.k22@okicici from your Federal Bank A/c XX7745 on 16-11-26. UPI Ref 632045871401. Not you? Call 18004251199",
+    "receivedAt": "2026-11-16T09:20:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 50000, "vpa": "rahul.example.k22@okicici", "bank": "Federal Bank", "instrumentLast4": "7745", "channel": "UPI", "referenceId": "632045871401" }
+  },
+  {
+    "id": "rv-accuracy-card-ending-in",
+    "sender": "VM-SCBANK",
+    "body": "Your Standard Chartered Credit Card ending in 7712 has been used for INR 3,450.00 at CROMA on 15-11-2026.",
+    "receivedAt": "2026-11-15T20:00:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 345000, "counterparty": "Croma", "bank": "Standard Chartered", "instrumentType": "CREDIT_CARD", "instrumentLast4": "7712", "channel": "CARD" }
+  },
+  {
+    "id": "rv-accuracy-merchant-domain-name",
+    "sender": "VM-HDFCBK",
+    "body": "Rs 1,299.00 spent on HDFC Bank Card x4521 at AMAZON.IN on 2026-11-16:10:15:32.Not U? To Block & Reissue Call 18002586161/SMS BLOCK CC 4521 to 7308080808",
+    "receivedAt": "2026-11-16T10:16:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 129900, "counterparty": "Amazon.in", "vpa": null, "instrumentLast4": "4521", "instrumentType": "CREDIT_CARD", "occurredAt": "2026-11-16T10:15:32+05:30" }
+  },
+  {
+    "id": "rv-accuracy-upi-dr-narration",
+    "sender": "BZ-IDBIBK",
+    "body": "Your A/c XX6612 is debited with Rs.340.00 on 16-11-2026. Info: UPI/DR/632045871402/CHAI POINT/YESB/chaipoint@ybl. Avl Bal Rs.8,210.40 -IDBI Bank",
+    "receivedAt": "2026-11-16T08:30:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 34000, "counterparty": "Chai Point", "vpa": "chaipoint@ybl", "instrumentLast4": "6612", "channel": "UPI", "referenceId": "632045871402", "balanceMinor": 821040 }
+  },
+  {
+    "id": "rv-accuracy-balance-far-from-keyword",
+    "sender": "VM-KOTAKB",
+    "body": "Rs.1,200.00 debited from A/c XX3301 on 16-11-26 to VPA milkbasket@ybl. Available balance in your Kotak Bank A/c XX3301 is Rs.24,560.00.",
+    "receivedAt": "2026-11-16T07:45:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 120000, "vpa": "milkbasket@ybl", "instrumentLast4": "3301", "balanceMinor": 2456000 }
+  },
+  {
+    "id": "rv-accuracy-limited-company-then-balance",
+    "sender": "VM-HDFCBK",
+    "body": "Update! INR 45,000.00 deposited in HDFC Bank A/c XX4521 on 31-OCT-26 for NEFT Cr-SBIN0001234-ZENITH LABS PRIVATE LIMITED-N306261234.Avl bal INR 1,23,456.00. Cheque deposits in A/C are subject to clearing",
+    "receivedAt": "2026-10-31T11:00:00+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 4500000, "instrumentLast4": "4521", "channel": "NEFT", "balanceMinor": 12345600 }
+  },
+  {
+    "id": "rv-accuracy-day-month-then-time-no-year",
+    "sender": "VM-ONECRD",
+    "body": "Rs.349.00 spent on your OneCard XX7788 at ZOMATO on 16 Nov, 10:45 AM.",
+    "receivedAt": "2026-11-16T10:46:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 34900, "counterparty": "Zomato", "instrumentLast4": "7788", "instrumentType": "CREDIT_CARD", "occurredAt": null }
+  },
+  {
+    "id": "rv-accuracy-dotted-date",
+    "sender": "BV-IOBCHN",
+    "body": "Your A/c XX2290 debited for Rs.1,500.00 on 16.11.2026 by UPI Ref 632045871403. Avl Bal Rs.9,870.00 -IOB",
+    "receivedAt": "2026-11-16T14:00:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 150000, "instrumentLast4": "2290", "referenceId": "632045871403", "balanceMinor": 987000, "occurredAt": "2026-11-16T00:00:00+05:30" }
+  },
+  {
+    "id": "rv-accuracy-month-first-date",
+    "sender": "AD-HSBCIN",
+    "body": "Your HSBC Credit Card ending 4417 was used for INR 2,340.00 at DECATHLON on Nov 15, 2026 at 18:42.",
+    "receivedAt": "2026-11-15T18:43:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 234000, "counterparty": "Decathlon", "instrumentLast4": "4417", "occurredAt": "2026-11-15T18:42:00+05:30" }
+  },
+  {
+    "id": "rv-accuracy-vpa-other-side-after-own",
+    "sender": "VM-PAYTMB",
+    "body": "Paid Rs.150.00 from your UPI ID akash.v@ptyes to chaiwala.shop@ybl on 16-11-26. UPI Ref 632045871404. -Paytm Payments Bank",
+    "receivedAt": "2026-11-16T16:20:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 15000, "vpa": "chaiwala.shop@ybl", "channel": "UPI", "referenceId": "632045871404" }
+  },
+  {
+    "id": "rv-accuracy-initials-in-name",
+    "sender": "JD-SBIUPI-S",
+    "body": "Dear UPI user A/C X4321 debited by 560.0 on date 16Nov26 trf to B.K. ENTERPRISES Refno 632098761402. If not u? call 1800111109. -SBI",
+    "receivedAt": "2026-11-16T19:30:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 56000, "counterparty": "B.K. Enterprises", "instrumentLast4": "4321", "referenceId": "632098761402" }
+  },
+  {
+    "id": "rv-accuracy-honorific-with-dot",
+    "sender": "VM-KOTAKB",
+    "body": "Rs.5,000.00 debited from your Kotak Bank A/c XX3301 on 16-11-26 towards IMPS to MR. ANKIT JAIN. IMPS Ref no 632045871406. Avl Bal Rs.19,560.00",
+    "receivedAt": "2026-11-16T11:10:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 500000, "counterparty": "Mr Ankit Jain", "instrumentLast4": "3301", "channel": "IMPS", "referenceId": "632045871406", "balanceMinor": 1956000 }
+  },
+  {
+    "id": "rv-accuracy-ref-dot-no",
+    "sender": "VM-BOIIND",
+    "body": "Rs.12,000.00 debited from A/c XX2468 on 16-11-26 towards IMPS to MOHIT SAXENA. IMPS Ref. No. 632045871405. Avl Bal Rs.45,200.00 -Bank of India",
+    "receivedAt": "2026-11-16T12:30:00+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 1200000, "counterparty": "Mohit Saxena", "instrumentLast4": "2468", "channel": "IMPS", "referenceId": "632045871405", "balanceMinor": 4520000 }
+  }
+]

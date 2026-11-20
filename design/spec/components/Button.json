@@ -1,0 +1,933 @@
+{
+  "name": "Button",
+  "id": "20:26",
+  "properties": {
+    "Label#20:0": {
+      "type": "TEXT",
+      "defaultValue": "Button"
+    },
+    "Style": {
+      "type": "VARIANT",
+      "defaultValue": "Primary",
+      "variantOptions": [
+        "Primary",
+        "Secondary",
+        "Ghost"
+      ]
+    },
+    "Size": {
+      "type": "VARIANT",
+      "defaultValue": "Large",
+      "variantOptions": [
+        "Large",
+        "Medium"
+      ]
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Default",
+      "variantOptions": [
+        "Default",
+        "Pressed"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Button",
+    "x": 0,
+    "y": 36,
+    "w": 734,
+    "h": 188,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "wrap": true,
+    "crossGap": 24,
+    "size": [
+      "FIXED",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Style=Primary, Size=Large, State=Default",
+        "x": 25,
+        "y": 25,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/primary"
+            ],
+            "fx": [
+              "DROP_SHADOW(0,5,0,color/brand/edge)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/on-brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Primary, Size=Medium, State=Default",
+        "x": 151,
+        "y": 29,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/primary"
+            ],
+            "fx": [
+              "DROP_SHADOW(0,5,0,color/brand/edge)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/on-brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Secondary, Size=Large, State=Default",
+        "x": 261,
+        "y": 25,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "fx": [
+              "DROP_SHADOW(0,5,0,color/edge/neutral)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Secondary, Size=Medium, State=Default",
+        "x": 387,
+        "y": 29,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "fx": [
+              "DROP_SHADOW(0,5,0,color/edge/neutral)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Ghost, Size=Large, State=Default",
+        "x": 497,
+        "y": 25,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Ghost, Size=Medium, State=Default",
+        "x": 623,
+        "y": 29,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Primary, Size=Large, State=Pressed",
+        "x": 25,
+        "y": 106,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          4,
+          0,
+          1,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 4,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/primary"
+            ],
+            "fx": [
+              "DROP_SHADOW(0,1,0,color/brand/edge)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/on-brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Primary, Size=Medium, State=Pressed",
+        "x": 151,
+        "y": 110,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          4,
+          0,
+          1,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 4,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/primary"
+            ],
+            "fx": [
+              "DROP_SHADOW(0,1,0,color/brand/edge)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/on-brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Secondary, Size=Large, State=Pressed",
+        "x": 261,
+        "y": 106,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          4,
+          0,
+          1,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 4,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "fx": [
+              "DROP_SHADOW(0,1,0,color/edge/neutral)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Secondary, Size=Medium, State=Pressed",
+        "x": 387,
+        "y": 110,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          4,
+          0,
+          1,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 4,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "fx": [
+              "DROP_SHADOW(0,1,0,color/edge/neutral)"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Ghost, Size=Large, State=Pressed",
+        "x": 497,
+        "y": 106,
+        "w": 102,
+        "h": 57,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 102,
+            "h": 52,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              24,
+              16,
+              24
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/soft"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 24,
+                "y": 16,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Style=Ghost, Size=Medium, State=Pressed",
+        "x": 623,
+        "y": 110,
+        "w": 86,
+        "h": 49,
+        "lay": "col",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          5,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Face",
+            "x": 0,
+            "y": 0,
+            "w": 86,
+            "h": 44,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/brand/soft"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Label",
+                "x": 16,
+                "y": 12,
+                "w": 54,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/brand"
+                ],
+                "text": "Button",
+                "style": "Button"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "xpense-web",
+  "private": true,
+  "type": "module",
+  "description": "The friends' web link page (docs/server.md section 7). Static files for Cloudflare Pages.",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test \"test/*.mjs\"",
+    "preview": "node build.mjs && WRANGLER_SEND_METRICS=false wrangler pages dev dist --ip 127.0.0.1 --port 8788",
+    "preview:mock": "node scripts/preview-mock.mjs",
+    "seed:local": "node scripts/seed-local.mjs",
+    "fonts": "node scripts/copy-fonts.mjs",
+    "deploy": "node build.mjs --production --deploy && WRANGLER_SEND_METRICS=false wrangler pages deploy dist --project-name \"$PAGES_PROJECT\" --branch main"
+  },
+  "devDependencies": {
+    "@fontsource/bricolage-grotesque": "5.3.0",
+    "@fontsource/dm-sans": "5.3.0",
+    "happy-dom": "21.0.4",
+    "wrangler": "4.156.2"
+  }
+}

@@ -1,0 +1,46 @@
+# Gradle and Android build output
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+captures/
+.cxx/
+.kotlin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# Secrets (never commit keys or keystores)
+*.jks
+*.keystore
+keystore.properties
+google-services.json
+# Service account keys: a best-effort guard only. Google does not document the download's name, and a file can be
+# renamed. Never move a key into the repository (docs/server-setup.md 6.6).
+*service-account*.json
+xpense-515014-*.json
+server/.dev.vars
+server/.dev.vars*
+!server/.dev.vars.example
+*.p12
+*.pem
+.env
+.env.*
+*.apks
+
+# Server (Cloudflare Worker) and web link page
+server/node_modules/
+server/.wrangler/
+server/web/node_modules/
+server/web/dist/
+server/web/.wrangler/
+
+# Personal agent notes and settings (never published)
+CLAUDE.local.md
+.claude/

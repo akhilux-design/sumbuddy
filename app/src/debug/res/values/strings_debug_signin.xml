@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug builds only: signing in against the local server without Google (docs/server.md 9.2). Not translated. -->
+<resources>
+    <string name="signin_dev" translatable="false">Dev sign-in</string>
+    <string name="signin_dev_title" translatable="false">Dev sign-in (local server)</string>
+    <string name="signin_dev_name" translatable="false">Name</string>
+    <string name="signin_dev_hint" translatable="false">The same name signs in as the same test user. The server must run with npm run dev.</string>
+    <string name="signin_dev_go" translatable="false">Sign in</string>
+    <string name="signin_dev_cancel" translatable="false">Cancel</string>
+</resources>

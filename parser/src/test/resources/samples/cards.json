@@ -1,0 +1,720 @@
+[
+  {
+    "id": "cc-hdfc-spend-01",
+    "sender": "VM-HDFCBK",
+    "body": "HDFC Bank: Rs 1499.00 spent on HDFC Bank Card x4521 at RELIANCE FRESH on 2026-11-14:19:42:10.Not U? To Block & Reissue Call 18002586161/SMS BLOCK CC 4521 to 7308080808",
+    "receivedAt": "2026-11-14T19:42:38+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 149900,
+      "currency": "INR",
+      "counterparty": "Reliance Fresh",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentLast4": "4521",
+      "instrumentType": "CREDIT_CARD",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T19:42:10+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-sbicard-spend-01",
+    "sender": "JK-SBICRD-S",
+    "body": "Rs.2,350.00 spent on your SBI Credit Card ending 6789 at CROMA on 13/11/26. Trxn. not done by you? Report at https://sbicard.com/Dispute",
+    "receivedAt": "2026-11-13T17:20:11+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 235000,
+      "currency": "INR",
+      "counterparty": "Croma",
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-axis-spend-01",
+    "sender": "AX-AXISBK",
+    "body": "Spent\nCard no. XX3456\nINR 1249.5\n14-11-26 13:05:22\nDMART\nAvl Lmt INR 61234.5\nSMS BLOCK 3456 to 919951860002, if not you - Axis Bank",
+    "receivedAt": "2026-11-14T13:05:40+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 124950,
+      "currency": "INR",
+      "counterparty": "Dmart",
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentLast4": "3456",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-14T13:05:22+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-indusind-spend-01",
+    "sender": "VM-INDUSB",
+    "body": "Your IndusInd Bank Credit Card ending 4410 has been used for INR 2,100.00 at PVR INOX on 15/11/2026 at 06:15:22 PM. Available limit INR 1,22,900.00. Not you? Call 18602677777.",
+    "receivedAt": "2026-11-15T18:15:49+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 210000,
+      "currency": "INR",
+      "counterparty": "Pvr Inox",
+      "vpa": null,
+      "bank": "IndusInd Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4410",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-15T18:15:22+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-amex-spend-01",
+    "sender": "VM-AMEXIN",
+    "body": "Alert: You've spent INR 6,450.00 on your AMEX card ** 41006 at TAJ HOTELS on 9 November 2026 at 08:47 PM IST. Call 18004190691 if this was not made by you.",
+    "receivedAt": "2026-11-09T20:47:26+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 645000,
+      "currency": "INR",
+      "counterparty": "Taj Hotels",
+      "vpa": null,
+      "bank": "American Express",
+      "instrumentLast4": "41006",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-09T20:47:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-federal-spend-01",
+    "sender": "VM-FEDBNK-T",
+    "body": "Rs 640.00 spent on your Federal Bank Credit Card ending 3344 at INDIAN OIL on 16-11-2026 10:04:51. Avl limit Rs 74,360.00. Not you? Call 18004251199",
+    "receivedAt": "2026-11-16T10:05:09+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 64000,
+      "currency": "INR",
+      "counterparty": "Indian Oil",
+      "vpa": null,
+      "bank": "Federal Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "3344",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-16T10:04:51+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-yes-spend-01",
+    "sender": "VM-YESBNK",
+    "body": "INR 1,850.00 spent on YES BANK Card X2207 @BIGBASKET 15-11-2026 07:42:11 pm. Avl Lmt INR 1,10,345.20. SMS BLKCC 2207 to 9840909000 if not you",
+    "receivedAt": "2026-11-15T19:42:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 185000,
+      "currency": "INR",
+      "counterparty": "Bigbasket",
+      "vpa": null,
+      "bank": "Yes Bank",
+      "instrumentLast4": "2207",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-15T19:42:11+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hdfc-online-01",
+    "sender": "AD-HDFCBK-S",
+    "body": "Spent Rs.649 On HDFC Bank Card 4521 At SWIGGY On 2026-11-15:20:11:03.Not You? To Block+Reissue Call 18002586161/SMS BLOCK CC 4521 To 7308080808",
+    "receivedAt": "2026-11-15T20:11:20+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 64900,
+      "currency": "INR",
+      "counterparty": "Swiggy",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentLast4": "4521",
+      "instrumentType": "CREDIT_CARD",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T20:11:03+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-online-01",
+    "sender": "VM-ICICIT-S",
+    "body": "INR 780.00 spent using ICICI Bank Card XX9012 on 16-Nov-26 on BookMyShow. Avl Limit: INR 1,44,571.00. If not you, call 1800 2662/SMS BLOCK 9012 to 9215676766.",
+    "receivedAt": "2026-11-16T18:22:41+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 78000,
+      "currency": "INR",
+      "counterparty": "BookMyShow",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentLast4": "9012",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-upi-online-01",
+    "sender": "JD-ICICIT",
+    "body": "ICICI Bank Credit Card XX9012 debited for INR 349.00 on 15-Nov-26 for UPI-631947205518-ZEPTO. To dispute call 18001080/SMS BLOCK 9012 to 9215676766",
+    "receivedAt": "2026-11-15T21:32:05+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 34900,
+      "currency": "INR",
+      "counterparty": "Zepto",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "9012",
+      "referenceId": "631947205518",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hdfc-rupay-upi-01",
+    "sender": "VM-HDFCBK-T",
+    "body": "Txn Rs.250.00\nOn HDFC Bank Card 4521\nAt paytmqr5kz9t1@ptys\nby UPI 632018830457\nOn 16-11\nNot You?\nCall 18002586161/SMS BLOCK CC 4521 to 7308080808",
+    "receivedAt": "2026-11-16T12:48:17+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 25000,
+      "currency": "INR",
+      "vpa": "paytmqr5kz9t1@ptys",
+      "bank": "HDFC Bank",
+      "instrumentLast4": "4521",
+      "instrumentType": "CREDIT_CARD",
+      "referenceId": "632018830457",
+      "balanceMinor": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-kotak-online-01",
+    "sender": "VM-KOTAKB",
+    "body": "Rs.499.00 spent via Kotak Credit Card x7788 at NETFLIX on 13/11/2026. Avl limit Rs.96,301.00. Not you? Call 18602662666",
+    "receivedAt": "2026-11-13T06:02:44+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 49900,
+      "currency": "INR",
+      "counterparty": "Netflix",
+      "vpa": null,
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "7788",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-au-online-01",
+    "sender": "VM-AUBANK",
+    "body": "INR 780.00 spent on AU Bank Credit Card xx9031 at BLINKIT on 13-NOV-26 21:10:05. Avl Lmt INR 49,220.00. Not you? Call 180012001200",
+    "receivedAt": "2026-11-13T21:10:31+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 78000,
+      "currency": "INR",
+      "counterparty": "Blinkit",
+      "vpa": null,
+      "bank": "AU Small Finance Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "9031",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-13T21:10:05+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-intl-usd-01",
+    "sender": "VK-ICICIB",
+    "body": "USD 12.99 spent on ICICI Bank Card XX9012 on 14-Nov-26 at GITHUB. Avl Lmt: INR 1,47,650.00. To dispute,call 18002662/SMS BLOCK 9012 to 9215676766",
+    "receivedAt": "2026-11-14T09:14:52+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1299,
+      "currency": "USD",
+      "counterparty": "Github",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentLast4": "9012",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-axis-intl-aed-01",
+    "sender": "VM-AXISBK-S",
+    "body": "Spent AED 250\nAxis Bank Card no. XX3456\n13-11-26 21:40:12 IST\nCARREFOUR DUBAI\nAvl Limit: INR 58210.4\nNot you? SMS BLOCK 3456 to 919951860002",
+    "receivedAt": "2026-11-13T21:40:35+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 25000,
+      "currency": "AED",
+      "counterparty": "Carrefour Dubai",
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentLast4": "3456",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-13T21:40:12+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-amex-intl-gbp-01",
+    "sender": "JM-AMEXIN-S",
+    "body": "Alert: You've spent GBP 120.00 on your AMEX card ** 41006 at HARRODS on 16 November 2026 at 02:15 PM IST. Call 18004190691 if this was not made by you.",
+    "receivedAt": "2026-11-16T14:15:33+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 12000,
+      "currency": "GBP",
+      "counterparty": "Harrods",
+      "vpa": null,
+      "bank": "American Express",
+      "instrumentLast4": "41006",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T14:15:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-sbicard-intl-jpy-01",
+    "sender": "SBICRD",
+    "body": "JPY 4,500.00 spent on your SBI Credit Card ending 6789 at LAWSON on 15/11/26. Trxn. not done by you? Report at https://sbicard.com/Dispute",
+    "receivedAt": "2026-11-15T08:41:03+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 4500,
+      "currency": "JPY",
+      "counterparty": "Lawson",
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-idfc-intl-inr-01",
+    "sender": "VM-IDFCFB",
+    "body": "USD 50.00 (INR 4,220.15) spent on your IDFC FIRST Bank Credit Card ending XX2468 at OPENAI on 14 NOV 2026 at 11:05 AM. Avbl Limit: INR 1,95,779.85. Not you? Call 180010888",
+    "receivedAt": "2026-11-14T11:05:21+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 422015,
+      "currency": "INR",
+      "counterparty": "Openai",
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "2468",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-14T11:05:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-kotak-intl-inr-01",
+    "sender": "JD-KOTAKB-S",
+    "body": "Rs.5,472.60 (SGD 86.40) spent on your Kotak Credit Card x7788 at MUSTAFA CENTRE on 15-Nov-2026. Avl limit Rs.90,828.40",
+    "receivedAt": "2026-11-15T15:22:10+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 547260,
+      "currency": "INR",
+      "counterparty": "Mustafa Centre",
+      "vpa": null,
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "7788",
+      "channel": "CARD",
+      "referenceId": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hsbc-intl-inr-01",
+    "sender": "VM-HSBCIN",
+    "body": "You have spent EUR 64.00 (equivalent to INR 5,881.60) on your HSBC Credit Card ending 2290 at SNCF PARIS on 13 Nov 2026.",
+    "receivedAt": "2026-11-13T16:58:47+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 588160,
+      "currency": "INR",
+      "counterparty": "Sncf Paris",
+      "vpa": null,
+      "bank": "HSBC",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "2290",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-refund-01",
+    "sender": "VK-ICICIB-S",
+    "body": "Dear Customer, refund of INR 899.00 from MYNTRA has been credited to your ICICI Bank Credit Card XX9012 on 13-Nov-26.",
+    "receivedAt": "2026-11-13T11:30:18+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 89900,
+      "currency": "INR",
+      "counterparty": "Myntra",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "9012",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hdfc-refund-01",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.1,249.00 has been credited to your HDFC Bank Credit Card ending 4521 on 14/11/2026 towards refund from AMAZON. Your available limit is Rs.1,86,249.00.",
+    "receivedAt": "2026-11-14T15:06:29+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 124900,
+      "currency": "INR",
+      "counterparty": "Amazon",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4521",
+      "referenceId": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-sbicard-reversal-01",
+    "sender": "VM-SBICRD-T",
+    "body": "Transaction reversal of Rs.1,299.00 at FLIPKART has been credited to your SBI Credit Card ending 6789 on 15/11/26. Your available limit is Rs.87,451.00.",
+    "receivedAt": "2026-11-15T13:44:02+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 129900,
+      "currency": "INR",
+      "counterparty": "Flipkart",
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789",
+      "referenceId": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-idfc-reversal-01",
+    "sender": "AD-IDFCFB-S",
+    "body": "Reversal of INR 3,150.00 for your transaction at IRCTC dated 12-NOV-2026 has been credited to your IDFC FIRST Bank Credit Card ending XX2468.",
+    "receivedAt": "2026-11-15T10:12:56+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 315000,
+      "currency": "INR",
+      "counterparty": "Irctc",
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "2468",
+      "referenceId": null,
+      "balanceMinor": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hdfc-payment-01",
+    "sender": "VM-HDFCBK",
+    "body": "DEAR HDFCBANK CARDMEMBER, PAYMENT OF Rs. 15000.00 RECEIVED TOWARDS YOUR CREDIT CARD ENDING WITH 4521 ON 13-11-2026.YOUR AVAILABLE LIMIT IS RS. 185000.00",
+    "receivedAt": "2026-11-13T22:17:08+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 1500000,
+      "currency": "INR",
+      "counterparty": null,
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4521",
+      "referenceId": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-hdfc-payment-02",
+    "sender": "AX-HDFCBK",
+    "body": "HDFC Bank Cardmember, Online Payment of Rs.8500 vide Ref# 0K7Q2M9XPL4T was credited to your card ending 4521 On 14/NOV/2026",
+    "receivedAt": "2026-11-14T23:02:51+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 850000,
+      "currency": "INR",
+      "counterparty": null,
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentLast4": "4521",
+      "instrumentType": "CREDIT_CARD",
+      "referenceId": "0K7Q2M9XPL4T",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-payment-01",
+    "sender": "JD-ICICIT-S",
+    "body": "Payment of Rs 25,000.00 has been received on your ICICI Bank Credit Card XX9012 through Bharat Bill Payment System on 13-NOV-26.",
+    "receivedAt": "2026-11-13T14:39:15+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 2500000,
+      "currency": "INR",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "9012",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-sbicard-payment-01",
+    "sender": "VM-SBICRD",
+    "body": "We have received payment of Rs.12,000.00 via UPI & the same has been credited to your SBI Credit Card ending 6789 on 14/11/26. Your available limit is Rs.88,000.00",
+    "receivedAt": "2026-11-14T10:26:37+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 1200000,
+      "currency": "INR",
+      "counterparty": null,
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789",
+      "referenceId": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-amex-payment-01",
+    "sender": "VM-AMEXIN",
+    "body": "Thank you. We have received your payment of INR 30,000.00 towards your American Express Card ending 41006 on 14/11/2026.",
+    "receivedAt": "2026-11-14T19:03:12+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 3000000,
+      "currency": "INR",
+      "counterparty": null,
+      "vpa": null,
+      "bank": "American Express",
+      "instrumentLast4": "41006",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cc-icici-bill-01",
+    "sender": "VK-ICICIB",
+    "body": "ICICI Bank Credit Card XX9012 Statement is sent to ra****@gmail.com. Total of Rs 34,567.89 or minimum of Rs 1,730.00 is due by 02-DEC-26.",
+    "receivedAt": "2026-11-14T08:15:44+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "ICICI Bank",
+      "cardLast4": "9012",
+      "totalDueMinor": 3456789,
+      "minimumDueMinor": 173000,
+      "dueDate": "2026-12-02"
+    }
+  },
+  {
+    "id": "cc-sbicard-bill-01",
+    "sender": "VM-SBICRD-S",
+    "body": "E-statement of SBI Credit Card ending XX6789 dated 14/11/2026 has been mailed. If not received, SMS ENRS to 5676791. Total Amt Due Rs 18240; Min Amt Due Rs 912; Payable by 04/12/2026. Click https://sbicard.com/quickpaynet to pay your bill",
+    "receivedAt": "2026-11-15T09:02:19+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "SBI Card",
+      "cardLast4": "6789",
+      "totalDueMinor": 1824000,
+      "minimumDueMinor": 91200,
+      "dueDate": "2026-12-04"
+    }
+  },
+  {
+    "id": "cc-axis-bill-01",
+    "sender": "AXISBK",
+    "body": "Your Axis Bank Credit Card XX3456 statement is generated.\nTotal amount due: INR 27,890.55\nMinimum amount due: INR 1,395.00\nDue date: 05-12-2026",
+    "receivedAt": "2026-11-16T07:48:30+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "Axis Bank",
+      "cardLast4": "3456",
+      "totalDueMinor": 2789055,
+      "minimumDueMinor": 139500,
+      "dueDate": "2026-12-05"
+    }
+  },
+  {
+    "id": "cc-idfc-bill-01",
+    "sender": "VM-IDFCFB-S",
+    "body": "Your IDFC FIRST Bank Credit Card XX2468 statement is ready. Total Amount Due: Rs. 9,875.00 | Minimum Amount Due: Rs. 494.00 | Due Date: 06 Dec 2026. Pay via the app to avoid charges.",
+    "receivedAt": "2026-11-17T07:30:05+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "IDFC FIRST Bank",
+      "cardLast4": "2468",
+      "totalDueMinor": 987500,
+      "minimumDueMinor": 49400,
+      "dueDate": "2026-12-06"
+    }
+  },
+  {
+    "id": "cc-kotak-bill-01",
+    "sender": "AD-KOTAKB",
+    "body": "Your Kotak Credit Card x7788 statement is generated. Min amt due: Rs.1,100.00. Total amt due: Rs.21,987.40. Pay by 04-Dec-2026 to avoid late payment charges.",
+    "receivedAt": "2026-11-16T08:05:12+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "Kotak Mahindra Bank",
+      "cardLast4": "7788",
+      "totalDueMinor": 2198740,
+      "minimumDueMinor": 110000,
+      "dueDate": "2026-12-04"
+    }
+  },
+  {
+    "id": "cc-rbl-bill-01",
+    "sender": "VM-RBLBNK",
+    "body": "Statement for your RBL Bank Credit Card ending 5566 is generated. Total Amount Due: Rs.8,420.00. Due Date: 04-12-2026.",
+    "receivedAt": "2026-11-15T07:11:52+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "RBL Bank",
+      "cardLast4": "5566",
+      "totalDueMinor": 842000,
+      "minimumDueMinor": null,
+      "dueDate": "2026-12-04"
+    }
+  },
+  {
+    "id": "cc-onecard-bill-01",
+    "sender": "VM-ONECRD-S",
+    "body": "Your OneCard statement for November is ready. Total due: Rs. 6,312.50, minimum due: Rs. 316.00. Pay by 05 Dec 2026 to avoid interest.",
+    "receivedAt": "2026-11-16T09:40:27+05:30",
+    "expect": {
+      "type": "cardBill",
+      "bank": "OneCard",
+      "cardLast4": null,
+      "totalDueMinor": 631250,
+      "minimumDueMinor": 31600,
+      "dueDate": "2026-12-05"
+    }
+  },
+  {
+    "id": "cc-hdfc-stmt-nodue-01",
+    "sender": "VM-HDFCBK",
+    "body": "Your HDFC Bank Credit Card ending 4521 statement has been sent to your registered email ID. You can also view it on MyCards.",
+    "receivedAt": "2026-11-16T06:55:13+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "BALANCE_INFO"
+    }
+  },
+  {
+    "id": "cc-indusind-stmt-nodue-01",
+    "sender": "VM-INDUSB-S",
+    "body": "Dear Customer, the e-statement for your IndusInd Bank Credit Card ending 4410 for Nov-2026 has been generated. Log in to the IndusMobile app to view it.",
+    "receivedAt": "2026-11-17T07:20:48+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "BALANCE_INFO"
+    }
+  }
+]

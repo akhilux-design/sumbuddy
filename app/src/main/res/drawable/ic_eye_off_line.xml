@@ -1,0 +1,35 @@
+<!-- Generated from design/icons/svg/eye_off_line.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M3,3L21,21"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M10.6,5.1C11.064,5.037 11.532,5.003 12,5C19,5 23,12 23,12C22.124,13.475 21.047,14.821 19.8,16"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M6.6,6.6C3.4,8.4 1,12 1,12C1,12 5,19 12,19C13.91,18.954 15.773,18.402 17.4,17.4"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M9.9,9.9C9.467,10.478 9.256,11.192 9.308,11.913C9.359,12.633 9.668,13.311 10.179,13.821C10.689,14.332 11.367,14.641 12.087,14.692C12.808,14.743 13.522,14.533 14.1,14.1"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+</vector>

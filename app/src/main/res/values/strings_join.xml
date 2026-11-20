@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Join group from a friend's link (design 02-everyday/32-join-group, 50-join-group-link-no-longer-works; Sign in
+         first is 49, in strings_signin.xml). Owned by the you-and-join area (docs/groups-build-plan.md). -->
+    <string name="join_action">Join group</string>
+    <string name="join_not_now">Not now</string>
+    <!-- %1$s is who sent the link, %2$s the group, for example "Rahul added you to Flat 302". -->
+    <string name="join_headline">%1$s added you to %2$s</string>
+    <!-- Not in the design: the link of a direct split, which has no group name. %1$s is who sent it. -->
+    <string name="join_headline_direct">%1$s added you to a split</string>
+    <!-- %d is how many people are in the group. The "one" form is not in the design. -->
+    <plurals name="join_body">
+        <item quantity="one">%d person shares expenses here. You can see what you owe before you join.</item>
+        <item quantity="other">%d people share expenses here. You can see what you owe before you join.</item>
+    </plurals>
+    <!-- Under the group's name: the other members' first names, then you. %1$s is the names, for example
+         "Rahul, Priya". -->
+    <string name="join_members">%1$s and you</string>
+    <!-- Not in the design: a group with more than four other members. %1$s is the first three names (the person who
+         sent the link first), %2$d how many more there are, always 2 or more: four other members are all named with
+         join_members, so "and 1 more" is never written. -->
+    <plurals name="join_members_more">
+        <item quantity="one">%1$s, you and %2$d more</item>
+        <item quantity="other">%1$s, you and %2$d more</item>
+    </plurals>
+    <!-- Not in the design: a group with no other member to name. -->
+    <string name="join_members_only_you">Just you</string>
+    <!-- %1$s is the amount, for example "₹1,150". -->
+    <string name="join_you_owe">You owe %1$s so far</string>
+    <!-- Not in the design (it draws only owing): the place is owed money. %1$s is the group, %2$s the amount. -->
+    <string name="join_owes_you">%1$s owes you %2$s so far</string>
+    <!-- Not in the design: the place neither owes nor is owed. -->
+    <string name="join_nothing_owed">You owe nothing so far</string>
+    <!-- %1$d expenses this month that involve the place, %2$s the month, for example "5 expenses in November". The
+         "one" form is not in the design. -->
+    <plurals name="join_expenses">
+        <item quantity="one">%1$d expense in %2$s</item>
+        <item quantity="other">%1$d expenses in %2$s</item>
+    </plurals>
+
+    <!-- The link no longer works (50). -->
+    <string name="join_link_title">This link no longer works</string>
+    <string name="join_link_body">It was turned off, used already, or is too old. Ask the person who sent it for a new link.</string>
+    <string name="join_ok">OK</string>
+
+    <!-- The group could not be loaded: the wording and Try again of 02-everyday/23-could-not-load. -->
+    <string name="join_could_not_load_title">Could not load this group</string>
+    <string name="join_could_not_load_offline">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: loading failed for a reason other than the connection. -->
+    <string name="join_could_not_load_failed">Try again in a moment.</string>
+    <string name="join_try_again">Try again</string>
+    <!-- Not in the design: what screen readers say while the group loads. -->
+    <string name="join_loading">Loading the group</string>
+
+    <!-- Not in the design for Join group: the banner when joining needs the internet and there is none (the wording
+         of Home's offline banner and 02-everyday/23). -->
+    <string name="join_offline_title">You\'re offline</string>
+    <string name="join_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: the banner when the server refused the join for another reason. -->
+    <string name="join_failed_title">Could not do that now</string>
+    <string name="join_failed_body">Try again in a moment.</string>
+</resources>

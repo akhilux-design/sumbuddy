@@ -1,0 +1,471 @@
+{
+  "name": "Join Family",
+  "group": "Group/06 Family",
+  "index": 1,
+  "darkId": "97:4060",
+  "lightId": "98:4999",
+  "tree": {
+    "t": "FRAME",
+    "n": "Join Family",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 588,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Sticker tile (edge wrapper)",
+            "x": 16,
+            "y": 8,
+            "w": 72,
+            "h": 77,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Sticker tile",
+                "x": 0,
+                "y": 0,
+                "w": 72,
+                "h": 72,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 24,
+                "fill": [
+                  "color/brand/soft"
+                ],
+                "stroke": [
+                  "color/brand/primary"
+                ],
+                "sw": 2,
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 20,
+                    "y": 20,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/heart",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Arjun invited you to Home",
+            "x": 16,
+            "y": 97,
+            "w": 328,
+            "h": 72,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "Arjun invited you to Home",
+            "style": "Display/L"
+          },
+          {
+            "t": "TEXT",
+            "n": "One monthly total for the two of you. Nobody owes anybody.",
+            "x": 16,
+            "y": 181,
+            "w": 328,
+            "h": 40,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "One monthly total for the two of you. Nobody owes anybody.",
+            "style": "Body/M"
+          },
+          {
+            "t": "FRAME",
+            "n": "List card",
+            "x": 16,
+            "y": 233,
+            "w": 328,
+            "h": 164,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 64,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/calculator / Style=3D",
+                  "Subtitle": "What you pay for the family also shows in your own month.",
+                  "Title": "Counts in both"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Counts in both",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "What you pay for the family also shows in your own month.",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/calculator",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 88,
+                "w": 304,
+                "h": 64,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/eye-off / Style=3D",
+                  "Subtitle": "Only expenses you mark Family are shared.",
+                  "Title": "Personal stays private"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Personal stays private",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Only expenses you mark Family are shared.",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/eye-off",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 634,
+        "w": 360,
+        "h": 142,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Join Family"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Join Family",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 85,
+            "w": 328,
+            "h": 49,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Ghost, Size=Medium, State=Default",
+            "props": {
+              "Label": "Not now"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Not now",
+                "style": "Button",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

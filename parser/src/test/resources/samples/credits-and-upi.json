@@ -1,0 +1,711 @@
+[
+  {
+    "id": "cu-hdfc-upi-credit-vpa-01",
+    "sender": "VM-HDFCBK",
+    "body": "Rs. 500.00 credited to a/c XXXXXX4521 on 14-11-26 by a/c linked to VPA rahul.example22@okaxis (UPI Ref No 631812345678).",
+    "receivedAt": "2026-11-14T19:05:12+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 50000,
+      "currency": "INR",
+      "vpa": "rahul.example22@okaxis",
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "UPI",
+      "referenceId": "631812345678",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-icici-upi-credit-name-01",
+    "sender": "JM-ICICIT-S",
+    "body": "Dear Customer, Acct XX521 is credited with Rs 2,500.00 on 12-Nov-26 from PRIYA NAIR. UPI:631698765432-ICICI Bank.",
+    "receivedAt": "2026-11-12T08:47:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 250000,
+      "counterparty": "Priya Nair",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "521",
+      "channel": "UPI",
+      "referenceId": "631698765432",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-12T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-upi-credit-name-01",
+    "sender": "JD-SBIUPI",
+    "body": "Dear SBI User, your A/c X7788-credited by Rs.1200 on 15Nov26 transfer from ANITA VERMA Ref No 631945678123 -SBI",
+    "receivedAt": "2026-11-15T13:22:41+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 120000,
+      "counterparty": "Anita Verma",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7788",
+      "referenceId": "631945678123",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-kotak-upi-credit-vpa-01",
+    "sender": "VK-KOTAKB",
+    "body": "Received Rs.750.00 in your Kotak Bank AC X4410 from sandeep.k@oksbi on 13-11-26.UPI Ref:631767890123.",
+    "receivedAt": "2026-11-13T21:10:05+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 75000,
+      "vpa": "sandeep.k@oksbi",
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4410",
+      "channel": "UPI",
+      "referenceId": "631767890123",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-axis-upi-credit-narration-01",
+    "sender": "AX-AXISBK-S",
+    "body": "INR 3000.00 credited\nA/c no. XX2290\n16-11-26, 09:41:07 IST\nUPI/P2A/632055512345/MANOJ GUPTA/HDFC BANK - Axis Bank",
+    "receivedAt": "2026-11-16T09:41:20+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 300000,
+      "counterparty": "Manoj Gupta",
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "2290",
+      "channel": "UPI",
+      "referenceId": "632055512345",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T09:41:07+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-pnb-upi-credit-balance-01",
+    "sender": "BP-PNBSMS-S",
+    "body": "A/c XX6034 credited INR 1,500.00 Dt 11-11-26 14:22 thru UPI:631534567890.Bal INR 18,245.50 -PNB",
+    "receivedAt": "2026-11-11T14:22:36+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 150000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "Punjab National Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "6034",
+      "channel": "UPI",
+      "referenceId": "631534567890",
+      "balanceMinor": 1824550,
+      "occurredAt": "2026-11-11T14:22:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-union-credit-mobile-banking-01",
+    "sender": "VM-UNIONB",
+    "body": "A/c *6672 Credited for Rs:2000.00 on 14-11-2026 16:45:12 by Mob Bk ref no 631834561209 Avl Bal Rs:9340.75.Never Share OTP/PIN/CVV-Union Bank of India",
+    "receivedAt": "2026-11-14T16:45:29+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 200000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "Union Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "6672",
+      "referenceId": "631834561209",
+      "balanceMinor": 934075,
+      "occurredAt": "2026-11-14T16:45:12+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-hdfc-neft-salary-01",
+    "sender": "VM-HDFCBK-S",
+    "body": "Update! INR 85,000.00 deposited in HDFC Bank A/c XX4521 on 30-OCT-26 for NEFT Cr-CITI0000004-ACME TECHNOLOGIES PVT LTD-RAHUL SHARMA-CITIN26303456789.Avl bal INR 1,02,345.67. Cheque deposits in A/C are subject to clearing",
+    "receivedAt": "2026-10-30T11:02:40+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 8500000,
+      "currency": "INR",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "NEFT",
+      "balanceMinor": 10234567,
+      "occurredAt": "2026-10-30T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-neft-salary-01",
+    "sender": "BZ-CBSSBI",
+    "body": "Dear Customer, INR 62,450.00 credited to your A/c No XX7788 on 31/10/2026 through NEFT with UTR HDFCN26304987654 by BLUEPEAK SOFTWARE PVT LTD, INFO: SALARY OCT 2026-SBI",
+    "receivedAt": "2026-10-31T10:18:09+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 6245000,
+      "counterparty": "Bluepeak Software Pvt Ltd",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7788",
+      "channel": "NEFT",
+      "referenceId": "HDFCN26304987654",
+      "balanceMinor": null,
+      "occurredAt": "2026-10-31T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-icici-neft-salary-01",
+    "sender": "VM-ICICIB",
+    "body": "ICICI Bank Account XX521 credited:Rs. 1,12,300.00 on 01-Nov-26. Info NEFT-AXISN26305123456-ORBIT LOGISTICS. Available Balance is Rs. 1,48,912.40.",
+    "receivedAt": "2026-11-01T12:31:55+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 11230000,
+      "counterparty": "Orbit Logistics",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "521",
+      "channel": "NEFT",
+      "referenceId": "AXISN26305123456",
+      "balanceMinor": 14891240,
+      "occurredAt": "2026-11-01T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-idfc-credit-generic-01",
+    "sender": "TM-IDFCFB",
+    "body": "Your A/C XXXXXXX9012 is credited by INR 54,000.00 on 31/10/26 19:30. New Bal :INR 61,220.15. Team IDFC FIRST Bank",
+    "receivedAt": "2026-10-31T19:31:02+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 5400000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "9012",
+      "channel": "UNKNOWN",
+      "referenceId": null,
+      "balanceMinor": 6122015,
+      "occurredAt": "2026-10-31T19:30:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-imps-credit-name-01",
+    "sender": "VM-SBIINB",
+    "body": "Your a/c no. XXXXXXXX7788 is credited by Rs.5000.00 on 06-11-26 by a/c linked to mobile 9XXXXXX123-DEEPAK JOSHI (IMPS Ref no 631012345678). -SBI",
+    "receivedAt": "2026-11-06T17:54:13+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 500000,
+      "counterparty": "Deepak Joshi",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7788",
+      "channel": "IMPS",
+      "referenceId": "631012345678",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-06T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-imps-credit-amount-missing-01",
+    "sender": "VM-SBIINB",
+    "body": "Your a/c no. XXXXXXXX7788 is credited by Rs. on 10-11-26 by a/c linked to mobile 8XXXXXX456-KAVITA RAO (IMPS Ref no 631445612378). -SBI",
+    "receivedAt": "2026-11-10T11:26:40+05:30",
+    "expect": {
+      "type": "unreadable"
+    }
+  },
+  {
+    "id": "cu-payroll-salary-unknown-bank-01",
+    "sender": "VM-ACMEHR",
+    "body": "Dear Rahul, your salary of Rs.72,500.00 for the month of October has been credited to your bank account. - ACME HR Team",
+    "receivedAt": "2026-10-31T17:45:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 7250000,
+      "vpa": null,
+      "bank": null,
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": null,
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": null,
+      "confidence": "LOW"
+    }
+  },
+  {
+    "id": "cu-icici-card-refund-01",
+    "sender": "AD-ICICIB",
+    "body": "Dear Customer, refund of INR 1,299.00 from AMAZON has been credited to your ICICI Bank Credit Card XX4005 on 12-NOV-26.",
+    "receivedAt": "2026-11-12T15:03:27+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 129900,
+      "currency": "INR",
+      "counterparty": "Amazon",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4005",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-12T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-indusind-refund-01",
+    "sender": "VM-INDUSB",
+    "body": "Refund of Rs 349.00 from ZOMATO credited to your IndusInd Bank A/c XX3307 on 13/11/26. Ref No 631756781234. Avl Bal Rs 6,214.80.",
+    "receivedAt": "2026-11-13T22:40:18+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 34900,
+      "counterparty": "Zomato",
+      "vpa": null,
+      "bank": "IndusInd Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3307",
+      "referenceId": "631756781234",
+      "balanceMinor": 621480,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-federal-upi-reversal-credit-01",
+    "sender": "AD-FEDBNK",
+    "body": "Rs 180.00 credited to your A/c XX9154 on 11-11-2026 towards reversal of UPI txn 631523456789. Bal: Rs 4,105.33 -Federal Bank",
+    "receivedAt": "2026-11-11T20:15:44+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 18000,
+      "vpa": null,
+      "bank": "Federal Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "9154",
+      "channel": "UPI",
+      "balanceMinor": 410533,
+      "occurredAt": "2026-11-11T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-axis-upi-failed-reversed-01",
+    "sender": "VM-AXISBK",
+    "body": "Your UPI txn of INR 180.00 to ravi.kirana@ybl on 11-11-26 has failed. The amount debited from A/c no. XX2290 has been reversed. UPI Ref 631523456780 - Axis Bank",
+    "receivedAt": "2026-11-11T18:02:11+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "FAILED"
+    }
+  },
+  {
+    "id": "cu-sbicard-cashback-01",
+    "sender": "VM-SBICRD-S",
+    "body": "Dear Cardholder, cashback of Rs.250.00 has been credited to your SBI Credit Card ending 6190 on 08/11/26.",
+    "receivedAt": "2026-11-08T16:20:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 25000,
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6190",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-08T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-paytm-wallet-cashback-01",
+    "sender": "JD-PAYTM",
+    "body": "Rs.25 Cashback received in your Paytm Wallet. Updated Balance: Paytm Wallet- Rs 375.50",
+    "receivedAt": "2026-11-14T10:16:03+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 2500,
+      "vpa": null,
+      "bank": "Paytm",
+      "instrumentType": "WALLET",
+      "instrumentLast4": null,
+      "referenceId": null,
+      "balanceMinor": 37550,
+      "occurredAt": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-amazonpay-cashback-01",
+    "sender": "AX-AMAZON",
+    "body": "Rs.50.00 cashback has been added to your Amazon Pay balance for your recent mobile recharge. Updated balance: Rs.262.00.",
+    "receivedAt": "2026-11-09T11:48:52+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 5000,
+      "vpa": null,
+      "bank": "Amazon Pay",
+      "instrumentType": "WALLET",
+      "instrumentLast4": null,
+      "referenceId": null,
+      "balanceMinor": 26200,
+      "occurredAt": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-paytm-cashback-promo-01",
+    "sender": "VM-PAYTM-P",
+    "body": "Get Rs.100 cashback on your first electricity bill payment on Paytm. Offer valid till 30 Nov 2026. T&C apply.",
+    "receivedAt": "2026-11-10T12:00:07+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "PROMOTION"
+    }
+  },
+  {
+    "id": "cu-hdfc-interest-01",
+    "sender": "HDFCBK",
+    "body": "Update! INR 318.00 deposited in HDFC Bank A/c XX4521 on 01-OCT-26 for Int.Pd:01-07-2026 to 30-09-2026.Avl bal INR 46,118.00. Cheque deposits in A/C are subject to clearing",
+    "receivedAt": "2026-10-01T06:12:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 31800,
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "referenceId": null,
+      "balanceMinor": 4611800,
+      "occurredAt": "2026-10-01T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-cash-deposit-01",
+    "sender": "VM-CBSSBI",
+    "body": "Dear Customer, Your A/C XXXXX7788 has a credit by Cash Deposit of Rs 20,000.00 on 09/11/26. Avl Bal Rs 31,560.00.-SBI",
+    "receivedAt": "2026-11-09T12:34:50+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 2000000,
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7788",
+      "referenceId": null,
+      "balanceMinor": 3156000,
+      "occurredAt": "2026-11-09T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-hdfc-upi-debit-merchant-01",
+    "sender": "VM-HDFCBK-S",
+    "body": "Sent Rs.249.00\nFrom HDFC Bank A/C *4521\nTo SWIGGY\nOn 15/11/26\nRef 631912349876\nNot You?\nCall 18002586161/SMS BLOCK UPI to 7308080808",
+    "receivedAt": "2026-11-15T20:44:19+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 24900,
+      "counterparty": "Swiggy",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "UPI",
+      "referenceId": "631912349876",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-icici-upi-debit-person-01",
+    "sender": "CP-ICICIT",
+    "body": "ICICI Bank Acct XX521 debited for Rs 1,200.00 on 13-Nov-26; RAMESH KUMAR credited. UPI:631712340987. Call 18002662 for dispute. SMS BLOCK 521 to 9215676766.",
+    "receivedAt": "2026-11-13T09:05:48+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 120000,
+      "counterparty": "Ramesh Kumar",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "521",
+      "channel": "UPI",
+      "referenceId": "631712340987",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-sbi-upi-debit-merchant-01",
+    "sender": "JD-SBIUPI-S",
+    "body": "Dear UPI user A/C X7788 debited by 250.0 on date 15Nov26 trf to RAVI KIRANA STORE Refno 631945671122. If not u? call 1800111109. -SBI",
+    "receivedAt": "2026-11-15T18:27:33+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 25000,
+      "counterparty": "Ravi Kirana Store",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7788",
+      "channel": "UPI",
+      "referenceId": "631945671122",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-federal-upi-debit-vpa-01",
+    "sender": "AD-FEDBNK-S",
+    "body": "Rs 95.00 debited via UPI on 14-11-2026 18:22:05 to VPA chaipoint.blr@ybl.Ref No 631878901234.Small txns?Use UPI Lite!-Federal Bank",
+    "receivedAt": "2026-11-14T18:22:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 9500,
+      "vpa": "chaipoint.blr@ybl",
+      "bank": "Federal Bank",
+      "instrumentLast4": null,
+      "channel": "UPI",
+      "referenceId": "631878901234",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T18:22:05+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-bob-upi-debit-vpa-01",
+    "sender": "BZ-BOBSMS",
+    "body": "Rs.410 Dr. from A/C XXXXXX5521 and Cr. to paytmqr5kd9x2@ptys. Ref:631489012345. AvlBal:Rs3180.25(2026:11:10 13:05:41). Not you? Call 18005700-BOB",
+    "receivedAt": "2026-11-10T13:05:58+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 41000,
+      "vpa": "paytmqr5kd9x2@ptys",
+      "bank": "Bank of Baroda",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "5521",
+      "channel": "UPI",
+      "referenceId": "631489012345",
+      "balanceMinor": 318025,
+      "occurredAt": "2026-11-10T13:05:41+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-canara-upi-debit-merchant-01",
+    "sender": "VM-CANBNK",
+    "body": "Rs.685.00 paid thru A/C XX3456 on 12-11-26 20:14:09 to ZOMATO LIMITED, UPI Ref 631667812345. If not done, SMS BLOCKUPI to 9901771222.-Canara Bank",
+    "receivedAt": "2026-11-12T20:14:31+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 68500,
+      "counterparty": "Zomato Limited",
+      "vpa": null,
+      "bank": "Canara Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3456",
+      "channel": "UPI",
+      "referenceId": "631667812345",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-12T20:14:09+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-yes-upi-debit-name-vpa-01",
+    "sender": "VM-YESBNK",
+    "body": "INR 650.00 Debited from A/c XX8821 on 13-11-26 to RAHUL SHARMA, VPA rahul.example22@okaxis. UPI Ref 631723456701. Avl Bal INR 14,280.25 - YES BANK",
+    "receivedAt": "2026-11-13T14:09:26+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 65000,
+      "counterparty": "Rahul Sharma",
+      "vpa": "rahul.example22@okaxis",
+      "bank": "Yes Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "8821",
+      "channel": "UPI",
+      "referenceId": "631723456701",
+      "balanceMinor": 1428025,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-au-upi-debit-merchant-vpa-01",
+    "sender": "AD-AUBANK",
+    "body": "Paid Rs.1,499.00 to DECATHLON SPORTS (decathlon.blr@hdfcbank) via UPI from AU Bank a/c XX4477 on 10-Nov-2026. RRN 631412340099.",
+    "receivedAt": "2026-11-10T19:36:02+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 149900,
+      "counterparty": "Decathlon Sports",
+      "vpa": "decathlon.blr@hdfcbank",
+      "bank": "AU Small Finance Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4477",
+      "channel": "UPI",
+      "referenceId": "631412340099",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-10T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-axis-upilite-topup-01",
+    "sender": "VM-AXISBK",
+    "body": "INR 500.00 debited from A/c no. XX2290 on 09-11-26 for UPI Lite top-up. UPI Ref no 631398761234 - Axis Bank",
+    "receivedAt": "2026-11-09T08:55:17+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "SELF_TRANSFER"
+    }
+  },
+  {
+    "id": "cu-hdfc-upilite-payment-01",
+    "sender": "VM-HDFCBK",
+    "body": "Paid Rs.20.00 to CHAI POINT via UPI Lite on 15-11-26. Ref 631956120011. UPI Lite balance Rs.180.00 -HDFC Bank",
+    "receivedAt": "2026-11-15T16:08:45+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 2000,
+      "counterparty": "Chai Point",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentLast4": null,
+      "channel": "UPI",
+      "referenceId": "631956120011",
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-hdfc-upilite-summary-01",
+    "sender": "VM-HDFCBK",
+    "body": "UPI Lite summary for 15-11-26: 4 transactions, total Rs.165.00. UPI Lite balance: Rs.335.00. -HDFC Bank",
+    "receivedAt": "2026-11-16T07:30:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "BALANCE_INFO"
+    }
+  },
+  {
+    "id": "cu-paytm-wallet-paid-01",
+    "sender": "VM-iPaytm",
+    "body": "Paid Rs.150 to Sharma Tea Stall at 10:15 AM from Paytm Wallet. Transaction ID: 43123456789. Updated Balance: Paytm Wallet- Rs 350.5",
+    "receivedAt": "2026-11-14T10:15:40+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 15000,
+      "currency": "INR",
+      "counterparty": "Sharma Tea Stall",
+      "vpa": null,
+      "bank": "Paytm",
+      "instrumentType": "WALLET",
+      "instrumentLast4": null,
+      "channel": "WALLET",
+      "referenceId": "43123456789",
+      "balanceMinor": 35050,
+      "occurredAt": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "cu-paytm-wallet-added-01",
+    "sender": "JD-PAYTM",
+    "body": "Rs.500 added to your Paytm Wallet. Updated Balance: Rs.850.50. Txn ID: 43198765432",
+    "receivedAt": "2026-11-12T09:02:14+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "SELF_TRANSFER"
+    }
+  },
+  {
+    "id": "cu-amazonpay-wallet-paid-01",
+    "sender": "AX-AMAZON",
+    "body": "Rs.412.00 paid to BIGBASKET using your Amazon Pay balance on 12-Nov-2026. Available balance: Rs.88.00",
+    "receivedAt": "2026-11-12T19:27:51+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 41200,
+      "counterparty": "BigBasket",
+      "vpa": null,
+      "bank": "Amazon Pay",
+      "instrumentType": "WALLET",
+      "instrumentLast4": null,
+      "channel": "WALLET",
+      "referenceId": null,
+      "balanceMinor": 8800,
+      "occurredAt": "2026-11-12T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  }
+]

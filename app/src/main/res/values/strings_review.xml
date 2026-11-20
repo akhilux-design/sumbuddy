@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Review payments (design 02-everyday/34 to 38). -->
+<resources>
+    <string name="review_title">Review payments</string>
+    <string name="review_add_all">Add all</string>
+    <!-- Progress through the stack, "3 of 14". -->
+    <string name="review_progress">%1$d of %2$d</string>
+    <string name="review_undo">Undo</string>
+    <string name="review_hint">Swipe right to add, left to ignore.</string>
+    <string name="review_add">Add</string>
+    <string name="review_ignore">Ignore</string>
+
+    <!-- Swipe Card -->
+    <string name="review_from_sms">From SMS</string>
+    <string name="review_when">When</string>
+    <string name="review_account">Account</string>
+    <string name="review_category">Category</string>
+    <string name="review_change">Change</string>
+    <string name="review_split">Split it instead</string>
+    <!-- When on the card: "Today, 9:12 pm", "Yesterday, 6:40 pm", "14 Nov, 9:12 pm". -->
+    <string name="review_when_today">Today, %1$s</string>
+    <string name="review_when_yesterday">Yesterday, %1$s</string>
+    <string name="review_when_date">%1$s, %2$s</string>
+    <!-- Account on the card: "HDFC Credit Card ••4521". -->
+    <string name="review_account_credit_card">%1$s Credit Card ••%2$s</string>
+    <string name="review_account_debit_card">%1$s Debit Card ••%2$s</string>
+    <!-- TalkBack: the category chip. -->
+    <string name="review_change_category">Change category, now %1$s</string>
+
+    <!-- Add all sheet -->
+    <plurals name="review_add_all_title">
+        <item quantity="one">Add %d payment?</item>
+        <item quantity="other">Add all %d payments?</item>
+    </plurals>
+    <plurals name="review_add_all_count">
+        <item quantity="one">%d payment</item>
+        <item quantity="other">%d payments</item>
+    </plurals>
+    <string name="review_add_all_total">Total</string>
+    <string name="review_add_all_note">Each payment gets the category shown. You can change it later in Activity.</string>
+    <plurals name="review_add_all_confirm">
+        <item quantity="one">Add %d</item>
+        <item quantity="other">Add all %d</item>
+    </plurals>
+    <string name="review_add_all_cancel">Cancel</string>
+
+    <!-- All sorted -->
+    <string name="review_sorted_title">All sorted</string>
+    <plurals name="review_sorted_body">
+        <item quantity="one">%d payment from your SMS is sorted.</item>
+        <item quantity="other">%d payments from your SMS are sorted.</item>
+    </plurals>
+    <string name="review_sorted_added">Added %1$d</string>
+    <!-- "₹7,190 is in your November expenses." -->
+    <string name="review_sorted_added_body">%1$s is in your %2$s expenses.</string>
+    <!-- When some payments added are from another month. -->
+    <string name="review_sorted_added_body_any_month">%1$s is in your expenses.</string>
+    <string name="review_sorted_ignored">Ignored %1$d</string>
+    <string name="review_sorted_ignored_body">Not counted. Listed under Ignored in Activity.</string>
+    <string name="review_sorted_month_so_far">%1$s so far</string>
+    <string name="review_done">Done</string>
+</resources>

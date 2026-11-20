@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Expense categories and the line under each on Choose category (design 02-everyday/06-choose-category). -->
+    <string name="category_food">Food</string>
+    <string name="category_food_examples">Swiggy, Zomato, restaurants</string>
+    <string name="category_groceries">Groceries</string>
+    <string name="category_groceries_examples">Blinkit, BigBasket</string>
+    <string name="category_travel">Travel</string>
+    <string name="category_travel_examples">Uber, fuel, metro</string>
+    <string name="category_rent_and_bills">Rent and bills</string>
+    <string name="category_rent_and_bills_examples">Rent, electricity, phone</string>
+    <string name="category_shopping">Shopping</string>
+    <string name="category_shopping_examples">Amazon, Myntra</string>
+    <string name="category_fun">Fun</string>
+    <string name="category_fun_examples">Movies, subscriptions</string>
+    <string name="category_other">Other</string>
+    <string name="category_other_examples">Anything else</string>
+</resources>

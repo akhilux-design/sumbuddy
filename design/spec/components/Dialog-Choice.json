@@ -1,0 +1,37 @@
+{
+  "name": "Dialog Choice", "id": "432:670",
+  "properties": {
+    "Label#432:0": {"type": "TEXT", "defaultValue": "Leave group"},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Dialog Choice", "x": 0, "y": 36, "w": 330, "h": 162, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "State=Default", "x": 25, "y": 25, "w": 280, "h": 44, "lay": "row", "gap": 0, "pad": [12, 16, 12, 16], "main": "CENTER",
+        "cross": "CENTER", "size": ["FIXED", "HUG"], "r": 999, "fill": ["color/bg/surface"], "clip": true,
+        "c": [
+          {
+            "t": "TEXT", "n": "Label", "x": 99, "y": 12, "w": 83, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+            "text": "Leave group", "style": "Body/M Strong"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "State=Pressed", "x": 25, "y": 93, "w": 280, "h": 44, "lay": "row", "gap": 0, "pad": [12, 16, 12, 16], "main": "CENTER",
+        "cross": "CENTER", "size": ["FIXED", "HUG"], "r": 999, "fill": ["color/bg/surface"], "clip": true,
+        "c": [
+          {
+            "t": "TEXT", "n": "Label", "x": 99, "y": 12, "w": 83, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+            "text": "Leave group", "style": "Body/M Strong"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 280, "h": 44, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 999,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

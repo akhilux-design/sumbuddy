@@ -1,0 +1,10 @@
+# Cloudflare Pages headers (docs/server.md section 7). build.mjs fills %API_ORIGIN% from API_BASE.
+/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; connect-src %API_ORIGIN%; img-src 'self' data:; style-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
+
+/pay/*
+  Cache-Control: no-store

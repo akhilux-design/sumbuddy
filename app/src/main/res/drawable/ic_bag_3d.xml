@@ -1,0 +1,52 @@
+<!-- Generated from design/icons/svg/bag_3d.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M5.562,12.294C5.668,11.136 6.64,10.25 7.802,10.25H24.198C25.36,10.25 26.332,11.136 26.438,12.294L27.774,26.794C27.895,28.112 26.857,29.25 25.533,29.25H6.467C5.143,29.25 4.105,28.112 4.226,26.794L5.562,12.294Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="4"
+          android:startY="10.25"
+          android:endX="22.493"
+          android:endY="33.61"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFF890AE"/>
+        <item android:offset="0.5" android:color="#FFE34D80"/>
+        <item android:offset="1" android:color="#FFC4356A"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M21.698,11.926C21.593,11.034 22.29,10.25 23.188,10.25H24.882C25.657,10.25 26.304,10.841 26.375,11.612L27.849,27.612C27.93,28.492 27.238,29.25 26.355,29.25H25.083C24.323,29.25 23.683,28.681 23.593,27.926L21.698,11.926Z"
+      android:strokeAlpha="0.35"
+      android:fillColor="#9E2753"
+      android:fillAlpha="0.35"/>
+  <path
+      android:pathData="M24.925,10.8H7.075C6.896,10.8 6.75,10.946 6.75,11.125C6.75,11.304 6.896,11.45 7.075,11.45H24.925C25.104,11.45 25.25,11.304 25.25,11.125C25.25,10.946 25.104,10.8 24.925,10.8Z"
+      android:strokeAlpha="0.45"
+      android:fillColor="#ffffff"
+      android:fillAlpha="0.45"/>
+  <path
+      android:pathData="M7.55,12.875C7.55,12.668 7.382,12.5 7.175,12.5C6.968,12.5 6.8,12.668 6.8,12.875V26.125C6.8,26.332 6.968,26.5 7.175,26.5C7.382,26.5 7.55,26.332 7.55,26.125V12.875Z"
+      android:strokeAlpha="0.3"
+      android:fillColor="#ffffff"
+      android:fillAlpha="0.3"/>
+  <path
+      android:pathData="M11.5,15C12.052,15 12.5,14.552 12.5,14C12.5,13.448 12.052,13 11.5,13C10.948,13 10.5,13.448 10.5,14C10.5,14.552 10.948,15 11.5,15Z"
+      android:fillColor="#7C1D40"/>
+  <path
+      android:pathData="M20.5,15C21.052,15 21.5,14.552 21.5,14C21.5,13.448 21.052,13 20.5,13C19.948,13 19.5,13.448 19.5,14C19.5,14.552 19.948,15 20.5,15Z"
+      android:fillColor="#7C1D40"/>
+  <path
+      android:pathData="M19.7,14V8.75C19.7,6.357 17.978,4.55 16,4.55C14.022,4.55 12.3,6.357 12.3,8.75V14C12.3,14.442 11.942,14.8 11.5,14.8C11.058,14.8 10.7,14.442 10.7,14V8.75C10.7,5.643 12.978,2.95 16,2.95C19.022,2.95 21.3,5.643 21.3,8.75V14C21.3,14.442 20.942,14.8 20.5,14.8C20.058,14.8 19.7,14.442 19.7,14Z"
+      android:fillColor="#9E2753"/>
+  <path
+      android:pathData="M10.875,13V8.75C10.875,6.092 12.652,4.098 14.96,3.679C15.082,3.657 15.199,3.738 15.222,3.86C15.244,3.982 15.163,4.099 15.04,4.121C12.948,4.501 11.325,6.308 11.325,8.75V13C11.325,13.124 11.224,13.225 11.1,13.225C10.976,13.225 10.875,13.124 10.875,13Z"
+      android:strokeAlpha="0.4"
+      android:fillColor="#ffffff"
+      android:fillAlpha="0.4"/>
+</vector>

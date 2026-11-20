@@ -1,0 +1,508 @@
+{
+  "name": "Activity (empty)",
+  "group": "Group/02 Everyday",
+  "index": 17,
+  "darkId": "95:3647",
+  "lightId": "98:4832",
+  "tree": {
+    "t": "FRAME",
+    "n": "Activity (empty)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 634,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Header",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 49,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Activity",
+                "x": 0,
+                "y": 7,
+                "w": 117,
+                "h": 36,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Activity",
+                "style": "Display/L"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Button",
+                "x": 251,
+                "y": 0,
+                "w": 77,
+                "h": 49,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "comp": "Button",
+                "variant": "Style=Secondary, Size=Medium, State=Default",
+                "props": {
+                  "Label": "+ Add"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "+ Add",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Stats",
+            "x": 16,
+            "y": 69,
+            "w": 328,
+            "h": 70,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Stat Tile",
+                "x": 0,
+                "y": 0,
+                "w": 158,
+                "h": 70,
+                "lay": "col",
+                "gap": 2,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/2",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Stat Tile",
+                "variant": "Tone=Neutral, State=Default",
+                "props": {
+                  "Value": "₹0",
+                  "Label": "Spent in Nov"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Spent in Nov",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "₹0",
+                    "style": "Heading/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Stat Tile",
+                "x": 170,
+                "y": 0,
+                "w": 158,
+                "h": 70,
+                "lay": "col",
+                "gap": 2,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/2",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Stat Tile",
+                "variant": "Tone=Neutral, State=Default",
+                "props": {
+                  "Value": "₹0",
+                  "Label": "From splits"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "From splits",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "₹0",
+                    "style": "Heading/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Empty state",
+            "x": 16,
+            "y": 151,
+            "w": 328,
+            "h": 244,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              24,
+              24,
+              24,
+              24
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 24,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Icon",
+                "x": 144,
+                "y": 26,
+                "w": 40,
+                "h": 40,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "comp": "Icon/receipt",
+                "variant": "Style=3D"
+              },
+              {
+                "t": "TEXT",
+                "n": "Nothing here yet",
+                "x": 26,
+                "y": 78,
+                "w": 277,
+                "h": 28,
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Nothing here yet",
+                "style": "Heading/L",
+                "align": "CENTER"
+              },
+              {
+                "t": "TEXT",
+                "n": "Payments you add or split are listed here, newest first.",
+                "x": 26,
+                "y": 118,
+                "w": 277,
+                "h": 40,
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Payments you add or split are listed here, newest first.",
+                "style": "Body/M",
+                "align": "CENTER"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Button",
+                "x": 82,
+                "y": 170,
+                "w": 164,
+                "h": 49,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "comp": "Button",
+                "variant": "Style=Secondary, Size=Medium, State=Default",
+                "props": {
+                  "Label": "Add one by hand"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Add one by hand",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Bottom Nav",
+        "x": 0,
+        "y": 680,
+        "w": 360,
+        "h": 96,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Bottom Nav",
+        "variant": "Active=Activity",
+        "texts": [
+          {
+            "n": "Label",
+            "text": "Activity",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Tab/Home",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Home, State=Default"
+          },
+          {
+            "n": "Tab/Groups",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Groups, State=Default"
+          },
+          {
+            "n": "Tab/Activity",
+            "w": 117,
+            "h": 53,
+            "comp": "Bottom Nav Pill",
+            "variant": "Tab=Activity, State=Default"
+          },
+          {
+            "n": "Tab/You",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=You, State=Default"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

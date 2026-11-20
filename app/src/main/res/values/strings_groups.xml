@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Groups tab. Wording from design/spec/screens/02-everyday/20, 21, 22, 23, 39 and 44. -->
+    <string name="groups_title">Groups</string>
+    <string name="groups_new">+ New</string>
+
+    <!-- Overall balance card. The card shows the label in capitals. "Overall you owe" is in 44. -->
+    <string name="groups_overall_owed">Overall you are owed</string>
+    <string name="groups_overall_owe">Overall you owe</string>
+    <!-- Not in the design: the card when the person is settled overall. -->
+    <string name="groups_overall_settled">Overall all settled</string>
+    <plurals name="groups_overall_caption">
+        <item quantity="one">across %d group</item>
+        <item quantity="other">across %d groups</item>
+    </plurals>
+
+    <!-- Rows: "3 people · owes you" for a group, "owes you" for a friend. -->
+    <plurals name="groups_row_people">
+        <item quantity="one">%d person</item>
+        <item quantity="other">%d people</item>
+    </plurals>
+    <string name="groups_row_detail">%1$s · %2$s</string>
+    <string name="groups_row_owes_you">owes you</string>
+    <string name="groups_row_you_owe">you owe</string>
+    <string name="groups_row_settled">all settled</string>
+    <!-- The section heading. Shown in capitals. -->
+    <string name="groups_friends">Friends</string>
+
+    <!-- Empty state. -->
+    <string name="groups_empty_title">No groups yet</string>
+    <string name="groups_empty_body">Make a group for your flat, a trip or an office lunch. Friends do not need the app.</string>
+    <string name="groups_empty_action">New group</string>
+
+    <!-- Not in the design: what a screen reader says for the grey placeholders while loading. -->
+    <string name="groups_loading_description">Loading groups</string>
+
+    <!-- Not in the design for the Groups tab: the groups could not be fetched and none is on this phone. The card,
+         the body and Try again are those of 02-everyday/23-could-not-load; its title says "this group". -->
+    <string name="groups_error_title">Could not load your groups</string>
+    <string name="groups_error_body">Check your connection and try again. Nothing is lost.</string>
+    <string name="groups_try_again">Try again</string>
+
+    <!-- Signed out (39). "Continue with Google" is the sign-in area's button. -->
+    <string name="groups_signin_title">Split with friends</string>
+    <string name="groups_signin_body">Sign in to split with friends. Your SMS stay on this phone.</string>
+    <string name="groups_signin_info_title">Friends do not need the app</string>
+    <string name="groups_signin_info_body">They get a web link to see what they owe and pay.</string>
+
+    <!-- New group (26). -->
+    <string name="groups_new_group_title">New group</string>
+    <string name="groups_new_group_name">Group name</string>
+    <!-- The section heading. Shown in capitals. -->
+    <string name="groups_new_group_add_friends">Add friends</string>
+    <!-- %1$s is the app's name. -->
+    <string name="groups_person_on_app">On %1$s</string>
+    <!-- %1$s is the app's name. -->
+    <string name="groups_person_gets_link">Not on %1$s · gets a WhatsApp link</string>
+    <!-- The "Add someone" row of 25, reused on New group (not in 26's design) to add someone new. -->
+    <string name="groups_add_someone_title">Add someone</string>
+    <string name="groups_add_someone_body">By name and phone number</string>
+    <string name="groups_new_group_info_title">Friends don\'t need the app</string>
+    <string name="groups_new_group_info_body">They can see and pay their share from a link.</string>
+    <string name="groups_new_group_create">Create group</string>
+    <!-- Under Create group when New group was opened from the Groups tab (26); not from a split (142). -->
+    <string name="groups_new_group_import">Import from Splitwise instead</string>
+
+    <!-- Add friend (27). -->
+    <string name="groups_add_friend_title">Add friend</string>
+    <string name="groups_add_friend_name">Name</string>
+    <string name="groups_add_friend_phone">Phone number</string>
+    <!-- The Input component's helper text in 27. Shown when the phone number is not one. -->
+    <string name="groups_add_friend_phone_invalid">That does not look right.</string>
+    <string name="groups_add_friend_info_title">No app needed</string>
+    <!-- %1$s is the friend's first name, for example Kiran. -->
+    <string name="groups_add_friend_info_body">%1$s gets a WhatsApp link to see and pay their share.</string>
+    <!-- Not in the design: the same note before a name is typed. -->
+    <string name="groups_add_friend_info_body_no_name">Your friend gets a WhatsApp link to see and pay their share.</string>
+    <string name="groups_add_friend_action">Add friend</string>
+    <string name="groups_add_friend_pick">Pick from contacts</string>
+</resources>

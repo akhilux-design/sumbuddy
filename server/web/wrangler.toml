@@ -1,0 +1,10 @@
+# Cloudflare Pages project for the friends' web link (docs/server.md section 7). Not the Worker: that is
+# ../wrangler.toml. This file also stops `wrangler pages dev` from picking up the Worker's config in the parent folder.
+#
+# name: the Pages project name. Its host is the one wrangler printed when the project was made (a taken name gets
+# random letters added), here xpense-pay.pages.dev. That host is LINK_HOST (Worker var, app.linkHost) and WEB_ORIGIN
+# is https://<host>. It can change until a real link reaches a friend; after that a change breaks every shared link.
+# `npm run deploy` takes the project from PAGES_PROJECT, not from this name.
+name = "xpense-pay"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-11-01"

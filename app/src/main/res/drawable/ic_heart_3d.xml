@@ -1,0 +1,64 @@
+<!-- Generated from design/icons/svg/heart_3d.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M16,29.4C7.25,23.4 2.25,18.4 2.25,12.4C2.25,8 5.7,4.65 9.8,4.65C12.3,4.65 14.5,5.9 16,8.1C17.5,5.9 19.7,4.65 22.2,4.65C26.3,4.65 29.75,8 29.75,12.4C29.75,18.4 24.75,23.4 16,29.4Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="2.25"
+          android:startY="4.65"
+          android:endX="2.25"
+          android:endY="29.4"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFBB3D48"/>
+        <item android:offset="1" android:color="#FF942E37"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <!-- Elliptical radial gradient: drawn as a circle inside a squashed group, path data pre-transformed to match. -->
+  <group
+      android:pivotX="11.875"
+      android:pivotY="10.675"
+      android:scaleY="0.9">
+    <path
+        android:pathData="M16,29.925C7.25,23.2583 2.25,17.7028 2.25,11.0361C2.25,6.1472 5.7,2.425 9.8,2.425C12.3,2.425 14.5,3.8139 16,6.2583C17.5,3.8139 19.7,2.425 22.2,2.425C26.3,2.425 29.75,6.1472 29.75,11.0361C29.75,17.7028 24.75,23.2583 16,29.925Z">
+      <aapt:attr name="android:fillColor">
+        <gradient
+            android:centerX="11.875"
+            android:centerY="10.675"
+            android:gradientRadius="22"
+            android:type="radial">
+          <item android:offset="0" android:color="#FFF6909A"/>
+          <item android:offset="0.55" android:color="#FFDC5761"/>
+          <item android:offset="1" android:color="#FFBB3D48"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+  </group>
+  <!-- Elliptical radial gradient: drawn as a circle inside a squashed group, path data pre-transformed to match. -->
+  <group
+      android:pivotX="9.5"
+      android:pivotY="8.9999"
+      android:rotation="-32"
+      android:scaleY="0.611765">
+    <path
+        android:pathData="M9.5,13.2499C11.8472,13.2499 13.75,11.3471 13.75,8.9999C13.75,6.6527 11.8472,4.7499 9.5,4.7499C7.1528,4.7499 5.25,6.6527 5.25,8.9998C5.25,11.3471 7.1528,13.2498 9.5,13.2499Z"
+        android:strokeAlpha="0.85"
+        android:fillAlpha="0.85">
+      <aapt:attr name="android:fillColor">
+        <gradient
+            android:centerX="9.5"
+            android:centerY="9"
+            android:gradientRadius="4.25"
+            android:type="radial">
+          <item android:offset="0" android:color="#B2FFFFFF"/>
+          <item android:offset="1" android:color="#00FFFFFF"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+  </group>
+</vector>

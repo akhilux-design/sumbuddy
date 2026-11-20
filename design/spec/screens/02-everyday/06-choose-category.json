@@ -1,0 +1,648 @@
+{
+  "name": "Choose category",
+  "group": "Group/02 Everyday",
+  "index": 6,
+  "darkId": "95:3420",
+  "lightId": "98:4753",
+  "tree": {
+    "t": "FRAME",
+    "n": "Choose category",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "Category"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "Category",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 0,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": ""
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 666,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Categories",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 524,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/food / Style=3D",
+                  "Subtitle": "Swiggy, Zomato, restaurants",
+                  "Title": "Food"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Food",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Swiggy, Zomato, restaurants",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/food",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 76,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/cart / Style=3D",
+                  "Subtitle": "Blinkit, BigBasket",
+                  "Title": "Groceries"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Groceries",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Blinkit, BigBasket",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/cart",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 152,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/car / Style=3D",
+                  "Subtitle": "Uber, fuel, metro",
+                  "Title": "Travel"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Travel",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Uber, fuel, metro",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/car",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 228,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/home / Style=3D",
+                  "Subtitle": "Rent, electricity, phone",
+                  "Title": "Rent and bills"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Rent and bills",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Rent, electricity, phone",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/home",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 304,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/bag / Style=3D",
+                  "Subtitle": "Amazon, Myntra",
+                  "Title": "Shopping"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Shopping",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Amazon, Myntra",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/bag",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 380,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/film / Style=3D",
+                  "Subtitle": "Movies, subscriptions",
+                  "Title": "Fun"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Fun",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Movies, subscriptions",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/film",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Setting Row",
+                "x": 0,
+                "y": 456,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Setting Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/plus / Style=3D",
+                  "Subtitle": "Anything else",
+                  "Title": "Other"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Other",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Anything else",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/plus",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Chosen",
+                "x": 292,
+                "y": 22,
+                "w": 24,
+                "h": 24,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "abs": true,
+                "comp": "Icon/check",
+                "variant": "Style=Line"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

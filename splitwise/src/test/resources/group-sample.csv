@@ -1,0 +1,10 @@
+Date,Description,Category,Cost,Currency,Alice Rao,Bob Shah,Carol Das,Dave Iyer
+2025-05-01,Altruist payment,General,300.00,INR,300.00,-100.00,-100.00,-100.00
+2025-05-02,By percentage,Dining out,1000.00,INR,-200.00,700.00,-300.00,-200.00
+2025-05-03,Income,General,30.00,INR,-20.00,10.00,10.00,0.00
+2025-05-04,Two payers,Groceries,900.00,INR,375.00,75.00,-225.00,-225.00
+2025-05-05,Bob paid Carol,Payment,10.00,INR,0.00,10.00,-10.00,0.00
+2025-05-06,Self-payment,General,100.00,INR,0.00,0.00,0.00,0.00
+2025-05-07,Chai,Dining out,8.20,INR,-2.73,5.47,-2.74,0.00
+
+2025-05-07,Total balance, , ,INR,452.27,700.47,-627.74,-525.00

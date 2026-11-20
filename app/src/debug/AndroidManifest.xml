@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug builds only: shows one component or screen by name so it can be compared with the design. -->
+        <activity
+            android:name="com.expenses.app.preview.PreviewActivity"
+            android:exported="true" />
+    </application>
+</manifest>

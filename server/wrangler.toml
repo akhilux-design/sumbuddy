@@ -1,0 +1,76 @@
+name = "xpense-api"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"   # the date the build starts, not later than the installed wrangler supports
+workers_dev = true
+preview_urls = false                 # no public address per uploaded version: only the current one is reachable
+
+# Production values only. Local runs set ENVIRONMENT on the command line (npm run dev); never add an [env.*] section
+# that changes it. scripts/check-prod-config.mjs refuses to deploy otherwise (docs/server.md 4.4).
+[vars]
+ENVIRONMENT = "production"
+GOOGLE_WEB_CLIENT_ID = "661675315227-k5fpgulhid1nnbn61c0gs51p3f4ng3jp.apps.googleusercontent.com"
+# Android OAuth clients, one per signing key (comma separated). Every key that signs a build which should sign in
+# needs its client here (docs/server-setup.md 2.4 and 7.1).
+GOOGLE_ANDROID_CLIENT_IDS = "661675315227-mtr7q2rdmrqpqvragq9lavvgchi66bif.apps.googleusercontent.com"
+FCM_PROJECT_ID = "xpense-515014"
+LINK_HOST = "xpense-pay.pages.dev"
+WEB_ORIGIN = "https://xpense-pay.pages.dev"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "xpense"
+database_id = "7cb7ab54-d627-4511-bf9e-53d7ca495971"
+migrations_dir = "migrations"
+
+[[durable_objects.bindings]]
+name = "GROUP_ROOM"
+class_name = "GroupRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GroupRoom"]
+
+[triggers]
+crons = ["30 0 * * *"]
+
+[observability]
+enabled = true
+
+[observability.logs]
+invocation_logs = false              # request URLs hold ids and share tokens (docs/server.md 10)
+
+# Rate limits (docs/server.md 4.15). period must be 10 or 60.
+[[ratelimits]]
+name = "RL_AUTH"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 20
+  period = 60
+
+[[ratelimits]]
+name = "RL_REFRESH"
+namespace_id = "1002"
+  [ratelimits.simple]
+  limit = 5
+  period = 60
+
+[[ratelimits]]
+name = "RL_PUBLIC"
+namespace_id = "1003"
+  [ratelimits.simple]
+  limit = 30
+  period = 60
+
+[[ratelimits]]
+name = "RL_USER"
+namespace_id = "1004"
+  [ratelimits.simple]
+  limit = 120
+  period = 60
+
+[[ratelimits]]
+name = "RL_WRITE"
+namespace_id = "1005"
+  [ratelimits.simple]
+  limit = 30
+  period = 60

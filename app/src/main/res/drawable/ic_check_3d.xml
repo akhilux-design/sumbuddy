@@ -1,0 +1,31 @@
+<!-- Generated from design/icons/svg/check_3d.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M24.552,7.141C25.523,6.065 27.183,5.98 28.259,6.952C29.335,7.923 29.42,9.583 28.448,10.659L14.448,26.159C13.966,26.693 13.286,27.006 12.567,27.024C11.848,27.042 11.153,26.764 10.644,26.256L3.644,19.256C2.619,18.231 2.619,16.569 3.644,15.544C4.669,14.519 6.331,14.519 7.356,15.544L12.403,20.591L24.552,7.141Z"
+      android:fillColor="#1E7646"/>
+  <path
+      android:pathData="M24.552,5.741C25.523,4.665 27.183,4.58 28.259,5.552C29.335,6.523 29.42,8.183 28.448,9.259L14.448,24.759C13.966,25.293 13.286,25.606 12.567,25.624C11.848,25.642 11.153,25.365 10.644,24.856L3.644,17.856C2.619,16.831 2.619,15.169 3.644,14.144C4.669,13.119 6.331,13.119 7.356,14.144L12.403,19.191L24.552,5.741Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:startX="5.5"
+          android:startY="7.5"
+          android:endX="20.312"
+          android:endY="27.567"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFAEEACA"/>
+        <item android:offset="0.5" android:color="#FF52BD82"/>
+        <item android:offset="1" android:color="#FF2F9C60"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M24.94,6.466C25.069,6.322 25.291,6.31 25.434,6.44C25.578,6.569 25.589,6.791 25.46,6.934L13.76,19.934C13.631,20.078 13.409,20.089 13.266,19.96C13.122,19.831 13.111,19.609 13.24,19.465L24.94,6.466Z"
+      android:strokeAlpha="0.5"
+      android:fillColor="#ffffff"
+      android:fillAlpha="0.5"/>
+</vector>

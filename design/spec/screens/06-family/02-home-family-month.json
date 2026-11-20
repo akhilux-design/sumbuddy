@@ -1,0 +1,947 @@
+{
+  "name": "Home (family month)",
+  "group": "Group/06 Family",
+  "index": 2,
+  "darkId": "44:1166",
+  "lightId": "80:2220",
+  "tree": {
+    "t": "FRAME",
+    "n": "Home (family month)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 634,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Greeting",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 44,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Avatar",
+                "x": 0,
+                "y": 2,
+                "w": 40,
+                "h": 40,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/accent/purple"
+                ],
+                "comp": "Avatar",
+                "variant": "Color=Purple",
+                "props": {
+                  "Initial": "A"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "A",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Text",
+                "x": 52,
+                "y": 1,
+                "w": 140,
+                "h": 42,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/0",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Hey Arjun",
+                    "x": 0,
+                    "y": 0,
+                    "w": 95,
+                    "h": 24,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Hey Arjun",
+                    "style": "Heading/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Monday, 16 Nov",
+                    "x": 0,
+                    "y": 24,
+                    "w": 102,
+                    "h": 18,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "Monday, 16 Nov",
+                    "style": "Caption"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Me or Family toggle",
+                "x": 204,
+                "y": 0,
+                "w": 124,
+                "h": 44,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  4,
+                  4,
+                  4
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "comp": "Segmented Toggle",
+                "variant": "Selected=Right, State=Default",
+                "props": {
+                  "Right": "Family",
+                  "Left": "Me"
+                },
+                "texts": [
+                  {
+                    "n": "Left label",
+                    "text": "Me",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Right label",
+                    "text": "Family",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Balance Card",
+            "x": 16,
+            "y": 64,
+            "w": 328,
+            "h": 145,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Balance Card",
+            "variant": "Tone=Positive, State=Default",
+            "props": {
+              "Caption": "Arjun and Meera · 64 expenses",
+              "Amount": "₹42,300",
+              "Label": "FAMILY SPENT IN NOVEMBER"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "FAMILY SPENT IN NOVEMBER",
+                "style": "Label",
+                "textCase": "UPPER",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹42,300",
+                "style": "Amount/XL",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              },
+              {
+                "n": "Caption",
+                "text": "Arjun and Meera · 64 expenses",
+                "style": "Body/M Strong",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "By person",
+            "x": 16,
+            "y": 221,
+            "w": 83,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "By person",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "People",
+            "x": 16,
+            "y": 249,
+            "w": 328,
+            "h": 140,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Plain, State=Default",
+                "props": {
+                  "Amount": "₹24,100",
+                  "Detail": "38 expenses",
+                  "Name": "Arjun (you)"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "A",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Arjun (you)",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "38 expenses",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹24,100",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Purple",
+                    "props": {
+                      "Initial": "A"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 74,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Plain, State=Default",
+                "props": {
+                  "Amount": "₹18,200",
+                  "Detail": "26 expenses",
+                  "Name": "Meera"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "M",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Meera",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "26 expenses",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹18,200",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Green",
+                    "props": {
+                      "Initial": "M"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Top categories",
+            "x": 16,
+            "y": 401,
+            "w": 129,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Top categories",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Categories",
+            "x": 16,
+            "y": 429,
+            "w": 328,
+            "h": 70,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Stat Tile",
+                "x": 0,
+                "y": 0,
+                "w": 158,
+                "h": 70,
+                "lay": "col",
+                "gap": 2,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/2",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Stat Tile",
+                "variant": "Tone=Neutral, State=Default",
+                "props": {
+                  "Value": "₹24,000",
+                  "Label": "Rent and bills"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Rent and bills",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "₹24,000",
+                    "style": "Heading/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Stat Tile",
+                "x": 170,
+                "y": 0,
+                "w": 158,
+                "h": 70,
+                "lay": "col",
+                "gap": 2,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/2",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Stat Tile",
+                "variant": "Tone=Neutral, State=Default",
+                "props": {
+                  "Value": "₹9,840",
+                  "Label": "Groceries"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Groceries",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "₹9,840",
+                    "style": "Heading/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Latest",
+            "x": 16,
+            "y": 511,
+            "w": 55,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Latest",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Expense Row",
+            "x": 16,
+            "y": 539,
+            "w": 328,
+            "h": 68,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "comp": "Expense Row",
+            "variant": "Kind=Shared, State=Default",
+            "props": {
+              "Meta": "Family",
+              "Icon": "Icon/cart / Style=3D",
+              "Amount": "₹2,340",
+              "Subtitle": "Groceries · Meera paid",
+              "Title": "BigBasket"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "BigBasket",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "Groceries · Meera paid",
+                "style": "Caption",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹2,340",
+                "style": "Amount/M",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Meta",
+                "text": "Family",
+                "style": "Caption",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/cart",
+                "variant": "Style=3D"
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Expense Row",
+            "x": 16,
+            "y": 619,
+            "w": 328,
+            "h": 68,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "comp": "Expense Row",
+            "variant": "Kind=Shared, State=Default",
+            "props": {
+              "Meta": "Family",
+              "Icon": "Icon/food / Style=3D",
+              "Amount": "₹450",
+              "Subtitle": "Food · You paid",
+              "Title": "Swiggy"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Swiggy",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "Food · You paid",
+                "style": "Caption",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹450",
+                "style": "Amount/M",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Meta",
+                "text": "Family",
+                "style": "Caption",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/food",
+                "variant": "Style=3D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Bottom Nav",
+        "x": 0,
+        "y": 680,
+        "w": 360,
+        "h": 96,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Bottom Nav",
+        "variant": "Active=Home",
+        "texts": [
+          {
+            "n": "Label",
+            "text": "Home",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Tab/Home",
+            "w": 104,
+            "h": 53,
+            "comp": "Bottom Nav Pill",
+            "variant": "Tab=Home, State=Default"
+          },
+          {
+            "n": "Tab/Groups",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Groups, State=Default"
+          },
+          {
+            "n": "Tab/Activity",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Activity, State=Default"
+          },
+          {
+            "n": "Tab/You",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=You, State=Default"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

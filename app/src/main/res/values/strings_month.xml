@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Month view (design/spec/screens/02-everyday/18-month-view). Tile labels and headings are shown in capitals. -->
+    <string name="month_spent">Spent</string>
+    <string name="month_last_month">Last month</string>
+    <string name="month_by_category">By category</string>
+    <plurals name="month_category_count">
+        <item quantity="one">%d expense</item>
+        <item quantity="other">%d expenses</item>
+    </plurals>
+    <!-- A category's share of the month. %1$d is a whole percent. -->
+    <string name="month_category_percent">%1$d%%</string>
+    <string name="month_previous">Previous month</string>
+    <string name="month_next">Next month</string>
+    <string name="month_empty_title">Nothing added</string>
+    <string name="month_empty_body">Payments you add in this month are counted here.</string>
+</resources>

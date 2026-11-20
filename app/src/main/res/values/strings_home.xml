@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home tab. Copy from design/spec/screens/02-everyday/00-home to 03-home-offline. -->
+
+    <!-- Greeting row. %1$s is the person's first name. -->
+    <string name="home_greeting">Hey %1$s</string>
+    <!-- Greeting when the person gave no name. -->
+    <string name="home_greeting_no_name">Hey there</string>
+    <string name="home_view_me">Me</string>
+    <string name="home_view_family">Family</string>
+
+    <!-- Spent card. %1$s is the month name. The card shows the label in capitals. -->
+    <string name="home_spent_label">Spent in %1$s</string>
+    <string name="home_spent_caption_tracking">your spending + your share of splits</string>
+    <string name="home_spent_caption_start_fresh">nothing yet</string>
+    <string name="home_spent_caption_manual">added by hand</string>
+    <!-- Caption when the toggle shows Family: the Family expenses added on this phone, at their full amount. -->
+    <string name="home_spent_caption_family">your Family expenses on this phone</string>
+
+    <!-- Offline banner. -->
+    <string name="home_offline_title">You\'re offline</string>
+    <string name="home_offline_body">Your own expenses still work. Splits sync when you are back online.</string>
+
+    <!-- Payment detected card. -->
+    <string name="home_detected_tag">Payment detected</string>
+    <!-- %1$s is the last four digits of the card or account, %2$s when the payment was seen, for example "now". -->
+    <string name="home_detected_source">••%1$s · %2$s</string>
+    <!-- The card's title is "₹450 at Swiggy": format_amount_at, _to or _for (ui/format/PayeeWording.kt). -->
+    <!-- %1$s is the merchant, %2$s the group or person it was split with last time. -->
+    <string name="home_detected_last_split">Last time you split %1$s with %2$s.</string>
+    <!-- Used in the card's title when the SMS names nobody. -->
+    <string name="home_detected_no_merchant">an unnamed payee</string>
+    <!-- When the payment was seen. -->
+    <string name="home_seen_now">now</string>
+    <plurals name="home_seen_minutes">
+        <item quantity="one">%d min ago</item>
+        <item quantity="other">%d min ago</item>
+    </plurals>
+    <plurals name="home_seen_hours">
+        <item quantity="one">%d h ago</item>
+        <item quantity="other">%d h ago</item>
+    </plurals>
+    <!-- Under the detected payment: how many more wait after it. -->
+    <!-- Opens Review payments with every payment waiting, this one included. Shown only when more than one waits. -->
+    <plurals name="home_detected_review_all">
+        <item quantity="one">Review %d</item>
+        <item quantity="other">Review all %d</item>
+    </plurals>
+    <string name="home_detected_add">Add</string>
+    <string name="home_detected_split">Split</string>
+    <string name="home_detected_ignore">Ignore</string>
+
+    <!-- Split totals. -->
+    <string name="home_owed_to_you">Owed to you</string>
+    <string name="home_you_owe">You owe</string>
+    <!-- Not in the design: what tapping a split tile does, for screen readers. It opens the Groups tab. -->
+    <string name="home_open_groups">See your groups</string>
+
+    <!-- Latest expenses. -->
+    <string name="home_latest_title">Latest</string>
+    <string name="home_latest_add">+ Add</string>
+    <string name="home_add_expense">Add expense</string>
+
+    <!-- Start fresh empty state. -->
+    <string name="home_start_fresh_title">Fresh start</string>
+    <string name="home_start_fresh_body">When you pay for something, we\'ll spot it and ask what to do with it.</string>
+    <string name="home_start_fresh_action">Add one by hand</string>
+
+    <!-- Automatic tracking tip, shown in manual mode. %1$s is the app name. -->
+    <string name="home_tip_tag">Tip</string>
+    <string name="home_tip_title">Let %1$s spot your payments</string>
+    <string name="home_tip_body">Allow SMS access and each payment shows up for you to add, split or ignore.</string>
+    <string name="home_tip_turn_on">Turn on</string>
+    <string name="home_tip_not_now">Not now</string>
+
+    <!-- Home, Family side with a family on this phone (design/spec/screens/06-family/02 to 07; docs/family.md 1.5). -->
+    <!-- %1$s is the month, for example "Family spent in November" (drawn in capitals). -->
+    <string name="home_family_spent_label">Family spent in %1$s</string>
+    <!-- %1$s and %2$s are the two first names, %3$s the count, for example "Arjun and Meera · 64 expenses". -->
+    <string name="home_family_caption_two">%1$s and %2$s · %3$s</string>
+    <!-- %1$s is the count, for example "Just you · 12 expenses". -->
+    <string name="home_family_caption_alone">Just you · %1$s</string>
+    <plurals name="home_family_expenses">
+        <item quantity="one">%d expense</item>
+        <item quantity="other">%d expenses</item>
+    </plurals>
+    <string name="home_family_by_person">By person</string>
+    <string name="home_family_top_categories">Top categories</string>
+    <!-- %1$s is the person's first name: "Arjun (you)". -->
+    <string name="home_family_you">%1$s (you)</string>
+    <!-- %1$s is the category, %2$s who paid: "Groceries · Meera paid". -->
+    <string name="home_family_row_paid">%1$s · %2$s paid</string>
+    <string name="home_family_row_you_paid">%1$s · You paid</string>
+    <string name="home_family_row_meta">Family</string>
+    <string name="home_family_empty_title">Nothing in the family month yet</string>
+    <string name="home_family_empty_body">When you add an expense, choose Family under Count it in.</string>
+    <!-- Not drawn: what screen readers say while the family month loads (06-family/06 has no text). -->
+    <string name="home_family_loading">Loading the family month</string>
+    <!-- The Family card under the Balance Card (02-everyday/51, 06-family/03 and 04). -->
+    <string name="home_family_card_tag">Family</string>
+    <string name="home_family_setup_title">Share this month with your partner</string>
+    <string name="home_family_setup_body">Set up Family to see one total for the two of you. Only expenses marked Family are shared.</string>
+    <string name="home_family_setup_button">Set up Family</string>
+    <string name="home_family_waiting_tag">Invite sent</string>
+    <string name="home_family_waiting_title">Waiting for your partner</string>
+    <string name="home_family_waiting_body">They join with the link you sent. Send it again if it got lost.</string>
+    <string name="home_family_waiting_button">Send link again</string>
+    <string name="home_family_alone_title">Invite your partner</string>
+    <!-- %1$s is the family's name: "Home has just you now. …". -->
+    <string name="home_family_alone_body">%1$s has just you now. Send a link to share it again.</string>
+    <string name="home_family_alone_button">Invite partner</string>
+    <!-- The offline banner on the Family side with a family (06-family/07). -->
+    <string name="home_offline_body_family">Your own expenses still work. The family month syncs when you are back online.</string>
+</resources>

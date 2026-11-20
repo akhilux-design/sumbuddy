@@ -1,0 +1,21 @@
+<!-- Generated from design/icons/svg/link_line.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M10,13C10.433,13.565 10.981,14.031 11.608,14.367C12.235,14.703 12.927,14.901 13.637,14.948C14.347,14.996 15.059,14.891 15.725,14.641C16.391,14.392 16.996,14.002 17.5,13.5L20.5,10.5C21.222,9.537 21.573,8.346 21.487,7.146C21.402,5.945 20.887,4.816 20.035,3.964C19.184,3.113 18.055,2.598 16.854,2.513C15.654,2.427 14.463,2.778 13.5,3.5L11.8,5.2"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M14,11C13.567,10.435 13.019,9.969 12.392,9.633C11.765,9.297 11.073,9.099 10.363,9.052C9.653,9.004 8.941,9.109 8.275,9.359C7.609,9.609 7.004,9.998 6.5,10.5L3.5,13.5C2.778,14.463 2.427,15.654 2.513,16.854C2.598,18.055 3.113,19.185 3.964,20.036C4.816,20.887 5.945,21.402 7.146,21.487C8.346,21.573 9.537,21.222 10.5,20.5L12.2,18.8"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+</vector>

@@ -1,0 +1,34 @@
+SumBuddy adds up your month for you. It reads the bank and UPI SMS already on your phone, finds the payments in them, and asks you to add, split or ignore each one. Your SMS never leave the phone.
+
+Track your month
+* Payments found in bank, card, wallet and UPI SMS, read on the phone
+* Add, Split or Ignore each one; nothing is added silently
+* Review payments one card at a time, with Add all and Undo
+* Spending by category, this month against last month
+* Card bills and due dates from statement SMS
+* Skips OTPs, offers and reward points that are not money
+* No SMS access? Add payments by hand
+
+Split with friends (optional sign-in with Google)
+* Groups and one-to-one splits: equally, by amounts, percentages or shares
+* Who owes whom, settle up by UPI, cash or bank transfer
+* Remind on WhatsApp with a link: friends without the app see what they owe and can pay by UPI
+* Works offline and syncs later
+
+Family month
+* Share one monthly total with your partner, with no owing between you
+
+Import from Splitwise
+* Bring a group across from a Splitwise export file
+
+Private by design
+* SMS are read on the phone and never uploaded or logged
+* Without sign-in, nothing about you is stored on any server
+* Only the expenses you split or mark Family are shared, with the people in that group
+* No ads, no analytics, no tracking
+
+Made for India: rupees, Indian banks and UPI. Free and open source (GPL-3.0-or-later).
+
+Anti-features: sign-in uses Google (Google Identity Services and Google Play services), and push messages use Firebase Cloud Messaging. Both are used only for splitting; tracking your month needs neither.
+
+SumBuddy is not affiliated with Splitwise, Google or any bank.

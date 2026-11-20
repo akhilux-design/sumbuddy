@@ -1,0 +1,659 @@
+{
+  "name": "What we've read",
+  "group": "Group/04 You",
+  "index": 4,
+  "darkId": "38:995",
+  "lightId": "80:2103",
+  "tree": {
+    "t": "FRAME",
+    "n": "What we've read",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "What we've read"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "What we've read",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 0,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": ""
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 585,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Balance Card",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 145,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Balance Card",
+            "variant": "Tone=Neutral, State=Default",
+            "props": {
+              "Caption": "214 bank messages read, all on this device",
+              "Amount": "0",
+              "Label": "SENT OFF THIS PHONE"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "SENT OFF THIS PHONE",
+                "style": "Label",
+                "textCase": "UPPER",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "0",
+                "style": "Amount/XL",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Caption",
+                "text": "214 bank messages read, all on this device",
+                "style": "Body/M Strong",
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Latest messages used",
+            "x": 16,
+            "y": 165,
+            "w": 183,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Latest messages used",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Messages",
+            "x": 16,
+            "y": 193,
+            "w": 328,
+            "h": 220,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Expense Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Expense Row",
+                "variant": "Kind=Personal, State=Default",
+                "props": {
+                  "Icon": "Icon/bank / Style=3D",
+                  "Amount": "₹450",
+                  "Subtitle": "Debit alert · today 9:12",
+                  "Meta": "Used",
+                  "Title": "HDFC Bank"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "HDFC Bank",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Debit alert · today 9:12",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹450",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Meta",
+                    "text": "Used",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/tertiary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/bank",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Expense Row",
+                "x": 0,
+                "y": 76,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Expense Row",
+                "variant": "Kind=Personal, State=Default",
+                "props": {
+                  "Icon": "Icon/card / Style=3D",
+                  "Amount": "₹186",
+                  "Subtitle": "Card alert · today 8:40",
+                  "Meta": "Used",
+                  "Title": "ICICI Bank"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "ICICI Bank",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Card alert · today 8:40",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹186",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Meta",
+                    "text": "Used",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/tertiary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/card",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Expense Row",
+                "x": 0,
+                "y": 152,
+                "w": 328,
+                "h": 68,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Expense Row",
+                "variant": "Kind=Personal, State=Default",
+                "props": {
+                  "Icon": "Icon/bank / Style=3D",
+                  "Amount": "₹1,200",
+                  "Subtitle": "Credit alert · yesterday",
+                  "Meta": "Used",
+                  "Title": "HDFC Bank"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "HDFC Bank",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Credit alert · yesterday",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹1,200",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Meta",
+                    "text": "Used",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/tertiary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/bank",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Skipped",
+            "x": 16,
+            "y": 425,
+            "w": 62,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Skipped",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Info Row",
+            "x": 16,
+            "y": 453,
+            "w": 328,
+            "h": 44,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Info Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/ban / Style=3D",
+              "Subtitle": "1,902 messages, never stored",
+              "Title": "OTPs, promotions, personal chats"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "OTPs, promotions, personal chats",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "1,902 messages, never stored",
+                "style": "Body/M",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/ban",
+                "variant": "Style=3D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 695,
+        "w": 360,
+        "h": 81,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Secondary, Size=Large, State=Default",
+            "props": {
+              "Label": "See the code"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "See the code",
+                "style": "Button",
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

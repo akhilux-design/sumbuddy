@@ -1,0 +1,212 @@
+[
+  {
+    "id": "ct-hdfc-cc-block-cc-no-credit-word",
+    "sender": "AD-HDFCBK",
+    "body": "Spent Rs.2,340.00 On HDFC Bank Card 7720 At AMAZON PAY On 2026-11-12:18:22:41 Not You? To Block+Reissue Call 18002586161/SMS BLOCK CC 7720 To 7308080808",
+    "receivedAt": "2026-11-12T18:23:05+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 234000,
+      "bank": "HDFC Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "7720"
+    }
+  },
+  {
+    "id": "ct-hdfc-cc-upi-rupay-block-cc",
+    "sender": "VM-HDFCBK",
+    "body": "Txn Rs.120.00\nOn HDFC Bank Card 7720\nAt q123456789@ybl\nby UPI 632112345678\nOn 14-11\nNot You?\nCall 18002586161/SMS BLOCK CC 7720 to 7308080808",
+    "receivedAt": "2026-11-14T09:10:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 12000,
+      "bank": "HDFC Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "7720"
+    }
+  },
+  {
+    "id": "ct-hdfc-cardmember-payment-received",
+    "sender": "VM-HDFCBK",
+    "body": "Dear Cardmember, Payment of Rs.12,500.00 has been received on your HDFC Bank Card ending 7720 on 15-11-2026. Thank you.",
+    "receivedAt": "2026-11-15T11:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 1250000,
+      "bank": "HDFC Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "7720"
+    }
+  },
+  {
+    "id": "ct-yes-blkcc-no-limit",
+    "sender": "VM-YESBNK",
+    "body": "INR 999.00 spent on YES BANK Card X2207 @AMAZON 14-11-2026 08:12:45 pm. SMS BLKCC 2207 to 9840909000 if not you",
+    "receivedAt": "2026-11-14T20:13:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 99900,
+      "bank": "Yes Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "2207"
+    }
+  },
+  {
+    "id": "ct-rbl-cc-short-name",
+    "sender": "VM-RBLBNK",
+    "body": "Dear Customer, payment of Rs.5,000.00 has been received on your RBL Bank CC xx3344 on 14-11-2026.",
+    "receivedAt": "2026-11-14T12:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 500000,
+      "bank": "RBL Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "3344"
+    }
+  },
+  {
+    "id": "ct-amex-card-issuer",
+    "sender": "AD-AMEXIN",
+    "body": "Alert: You've spent INR 1,250.00 on your AMEX card ** 31005 at UBER INDIA on 14 November 2026 at 08:15 PM IST.",
+    "receivedAt": "2026-11-14T20:16:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 125000,
+      "bank": "American Express",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "31005"
+    }
+  },
+  {
+    "id": "ct-idfc-first-card-available-limit",
+    "sender": "VM-IDFCFB",
+    "body": "IDFC FIRST Bank Card ending XX4410 used for INR 640.00 at ZOMATO on 14-NOV-2026. Available Limit: INR 98,360.00",
+    "receivedAt": "2026-11-14T21:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 64000,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4410"
+    }
+  },
+  {
+    "id": "ct-citi-card-avl-limit",
+    "sender": "VM-CITIBK",
+    "body": "Rs.1,050.00 spent on your Citibank card ending 4466 at SHELL on 14-NOV-26. Avl limit Rs.1,23,400.00",
+    "receivedAt": "2026-11-14T08:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 105000,
+      "bank": "Citibank",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "4466"
+    }
+  },
+  {
+    "id": "ct-sbicard-account-payment",
+    "sender": "JK-SBICRD",
+    "body": "We have received payment of Rs.10,000.00 towards your SBI Card account ending 6789 on 14/11/26. Thank you.",
+    "receivedAt": "2026-11-14T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 1000000,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789"
+    }
+  },
+  {
+    "id": "ct-neg-hdfc-debit-card-block-dc",
+    "sender": "VM-HDFCBK",
+    "body": "Spent Rs.500.00 From HDFC Bank Card x1234 At DMART On 2026-11-14:12:01:22 Avl Bal Rs.12,345.60 Not You? To Block+Reissue Call 18002586161/SMS BLOCK DC 1234 to 7308080808",
+    "receivedAt": "2026-11-14T12:02:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 50000,
+      "bank": "HDFC Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "1234"
+    }
+  },
+  {
+    "id": "ct-neg-axis-debit-card-blockcard",
+    "sender": "AX-AXISBK",
+    "body": "INR 1,200.00 spent on Axis Bank Debit Card no. XX7781 at RELIANCE SMART on 14-11-26. Avl Bal INR 22,340.00. Not you? SMS BLOCKCARD 7781 to 919951860002",
+    "receivedAt": "2026-11-14T13:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 120000,
+      "bank": "Axis Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "7781"
+    }
+  },
+  {
+    "id": "ct-neg-account-paying-cc-bill",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.15,000.00 debited from A/c XX4521 towards CC payment of card XX9012 on 14-11-26 via NetBanking. Avl Bal Rs.40,210.00",
+    "receivedAt": "2026-11-14T09:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1500000,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "ct-neg-account-upi-daily-limit-footer",
+    "sender": "VM-ICICIB",
+    "body": "ICICI Bank Acct XX123 debited for Rs 450.00 on 14-Nov-26; SWIGGY credited. UPI:632199988877. UPI daily limit is Rs 1,00,000. Call 18002662 for dispute.",
+    "receivedAt": "2026-11-14T14:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "123"
+    }
+  },
+  {
+    "id": "ct-neg-generic-card-no-hint",
+    "sender": "VM-FEDBNK",
+    "body": "Rs 300.00 spent on Federal Bank Card XX5566 at CAFE COFFEE DAY on 14-11-2026.",
+    "receivedAt": "2026-11-14T16:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 30000,
+      "bank": "Federal Bank",
+      "instrumentType": "UNKNOWN",
+      "instrumentLast4": "5566"
+    }
+  },
+  {
+    "id": "ct-neg-dc-short-name",
+    "sender": "VM-KOTAKB",
+    "body": "Rs.250.00 spent on your Kotak DC XX8812 at MEDPLUS on 14/11/2026. Avl bal Rs.6,120.00",
+    "receivedAt": "2026-11-14T17:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 25000,
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "8812"
+    }
+  }
+]

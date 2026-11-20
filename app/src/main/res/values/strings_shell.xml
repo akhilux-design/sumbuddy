@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Names of the four main tabs, as the bottom navigation writes them (design: Bottom Nav). Also read out
+         by screen readers for the tabs that show only an icon. -->
+    <string name="shell_tab_home">Home</string>
+    <string name="shell_tab_groups">Groups</string>
+    <string name="shell_tab_activity">Activity</string>
+    <string name="shell_tab_you">You</string>
+    <!-- What a screen reader says for the round back button of a top bar. -->
+    <string name="shell_back">Back</string>
+</resources>

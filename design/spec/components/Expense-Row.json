@@ -1,0 +1,468 @@
+{
+  "name": "Expense Row", "id": "21:29",
+  "properties": {
+    "Title#21:4": {"type": "TEXT", "defaultValue": "Swiggy"}, "Subtitle#21:8": {"type": "TEXT", "defaultValue": "Food · HDFC card ••4521"},
+    "Amount#21:12": {"type": "TEXT", "defaultValue": "₹450"}, "Meta#21:16": {"type": "TEXT", "defaultValue": "Just you"},
+    "Icon#103:0": {"type": "INSTANCE_SWAP", "defaultValue": "106:187", "defaultName": "Icon/receipt / Style=3D"},
+    "Kind": {"type": "VARIANT", "defaultValue": "Personal", "options": ["Personal", "Shared", "Review"]},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Expense Row", "x": 0, "y": 36, "w": 378, "h": 584, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "Kind=Personal, State=Default", "x": 25, "y": 25, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 180, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 180, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 180, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 260, "y": 13, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/tertiary"],
+                "text": "Just you", "style": "Caption"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Kind=Shared, State=Default", "x": 25, "y": 117, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 180, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 180, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 180, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 260, "y": 13, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/brand"], "text": "Just you",
+                "style": "Caption"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Kind=Review, State=Default", "x": 25, "y": 209, "w": 328, "h": 71, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "stroke": ["color/accent/yellow"], "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 14, "y": 14, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 70, "y": 15, "w": 177, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 177, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 177, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 259, "y": 15, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/warning"],
+                "text": "Just you", "style": "Caption"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Kind=Personal, State=Pressed", "x": 25, "y": 304, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 180, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 180, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 180, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 260, "y": 13, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/tertiary"],
+                "text": "Just you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 68, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Kind=Shared, State=Pressed", "x": 25, "y": 396, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 180, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 180, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 180, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 260, "y": 13, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/brand"], "text": "Just you",
+                "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 68, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Kind=Review, State=Pressed", "x": 25, "y": 488, "w": 328, "h": 71, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12],
+        "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "stroke": ["color/accent/yellow"], "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 14, "y": 14, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 70, "y": 15, "w": 177, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 177, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "Swiggy", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 177, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Food · HDFC card ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Amount", "x": 259, "y": 15, "w": 56, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN",
+            "cross": "MAX", "gapVar": "space/2", "size": ["HUG", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Amount", "x": 11, "y": 0, "w": 45, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "₹450",
+                "style": "Amount/M"
+              },
+              {
+                "t": "TEXT", "n": "Meta", "x": 0, "y": 24, "w": 56, "h": 18, "size": ["HUG", "HUG"], "fill": ["color/text/warning"],
+                "text": "Just you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 71, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

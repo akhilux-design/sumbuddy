@@ -1,0 +1,326 @@
+{
+  "name": "Avatar",
+  "id": "20:63",
+  "properties": {
+    "Initial#20:17": {
+      "type": "TEXT",
+      "defaultValue": "R"
+    },
+    "Color": {
+      "type": "VARIANT",
+      "defaultValue": "Green",
+      "variantOptions": [
+        "Green",
+        "Yellow",
+        "Pink",
+        "Purple",
+        "Blue",
+        "Orange"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Avatar",
+    "x": 0,
+    "y": 36,
+    "w": 410,
+    "h": 90,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "size": [
+      "HUG",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Color=Green",
+        "x": 25,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/brand/primary"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Color=Yellow",
+        "x": 89,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/accent/yellow"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Color=Pink",
+        "x": 153,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/accent/pink"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Color=Purple",
+        "x": 217,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/accent/purple"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Color=Blue",
+        "x": 281,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/accent/blue"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Color=Orange",
+        "x": 345,
+        "y": 25,
+        "w": 40,
+        "h": 40,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "r": 999,
+        "fill": [
+          "color/accent/orange"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Initial",
+            "x": 15,
+            "y": 9,
+            "w": 10,
+            "h": 22,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "R",
+            "style": "Title"
+          }
+        ]
+      }
+    ]
+  }
+}

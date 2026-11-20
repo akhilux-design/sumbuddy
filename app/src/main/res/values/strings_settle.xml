@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settling up (design 03-getting-paid-back/00 to 03, 05, 07). Owned by the settle-up area
+         (docs/groups-build-plan.md). -->
+
+    <!-- Settle up (03-getting-paid-back/00-settle-up, 07-settle-up-no-upi-id). -->
+    <string name="settle_title">Settle up</string>
+    <!-- %1$s is the friend ("Rahul"). -->
+    <string name="settle_you_owe">You owe %1$s</string>
+    <!-- The tag under the amount: the expenses since the two last settled, and the group. %1$d is the count, %2$s the group. -->
+    <plurals name="settle_expenses_in_group">
+        <item quantity="one">%1$d expense · %2$s</item>
+        <item quantity="other">%1$d expenses · %2$s</item>
+    </plurals>
+    <!-- Not in the design: the tag for a direct split with the friend, which has no group name. %d is the count. -->
+    <plurals name="settle_expenses">
+        <item quantity="one">%d expense</item>
+        <item quantity="other">%d expenses</item>
+    </plurals>
+    <string name="settle_upi_title">Pay by UPI</string>
+    <string name="settle_upi_subtitle">Opens your UPI app with the amount filled in.</string>
+    <string name="settle_other_title">Paid another way</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_other_subtitle">Mark it as paid. %1$s can confirm.</string>
+    <!-- Not in the design: "Paid another way" for a friend without the app, who cannot confirm (the server confirms it
+         at once). -->
+    <string name="settle_other_subtitle_no_app">Mark it as paid.</string>
+    <string name="settle_clears_title">It clears itself</string>
+    <string name="settle_clears_body">When the payment SMS arrives, this balance closes. Nothing to tick.</string>
+    <!-- %1$s is the amount ("₹1,200"). -->
+    <string name="settle_pay">Pay %1$s</string>
+    <!-- %1$s is the amount ("₹1,200"). Also on Mark as paid. -->
+    <string name="settle_mark_paid">Mark %1$s as paid</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_no_upi_title">No UPI ID for %1$s</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_no_upi_body">Ask %1$s how to pay. Then mark it as paid here.</string>
+    <!-- Not in the design: Pay by UPI was tapped and no app on the phone takes UPI payments. %1$s is the friend. -->
+    <string name="settle_no_upi_app_title">No UPI app on this phone</string>
+    <string name="settle_no_upi_app_body">Pay %1$s another way. Then mark it as paid here.</string>
+
+    <!-- Mark as paid (03-getting-paid-back/01-mark-as-paid). -->
+    <string name="settle_mark_paid_title">Mark as paid</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_paid_you">%1$s paid you</string>
+    <string name="settle_cash_title">Cash</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_cash_subtitle">%1$s handed it over.</string>
+    <string name="settle_bank_title">Bank transfer or other</string>
+    <string name="settle_bank_subtitle">It did not arrive as a UPI SMS.</string>
+    <!-- Shown only when the friend is on the app. %1$s is the friend. -->
+    <string name="settle_can_confirm_title">%1$s can confirm</string>
+    <string name="settle_can_confirm_body">They get a note that you marked it as paid.</string>
+
+    <!-- Money received (03-getting-paid-back/02-payment-match). -->
+    <string name="settle_match_title">Money received</string>
+    <string name="settle_match_tag">From SMS</string>
+    <!-- %1$s is the amount ("₹1,200"). -->
+    <string name="settle_match_amount">+%1$s</string>
+    <!-- The line under the amount: %1$s is the account ("HDFC Bank ••4521"), %2$s when it arrived ("just now"). The
+         space after the dot does not break ( ), so a long line moves "· just now" whole to the next line. -->
+    <string name="settle_match_source">%1$s · %2$s</string>
+    <!-- %1$s is the bank or account name, %2$s its last digits. -->
+    <string name="settle_match_account">%1$s ••%2$s</string>
+    <string name="settle_match_just_now">just now</string>
+    <!-- Not in the design: the money arrived longer ago than "just now". -->
+    <plurals name="settle_match_minutes_ago">
+        <item quantity="one">%d min ago</item>
+        <item quantity="other">%d min ago</item>
+    </plurals>
+    <!-- Not in the design: the money arrived longer ago than "just now". -->
+    <plurals name="settle_match_hours_ago">
+        <item quantity="one">%d h ago</item>
+        <item quantity="other">%d h ago</item>
+    </plurals>
+    <!-- %1$s is the friend. -->
+    <string name="settle_match_question">Was this %1$s paying you back?</string>
+    <!-- Under the friend's name: %1$s is the group. -->
+    <string name="settle_match_owes_for">owes you for %1$s</string>
+    <!-- Not in the design: the friend owes the person in several groups. %d is how many. -->
+    <plurals name="settle_match_owes_for_groups">
+        <item quantity="one">owes you for %d group</item>
+        <item quantity="other">owes you for %d groups</item>
+    </plurals>
+    <!-- Not in the design: what the friend owes is a direct split, which has no group name. -->
+    <string name="settle_match_owes">owes you</string>
+    <string name="settle_match_same_title">Same amount</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_match_same_body">It matches what %1$s owes, but the name on the SMS was unclear.</string>
+    <string name="settle_match_yes">Yes, clear it</string>
+    <string name="settle_match_no">No, something else</string>
+    <!-- Not in the design: the money no longer matches anyone (the balance was settled meanwhile, or the payment is
+         gone). Same look as Payment's "gone" state. -->
+    <string name="settle_match_gone_title">Nothing to clear</string>
+    <string name="settle_match_gone_body">This money no longer matches what a friend owes you.</string>
+    <string name="settle_match_gone_back">Go back</string>
+
+    <!-- All square (03-getting-paid-back/03-balance-cleared). -->
+    <!-- %1$s is the friend. -->
+    <string name="settle_cleared_title">All square with %1$s</string>
+    <!-- %1$s is what arrived ("₹1,200"). -->
+    <string name="settle_cleared_body_upi">The %1$s arrived by UPI and the balance closed by itself.</string>
+    <!-- Not in the design: the money arrived another way than UPI (a bank transfer). %1$s is what arrived. -->
+    <string name="settle_cleared_body">The %1$s arrived and the balance closed by itself.</string>
+    <string name="settle_cleared_settled">all settled</string>
+    <!-- Not in the design for this screen (the words of the Groups balance rows): the friend still owes the person in
+         another group. -->
+    <string name="settle_cleared_owes_you">owes you</string>
+    <!-- Not in the design for this screen (the words of the Groups balance rows): the person owes the friend in
+         another group. -->
+    <string name="settle_cleared_you_owe">you owe</string>
+    <string name="settle_cleared_nothing_title">Nothing to tick</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_cleared_nothing_body">We matched the payment SMS to what %1$s owed.</string>
+    <string name="settle_cleared_nice">Nice</string>
+
+    <!-- Remind on WhatsApp (03-getting-paid-back/05-remind-on-whatsapp). -->
+    <!-- %1$s is the friend ("Priya"). -->
+    <string name="settle_remind_title">Remind %1$s</string>
+    <!-- %1$s is the friend. -->
+    <string name="settle_remind_heading">Here\'s what %1$s will get</string>
+    <!-- The first line of the message, as the design writes it. %1$s is the friend, %2$s the person's own name, %3$s
+         the amount ("₹1,150"), %4$s the group ("Flat 302"). -->
+    <string name="settle_remind_message_owe">Hey %1$s You owe %2$s %3$s for %4$s.</string>
+    <!-- Not in the design: the first line for a direct split, which has no group name. %1$s is the friend, %2$s the
+         person's own name, %3$s the amount. -->
+    <string name="settle_remind_message_owe_direct">Hey %1$s You owe %2$s %3$s.</string>
+    <string name="settle_remind_message_link">See the breakdown and pay by UPI:</string>
+    <string name="settle_remind_message_no_app">No app needed.</string>
+    <string name="settle_remind_sent_from">Sent from your own WhatsApp</string>
+    <string name="settle_remind_link_title">The link shows everything</string>
+    <string name="settle_remind_link_body">Each expense, the share owed, and a Pay by UPI button.</string>
+    <string name="settle_remind_clears_title">It clears itself</string>
+    <string name="settle_remind_clears_body">When the payment SMS reaches you, the balance closes.</string>
+    <string name="settle_remind_send">Send on WhatsApp</string>
+    <string name="settle_remind_copy">Copy link</string>
+    <!-- Not in the design: the label of the copied link on the clipboard. -->
+    <string name="settle_remind_clip_label">Pay link</string>
+    <!-- Not in the design: the banner after Copy link on Android 8 to 12, which show no copy confirmation of their own
+         (13 and later do). %1$s is the friend ("Priya"). -->
+    <string name="settle_remind_copied_title">Link copied</string>
+    <string name="settle_remind_copied_body">Paste it in any chat to send it to %1$s.</string>
+
+    <!-- Online-only actions (docs/groups-build-plan.md section 1). Not in the design for these screens: the offline
+         banner's title as on Home (02-everyday/03) with the 02-everyday/23 wording. -->
+    <string name="settle_offline_title">You\'re offline</string>
+    <string name="settle_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: an online-only action the server refused for a reason the screen does not name. -->
+    <string name="settle_failed_title">Could not do that now</string>
+    <string name="settle_failed_body">Try again in a moment.</string>
+</resources>

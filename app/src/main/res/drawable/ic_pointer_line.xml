@@ -1,0 +1,28 @@
+<!-- Generated from design/icons/svg/pointer_line.svg by design/tools/svg2vd. Do not edit: change the SVG and re-run. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M9,11V5C9,4.47 9.211,3.961 9.586,3.586C9.961,3.211 10.47,3 11,3C11.53,3 12.039,3.211 12.414,3.586C12.789,3.961 13,4.47 13,5V11"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M13,9.5C13,8.97 13.211,8.461 13.586,8.086C13.961,7.711 14.47,7.5 15,7.5C15.53,7.5 16.039,7.711 16.414,8.086C16.789,8.461 17,8.97 17,9.5V12"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M17,11C17,10.47 17.211,9.961 17.586,9.586C17.961,9.211 18.47,9 19,9C19.53,9 20.039,9.211 20.414,9.586C20.789,9.961 21,10.47 21,11V15C21,16.857 20.263,18.637 18.95,19.95C17.637,21.263 15.856,22 14,22H12.5C11.413,22 10.342,21.747 9.37,21.261C8.398,20.775 7.552,20.069 6.9,19.2L4,15C3.682,14.576 3.545,14.042 3.62,13.517C3.695,12.992 3.976,12.518 4.4,12.2C4.824,11.882 5.358,11.745 5.883,11.82C6.408,11.895 6.882,12.176 7.2,12.6L9,15"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeLineCap="round"/>
+</vector>

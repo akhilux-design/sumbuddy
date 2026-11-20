@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Split flow (design 02-everyday/09 to 14, 48). Owned by the split-flow area (docs/groups-build-plan.md). -->
+
+    <!-- Split it (09, 10, 11) -->
+    <string name="split_title">Split it</string>
+    <string name="split_you_paid">You paid</string>
+    <!-- Not in the design: an expense typed in on Add expense that someone else paid. "Rahul paid". -->
+    <string name="split_someone_paid">%1$s paid</string>
+    <!-- The payment row's second line: "Today · HDFC card ••4521". -->
+    <string name="split_row_subtitle">%1$s · %2$s</string>
+    <string name="split_with">With</string>
+    <string name="split_how">How</string>
+    <string name="split_new">+ New</string>
+    <string name="split_method_equally">Equally</string>
+    <string name="split_method_amounts">Amounts</string>
+    <string name="split_method_percent" formatted="false">%</string>
+    <string name="split_method_shares">Shares</string>
+    <string name="split_you">You</string>
+    <!-- "your share · counts in November" -->
+    <string name="split_detail_your_share">your share · counts in %1$s</string>
+    <string name="split_detail_will_owe_you">will owe you</string>
+    <!-- Not in the design: with % or Shares the row's end holds the percentage or the shares, so the line under the
+         name gives the money. "your share ₹180 · counts in November" -->
+    <string name="split_detail_your_share_amount">your share %1$s · counts in %2$s</string>
+    <!-- Not in the design: "will owe you ₹180" -->
+    <string name="split_detail_will_owe_you_amount">will owe you %1$s</string>
+    <!-- Not in the design: an expense someone else paid. The payer's row, and the others' rows ("will owe Rahul"). -->
+    <string name="split_detail_paid">paid · their share</string>
+    <string name="split_detail_will_owe">will owe %1$s</string>
+    <!-- Not in the design: the same two lines with the money, for % and Shares. -->
+    <string name="split_detail_paid_amount">paid · their share %1$s</string>
+    <string name="split_detail_will_owe_amount">will owe %1$s %2$s</string>
+    <!-- Not in the design: a percentage at the end of a row, "40%". -->
+    <string name="split_percent_value">%1$s%%</string>
+    <!-- Not in the design: the shares at the end of a row, "2 shares". -->
+    <plurals name="split_shares_value">
+        <item quantity="one">%1$s share</item>
+        <item quantity="other">%1$s shares</item>
+    </plurals>
+    <!-- Not in the design: what screen readers say for the field at the end of a row. -->
+    <string name="split_field_mine">Your part</string>
+    <string name="split_field_other">Part of %1$s</string>
+    <!-- "Only your ₹150 share goes into your November expenses." -->
+    <string name="split_note_your_share">Only your %1$s share goes into your %2$s expenses.</string>
+    <!-- "Amounts add up to ₹450. Only your ₹200 share goes into your November expenses." -->
+    <string name="split_note_amounts_add_up">Amounts add up to %1$s. Only your %2$s share goes into your %3$s expenses.</string>
+    <!-- "₹50 is still left to assign. The parts must add up to ₹450." -->
+    <string name="split_note_left">%1$s is still left to assign. The parts must add up to %2$s.</string>
+    <!-- Not in the design: the typed amounts are more than the payment. -->
+    <string name="split_note_too_much">The parts add up to %1$s. They must add up to %2$s.</string>
+    <!-- Not in the design: "10% is still left to assign. The parts must add up to 100%." -->
+    <string name="split_note_percent_left">%1$s%% is still left to assign. The parts must add up to 100%%.</string>
+    <!-- Not in the design: "The parts add up to 110%. They must add up to 100%." -->
+    <string name="split_note_percent_too_much">The parts add up to %1$s%%. They must add up to 100%%.</string>
+    <!-- Not in the design: a percentage or a number of shares is empty or 0. -->
+    <string name="split_note_zero_part">Give everyone a part above 0.</string>
+    <!-- Not in the design: a typed part is not a number, or is too large. -->
+    <string name="split_note_not_right">One of the parts does not look right.</string>
+    <string name="split_rule_title">Do this every time</string>
+    <!-- "Flat 302, equally": the group and how. -->
+    <string name="split_rule_subtitle">%1$s, %2$s</string>
+    <string name="split_rule_equally">equally</string>
+    <!-- Not in the design: the other ways of splitting in "Flat 302, by amounts". -->
+    <string name="split_rule_amounts">by amounts</string>
+    <!-- Not in the design: "Flat 302, by percentage". -->
+    <string name="split_rule_percent">by percentage</string>
+    <!-- Not in the design: "Flat 302, by shares". -->
+    <string name="split_rule_shares">by shares</string>
+    <!-- "Split ₹450" -->
+    <string name="split_button">Split %1$s</string>
+    <!-- Not in the design: Split it for a payment that cannot be split any more (an old notification, for example). -->
+    <string name="split_cannot_title">Nothing to split here</string>
+    <!-- Not in the design. -->
+    <string name="split_cannot_gone">This payment is not here any more.</string>
+    <!-- Not in the design. -->
+    <string name="split_cannot_already">This payment is already split. You can see it in Activity.</string>
+    <!-- Not in the design. -->
+    <string name="split_cannot_other">Only payments in rupees can be split.</string>
+    <!-- Not in the design. -->
+    <string name="split_go_back">Go back</string>
+
+    <!-- Choose people (12, 48) -->
+    <string name="split_choose_people_title">Split with</string>
+    <string name="split_choose_search">Search</string>
+    <string name="split_choose_search_placeholder">Name or phone number</string>
+    <string name="split_choose_groups">Groups</string>
+    <string name="split_choose_friends">Friends</string>
+    <!-- "3 people" -->
+    <plurals name="split_choose_people_count">
+        <item quantity="one">%1$d person</item>
+        <item quantity="other">%1$d people</item>
+    </plurals>
+    <!-- "On SumBuddy": %1$s is the app's name (app_name). -->
+    <string name="split_choose_on_app">On %1$s</string>
+    <string name="split_choose_whatsapp">Gets a WhatsApp link</string>
+    <!-- Not in the design: Choose people draws no such row. The Add someone row of Group settings (25), at the end
+         of Friends, so a person who knows nobody on the app yet can still split. -->
+    <string name="split_choose_add_someone">Add someone</string>
+    <!-- Not in the design here: the subtitle of 25's Add someone row. -->
+    <string name="split_choose_add_someone_subtitle">By name and phone number</string>
+    <!-- "2 friends picked" -->
+    <plurals name="split_choose_several_title">
+        <item quantity="one">%1$d friend picked</item>
+        <item quantity="other">%1$d friends picked</item>
+    </plurals>
+    <string name="split_choose_several_body">A split goes to one group or one friend. Make a group to split with both.</string>
+    <!-- Not in the design: three or more friends picked. -->
+    <string name="split_choose_several_body_many">A split goes to one group or one friend. Make a group to split with all of them.</string>
+    <string name="split_choose_done">Done</string>
+    <string name="split_choose_make_group">Make a group</string>
+
+    <!-- Split. Sorted. (13) -->
+    <string name="split_added_title">Split. Sorted.</string>
+    <!-- "Rahul and Priya each owe you ₹150 for Swiggy." -->
+    <string name="split_added_each_owe">%1$s each owe you %2$s for %3$s.</string>
+    <!-- Not in the design: one person, or a direct split. "Rahul owes you ₹150 for Swiggy." -->
+    <string name="split_added_one_owes">%1$s owes you %2$s for %3$s.</string>
+    <!-- Not in the design: parts that are not the same. "Rahul and Priya owe you ₹250 for Swiggy." -->
+    <string name="split_added_owe_together">%1$s owe you %2$s for %3$s.</string>
+    <!-- Not in the design: someone else paid. "You owe Rahul ₹200 for Dinner." -->
+    <string name="split_added_you_owe">You owe %1$s %2$s for %3$s.</string>
+    <!-- Not in the design: nobody owes anybody through the person. "Added to Flat 302." -->
+    <string name="split_added_in_group">Added to %1$s.</string>
+    <!-- Not in the design: the same for a split with one friend, which has no group to name ("Added to Rahul." would
+         read wrong). %1$s is the friend's first name: "Split with Rahul." -->
+    <string name="split_added_with_friend">Split with %1$s.</string>
+    <!-- Not in the design: a Balance Row's second line for a direct split (one friend), whose name is the friend's own.
+         The caption of the Groups tab's friend rows (02-everyday/20). -->
+    <string name="split_added_row_owes_you">owes you</string>
+    <!-- Not in the design: as split_added_row_owes_you, when the person owes the friend who paid. -->
+    <string name="split_added_row_you_owe">you owe</string>
+    <!-- Names in a sentence: "Rahul and Priya"; with more, "Rahul, Priya and Sam". -->
+    <string name="split_names_and">%1$s and %2$s</string>
+    <string name="split_names_comma">%1$s, %2$s</string>
+    <!-- "Your share is in November" -->
+    <string name="split_added_share_title">Your share is in %1$s</string>
+    <!-- "Only ₹150 counts in your month, not the full ₹450." -->
+    <string name="split_added_share_body">Only %1$s counts in your month, not the full %2$s.</string>
+    <!-- Not in the design: the same line when the person's share is the whole amount. "All of the ₹450 counts in your
+         month." -->
+    <string name="split_added_share_all">All of the %1$s counts in your month.</string>
+    <!-- Not in the design: the same line when the person's share is nothing (the others owe all of it). "None of the
+         ₹450 counts in your month." -->
+    <string name="split_added_share_none">None of the %1$s counts in your month.</string>
+    <string name="split_added_remembered_title">Remembered</string>
+    <!-- "Your next Swiggy order can split the same way." -->
+    <string name="split_added_remembered_body">Your next %1$s order can split the same way.</string>
+    <string name="split_added_done">Done</string>
+    <string name="split_added_undo">Undo</string>
+
+    <!-- Same split? (14) -->
+    <!-- "Rent again. Same split?" -->
+    <string name="split_same_title">%1$s again. Same split?</string>
+    <!-- "You split rent with Flat 302 last month too. Want it to split itself every month?" Shown only when a
+         payment to the same payee was split with the group in the calendar month before this payment's own (counted
+         from the payment's date, not from today). -->
+    <string name="split_same_body">You split %1$s with %2$s last month too. Want it to split itself every month?</string>
+    <!-- Not in the design: the same line when the earlier split was not in that month (it was in the payment's own
+         month, or months before). -->
+    <string name="split_same_body_before">You\'ve split %1$s with %2$s before. Want it to split itself every month?</string>
+    <string name="split_same_yes">Yes, every month</string>
+    <string name="split_same_yes_body">Split it automatically. No asking.</string>
+    <string name="split_same_ask">Ask me each time</string>
+    <string name="split_same_ask_body">Keep the one-tap suggestion.</string>
+    <string name="split_same_save">Save</string>
+</resources>

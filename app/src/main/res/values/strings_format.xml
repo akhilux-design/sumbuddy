@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- How an amount and a payee read together (ui/format/PayeeWording.kt). %1$s is the amount ("₹450"), %2$s the
+         payee. Owned by the small-fixes area (docs/groups-build-plan.md). -->
+    <!-- A shop or service, as in the design: "₹450 at Swiggy". -->
+    <string name="format_amount_at">%1$s at %2$s</string>
+    <!-- A person, an account or a UPI ID money was sent to: "₹350 to Ramesh". -->
+    <string name="format_amount_to">%1$s to %2$s</string>
+    <!-- What it was for, as typed: "₹350 for Auto to station". -->
+    <string name="format_amount_for">%1$s for %2$s</string>
+</resources>

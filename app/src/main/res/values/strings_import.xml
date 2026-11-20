@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Import from Splitwise (design/spec/screens/02-everyday/28 to 30, 133 to 140; docs/splitwise-import.md 5.7).
+         Nothing read from the file is shown but its name, its counts and the people's names and balances. -->
+    <string name="import_title">Import from Splitwise</string>
+    <string name="import_headline">Bring a group from Splitwise</string>
+    <string name="import_intro">In Splitwise, open the group and choose Export as spreadsheet. Then pick that file here.</string>
+    <!-- The drop area before a file is picked (28). -->
+    <string name="import_no_file_title">No file chosen yet</string>
+    <string name="import_no_file_body">Pick the .csv file you exported from Splitwise.</string>
+    <!-- The three Info Rows under the drop area or the file. -->
+    <string name="import_what_title">What comes across</string>
+    <string name="import_what_body">Expenses, who paid, and what each person owes.</string>
+    <string name="import_one_file_title">One file, one group</string>
+    <string name="import_one_file_body">Export each group separately in Splitwise.</string>
+    <string name="import_names_title">Names only</string>
+    <string name="import_names_body">The file has no phone numbers. Invite friends with a link after.</string>
+    <string name="import_choose_file">Choose file</string>
+    <!-- The drop area while the file is read on the phone (135); its caption is the file name. -->
+    <string name="import_reading_title">Reading the file</string>
+
+    <!-- The file row (29): "46 expenses · 3 people". %1$s is the count, written with digit grouping. -->
+    <plurals name="import_expenses">
+        <item quantity="one">%1$s expense</item>
+        <item quantity="other">%1$s expenses</item>
+    </plurals>
+    <plurals name="import_people">
+        <item quantity="one">%1$s person</item>
+        <item quantity="other">%1$s people</item>
+    </plurals>
+    <!-- %1$s is import_expenses, %2$s is import_people. -->
+    <string name="import_file_counts">%1$s · %2$s</string>
+    <string name="import_group_name">Group name</string>
+    <string name="import_group_name_error">That does not look right.</string>
+    <string name="import_which_one">Which one is you?</string>
+    <!-- Under each person's name: their rupee balance in the file. %1$s is an amount, for example "₹2,350". -->
+    <string name="import_person_owed">Is owed %1$s</string>
+    <string name="import_person_owes">Owes %1$s</string>
+    <string name="import_person_settled">All settled</string>
+    <!-- The note under the file row when some rows are not in rupees (134). %1$s is the count. -->
+    <plurals name="import_left_out">
+        <item quantity="one">%1$s expense in another currency stays out. Only rupees come across.</item>
+        <item quantity="other">%1$s expenses in other currencies stay out. Only rupees come across.</item>
+    </plurals>
+    <!-- %1$s is the group name, for example "Import Flat 302". -->
+    <string name="import_action">Import %1$s</string>
+    <!-- The button while the group name is blank (it is disabled then). -->
+    <string name="import_action_no_name">Import group</string>
+    <string name="import_choose_different">Choose a different file</string>
+    <string name="import_choose_another">Choose another file</string>
+
+    <!-- Cannot import (30, 136). %1$s is the file name in every body. -->
+    <string name="import_wrong_title">That is not a Splitwise export</string>
+    <string name="import_wrong_body">%1$s cannot be read. Pick the .csv file that Splitwise made.</string>
+    <string name="import_changed_title">This file does not add up</string>
+    <string name="import_changed_body">%1$s was changed after Splitwise made it. Export the group again and pick the new file.</string>
+    <string name="import_too_big_title">This group is too big</string>
+    <string name="import_too_large_file_body">%1$s is over 5 MB. Only smaller groups can come across.</string>
+    <string name="import_too_many_people_body">%1$s has more than 50 people. Only groups of up to 50 people can come across.</string>
+    <string name="import_too_many_rows_body">%1$s has more than 5,000 expenses. Only groups with up to 5,000 can come across.</string>
+    <string name="import_amount_title">An expense is too big</string>
+    <string name="import_amount_body">%1$s has an expense over ₹1 crore, the most one expense can be here.</string>
+    <string name="import_no_rupees_title">Nothing to bring across</string>
+    <string name="import_no_rupees_body">%1$s has no expenses in rupees. Only rupees can come across.</string>
+    <string name="import_one_person_title">Nobody else is in this file</string>
+    <string name="import_one_person_body">%1$s has only one person. Pick the export of a group you share.</string>
+
+    <!-- Already here (137). %1$s is the group, %2$s the day it came across, for example "18 Nov". -->
+    <string name="import_already_note">This file already came across as %1$s on %2$s.</string>
+    <!-- %1$s is the group name. -->
+    <string name="import_open_group">Open %1$s</string>
+
+    <!-- Importing (138, 139) and Import failed (140). %1$s is the group name. -->
+    <string name="import_sending_title">Bringing %1$s across</string>
+    <string name="import_sending_body">Balances and past expenses are being saved. You can leave this screen. It finishes by itself.</string>
+    <!-- %1$s items sent so far of %2$s, written with digit grouping. -->
+    <string name="import_sending_progress">%1$s of %2$s sent</string>
+    <string name="import_offline_title">You\'re offline</string>
+    <string name="import_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <string name="import_problem_title">Could not do that now</string>
+    <string name="import_problem_body">Try again in a moment.</string>
+    <string name="import_failed_title">%1$s did not come across</string>
+    <string name="import_failed_body">Part of the file could not be saved, so none of it was kept. Export the group from Splitwise again and try once more.</string>
+    <string name="import_close">Close</string>
+
+    <!-- Group imported (31, 141). %1$s is the group name. -->
+    <string name="import_done_title">%1$s is in</string>
+    <!-- %1$s is the count of past expenses, written with digit grouping. -->
+    <plurals name="import_done_body">
+        <item quantity="one">Balances and %1$s past expense came across.</item>
+        <item quantity="other">Balances and %1$s past expenses came across.</item>
+    </plurals>
+    <string name="import_done_body_none">Balances came across.</string>
+    <!-- The card's label: one friend, or more. Two strings, not plurals: they hold no number. -->
+    <string name="import_done_links_label_one">Invite link</string>
+    <string name="import_done_links_label">Invite links</string>
+    <!-- The friends' first names in the card: "Priya and Kiran", "Priya, Kiran and Meera", "Priya, Kiran and 3 more". -->
+    <string name="import_names_two">%1$s and %2$s</string>
+    <string name="import_names_three">%1$s, %2$s and %3$s</string>
+    <plurals name="import_names_more">
+        <item quantity="one">%1$s, %2$s and %3$d more</item>
+        <item quantity="other">%1$s, %2$s and %3$d more</item>
+    </plurals>
+    <!-- %1$s is the one friend's first name. -->
+    <string name="import_done_links_note_one">One message with the link for %1$s.</string>
+    <string name="import_done_links_note">One message with a link for each person.</string>
+    <string name="import_done_info_title">Friends can join or just pay</string>
+    <string name="import_done_info_body">Nobody needs the app to see what they owe.</string>
+    <!-- The button: one friend, or more. -->
+    <string name="import_done_share_one">Share invite link</string>
+    <string name="import_done_share">Share invite links</string>
+    <string name="import_done_later">Later</string>
+
+    <!-- The one invite message, sent from the person's own WhatsApp to the group's chat (5.8). %1$s is the group,
+         %2$s the app's name (app_name). -->
+    <string name="import_message_intro">%1$s is on %2$s now, with our balances from Splitwise.</string>
+    <string name="import_message_how">Open the link with your name to see what you owe and pay. No app needed.</string>
+    <!-- One line per friend: %1$s is their full name, %2$s their own pay link. -->
+    <string name="import_message_line">%1$s: %2$s</string>
+</resources>

@@ -1,0 +1,792 @@
+[
+  {
+    "id": "bd-hdfc-upi-merchant-01",
+    "sender": "VM-HDFCBK",
+    "body": "Sent Rs.450.00\nFrom HDFC Bank A/C *4521\nTo SWIGGY\nOn 16/11/26\nRef 632045671234\nNot You?\nCall 18002586161/SMS BLOCK UPI to 7308080808",
+    "receivedAt": "2026-11-16T13:02:11+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "currency": "INR",
+      "counterparty": "Swiggy",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "UPI",
+      "referenceId": "632045671234",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-hdfc-upi-vpa-02",
+    "sender": "AD-HDFCBK",
+    "body": "Rs 1250.00 debited from a/c **4521 on 14-11-26 to VPA rahul.example88@okaxis(UPI Ref No 631898765432). Not you? Call on 18002586161 to report this",
+    "receivedAt": "2026-11-14T21:40:03+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 125000,
+      "vpa": "rahul.example88@okaxis",
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "UPI",
+      "referenceId": "631898765432",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-hdfc-neft-info-03",
+    "sender": "JM-HDFCBK-S",
+    "body": "UPDATE: INR 25,000.00 debited from HDFC Bank A/c XX4521 on 13-NOV-26. Info: NEFT Dr-ICIC0001234-RAHUL VERMA-N317261234567890. Avl bal:INR 1,02,345.10",
+    "receivedAt": "2026-11-13T11:18:45+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 2500000,
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "NEFT",
+      "balanceMinor": 10234510,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-hdfc-debit-card-shop-04",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.2349.00 spent on HDFC Bank Debit Card ending 7788 at DMART on 2026-11-15:19:42:07. Avl bal: Rs.41220.55. Not you? Call 18002586161",
+    "receivedAt": "2026-11-15T19:42:31+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 234900,
+      "counterparty": "Dmart",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "7788",
+      "channel": "CARD",
+      "referenceId": null,
+      "balanceMinor": 4122055,
+      "occurredAt": "2026-11-15T19:42:07+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-icici-upi-merchant-05",
+    "sender": "AX-ICICIT-S",
+    "body": "ICICI Bank Acct XX123 debited for Rs 289.00 on 16-Nov-26; ZEPTO credited. UPI:632091234567. Call 18002662 for dispute. SMS BLOCK 123 to 9215676766.",
+    "receivedAt": "2026-11-16T08:05:52+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 28900,
+      "counterparty": "Zepto",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "123",
+      "channel": "UPI",
+      "referenceId": "632091234567",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-icici-imps-06",
+    "sender": "VK-ICICIB",
+    "body": "ICICI Bank Acct XX123 debited with Rs 8,000.00 on 15-Nov-26 & Acct XX889 credited. IMPS:631955512340. Call 18002662 for dispute. SMS BLOCK 123 to 9215676766",
+    "receivedAt": "2026-11-15T10:27:14+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 800000,
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "123",
+      "channel": "IMPS",
+      "referenceId": "631955512340",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-icici-billpay-info-07",
+    "sender": "AD-ICICIB",
+    "body": "Dear Customer, ICICI Bank Account XX123 is debited with INR 3,540.00 on 12-Nov-26. Info: BIL*000512345678*TATAPOWER. The Available Balance is INR 58,112.40. Call 18002662 for dispute.",
+    "receivedAt": "2026-11-12T18:44:09+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 354000,
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "123",
+      "balanceMinor": 5811240,
+      "occurredAt": "2026-11-12T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-icici-debit-card-usd-08",
+    "sender": "VM-ICICIT",
+    "body": "USD 14.99 spent using ICICI Bank Debit Card XX5521 on 13-Nov-26 at STEAM GAMES. If not you, call 1800 2662/SMS BLOCK 5521 to 9215676766.",
+    "receivedAt": "2026-11-13T22:10:58+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1499,
+      "currency": "USD",
+      "counterparty": "Steam Games",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "5521",
+      "channel": "CARD",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-sbi-upi-merchant-09",
+    "sender": "JD-SBIUPI-S",
+    "body": "Dear UPI user A/C X4321 debited by 320.0 on date 16Nov26 trf to RAMESH KIRANA STORE Refno 632098761234. If not u? call 1800111109. -SBI",
+    "receivedAt": "2026-11-16T19:12:40+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 32000,
+      "currency": "INR",
+      "counterparty": "Ramesh Kirana Store",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4321",
+      "channel": "UPI",
+      "referenceId": "632098761234",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-sbi-atm-10",
+    "sender": "BZ-ATMSBI",
+    "body": "Dear SBI Customer, Rs.5000 withdrawn at SBI ATM S1BW000300621 from A/cX4321 on 13Nov26 Transaction Number 4417. Available Balance Rs.18440.25. If not withdrawn by you, forward this SMS to 9223008333/call 1800111109 to block your card.",
+    "receivedAt": "2026-11-13T17:55:20+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 500000,
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentLast4": "4321",
+      "channel": "ATM",
+      "balanceMinor": 1844025,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-sbi-debit-card-pos-11",
+    "sender": "AD-ATMSBI",
+    "body": "Thank you for using your SBI Debit Card 459XX4477 for a purchase worth Rs899.00 on POS 041234567890 at RELIANCE FRESH txn# 631912345678.",
+    "receivedAt": "2026-11-15T18:22:47+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 89900,
+      "counterparty": "Reliance Fresh",
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "4477",
+      "channel": "CARD",
+      "referenceId": "631912345678",
+      "balanceMinor": null,
+      "occurredAt": null,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-sbi-debit-by-transfer-12",
+    "sender": "BP-CBSSBI",
+    "body": "Dear Customer, Your A/C XXXXX4321 has a debit by transfer of Rs 40,000.00 on 13/11/26. Avl Bal Rs 73,210.00.-SBI",
+    "receivedAt": "2026-11-13T12:31:05+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 4000000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "State Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4321",
+      "referenceId": null,
+      "balanceMinor": 7321000,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-axis-upi-person-13",
+    "sender": "AX-AXISBK-S",
+    "body": "INR 3500.00 debited\nA/c no. XX9034\n16-11-26, 09:48:02\nUPI/P2A/632077001122/ANITA DESAI\nNot you? SMS BLOCKUPI Cust ID to 919951860002\nAxis Bank",
+    "receivedAt": "2026-11-16T09:48:20+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 350000,
+      "currency": "INR",
+      "counterparty": "Anita Desai",
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "9034",
+      "channel": "UPI",
+      "referenceId": "632077001122",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T09:48:02+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-axis-atm-14",
+    "sender": "VM-AXISBK",
+    "body": "Debit\nINR 5000.00\nA/c no. XX9034\n14-11-26 20:11:09\nATM-WDL/AXIS BANK LTD/PUNE\nSMS BLOCKCARD to 919951860002, if not you - Axis Bank",
+    "receivedAt": "2026-11-14T20:11:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 500000,
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentLast4": "9034",
+      "channel": "ATM",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T20:11:09+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-axis-upi-autopay-executed-15",
+    "sender": "JM-AXISBK",
+    "body": "Your UPI AutoPay mandate for NETFLIX has been executed successfully. INR 649.00 debited from A/c no. XX9034 on 15-11-26. UPI Ref no 631945671234 - Axis Bank",
+    "receivedAt": "2026-11-15T05:03:12+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 64900,
+      "counterparty": "Netflix",
+      "vpa": null,
+      "bank": "Axis Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "9034",
+      "referenceId": "631945671234",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-kotak-upi-vpa-16",
+    "sender": "VM-KOTAKB",
+    "body": "Sent Rs.199.00 from Kotak Bank AC X2210 to spotify.bdsi@icici on 16-11-26.UPI Ref 632011223344. Not you, https://kotak.com/KBANKT/Fraud",
+    "receivedAt": "2026-11-16T07:30:44+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 19900,
+      "vpa": "spotify.bdsi@icici",
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "2210",
+      "channel": "UPI",
+      "referenceId": "632011223344",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-kotak-debit-card-online-17",
+    "sender": "AD-KOTAKB-T",
+    "body": "Rs.1,499.00 spent via Kotak Debit Card XX8842 at MYNTRA on 14/11/2026. Avl bal Rs.43,371.12. Not you? Tap kotak.com/KBANKT/Fraud",
+    "receivedAt": "2026-11-14T23:02:18+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 149900,
+      "counterparty": "Myntra",
+      "vpa": null,
+      "bank": "Kotak Mahindra Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "8842",
+      "channel": "CARD",
+      "balanceMinor": 4337112,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-pnb-upi-18",
+    "sender": "BW-PNBSMS",
+    "body": "A/c XX7812 debited INR 2,500.00 Dt 15-11-26 09:14:52 thru UPI:631998123456. Bal INR 14,310.45 Not u?Fwd this SMS to 9264092640 to block UPI.Download PNB ONE-PNB",
+    "receivedAt": "2026-11-15T09:15:10+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 250000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "Punjab National Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7812",
+      "channel": "UPI",
+      "referenceId": "631998123456",
+      "balanceMinor": 1431045,
+      "occurredAt": "2026-11-15T09:14:52+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-pnb-cheque-clearing-19",
+    "sender": "AD-PNBSMS",
+    "body": "Ac XXXXXXXX7812 Debited with Rs.18500.00, 14-11-2026 10:42:11 thru CLG CHQ 004417. Aval Bal Rs.96310.45 CR. Helpline 18001800/18002021-PNB",
+    "receivedAt": "2026-11-14T10:43:02+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1850000,
+      "vpa": null,
+      "bank": "Punjab National Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7812",
+      "channel": "CHEQUE",
+      "balanceMinor": 9631045,
+      "occurredAt": "2026-11-14T10:42:11+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-bob-upi-dr-cr-20",
+    "sender": "VM-BOBTXN",
+    "body": "Rs.275.00 Dr. from A/C XXXXXX7102 and Cr. to gopal.dairy@oksbi. Ref:632034567812. AvlBal:Rs12345.67(2026:11:16 08:12:40). Not you? Call 18005700/5000-BOB",
+    "receivedAt": "2026-11-16T08:12:55+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 27500,
+      "vpa": "gopal.dairy@oksbi",
+      "bank": "Bank of Baroda",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7102",
+      "channel": "UPI",
+      "referenceId": "632034567812",
+      "balanceMinor": 1234567,
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-canara-plain-debit-21",
+    "sender": "AD-CANBNK",
+    "body": "An amount of INR 1,500.00 has been DEBITED to your account XXX345 on 15/11/2026. Total Avail.bal INR 22,480.10.- Canara Bank",
+    "receivedAt": "2026-11-15T14:06:39+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 150000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "Canara Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "345",
+      "channel": "UNKNOWN",
+      "referenceId": null,
+      "balanceMinor": 2248010,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-canara-upi-merchant-22",
+    "sender": "VM-CANBNK-S",
+    "body": "Rs.650.00 paid thru A/C XX3345 on 16-11-26 11:20:36 to MEENA STORES, UPI Ref 632077889900. If not done, SMS BLOCKUPI to 9901771222.-Canara Bank",
+    "receivedAt": "2026-11-16T11:20:51+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 65000,
+      "counterparty": "Meena Stores",
+      "vpa": null,
+      "bank": "Canara Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3345",
+      "channel": "UPI",
+      "referenceId": "632077889900",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T11:20:36+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-union-mobile-banking-23",
+    "sender": "VM-UNIONB",
+    "body": "A/c *1188 Debited for Rs:900.00 on 16-11-2026 08:45:10 by Mob Bk ref no 632066554433 Avl Bal Rs:5310.75.If not you, Call 1800222243 -Union Bank of India",
+    "receivedAt": "2026-11-16T08:45:33+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 90000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "Union Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "1188",
+      "referenceId": "632066554433",
+      "balanceMinor": 531075,
+      "occurredAt": "2026-11-16T08:45:10+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-idfc-plain-debit-24",
+    "sender": "BP-IDFCFB",
+    "body": "Your A/C XXXXXXX5567 is debited by INR 2,150.00 on 15/11/26 17:26. New Bal :INR 31,087.44. Call us on 180010888 for dispute. Team IDFC FIRST Bank",
+    "receivedAt": "2026-11-15T17:26:48+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 215000,
+      "counterparty": null,
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "5567",
+      "channel": "UNKNOWN",
+      "referenceId": null,
+      "balanceMinor": 3108744,
+      "occurredAt": "2026-11-15T17:26:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-idfc-nach-mandate-25",
+    "sender": "AD-IDFCFB-S",
+    "body": "Dear Customer, your A/C XXXXXXX5567 is debited by INR 6,500.00 on 05/11/26 towards NACH mandate for BAJAJ FINANCE. New Bal :INR 24,587.44. Team IDFC FIRST Bank",
+    "receivedAt": "2026-11-05T06:12:30+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 650000,
+      "counterparty": "Bajaj Finance",
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "5567",
+      "channel": "AUTOPAY",
+      "referenceId": null,
+      "balanceMinor": 2458744,
+      "occurredAt": "2026-11-05T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-yes-amb-charges-26",
+    "sender": "VM-YESBNK",
+    "body": "Dear Customer, INR 590.00 has been debited from your YES BANK A/c XX3301 on 03-11-2026 towards charges for non-maintenance of Average Monthly Balance for Oct-26 (incl. GST).",
+    "receivedAt": "2026-11-03T04:40:16+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 59000,
+      "vpa": null,
+      "bank": "Yes Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3301",
+      "channel": "UNKNOWN",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-03T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-indusind-rtgs-27",
+    "sender": "AD-INDUSB",
+    "body": "Your IndusInd Bank A/c XX2468 is debited by INR 5,00,000.00 on 13-11-26 towards RTGS to SHARMA BUILDERS. UTR No. INDBR52026111300481726. Avl Bal INR 3,10,443.00.",
+    "receivedAt": "2026-11-13T15:20:07+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 50000000,
+      "currency": "INR",
+      "counterparty": "Sharma Builders",
+      "vpa": null,
+      "bank": "IndusInd Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "2468",
+      "channel": "RTGS",
+      "referenceId": "INDBR52026111300481726",
+      "balanceMinor": 31044300,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-uco-neft-28",
+    "sender": "VM-UCOBNK",
+    "body": "A/c XX9912 debited with Rs.18,750.00 on 13-11-2026 by NEFT to VIKRAM SETHI. UTR UCBAN26317045127. Avl Bal Rs.58,300.00 -UCO Bank",
+    "receivedAt": "2026-11-13T16:02:41+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1875000,
+      "counterparty": "Vikram Sethi",
+      "vpa": null,
+      "bank": "UCO Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "9912",
+      "channel": "NEFT",
+      "referenceId": "UCBAN26317045127",
+      "balanceMinor": 5830000,
+      "occurredAt": "2026-11-13T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-federal-upi-no-account-29",
+    "sender": "JK-FEDBNK",
+    "body": "Rs 340.00 debited via UPI on 16-11-2026 19:31:05 to VPA paytmqr5k2m9x@ptys.Ref No 632088776655.Small txns?Use UPI Lite!-Federal Bank",
+    "receivedAt": "2026-11-16T19:31:22+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 34000,
+      "vpa": "paytmqr5k2m9x@ptys",
+      "bank": "Federal Bank",
+      "instrumentLast4": null,
+      "channel": "UPI",
+      "referenceId": "632088776655",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T19:31:05+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-au-atm-debit-card-30",
+    "sender": "VM-AUBANK",
+    "body": "Rs.2,000.00 withdrawn at ATM using AU Bank Debit Card XX3156 on 13-11-2026 21:15:33. Avl Bal Rs.6,820.10. Not you? Call 180012001200 - AU Bank",
+    "receivedAt": "2026-11-13T21:15:50+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 200000,
+      "vpa": null,
+      "bank": "AU Small Finance Bank",
+      "instrumentType": "DEBIT_CARD",
+      "instrumentLast4": "3156",
+      "channel": "ATM",
+      "balanceMinor": 682010,
+      "occurredAt": "2026-11-13T21:15:33+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-indian-bank-upi-person-31",
+    "sender": "VM-INDBNK",
+    "body": "A/c *3390 debited Rs. 1000.00 on 15-11-26 to Sunita Rao. UPI:631955443322. Not you? SMS BLOCK to 9289592895, Dial 1930 for Cyber Fraud - Indian Bank",
+    "receivedAt": "2026-11-15T20:48:09+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 100000,
+      "counterparty": "Sunita Rao",
+      "vpa": null,
+      "bank": "Indian Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3390",
+      "channel": "UPI",
+      "referenceId": "631955443322",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-boi-upi-merchant-32",
+    "sender": "BT-BOIIND",
+    "body": "Rs.2000.00 debited A/cXX7745 and credited to DEEPAK TRADERS via UPI Ref No 632012312312 on 16Nov26. Call 18001031906, if not done by you. -BOI",
+    "receivedAt": "2026-11-16T12:14:27+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 200000,
+      "counterparty": "Deepak Traders",
+      "vpa": null,
+      "bank": "Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7745",
+      "channel": "UPI",
+      "referenceId": "632012312312",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-central-imps-33",
+    "sender": "AD-CENTBK",
+    "body": "Your A/c XX4410 debited by Rs.7,500.00 on 15-11-2026 towards IMPS to A/c XX6021. RRN 631909876543. Total Bal: Rs.3222.18 CR Clr Bal: Rs.3222.18 CR -CBoI",
+    "receivedAt": "2026-11-15T13:37:55+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 750000,
+      "vpa": null,
+      "bank": "Central Bank of India",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4410",
+      "channel": "IMPS",
+      "referenceId": "631909876543",
+      "balanceMinor": 322218,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-iob-sms-charges-34",
+    "sender": "VM-IOBCHN",
+    "body": "Your a/c no. XXXXX5821 is debited for Rs.17.70 on 02-11-2026 towards SMS alert charges incl GST. Avl Bal Rs.11232.30 -Indian Overseas Bank",
+    "receivedAt": "2026-11-02T03:15:44+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1770,
+      "vpa": null,
+      "bank": "Indian Overseas Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "5821",
+      "channel": "UNKNOWN",
+      "referenceId": null,
+      "balanceMinor": 1123230,
+      "occurredAt": "2026-11-02T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-idbi-net-banking-35",
+    "sender": "AD-IDBIBK",
+    "body": "IDBI Bank A/c XX3408 debited for INR 4,999.00 on 14-11-26 through Net Banking towards payment to MSEDCL. Avl Bal INR 20,440.25.",
+    "receivedAt": "2026-11-14T09:58:13+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 499900,
+      "counterparty": "Msedcl",
+      "vpa": null,
+      "bank": "IDBI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3408",
+      "channel": "NET_BANKING",
+      "balanceMinor": 2044025,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-karnataka-cheque-paid-36",
+    "sender": "VM-KBLBNK",
+    "body": "Your Cheque No.512207 for Rs.15,000/- has been paid from A/c XX3421 on 14-11-2026 in clearing. Bal Rs.33,440.25 -Karnataka Bank",
+    "receivedAt": "2026-11-14T15:46:29+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1500000,
+      "vpa": null,
+      "bank": "Karnataka Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "3421",
+      "channel": "CHEQUE",
+      "balanceMinor": 3344025,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-sib-internet-banking-37",
+    "sender": "VM-SIBSMS",
+    "body": "Dear Customer, Rs.9,800.00 has been debited from your A/c XX8093 on 11-11-2026 through Internet Banking towards LIC OF INDIA. Available balance is Rs.27,115.60 -South Indian Bank",
+    "receivedAt": "2026-11-11T10:09:36+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 980000,
+      "counterparty": "LIC of India",
+      "vpa": null,
+      "bank": "South Indian Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "8093",
+      "channel": "NET_BANKING",
+      "referenceId": null,
+      "balanceMinor": 2711560,
+      "occurredAt": "2026-11-11T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-rbl-debit-card-fee-38",
+    "sender": "VM-RBLBNK",
+    "body": "Dear Customer, Rs.236.00 has been debited from your RBL Bank A/c XX6617 on 10-11-2026 towards Debit Card Annual Fee (incl. GST). Avl Bal: Rs.15,904.00",
+    "receivedAt": "2026-11-10T02:25:51+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 23600,
+      "vpa": null,
+      "bank": "RBL Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "6617",
+      "referenceId": null,
+      "balanceMinor": 1590400,
+      "occurredAt": "2026-11-10T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "bd-hdfc-netbanking-thanks-39",
+    "sender": "VM-HDFCBK",
+    "body": "Thanks for paying Rs.1,999.00 from A/c XXXX4521 to AIRTEL via HDFC Bank NetBanking. Call 18002586161 if txn not done by you.",
+    "receivedAt": "2026-11-12T20:14:26+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 199900,
+      "currency": "INR",
+      "counterparty": "Airtel",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "NET_BANKING",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": null,
+      "confidence": "HIGH"
+    }
+  }
+]

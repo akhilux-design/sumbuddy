@@ -1,0 +1,441 @@
+[
+  {
+    "id": "np-otp-hdfc-card-amount-01",
+    "sender": "VM-HDFCBK-T",
+    "body": "OTP is 482913 for txn of INR 2,499.00 at AMAZON PAY INDIA on HDFC Bank card ending 4521. Valid till 10:22. Do not share OTP for security reasons",
+    "receivedAt": "2026-11-15T10:17:04+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+  {
+    "id": "np-otp-sbi-debit-card-02",
+    "sender": "BZ-SBIINB",
+    "body": "Dear Customer, OTP for online purchase of Rs. 1299.00 at FLIPKART thru State Bank Debit Card 6XXXXXXXXXXX3478 is 739105. Do not share this with anyone.",
+    "receivedAt": "2026-11-14T21:03:40+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+  {
+    "id": "np-otp-kotak-debit-wording-03",
+    "sender": "VK-KOTAKB-T",
+    "body": "612345 is the OTP to approve payment of Rs.3,450.00 to BIGBASKET from your Kotak Bank a/c XX3301. Your a/c will be debited only after you enter this OTP. Never share it with anyone.",
+    "receivedAt": "2026-11-13T08:45:12+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+  {
+    "id": "np-otp-cred-verification-code-04",
+    "sender": "AD-CREDIN",
+    "body": "<#> 4821 is your verification code for CRED. It is valid for 10 minutes. Do not share it with anyone.\nKf3ZxR9pQ1s",
+    "receivedAt": "2026-11-12T19:30:55+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+  {
+    "id": "np-otp-indusind-lowercase-05",
+    "sender": "VM-INDUSB",
+    "body": "your one time password for txn of rs 899 at zepto is 204471\nvalid for 3 mins. pls do not share with anyone\n-IndusInd Bank",
+    "receivedAt": "2026-11-16T22:11:09+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+
+  {
+    "id": "np-promo-yes-preapproved-loan-01",
+    "sender": "VM-YESBNK-P",
+    "body": "Dear Customer, you have a pre-approved Personal Loan of Rs.5,00,000 from Yes Bank at 10.99% p.a. Get the amount credited to your account in minutes, no documents needed. Apply now: yesbnk.in/pl/Xy12Zq T&C apply",
+    "receivedAt": "2026-11-11T12:30:00+05:30",
+    "expect": { "type": "skipped", "reason": "PROMOTION" }
+  },
+  {
+    "id": "np-promo-icici-card-discount-02",
+    "sender": "JM-ICICIB",
+    "body": "Get 10% instant discount up to Rs.1,500 on a minimum spend of Rs.5,000 with your ICICI Bank Credit Card on Flipkart. Offer valid till 22 Nov. T&C apply.",
+    "receivedAt": "2026-11-16T09:05:00+05:30",
+    "expect": { "type": "skipped", "reason": "PROMOTION" }
+  },
+  {
+    "id": "np-promo-swiggy-coupon-03",
+    "sender": "JD-SWIGGY-P",
+    "body": "Hungry? Flat ₹125 OFF on orders above ₹249, today only!\nUse code TREAT125. Order now: swiggy.in/offers T&C apply",
+    "receivedAt": "2026-11-09T17:45:00+05:30",
+    "expect": { "type": "skipped", "reason": "PROMOTION" }
+  },
+  {
+    "id": "np-promo-axis-emi-conversion-04",
+    "sender": "AD-AXISBK",
+    "body": "Convert your recent spend of INR 18,499 at CROMA on Axis Bank Credit Card XX2231 into easy EMIs starting INR 1,612 per month. Click axisbk.io/emi to convert now. T&C apply.",
+    "receivedAt": "2026-11-15T10:00:00+05:30",
+    "expect": { "type": "skipped", "reason": "PROMOTION" }
+  },
+
+  {
+    "id": "np-failed-federal-upi-01",
+    "sender": "VM-FEDBNK",
+    "body": "Dear Customer, your UPI transaction of Rs 850.00 to swiggy@icici on 15-11-2026 has failed. Ref No 631912345670. Amount, if debited, will be credited back to your A/c XX7745 within 3 working days. -Federal Bank",
+    "receivedAt": "2026-11-15T20:41:18+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "np-failed-icici-cc-declined-02",
+    "sender": "JD-ICICIB-S",
+    "body": "Transaction of INR 4,999.00 on ICICI Bank Credit Card XX7003 at RELIANCE DIGITAL on 14-Nov-26 has been declined due to insufficient credit limit. Avl Limit: INR 3,210.50.",
+    "receivedAt": "2026-11-14T18:22:47+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "np-failed-axis-debited-reversed-03",
+    "sender": "AX-AXISBK-S",
+    "body": "Your UPI transaction of INR 1,200.00 to rahul.example@okaxis could not be completed.\nINR 1,200.00 debited from A/c no. XX9012 has been reversed.\nUPI Ref no 631498765432 - Axis Bank",
+    "receivedAt": "2026-11-10T13:15:02+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "np-failed-pnb-atm-not-processed-04",
+    "sender": "PNBSMS",
+    "body": "Cash withdrawal of Rs.10,000.00 at ATM using Debit Card XX6612 on 15-11-2026 could not be processed due to a technical error. Your A/c has not been debited. -PNB",
+    "receivedAt": "2026-11-15T16:08:33+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "np-failed-phonepe-unsuccessful-05",
+    "sender": "JX-PHONPE",
+    "body": "Payment of Rs.349 to Zomato was unsuccessful. If any money was deducted, it will be refunded to your bank account within 3-5 working days. - PhonePe",
+    "receivedAt": "2026-11-13T21:37:50+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+
+  {
+    "id": "np-request-bob-collect-01",
+    "sender": "VM-BOBTXN",
+    "body": "You have received a UPI collect request of Rs.500.00 from RAHUL SHARMA (rahul.s@okhdfcbank). Approve or decline in your UPI app before 15-Nov-26 10:30 PM. Do not approve if you do not know the requester. -Bank of Baroda",
+    "receivedAt": "2026-11-15T10:31:00+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "np-request-phonepe-merchant-02",
+    "sender": "VM-PHONPE",
+    "body": "ZOMATO has requested ₹349 from you on PhonePe. Tap to pay or decline: phon.pe/rq/8Kx2aP. Pay only if you initiated this.",
+    "receivedAt": "2026-11-13T21:35:10+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "np-request-sbi-mandate-created-03",
+    "sender": "JD-SBIUPI",
+    "body": "Dear Customer, UPI-Mandate towards NETFLIX COM for INR 649.00 is successfully created on your A/c X3478. UMN: 7c1d2e3f4a5b46c7@sbi. Validity: 15-11-2027. -SBI",
+    "receivedAt": "2026-11-15T14:20:44+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "np-request-axis-card-autopay-setup-04",
+    "sender": "AD-AXISBK",
+    "body": "AutoPay for YOUTUBE PREMIUM has been set up on your Axis Bank Credit Card XX2231. Max amount: INR 189.00 per month. To manage or cancel, visit axisbank.com/autopay",
+    "receivedAt": "2026-11-08T15:12:00+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "np-request-idfc-mandate-first-debit-05",
+    "sender": "VM-IDFCFB",
+    "body": "Your UPI AutoPay mandate of Rs.1,499.00 towards TATA PLAY is created. First debit will be on 01-Dec-2026 from A/c XX8821. UMN 9f8e7d6c5b4a@idfcbank - IDFC FIRST Bank",
+    "receivedAt": "2026-11-16T12:48:21+05:30",
+    "expect": { "type": "skipped" }
+  },
+
+  {
+    "id": "np-upcoming-hdfc-autopay-predebit-01",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.649.00 will be debited from HDFC Bank A/c XX4521 on 10-Nov-2026 towards NETFLIX for your UPI AutoPay mandate. Please maintain sufficient balance. To pause or revoke, use your UPI app.",
+    "receivedAt": "2026-11-08T09:00:12+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "np-upcoming-icici-emi-due-02",
+    "sender": "JD-ICICIB",
+    "body": "Dear Customer, EMI of Rs.12,345.00 on your ICICI Bank Home Loan A/c XX8890 is due on 05-Nov-2026. Please ensure sufficient balance in A/c XX1102 to avoid bounce charges.",
+    "receivedAt": "2026-11-01T10:30:00+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "np-upcoming-bescom-bill-03",
+    "sender": "VM-BESCOM",
+    "body": "Dear Consumer, your BESCOM electricity bill for A/c ID 4412098765 is Rs.1,842. Due date: 25-11-2026. Pay through any UPI app before the due date to avoid disconnection.",
+    "receivedAt": "2026-11-12T11:15:00+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "np-upcoming-kotak-scheduled-transfer-04",
+    "sender": "VK-KOTAKB",
+    "body": "Your transfer of Rs.10,000.00 to SUNITA DEVI from Kotak Bank A/c XX3301 is scheduled for 01-Dec-2026. Please keep your account funded.",
+    "receivedAt": "2026-11-16T08:00:05+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "np-upcoming-lic-premium-05",
+    "sender": "JM-LICIND",
+    "body": "Premium of Rs.8,214.00 under LIC Policy No. 123456789 is due on 28/11/2026. Please pay on time to continue your risk cover. Ignore if already paid.",
+    "receivedAt": "2026-11-14T10:05:00+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "np-upcoming-axismf-sip-06",
+    "sender": "AX-AXISMF",
+    "body": "Your SIP instalment of Rs.5,000.00 in Axis Bluechip Fund (Folio 91023456789) is due on 20-Nov-2026 and will be debited from your bank A/c XX4410. Please maintain sufficient balance.",
+    "receivedAt": "2026-11-17T09:40:00+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+
+  {
+    "id": "np-balance-hdfc-enquiry-01",
+    "sender": "VM-HDFCBK",
+    "body": "Available Bal in HDFC Bank A/c XX4521 as on yesterday:14-NOV-26 INR 45,210.55. Cheques are subject to clearing. For real time A/c Bal dial 18002703333",
+    "receivedAt": "2026-11-15T07:02:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "np-balance-sbi-cr-02",
+    "sender": "CBSSBI",
+    "body": "The Balance in A/c No. XXXXXXX3478 is Rs.12,034.50 CR as on 15-11-2026 10:12:44. -SBI",
+    "receivedAt": "2026-11-15T10:12:50+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "np-balance-axis-low-03",
+    "sender": "AX-AXISBK",
+    "body": "Low balance alert: Balance in your Axis Bank A/c no. XX9012 has fallen below the required Average Monthly Balance of INR 10,000. Current balance: INR 1,245.60. Please fund your account to avoid non-maintenance charges.",
+    "receivedAt": "2026-11-16T09:30:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "np-balance-icici-cc-statement-no-total-04",
+    "sender": "JD-ICICIB",
+    "body": "Your ICICI Bank Credit Card XX7003 statement for Nov 2026 has been sent to your registered email ID. To view it, log in to iMobile Pay > Cards > View Statement.",
+    "receivedAt": "2026-11-17T06:45:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "np-balance-indianbank-account-statement-05",
+    "sender": "VM-INDBNK",
+    "body": "DEAR CUSTOMER, E-STATEMENT OF YOUR A/C XXXX5567 FOR OCT 2026 HAS BEEN SENT TO YOUR REGISTERED EMAIL ID. -INDIAN BANK",
+    "receivedAt": "2026-11-03T08:20:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "np-balance-idfc-fastag-low-06",
+    "sender": "JK-IDFCFB",
+    "body": "Low balance alert! Your IDFC FIRST Bank FASTag linked to vehicle KA01AB1234 has a balance of Rs.92.00. Recharge now to avoid paying double toll.",
+    "receivedAt": "2026-11-13T07:55:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+
+  {
+    "id": "np-order-amazon-shipped-01",
+    "sender": "AD-AMAZON",
+    "body": "Shipped: Your Amazon package with boAt Airdopes 141 (Rs.1,299.00) will be delivered by Tue, 17 Nov. Track: amzn.in/d/a1B2c3D",
+    "receivedAt": "2026-11-15T13:20:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-order-flipkart-cod-02",
+    "sender": "BP-FLPKRT",
+    "body": "Out for delivery: Your Flipkart order for Prestige Induction Cooktop will be delivered today by 7 PM. Please keep Rs.2,199 ready to pay by cash or UPI on delivery.",
+    "receivedAt": "2026-11-16T09:12:00+05:30",
+    "expect": { "type": "skipped" }
+  },
+  {
+    "id": "np-notfin-canara-card-dispatched-03",
+    "sender": "VM-CANBNK",
+    "body": "Your Canara Bank Debit Card ending 6634 has been dispatched through Speed Post, consignment no. EK123456789IN. It will reach your registered address in 5-7 working days.",
+    "receivedAt": "2026-11-11T15:50:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-invest-mf-valuation-04",
+    "sender": "AD-CAMSMF",
+    "body": "Dear Investor, the valuation of your Folio 91023456789 in Axis Mutual Fund as on 31-Oct-2026 is Rs.4,56,789.12. Your account statement has been sent to your registered email.",
+    "receivedAt": "2026-11-02T10:00:00+05:30",
+    "expect": { "type": "skipped" }
+  },
+  {
+    "id": "np-invest-cdsl-share-debit-05",
+    "sender": "VM-CDSLTX",
+    "body": "CDSL: Debit in a/c *45671234 for 12-INFOSYS LIMITED-EQ on 13NOV",
+    "receivedAt": "2026-11-13T18:32:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-insure-hdfclife-policy-issued-06",
+    "sender": "AD-HDFCLF",
+    "body": "Dear Customer, your HDFC Life term policy no. 2481XXXX19 with Sum Assured of Rs.50,00,000 has been issued. The policy document has been sent to your registered email ID.",
+    "receivedAt": "2026-11-06T16:05:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+
+  {
+    "id": "np-phone-hdfc-debit-plus91-01",
+    "sender": "+919876543210",
+    "body": "HDFC Bank: Rs 5000.00 debited from a/c **4521 on 15-11-26 to VPA rahul.example@okaxis(UPI Ref No 631912345678). Not you? Call on 18002586161 to report",
+    "receivedAt": "2026-11-15T18:04:26+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-phone-sbi-debit-10digit-02",
+    "sender": "9000000004",
+    "body": "Dear SBI User, your A/c X3478-debited by Rs.49,999.00 on 15Nov26 transfer to AMIT TRADERS Ref No 631955512345. If not done by you, call 9000000004 immediately to block your account. -SBI",
+    "receivedAt": "2026-11-15T12:44:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-phone-axis-credit-12digit-03",
+    "sender": "919000012345",
+    "body": "INR 12,000.00 credited to A/c no. XX9012 on 14-11-26 at 16:20:05 IST. Info- IMPS/631800123456/SURESH. Avl Bal- INR 58,402.11 - Axis Bank",
+    "receivedAt": "2026-11-14T16:21:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "np-phone-friend-paid-04",
+    "sender": "+919000000006",
+    "body": "Bro I paid Rs 1200 for dinner yesterday, pls send your half 600 on gpay when free",
+    "receivedAt": "2026-11-16T11:26:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+
+  {
+    "id": "np-pay-hdfc-upi-debit-01",
+    "sender": "VM-HDFCBK",
+    "body": "HDFC Bank: Rs 5000.00 debited from a/c **4521 on 15-11-26 to VPA rahul.example@okaxis(UPI Ref No 631912345678). Not you? Call on 18002586161 to report",
+    "receivedAt": "2026-11-15T18:04:26+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 500000,
+      "currency": "INR",
+      "vpa": "rahul.example@okaxis",
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "channel": "UPI",
+      "referenceId": "631912345678",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-15T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-sbicard-refund-02",
+    "sender": "VM-SBICRD",
+    "body": "Refund of Rs.1,299.00 from AMAZON has been credited to your SBI Credit Card ending 6789 on 14/11/26. It will reflect in your next statement.",
+    "receivedAt": "2026-11-14T15:10:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 129900,
+      "currency": "INR",
+      "counterparty": "Amazon",
+      "vpa": null,
+      "bank": "SBI Card",
+      "instrumentType": "CREDIT_CARD",
+      "instrumentLast4": "6789",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-14T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-hdfc-autopay-debited-03",
+    "sender": "VM-HDFCBK",
+    "body": "Dear Customer, Rs.649.00 has been debited from HDFC Bank A/c XX4521 on 10-11-26 towards NETFLIX for your UPI AutoPay mandate. UPI Ref No 631455512345. Not you? Call 18002586161",
+    "receivedAt": "2026-11-10T06:02:15+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 64900,
+      "currency": "INR",
+      "counterparty": "Netflix",
+      "vpa": null,
+      "bank": "HDFC Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "4521",
+      "referenceId": "631455512345",
+      "balanceMinor": null,
+      "occurredAt": "2026-11-10T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-icici-emi-debited-04",
+    "sender": "JD-ICICIB",
+    "body": "Dear Customer, EMI of Rs.12,345.00 for Home Loan A/c XX8890 has been debited from your ICICI Bank A/c XX1102 on 05-Nov-26. Avl Bal: Rs.58,210.40.",
+    "receivedAt": "2026-11-05T06:10:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1234500,
+      "currency": "INR",
+      "vpa": null,
+      "bank": "ICICI Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "1102",
+      "referenceId": null,
+      "balanceMinor": 5821040,
+      "occurredAt": "2026-11-05T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-idfc-debit-otp-warning-05",
+    "sender": "VM-IDFCFB",
+    "body": "INR 2,000.00 debited from your IDFC FIRST Bank A/c XX8821 on 15/11/26 17:45 via UPI to BIGBASKET. UPI Ref 631955598765. New Bal: INR 20,134.10. Never share your OTP, PIN or CVV with anyone.",
+    "receivedAt": "2026-11-15T17:45:20+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 200000,
+      "currency": "INR",
+      "counterparty": "BigBasket",
+      "vpa": null,
+      "bank": "IDFC FIRST Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "8821",
+      "channel": "UPI",
+      "referenceId": "631955598765",
+      "balanceMinor": 2013410,
+      "occurredAt": "2026-11-15T17:45:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-federal-reversal-credit-06",
+    "sender": "VM-FEDBNK",
+    "body": "Rs 850.00 credited to your A/c XX7745 on 16-11-2026 towards reversal of failed UPI transaction to swiggy@icici. Avl Bal Rs 6,120.35 -Federal Bank",
+    "receivedAt": "2026-11-16T11:05:42+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 85000,
+      "currency": "INR",
+      "bank": "Federal Bank",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "7745",
+      "referenceId": null,
+      "balanceMinor": 612035,
+      "occurredAt": "2026-11-16T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  },
+  {
+    "id": "np-pay-bob-loan-disbursed-07",
+    "sender": "VM-BOBSMS",
+    "body": "Dear Customer, loan amount of Rs.2,00,000.00 for your Personal Loan has been disbursed and credited to your A/c XXXXXX5567 on 12-11-2026. -Bank of Baroda",
+    "receivedAt": "2026-11-12T14:36:09+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 20000000,
+      "currency": "INR",
+      "vpa": null,
+      "bank": "Bank of Baroda",
+      "instrumentType": "BANK_ACCOUNT",
+      "instrumentLast4": "5567",
+      "referenceId": null,
+      "balanceMinor": null,
+      "occurredAt": "2026-11-12T00:00:00+05:30",
+      "confidence": "HIGH"
+    }
+  }
+]

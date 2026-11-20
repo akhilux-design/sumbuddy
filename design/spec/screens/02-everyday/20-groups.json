@@ -1,0 +1,786 @@
+{
+  "name": "Groups",
+  "group": "Group/02 Everyday",
+  "index": 20,
+  "darkId": "36:802",
+  "lightId": "80:1847",
+  "tree": {
+    "t": "FRAME",
+    "n": "Groups",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 634,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Header",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 49,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Groups",
+                "x": 0,
+                "y": 7,
+                "w": 111,
+                "h": 36,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Groups",
+                "style": "Display/L"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Button",
+                "x": 248,
+                "y": 0,
+                "w": 80,
+                "h": 49,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "comp": "Button",
+                "variant": "Style=Secondary, Size=Medium, State=Default",
+                "props": {
+                  "Label": "+ New"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "+ New",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Balance Card",
+            "x": 16,
+            "y": 69,
+            "w": 328,
+            "h": 145,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Balance Card",
+            "variant": "Tone=Positive, State=Default",
+            "props": {
+              "Caption": "across 3 groups",
+              "Amount": "₹1,550",
+              "Label": "OVERALL YOU ARE OWED"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "OVERALL YOU ARE OWED",
+                "style": "Label",
+                "textCase": "UPPER",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹1,550",
+                "style": "Amount/XL",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              },
+              {
+                "n": "Caption",
+                "text": "across 3 groups",
+                "style": "Body/M Strong",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Groups",
+            "x": 16,
+            "y": 226,
+            "w": 328,
+            "h": 214,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Owes you, State=Default",
+                "props": {
+                  "Amount": "+₹2,350",
+                  "Detail": "3 people · owes you",
+                  "Name": "Flat 302"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "F",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Flat 302",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "3 people · owes you",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "+₹2,350",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/positive"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Green",
+                    "props": {
+                      "Initial": "F"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 74,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=You owe, State=Default",
+                "props": {
+                  "Detail": "5 people · you owe",
+                  "Amount": "-₹800",
+                  "Name": "Goa trip"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "G",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Goa trip",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "5 people · you owe",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "-₹800",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/negative"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Yellow",
+                    "props": {
+                      "Initial": "G"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 148,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Settled, State=Default",
+                "props": {
+                  "Detail": "8 people · all settled",
+                  "Amount": "₹0",
+                  "Name": "Office lunch"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "O",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Office lunch",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "8 people · all settled",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹0",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/text/tertiary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Blue",
+                    "props": {
+                      "Initial": "O"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Friends",
+            "x": 16,
+            "y": 452,
+            "w": 63,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Friends",
+            "style": "Label",
+            "textCase": "UPPER"
+          },
+          {
+            "t": "FRAME",
+            "n": "Friends",
+            "x": 16,
+            "y": 480,
+            "w": 328,
+            "h": 140,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Owes you, State=Default",
+                "props": {
+                  "Amount": "+₹1,200",
+                  "Detail": "owes you",
+                  "Name": "Rahul"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "R",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Rahul",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "owes you",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "+₹1,200",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/positive"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Green",
+                    "props": {
+                      "Initial": "R"
+                    }
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Balance Row",
+                "x": 0,
+                "y": 74,
+                "w": 328,
+                "h": 66,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "comp": "Balance Row",
+                "variant": "Direction=Owes you, State=Default",
+                "props": {
+                  "Amount": "+₹1,150",
+                  "Detail": "owes you",
+                  "Name": "Priya"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "P",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  },
+                  {
+                    "n": "Title",
+                    "text": "Priya",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "owes you",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "+₹1,150",
+                    "style": "Amount/M",
+                    "fill": [
+                      "color/status/positive"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Avatar",
+                    "w": 40,
+                    "h": 40,
+                    "comp": "Avatar",
+                    "variant": "Color=Pink",
+                    "props": {
+                      "Initial": "P"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Bottom Nav",
+        "x": 0,
+        "y": 680,
+        "w": 360,
+        "h": 96,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Bottom Nav",
+        "variant": "Active=Groups",
+        "texts": [
+          {
+            "n": "Label",
+            "text": "Groups",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/on-brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Tab/Home",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Home, State=Default"
+          },
+          {
+            "n": "Tab/Groups",
+            "w": 114,
+            "h": 53,
+            "comp": "Bottom Nav Pill",
+            "variant": "Tab=Groups, State=Default"
+          },
+          {
+            "n": "Tab/Activity",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=Activity, State=Default"
+          },
+          {
+            "n": "Tab/You",
+            "w": 48,
+            "h": 48,
+            "comp": "Bottom Nav Icon",
+            "variant": "Tab=You, State=Default"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

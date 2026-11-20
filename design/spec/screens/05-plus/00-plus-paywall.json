@@ -1,0 +1,680 @@
+{
+  "name": "Plus paywall",
+  "group": "Group/05 Plus",
+  "index": 0,
+  "darkId": "38:1114",
+  "lightId": "80:2148",
+  "tree": {
+    "t": "FRAME",
+    "n": "Plus paywall",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": ""
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "Restore",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 52,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": "Restore"
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 555,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Tag",
+            "x": 16,
+            "y": 8,
+            "w": 53,
+            "h": 24,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              4,
+              8,
+              4,
+              8
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "r": 8,
+            "fill": [
+              "color/accent/purple"
+            ],
+            "comp": "Tag",
+            "variant": "Tone=Purple",
+            "props": {
+              "Label": "Plus"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Plus",
+                "style": "Label",
+                "textCase": "UPPER",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "SumBuddy Plus",
+            "x": 16,
+            "y": 44,
+            "w": 328,
+            "h": 36,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "SumBuddy Plus",
+            "style": "Display/L"
+          },
+          {
+            "t": "TEXT",
+            "n": "Everything you use today stays free. Plus adds extras on top.",
+            "x": 16,
+            "y": 92,
+            "w": 328,
+            "h": 40,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Everything you use today stays free. Plus adds extras on top.",
+            "style": "Body/M"
+          },
+          {
+            "t": "FRAME",
+            "n": "List card",
+            "x": 16,
+            "y": 144,
+            "w": 328,
+            "h": 180,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/sparkle / Style=3D",
+                  "Subtitle": "To be decided",
+                  "Title": "Plus feature 1"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Plus feature 1",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "To be decided",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/sparkle",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 68,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/sparkle / Style=3D",
+                  "Subtitle": "To be decided",
+                  "Title": "Plus feature 2"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Plus feature 2",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "To be decided",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/sparkle",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Info Row",
+                "x": 12,
+                "y": 124,
+                "w": 304,
+                "h": 44,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Info Row",
+                "variant": "State=Default",
+                "props": {
+                  "Icon": "Icon/sparkle / Style=3D",
+                  "Subtitle": "To be decided",
+                  "Title": "Plus feature 3"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Plus feature 3",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "To be decided",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/sparkle",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Plans",
+            "x": 16,
+            "y": 336,
+            "w": 328,
+            "h": 181,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Option Card",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 85,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Option Card",
+                "variant": "Selected=True, State=Default",
+                "props": {
+                  "Icon": "Icon/calendar / Style=3D",
+                  "Subtitle": "Price to be decided",
+                  "Title": "Yearly"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Yearly",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Price to be decided",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/calendar",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Option Card",
+                "x": 0,
+                "y": 97,
+                "w": 328,
+                "h": 84,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Option Card",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Subtitle": "Price to be decided",
+                  "Icon": "Icon/calendar / Style=3D",
+                  "Title": "Monthly"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Monthly",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Price to be decided",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/calendar",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 665,
+        "w": 360,
+        "h": 111,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Start free trial"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Start free trial",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Paid through Google Play. Cancel any time.",
+            "x": 16,
+            "y": 85,
+            "w": 328,
+            "h": 18,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/tertiary"
+            ],
+            "text": "Paid through Google Play. Cancel any time.",
+            "style": "Caption",
+            "align": "CENTER"
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

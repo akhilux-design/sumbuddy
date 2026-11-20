@@ -1,0 +1,310 @@
+{
+  "name": "Bottom Nav Pill", "id": "431:679",
+  "properties": {
+    "Tab": {"type": "VARIANT", "defaultValue": "Home", "options": ["Home", "Groups", "Activity", "You"]},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Bottom Nav Pill", "x": 0, "y": 554, "w": 546, "h": 180, "lay": "row", "gap": 24, "pad": [24, 24, 24, 24],
+    "main": "MIN", "cross": "CENTER", "wrap": true, "crossGap": 24, "size": ["FIXED", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1,
+    "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "Tab=Home, State=Default", "x": 25, "y": 25, "w": 104, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 104, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 40, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "Home",
+                "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=Groups, State=Default", "x": 153, "y": 25, "w": 114, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 114, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                        "stroke": ["color/text/on-brand"], "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                        "stroke": ["color/text/on-brand"], "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 50, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "Groups", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=Activity, State=Default", "x": 291, "y": 25, "w": 117, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 117, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 53, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "Activity", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=You, State=Default", "x": 432, "y": 25, "w": 89, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 89, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 25, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "You",
+                "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=Home, State=Pressed", "x": 25, "y": 102, "w": 104, "h": 53, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 4, "w": 104, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,1,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 40, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "Home",
+                "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=Groups, State=Pressed", "x": 153, "y": 102, "w": 114, "h": 53, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 4, "w": 114, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,1,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                        "stroke": ["color/text/on-brand"], "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                        "stroke": ["color/text/on-brand"], "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 50, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "Groups", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=Activity, State=Pressed", "x": 291, "y": 102, "w": 117, "h": 53, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 4, "w": 117, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,1,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 53, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "Activity", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tab=You, State=Pressed", "x": 432, "y": 102, "w": 89, "h": 53, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["HUG", "HUG"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Pill", "x": 0, "y": 4, "w": 89, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+            "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,1,0,color/brand/edge)"], "clip": true,
+            "c": [
+              {
+                "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                "c": [
+                  {
+                    "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/on-brand"],
+                        "sw": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 25, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "You",
+                "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

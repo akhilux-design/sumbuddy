@@ -1,0 +1,1347 @@
+{
+  "name": "Review payments (Add all)",
+  "group": "Group/02 Everyday",
+  "index": 37,
+  "darkId": "153:9668",
+  "lightId": "153:10182",
+  "tree": {
+    "t": "FRAME",
+    "n": "Review payments (Add all)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "Review payments"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "Review payments",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "Add all",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 47,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": "Add all"
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 585,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Progress",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 49,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Progress",
+                "x": 0,
+                "y": 14,
+                "w": 45,
+                "h": 22,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "1 of 14",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Card stack",
+            "x": 16,
+            "y": 69,
+            "w": 328,
+            "h": 448,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Next card 2",
+                "x": 24,
+                "y": 24,
+                "w": 280,
+                "h": 414,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 24,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "clip": true
+              },
+              {
+                "t": "FRAME",
+                "n": "Next card 1",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 414,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 24,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "clip": true
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Swipe Card",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 413,
+                "lay": "col",
+                "gap": 16,
+                "pad": [
+                  20,
+                  20,
+                  20,
+                  20
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/16",
+                "size": [
+                  "FIXED",
+                  "HUG"
+                ],
+                "r": 24,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/edge/neutral)"
+                ],
+                "comp": "Swipe Card",
+                "variant": "Stamp=None",
+                "props": {
+                  "Category icon": "Icon/food / Style=3D",
+                  "Amount": "₹450",
+                  "Category": "Food",
+                  "When": "Today, 9:12 pm",
+                  "Payee": "Swiggy",
+                  "Account": "HDFC Credit Card ••4521"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "From SMS",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/info"
+                    ]
+                  },
+                  {
+                    "n": "Amount",
+                    "text": "₹450",
+                    "style": "Amount/XL",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Payee",
+                    "text": "Swiggy",
+                    "style": "Heading/M",
+                    "align": "CENTER",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "When label",
+                    "text": "When",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "When",
+                    "text": "Today, 9:12 pm",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Account label",
+                    "text": "Account",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Account",
+                    "text": "HDFC Credit Card ••4521",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Category label",
+                    "text": "Category",
+                    "style": "Body/M",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Category",
+                    "text": "Food",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Change",
+                    "text": "Change",
+                    "style": "Body/M Strong",
+                    "fill": [
+                      "color/text/brand"
+                    ]
+                  },
+                  {
+                    "n": "Label",
+                    "text": "Split it instead",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/brand"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Tag",
+                    "w": 95,
+                    "h": 24,
+                    "comp": "Tag",
+                    "variant": "Tone=Blue",
+                    "props": {
+                      "Label": "From SMS"
+                    }
+                  },
+                  {
+                    "n": "Icon",
+                    "w": 32,
+                    "h": 32,
+                    "comp": "Icon/food",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "n": "Split button",
+                    "w": 146,
+                    "h": 49,
+                    "comp": "Button",
+                    "variant": "Style=Ghost, Size=Medium, State=Default",
+                    "props": {
+                      "Label": "Split it instead"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Hint",
+            "x": 16,
+            "y": 529,
+            "w": 328,
+            "h": 18,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Swipe right to add, left to ignore.",
+            "style": "Caption",
+            "align": "CENTER"
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 695,
+        "w": 360,
+        "h": 81,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Ignore",
+            "x": 16,
+            "y": 16,
+            "w": 158,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Secondary, Size=Large, State=Default",
+            "props": {
+              "Label": "Ignore"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Ignore",
+                "style": "Button",
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Add",
+            "x": 186,
+            "y": 16,
+            "w": 158,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Add"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Add",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "RECTANGLE",
+        "n": "Scrim",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 800,
+        "op": 0.72,
+        "size": [
+          "FIXED",
+          "FIXED"
+        ],
+        "abs": true,
+        "fill": [
+          "color/bg/canvas"
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Bottom sheet",
+        "x": 0,
+        "y": 243,
+        "w": 360,
+        "h": 557,
+        "lay": "col",
+        "gap": 16,
+        "pad": [
+          12,
+          16,
+          32,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/16",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "abs": true,
+        "r": [
+          32,
+          32,
+          0,
+          0
+        ],
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Handle row",
+            "x": 16,
+            "y": 12,
+            "w": 328,
+            "h": 4,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "CENTER",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "RECTANGLE",
+                "n": "Handle",
+                "x": 146,
+                "y": 0,
+                "w": 36,
+                "h": 4,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/border/strong"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Title",
+            "x": 16,
+            "y": 32,
+            "w": 328,
+            "h": 28,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "Add all 14 payments?",
+            "style": "Heading/L"
+          },
+          {
+            "t": "FRAME",
+            "n": "Breakdown",
+            "x": 16,
+            "y": 76,
+            "w": 328,
+            "h": 259,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Food",
+                "x": 12,
+                "y": 12,
+                "w": 304,
+                "h": 38,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 0,
+                    "y": 3,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/food",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Text",
+                    "x": 44,
+                    "y": 0,
+                    "w": 204,
+                    "h": 38,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Category",
+                        "x": 0,
+                        "y": 0,
+                        "w": 34,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/primary"
+                        ],
+                        "text": "Food",
+                        "style": "Body/M Strong"
+                      },
+                      {
+                        "t": "TEXT",
+                        "n": "Count",
+                        "x": 0,
+                        "y": 20,
+                        "w": 79,
+                        "h": 18,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/secondary"
+                        ],
+                        "text": "6 payments",
+                        "style": "Caption"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Amount",
+                    "x": 260,
+                    "y": 9,
+                    "w": 44,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "₹2,180",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Groceries",
+                "x": 12,
+                "y": 62,
+                "w": 304,
+                "h": 38,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 0,
+                    "y": 3,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/cart",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Text",
+                    "x": 44,
+                    "y": 0,
+                    "w": 201,
+                    "h": 38,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Category",
+                        "x": 0,
+                        "y": 0,
+                        "w": 67,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/primary"
+                        ],
+                        "text": "Groceries",
+                        "style": "Body/M Strong"
+                      },
+                      {
+                        "t": "TEXT",
+                        "n": "Count",
+                        "x": 0,
+                        "y": 20,
+                        "w": 79,
+                        "h": 18,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/secondary"
+                        ],
+                        "text": "3 payments",
+                        "style": "Caption"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Amount",
+                    "x": 257,
+                    "y": 9,
+                    "w": 47,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "₹3,920",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Travel",
+                "x": 12,
+                "y": 112,
+                "w": 304,
+                "h": 38,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 0,
+                    "y": 3,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/car",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Text",
+                    "x": 44,
+                    "y": 0,
+                    "w": 207,
+                    "h": 38,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Category",
+                        "x": 0,
+                        "y": 0,
+                        "w": 41,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/primary"
+                        ],
+                        "text": "Travel",
+                        "style": "Body/M Strong"
+                      },
+                      {
+                        "t": "TEXT",
+                        "n": "Count",
+                        "x": 0,
+                        "y": 20,
+                        "w": 79,
+                        "h": 18,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/secondary"
+                        ],
+                        "text": "4 payments",
+                        "style": "Caption"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Amount",
+                    "x": 263,
+                    "y": 9,
+                    "w": 41,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "₹1,140",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Shopping",
+                "x": 12,
+                "y": 162,
+                "w": 304,
+                "h": 38,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 0,
+                    "y": 3,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/bag",
+                    "variant": "Style=3D"
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Text",
+                    "x": 44,
+                    "y": 0,
+                    "w": 202,
+                    "h": 38,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Category",
+                        "x": 0,
+                        "y": 0,
+                        "w": 64,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/primary"
+                        ],
+                        "text": "Shopping",
+                        "style": "Body/M Strong"
+                      },
+                      {
+                        "t": "TEXT",
+                        "n": "Count",
+                        "x": 0,
+                        "y": 20,
+                        "w": 68,
+                        "h": 18,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/secondary"
+                        ],
+                        "text": "1 payment",
+                        "style": "Caption"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Amount",
+                    "x": 258,
+                    "y": 9,
+                    "w": 46,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "₹1,400",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "RECTANGLE",
+                "n": "Divider",
+                "x": 12,
+                "y": 212,
+                "w": 304,
+                "h": 1,
+                "size": [
+                  "FILL",
+                  "FIXED"
+                ],
+                "fill": [
+                  "color/border/subtle"
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Total",
+                "x": 12,
+                "y": 225,
+                "w": 304,
+                "h": 22,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Total label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 38,
+                    "h": 22,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Total",
+                    "style": "Title"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Total amount",
+                    "x": 243,
+                    "y": 0,
+                    "w": 61,
+                    "h": 22,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "₹8,640",
+                    "style": "Amount/M"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Note",
+            "x": 16,
+            "y": 351,
+            "w": 328,
+            "h": 40,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Each payment gets the category shown. You can change it later in Activity.",
+            "style": "Body/M"
+          },
+          {
+            "t": "FRAME",
+            "n": "Actions",
+            "x": 16,
+            "y": 407,
+            "w": 328,
+            "h": 118,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Button",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 57,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Button",
+                "variant": "Style=Primary, Size=Large, State=Default",
+                "props": {
+                  "Label": "Add all 14"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Add all 14",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Button",
+                "x": 0,
+                "y": 69,
+                "w": 328,
+                "h": 49,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Button",
+                "variant": "Style=Ghost, Size=Medium, State=Default",
+                "props": {
+                  "Label": "Cancel"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Cancel",
+                    "style": "Button",
+                    "fill": [
+                      "color/text/brand"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

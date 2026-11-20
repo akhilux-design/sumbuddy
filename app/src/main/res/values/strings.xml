@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The app's name (chosen 2026-11-20, docs/product.md). This is the only place it is set: screens, the friends'
+         page build (server/web) and share messages read it from here. -->
+    <string name="app_name">SumBuddy</string>
+</resources>

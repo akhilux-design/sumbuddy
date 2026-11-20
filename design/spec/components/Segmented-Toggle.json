@@ -1,0 +1,698 @@
+{
+  "name": "Segmented Toggle",
+  "id": "47:49",
+  "properties": {
+    "Left#47:0": {
+      "type": "TEXT",
+      "defaultValue": "Me"
+    },
+    "Right#47:3": {
+      "type": "TEXT",
+      "defaultValue": "Family"
+    },
+    "Selected": {
+      "type": "VARIANT",
+      "defaultValue": "Left",
+      "variantOptions": [
+        "Left",
+        "Right"
+      ]
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Default",
+      "variantOptions": [
+        "Default",
+        "Pressed"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Segmented Toggle",
+    "x": 0,
+    "y": 36,
+    "w": 322,
+    "h": 162,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "wrap": true,
+    "crossGap": 24,
+    "size": [
+      "FIXED",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Selected=Left, State=Default",
+        "x": 25,
+        "y": 25,
+        "w": 124,
+        "h": 44,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Selected",
+            "x": 6,
+            "y": 6,
+            "w": 45,
+            "h": 33,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Pill",
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 28,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  12,
+                  4,
+                  12
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Left label",
+                    "x": 12,
+                    "y": 4,
+                    "w": 21,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/on-brand"
+                    ],
+                    "text": "Me",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Segment",
+            "x": 51,
+            "y": 8,
+            "w": 68,
+            "h": 28,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              4,
+              12,
+              4,
+              12
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "r": 999,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Right label",
+                "x": 12,
+                "y": 4,
+                "w": 44,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Family",
+                "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=Right, State=Default",
+        "x": 173,
+        "y": 25,
+        "w": 124,
+        "h": 44,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Segment",
+            "x": 6,
+            "y": 8,
+            "w": 45,
+            "h": 28,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              4,
+              12,
+              4,
+              12
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "r": 999,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Left label",
+                "x": 12,
+                "y": 4,
+                "w": 21,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Me",
+                "style": "Body/M Strong"
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Selected",
+            "x": 51,
+            "y": 6,
+            "w": 68,
+            "h": 33,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Pill",
+                "x": 0,
+                "y": 0,
+                "w": 68,
+                "h": 28,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  12,
+                  4,
+                  12
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Right label",
+                    "x": 12,
+                    "y": 4,
+                    "w": 44,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/on-brand"
+                    ],
+                    "text": "Family",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=Left, State=Pressed",
+        "x": 25,
+        "y": 93,
+        "w": 124,
+        "h": 44,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Selected",
+            "x": 6,
+            "y": 6,
+            "w": 45,
+            "h": 33,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Pill",
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 28,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  12,
+                  4,
+                  12
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Left label",
+                    "x": 12,
+                    "y": 4,
+                    "w": 21,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/on-brand"
+                    ],
+                    "text": "Me",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Segment",
+            "x": 51,
+            "y": 8,
+            "w": 68,
+            "h": 28,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              4,
+              12,
+              4,
+              12
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "r": 999,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Right label",
+                "x": 12,
+                "y": 4,
+                "w": 44,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Family",
+                "style": "Body/M Strong"
+              },
+              {
+                "t": "RECTANGLE",
+                "n": "Pressed overlay",
+                "x": 0,
+                "y": 0,
+                "w": 68,
+                "h": 28,
+                "op": 0.1,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "abs": true,
+                "r": 999,
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=Right, State=Pressed",
+        "x": 173,
+        "y": 93,
+        "w": 124,
+        "h": 44,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Segment",
+            "x": 6,
+            "y": 8,
+            "w": 45,
+            "h": 28,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              4,
+              12,
+              4,
+              12
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "r": 999,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Left label",
+                "x": 12,
+                "y": 4,
+                "w": 21,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Me",
+                "style": "Body/M Strong"
+              },
+              {
+                "t": "RECTANGLE",
+                "n": "Pressed overlay",
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 28,
+                "op": 0.1,
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "abs": true,
+                "r": 999,
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Selected",
+            "x": 51,
+            "y": 6,
+            "w": 68,
+            "h": 33,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Pill",
+                "x": 0,
+                "y": 0,
+                "w": 68,
+                "h": 28,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  12,
+                  4,
+                  12
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Right label",
+                    "x": 12,
+                    "y": 4,
+                    "w": 44,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/on-brand"
+                    ],
+                    "text": "Family",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

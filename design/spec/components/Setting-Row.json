@@ -1,0 +1,146 @@
+{
+  "name": "Setting Row", "id": "417:514",
+  "properties": {
+    "Title#417:60": {"type": "TEXT", "defaultValue": "HDFC Bank"}, "Subtitle#417:61": {"type": "TEXT", "defaultValue": "Savings ••4521"},
+    "Icon#417:62": {"type": "INSTANCE_SWAP", "defaultValue": "106:187", "defaultName": "Icon/receipt / Style=3D"},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Setting Row", "x": 0, "y": 36, "w": 378, "h": 210, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "State=Default", "x": 25, "y": 25, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12], "main": "MIN",
+        "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 184, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 184, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "HDFC Bank", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 184, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Savings ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE", "n": "Switch", "x": 264, "y": 18, "w": 52, "h": 32, "lay": "row", "gap": 0, "pad": [4, 4, 4, 4], "main": "MAX",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Switch", "variant": "On=True",
+            "c": [{"t": "ELLIPSE", "n": "Knob", "x": 24, "y": 4, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "fill": ["color/text/on-brand"]}]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "State=Pressed", "x": 25, "y": 117, "w": 328, "h": 68, "lay": "row", "gap": 12, "pad": [12, 12, 12, 12], "main": "MIN",
+        "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16, "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon bubble", "x": 12, "y": 12, "w": 44, "h": 44, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 12, "fill": ["color/bg/surface-raised"], "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Icon", "x": 7, "y": 7, "w": 30, "h": 30, "size": ["FIXED", "FIXED"], "comp": "Icon/receipt",
+                "variant": "Style=3D",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Art", "x": 0, "y": 0, "w": 30, "h": 30, "size": ["FIXED", "FIXED"],
+                    "c": [
+                      {"t": "VECTOR", "n": "Vector", "x": 7, "y": 3, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"], "fill": ["#B3A27E"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 6, "y": 2, "w": 17.8, "h": 25.3, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#FFFDF6,#F8EFDC,#E6D7B8)"]
+                      },
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 8, "y": 5, "w": 13.1, "h": 3.5, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      },
+                      {"t": "VECTOR", "n": "Vector (Stroke)", "x": 14, "y": 5, "w": 2.5, "h": 3.4, "size": ["FIXED", "FIXED"], "fill": ["#FFFFFF"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 11, "w": 8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 11, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 14, "w": 6.1, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 14, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 17, "w": 8.9, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 19, "y": 17, "w": 2.8, "h": 1.2, "size": ["FIXED", "FIXED"], "fill": ["#9C9482"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 19, "w": 13.1, "h": 0.5, "size": ["FIXED", "FIXED"], "fill": ["#CFC3A6"]},
+                      {"t": "VECTOR", "n": "Vector", "x": 8, "y": 21, "w": 4.7, "h": 1.6, "size": ["FIXED", "FIXED"], "fill": ["#586379"]},
+                      {
+                        "t": "VECTOR", "n": "Vector", "x": 16, "y": 21, "w": 5.2, "h": 1.6, "size": ["FIXED", "FIXED"],
+                        "fill": ["GRADIENT_LINEAR(#AEEACA,#52BD82,#2F9C60)"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 68, "y": 13, "w": 184, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 184, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"],
+                "text": "HDFC Bank", "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 184, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "Savings ••4521", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE", "n": "Switch", "x": 264, "y": 18, "w": 52, "h": 32, "lay": "row", "gap": 0, "pad": [4, 4, 4, 4], "main": "MAX",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Switch", "variant": "On=True",
+            "c": [{"t": "ELLIPSE", "n": "Knob", "x": 24, "y": 4, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "fill": ["color/text/on-brand"]}]
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 68, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

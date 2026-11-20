@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- You tab (design/spec/screens/04-you/00-you signed in, 06-you-not-signed-in signed out). Plus and "See the
+         code" are left out (docs/product.md); MORE holds Import from Splitwise only. -->
+    <string name="you_section_tracking">Tracking</string>
+    <string name="you_section_privacy">Privacy</string>
+    <string name="you_section_more">More</string>
+    <string name="you_import_title">Import from Splitwise</string>
+    <string name="you_import_body">Bring groups and balances</string>
+
+    <!-- Name at the top when the person gave none. -->
+    <string name="you_profile_no_name">You</string>
+    <!-- Under the name: whether this phone is signed in. -->
+    <string name="you_profile_signed_in">Signed in with Google</string>
+    <string name="you_profile_signed_out">Not signed in</string>
+    <!-- The card under the name when signed out (06): it opens Sign in. -->
+    <string name="you_sign_in_title">Sign in with Google</string>
+    <string name="you_sign_in_body">To split with friends. Your SMS stay on this phone.</string>
+
+    <string name="you_sms_tracking_title">SMS auto-tracking</string>
+    <plurals name="you_sms_tracking_subtitle">
+        <item quantity="one">%d account or card</item>
+        <item quantity="other">%d accounts and cards</item>
+    </plurals>
+
+    <string name="you_reminders_title">Automatic reminders</string>
+    <plurals name="you_reminders_subtitle">
+        <item quantity="one">%d day before a card bill is due</item>
+        <item quantity="other">%d days before a card bill is due</item>
+    </plurals>
+
+    <string name="you_start_date_title">Tracking start date</string>
+    <!-- Tracking start date row when SMS were never read. -->
+    <string name="you_start_date_not_set">Not started</string>
+
+    <string name="you_what_we_read_title">What we\'ve read</string>
+    <!-- %1$s is the count, written with digit grouping ("1,902"). -->
+    <plurals name="you_what_we_read_messages">
+        <item quantity="one">%1$s message</item>
+        <item quantity="other">%1$s messages</item>
+    </plurals>
+    <!-- %1$s is the message count from you_what_we_read_messages, %2$d how many were sent off the phone. -->
+    <string name="you_what_we_read_subtitle">%1$s · %2$d sent off this phone</string>
+
+    <!-- Accounts and cards (design 04-you/01-accounts-and-cards). -->
+    <string name="you_accounts_title">Accounts and cards</string>
+    <string name="you_accounts_intro">Switch off any you do not want tracked. New ones are added when their first SMS arrives. Tap one to rename it.</string>
+    <!-- What a screen reader says for an account's switch. %1$s is the account's name. -->
+    <string name="you_accounts_track">Track %1$s</string>
+    <string name="you_accounts_empty_title">No accounts yet</string>
+    <string name="you_accounts_empty_body">Accounts and cards are added when their first bank SMS arrives.</string>
+    <!-- Label of the name field. %1$s is the account, for example "Credit card ••8890". -->
+    <string name="you_rename_label">Name for %1$s</string>
+    <!-- Not shown and not in the design: 04-you/10 draws no line under the name field, and the Input component has a
+         helper only in its Error state. The field's placeholder (the bank's name) says the same. Kept for the day the
+         design draws the line. -->
+    <string name="you_rename_helper" tools:ignore="UnusedResources">Leave it empty to use the bank\'s name.</string>
+    <string name="you_rename_save">Save</string>
+    <string name="you_rename_cancel">Cancel</string>
+
+    <!-- What we've read (design 04-you/04-what-we-ve-read). Labels are shown in capitals. -->
+    <string name="you_read_sent_label">Sent off this phone</string>
+    <!-- %1$s is the count, written with digit grouping ("1,902"). -->
+    <plurals name="you_read_caption">
+        <item quantity="one">%1$s bank message read, all on this device</item>
+        <item quantity="other">%1$s bank messages read, all on this device</item>
+    </plurals>
+    <string name="you_read_latest">Latest messages used</string>
+    <string name="you_read_kind_debit">Debit alert</string>
+    <string name="you_read_kind_card">Card alert</string>
+    <string name="you_read_kind_credit">Credit alert</string>
+    <!-- Second line of a used message. %1$s is the kind of alert, %2$s when it came, for example "today 9:12". -->
+    <string name="you_read_subtitle">%1$s · %2$s</string>
+    <!-- %1$s is the time. -->
+    <string name="you_read_today">today %1$s</string>
+    <string name="you_read_yesterday">yesterday</string>
+    <string name="you_read_used">Used</string>
+    <!-- Title of a used message whose bank is unknown. -->
+    <string name="you_read_unknown_bank">Bank</string>
+    <string name="you_read_skipped">Skipped</string>
+    <string name="you_read_skipped_title">OTPs, promotions, personal chats</string>
+    <!-- %1$s is the count, written with digit grouping ("1,902"). -->
+    <plurals name="you_read_skipped_count">
+        <item quantity="one">%1$s message, never stored</item>
+        <item quantity="other">%1$s messages, never stored</item>
+    </plurals>
+
+    <!-- Tracking start date (design 04-you/05-tracking-start-date). Dates read like "1 Nov 2026". -->
+    <string name="you_start_title">Tracking start date</string>
+    <string name="you_start_intro">Tracking starts on %1$s. Move it earlier to bring in older payments.</string>
+    <string name="you_start_intro_not_started">SMS have not been read yet. Choose where reading should start.</string>
+    <string name="you_start_this_month">This month</string>
+    <string name="you_start_last_three_months">Last 3 months</string>
+    <string name="you_start_pick">Pick a date</string>
+    <string name="you_start_pick_subtitle">Choose your own starting day.</string>
+    <!-- %1$s is a date. -->
+    <string name="you_start_since">Since %1$s</string>
+    <string name="you_start_since_now">Since %1$s · what you have now</string>
+    <string name="you_start_since_included">Since %1$s · already included</string>
+    <string name="you_start_picked">From %1$s</string>
+    <string name="you_start_no_doubles_title">No doubles</string>
+    <string name="you_start_no_doubles_body">Payments already in your list are not added twice.</string>
+    <string name="you_start_add">Add older payments</string>
+    <string name="you_start_manual_note">Turn on SMS auto-tracking on You to bring in older payments.</string>
+    <!-- %1$d messages read so far, %2$d messages in the period. -->
+    <string name="you_start_running">Reading your bank messages: %1$d of %2$d</string>
+    <string name="you_start_running_starting">Reading your bank messages</string>
+    <plurals name="you_start_done">
+        <item quantity="one">Done. %d older payment is waiting on Home for you to add.</item>
+        <item quantity="other">Done. %d older payments are waiting on Home for you to add.</item>
+    </plurals>
+    <string name="you_start_done_none">Done. No older payments were found.</string>
+    <string name="you_start_failed">Reading stopped before the end. Choose the date again to try once more.</string>
+
+    <!-- Account (design 04-you/02-account, 03-delete-account-confirm, 07-account-upi-id-not-valid,
+         08-sign-out-changes-not-sent). The UPI ID field and its note are shared with Your name (strings_signin.xml). -->
+    <string name="you_account_title">Account</string>
+    <string name="you_account_name_label">Name</string>
+    <string name="you_account_phone_label">Phone number (optional)</string>
+    <!-- Under the name or phone field when it is not right (the design's Input helper). -->
+    <string name="you_account_not_right">That does not look right.</string>
+    <string name="you_account_sign_out_title">Sign out</string>
+    <string name="you_account_sign_out_body">Your groups stay. Expenses on this phone are kept.</string>
+    <string name="you_account_delete_title">Delete account and data</string>
+    <string name="you_account_delete_body">Removes your account and this phone’s data. Shared groups show you as “Former member”.</string>
+    <string name="you_account_save">Save</string>
+    <string name="you_account_delete_confirm_title">Delete your account and all data? This cannot be undone.</string>
+    <string name="you_account_delete_confirm_body">Groups only you use are deleted. In shared groups your name becomes “Former member”, so everyone’s balances stay right.</string>
+    <string name="you_account_delete_confirm">Delete everything</string>
+    <string name="you_account_delete_keep">Keep my account</string>
+    <!-- Sign out while changes wait to be sent (08). The "one" form is not in the design. -->
+    <plurals name="you_account_unsent_title">
+        <item quantity="one">%d change is not sent yet</item>
+        <item quantity="other">%d changes are not sent yet</item>
+    </plurals>
+    <string name="you_account_unsent_body">Connect to the internet to send them. If you sign out now, they are lost.</string>
+    <string name="you_account_sign_out_anyway">Sign out anyway</string>
+    <string name="you_account_stay_signed_in">Stay signed in</string>
+    <!-- Not in the design for Account: the banner when saving or deleting needs the internet and there is none (the
+         wording of Home's offline banner and 02-everyday/23). -->
+    <string name="you_account_offline_title">You\'re offline</string>
+    <string name="you_account_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: the banner when the server refused saving or deleting for another reason. -->
+    <string name="you_account_failed_title">Could not do that now</string>
+    <string name="you_account_failed_body">Try again in a moment.</string>
+
+    <!-- FAMILY on the You tab (design/spec/screens/04-you/00 and 06; docs/family.md 1.1). -->
+    <string name="you_section_family">Family</string>
+    <string name="you_family_title">Family</string>
+    <string name="you_family_none">Share a monthly total with your partner</string>
+    <!-- %1$s is the family's name, %2$s and %3$s the two first names: "Home · Arjun and Meera". -->
+    <string name="you_family_two">%1$s · %2$s and %3$s</string>
+    <string name="you_family_waiting">%1$s · waiting for your partner</string>
+    <string name="you_family_alone">%1$s · just you</string>
+</resources>

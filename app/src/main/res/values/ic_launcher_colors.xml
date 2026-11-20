@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher icon colours. A launcher icon cannot read the Compose theme, so the two token values are repeated here:
+     color/brand/primary (light, green/500) and color/text/on-brand (neutral/950). Keep them equal to ui/theme/Tokens.kt. -->
+<resources>
+    <color name="ic_launcher_background">#16C253</color>
+    <color name="ic_launcher_mark">#0A0C0B</color>
+</resources>

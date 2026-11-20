@@ -1,0 +1,4 @@
+# Copy to server/.dev.vars (git-ignored) for `npm run dev`. Never put real secrets in this example file.
+SESSION_SECRET=local-dev-only-change-me-0123456789abcdef
+# Optional: push stays off while this is empty (docs/server.md 4.14).
+FCM_SERVICE_ACCOUNT_JSON=

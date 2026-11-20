@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sign in (design/spec/screens/01-onboarding/01-sign-in, 02-sign-in-could-not-sign-in; for a friend's link
+         02-everyday/49-join-group-sign-in-first) and Your name (after sign-in) (03-your-name-after-sign-in). Sign in is
+         asked only when splitting first needs it. -->
+    <string name="signin_title">Sign in</string>
+    <string name="signin_headline">Split with friends</string>
+    <string name="signin_reason">Sign in to split with friends. Your SMS stay on this phone.</string>
+    <string name="signin_groups_title">Groups and balances</string>
+    <string name="signin_groups_body">Kept in your account, so a new phone gets them back.</string>
+    <string name="signin_private_title">Personal stays personal</string>
+    <string name="signin_private_body">Only expenses you put in a group are shared. Never your SMS.</string>
+    <!-- Sign in for a friend's link (49): the headline, the reason and the first row change; the rest is the same. -->
+    <string name="signin_join_headline">Join a group</string>
+    <string name="signin_join_reason">Sign in to join a group. Your SMS stay on this phone.</string>
+    <string name="signin_invited_title">You were invited</string>
+    <string name="signin_invited_body">After you sign in, you see the group and what you owe. Then you choose.</string>
+    <!-- The button follows Google's sign-in branding guidelines: keep this wording. -->
+    <string name="signin_google">Continue with Google</string>
+    <string name="signin_not_now">Not now</string>
+    <string name="signin_failed_title">Could not sign in</string>
+    <string name="signin_failed_body">Check your connection and try again. Nothing on this phone was changed.</string>
+    <!-- Debug builds only, never in a release build (a release build without a Google client id does not build).
+         Not in the design. -->
+    <string name="signin_not_configured_title">Google sign-in is not set up</string>
+    <string name="signin_not_configured_body">This build has no Google client id (app.googleWebClientId, see docs/server-setup.md). Use Dev sign-in with the local server for now.</string>
+
+    <!-- Your name (after sign-in). -->
+    <string name="signin_name_headline">What should we call you?</string>
+    <string name="signin_name_body">From your Google account. Friends see this name when you split with them.</string>
+    <string name="signin_name_label">Your name</string>
+    <string name="signin_phone_label">Phone number (optional)</string>
+    <string name="signin_phone_invalid">That does not look right.</string>
+    <string name="signin_phone_note">Not checked by us. It only helps friends find you, and only people in your groups see it.</string>
+    <string name="signin_upi_label">UPI ID (optional)</string>
+    <string name="signin_upi_invalid">That does not look like a UPI ID.</string>
+    <string name="signin_upi_note">For example name@okaxis. Friends in your groups see it on pay links.</string>
+    <string name="signin_continue">Continue</string>
+    <!-- Not in the design for Your name: the banner when saving needs the internet and there is none (the wording of
+         Home's offline banner and 02-everyday/23). -->
+    <string name="signin_save_offline_title">You\'re offline</string>
+    <string name="signin_save_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: the banner when the server refused saving for another reason. -->
+    <string name="signin_save_failed_title">Could not do that now</string>
+    <string name="signin_save_failed_body">Try again in a moment.</string>
+
+    <!-- Sign in (family) (design/spec/screens/06-family/08): from Set up Family or the You row. -->
+    <string name="signin_family_headline">Share a family month</string>
+    <string name="signin_family_reason">Sign in to share a family month. Your SMS stay on this phone.</string>
+    <string name="signin_family_kept_title">Family month</string>
+    <string name="signin_family_kept_body">Kept in your account, so a new phone gets it back.</string>
+    <string name="signin_family_private_title">Personal stays private</string>
+    <string name="signin_family_private_body">Only expenses you mark Family are shared. Never your SMS.</string>
+</resources>

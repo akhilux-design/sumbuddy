@@ -1,0 +1,226 @@
+[
+  {
+    "id": "core-upi-debit-merchant",
+    "sender": "VM-HDFCBK",
+    "body": "Sent Rs.450.00\nFrom HDFC Bank A/C *4521\nTo SWIGGY\nOn 16/11/26\nRef 632045671111\nNot You?\nCall 18002586161/SMS BLOCK UPI to 7308080808",
+    "receivedAt": "2026-11-16T13:02:11+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 45000, "currency": "INR", "counterparty": "Swiggy", "vpa": null, "bank": "HDFC Bank", "instrumentType": "BANK_ACCOUNT", "instrumentLast4": "4521", "channel": "UPI", "referenceId": "632045671111", "balanceMinor": null, "occurredAt": "2026-11-16T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-upi-debit-vpa",
+    "sender": "AD-HDFCBK-S",
+    "body": "Rs 1,250.00 debited from a/c **4521 on 14-11-26 to VPA neha.example21@okaxis(UPI Ref No 631898761111). Not you? Call on 18002586161 to report this",
+    "receivedAt": "2026-11-14T21:40:03+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 125000, "counterparty": null, "vpa": "neha.example21@okaxis", "bank": "HDFC Bank", "instrumentLast4": "4521", "channel": "UPI", "referenceId": "631898761111", "occurredAt": "2026-11-14T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-sbi-upi-bare-amount",
+    "sender": "JD-SBIUPI-S",
+    "body": "Dear UPI user A/C X4321 debited by 320.0 on date 16Nov26 trf to GUPTA KIRANA STORE Refno 632098761111. If not u? call 1800111109. -SBI",
+    "receivedAt": "2026-11-16T19:12:40+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 32000, "counterparty": "Gupta Kirana Store", "bank": "State Bank of India", "instrumentType": "BANK_ACCOUNT", "instrumentLast4": "4321", "channel": "UPI", "referenceId": "632098761111", "occurredAt": "2026-11-16T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-icici-debit-with-balance",
+    "sender": "AX-ICICIB",
+    "body": "Dear Customer, ICICI Bank Account XX123 is debited with INR 3,540.00 on 12-Nov-26. The Available Balance is INR 58,112.40. Call 18002662 for dispute.",
+    "receivedAt": "2026-11-12T18:44:09+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 354000, "bank": "ICICI Bank", "instrumentType": "BANK_ACCOUNT", "instrumentLast4": "123", "balanceMinor": 5811240, "occurredAt": "2026-11-12T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-debit-card-spend-time",
+    "sender": "VM-KOTAKB-T",
+    "body": "Rs.1,23,456.78 spent via Kotak Debit Card XX8842 at CROMA RETAIL on 14-11-2026 19:42:07. Avl bal Rs.43,371.12. Not you? Tap kotak.com/KBANKT/Fraud",
+    "receivedAt": "2026-11-14T19:42:31+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 12345678, "currency": "INR", "counterparty": "Croma Retail", "bank": "Kotak Mahindra Bank", "instrumentType": "DEBIT_CARD", "instrumentLast4": "8842", "channel": "CARD", "referenceId": null, "balanceMinor": 4337112, "occurredAt": "2026-11-14T19:42:07+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-credit-card-spend-limit-not-balance",
+    "sender": "JK-SBICRD-S",
+    "body": "Rs.2,350.00 spent on your SBI Credit Card ending 6789 at BIG BAZAAR on 13/11/26. Avl Lmt Rs.47,650.00. Trxn. not done by you? Report at https://sbicard.com/Dispute",
+    "receivedAt": "2026-11-13T17:20:11+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 235000, "counterparty": "Big Bazaar", "bank": "SBI Card", "instrumentType": "CREDIT_CARD", "instrumentLast4": "6789", "channel": "CARD", "balanceMinor": null, "occurredAt": "2026-11-13T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-card-foreign-currency",
+    "sender": "VM-ICICIT",
+    "body": "USD 14.99 spent using ICICI Bank Card XX5521 on 13-Nov-26 at STEAM GAMES. Avl Lmt: INR 1,47,650.00. If not you, call 1800 2662.",
+    "receivedAt": "2026-11-13T22:10:58+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 1499, "currency": "USD", "counterparty": "Steam Games", "bank": "ICICI Bank", "instrumentLast4": "5521", "channel": "CARD", "occurredAt": "2026-11-13T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-card-foreign-with-rupee-amount",
+    "sender": "VM-IDFCFB",
+    "body": "USD 50.00 (INR 4,220.15) spent on your IDFC FIRST Bank Credit Card ending XX2468 at OPENAI on 14 NOV 2026 at 11:05 AM. Avbl Limit: INR 1,95,779.85.",
+    "receivedAt": "2026-11-14T11:05:21+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 422015, "currency": "INR", "bank": "IDFC FIRST Bank", "instrumentType": "CREDIT_CARD", "instrumentLast4": "2468", "channel": "CARD", "occurredAt": "2026-11-14T11:05:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-atm-withdrawal",
+    "sender": "BZ-ATMSBI",
+    "body": "Dear SBI Customer, Rs.5000 withdrawn at SBI ATM S1BW000300999 from A/cX4321 on 13Nov26 Transaction Number 4417. Available Balance Rs.18440.25. If not withdrawn by you, call 1800111109.",
+    "receivedAt": "2026-11-13T17:55:20+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 500000, "counterparty": null, "bank": "State Bank of India", "instrumentLast4": "4321", "channel": "ATM", "balanceMinor": 1844025, "occurredAt": "2026-11-13T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-neft-credit-salary",
+    "sender": "BZ-CBSSBI",
+    "body": "Dear Customer, INR 62,450.00 credited to your A/c No XX7788 on 31/10/2026 through NEFT with UTR HDFCN26304981111 by NORTHSTAR SOFTWARE PVT LTD, INFO: SALARY OCT 2026-SBI",
+    "receivedAt": "2026-10-31T10:18:09+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 6245000, "counterparty": "Northstar Software Pvt Ltd", "vpa": null, "bank": "State Bank of India", "instrumentType": "BANK_ACCOUNT", "instrumentLast4": "7788", "channel": "NEFT", "referenceId": "HDFCN26304981111", "occurredAt": "2026-10-31T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-upi-credit-from-vpa",
+    "sender": "VK-KOTAKB",
+    "body": "Received Rs.750.00 in your Kotak Bank AC X4410 from arjun.menon@oksbi on 13-11-26.UPI Ref:631767891111.",
+    "receivedAt": "2026-11-13T21:10:05+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 75000, "vpa": "arjun.menon@oksbi", "bank": "Kotak Mahindra Bank", "instrumentType": "BANK_ACCOUNT", "instrumentLast4": "4410", "channel": "UPI", "referenceId": "631767891111", "occurredAt": "2026-11-13T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-upi-credit-from-name",
+    "sender": "JM-ICICIT-S",
+    "body": "Dear Customer, Acct XX521 is credited with Rs 2,500.00 on 12-Nov-26 from KAVYA IYER. UPI:631698761111-ICICI Bank.",
+    "receivedAt": "2026-11-12T08:47:30+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 250000, "counterparty": "Kavya Iyer", "bank": "ICICI Bank", "instrumentLast4": "521", "channel": "UPI", "referenceId": "631698761111", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-refund-own-message",
+    "sender": "VK-ICICIB-S",
+    "body": "Dear Customer, refund of INR 899.00 from MYNTRA has been credited to your ICICI Bank Credit Card XX9012 on 13-Nov-26.",
+    "receivedAt": "2026-11-13T11:30:18+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 89900, "counterparty": "Myntra", "bank": "ICICI Bank", "instrumentType": "CREDIT_CARD", "instrumentLast4": "9012", "occurredAt": "2026-11-13T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-reversal-credit-own-message",
+    "sender": "AD-FEDBNK",
+    "body": "Rs 180.00 credited to your A/c XX9154 on 11-11-2026 towards reversal of UPI txn 631523451111. Bal: Rs 4,105.33 -Federal Bank",
+    "receivedAt": "2026-11-11T20:15:44+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 18000, "bank": "Federal Bank", "instrumentLast4": "9154", "channel": "UPI", "balanceMinor": 410533, "occurredAt": "2026-11-11T00:00:00+05:30", "confidence": "HIGH" }
+  },
+  {
+    "id": "core-wallet-cashback",
+    "sender": "JD-PAYTM",
+    "body": "Rs.25 Cashback received in your Paytm Wallet. Updated Balance: Paytm Wallet- Rs 375.50",
+    "receivedAt": "2026-11-14T10:16:03+05:30",
+    "expect": { "type": "payment", "direction": "CREDIT", "amountMinor": 2500, "bank": "Paytm", "instrumentType": "WALLET", "instrumentLast4": null, "balanceMinor": 37550, "occurredAt": null, "confidence": "HIGH" }
+  },
+  {
+    "id": "core-unknown-header-bank-from-text",
+    "sender": "BW-ALERTS",
+    "body": "Dear Customer, Rs.12,000.00 has been debited from your Union Bank of India account ...4521 on 16-Nov-2026 towards IMPS to MOHIT SAXENA. IMPS Ref no 632010451111. Avl bal Rs.2,15,200.75",
+    "receivedAt": "2026-11-16T11:31:08+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 1200000, "counterparty": "Mohit Saxena", "bank": "Union Bank of India", "instrumentLast4": "4521", "channel": "IMPS", "referenceId": "632010451111", "balanceMinor": 21520075, "confidence": "HIGH" }
+  },
+  {
+    "id": "core-low-confidence-no-bank-no-digits",
+    "sender": "VK-COOPBK",
+    "body": "Dear Customer, your account is debited with Rs.1500. Available balance is Rs.8200. For details contact your branch.",
+    "receivedAt": "2026-11-16T15:02:48+05:30",
+    "expect": { "type": "payment", "direction": "DEBIT", "amountMinor": 150000, "bank": null, "instrumentLast4": null, "balanceMinor": 820000, "occurredAt": null, "confidence": "LOW" }
+  },
+  {
+    "id": "core-card-bill",
+    "sender": "VK-ICICIB",
+    "body": "ICICI Bank Credit Card XX9012 Statement is sent to your registered email ID. Total of Rs 34,567.89 or minimum of Rs 1,730.00 is due by 02-DEC-26.",
+    "receivedAt": "2026-11-14T08:15:44+05:30",
+    "expect": { "type": "cardBill", "bank": "ICICI Bank", "cardLast4": "9012", "totalDueMinor": 3456789, "minimumDueMinor": 173000, "dueDate": "2026-12-02" }
+  },
+  {
+    "id": "core-card-bill-no-minimum",
+    "sender": "VM-RBLBNK",
+    "body": "Statement for your RBL Bank Credit Card ending 5566 is generated. Total Amount Due: Rs.8,420.00. Due Date: 04-12-2026.",
+    "receivedAt": "2026-11-15T07:11:52+05:30",
+    "expect": { "type": "cardBill", "bank": "RBL Bank", "cardLast4": "5566", "totalDueMinor": 842000, "minimumDueMinor": null, "dueDate": "2026-12-04" }
+  },
+  {
+    "id": "core-otp-with-amount",
+    "sender": "VM-HDFCBK-T",
+    "body": "OTP is 482911 for txn of INR 2,499.00 at AMAZON PAY INDIA on HDFC Bank card ending 4521. Valid till 10:22. Do not share OTP for security reasons",
+    "receivedAt": "2026-11-15T10:17:04+05:30",
+    "expect": { "type": "skipped", "reason": "OTP" }
+  },
+  {
+    "id": "core-promotion-with-amount",
+    "sender": "VM-YESBNK-P",
+    "body": "Dear Customer, you have a pre-approved Personal Loan of Rs.5,00,000 from Yes Bank at 10.99% p.a. Get the amount credited to your account in minutes. T&C apply",
+    "receivedAt": "2026-11-11T12:30:00+05:30",
+    "expect": { "type": "skipped", "reason": "PROMOTION" }
+  },
+  {
+    "id": "core-failed-debited-and-reversed",
+    "sender": "VM-AXISBK",
+    "body": "Your UPI txn of INR 180.00 to ravi.stores@ybl on 11-11-26 has failed. The amount debited from A/c no. XX2290 has been reversed. UPI Ref 631523451112 - Axis Bank",
+    "receivedAt": "2026-11-11T18:02:11+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "core-declined",
+    "sender": "JD-ICICIB-S",
+    "body": "Transaction of INR 4,999.00 on ICICI Bank Credit Card XX7003 at RELIANCE DIGITAL on 14-Nov-26 has been declined due to insufficient credit limit.",
+    "receivedAt": "2026-11-14T18:22:47+05:30",
+    "expect": { "type": "skipped", "reason": "FAILED" }
+  },
+  {
+    "id": "core-collect-request",
+    "sender": "VM-BOBTXN",
+    "body": "You have received a UPI collect request of Rs.500.00 from SURESH NAIR (suresh.n@okhdfcbank). Approve or decline in your UPI app. -Bank of Baroda",
+    "receivedAt": "2026-11-15T10:31:00+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "core-mandate-setup",
+    "sender": "JD-SBIUPI",
+    "body": "Dear Customer, UPI-Mandate towards NETFLIX COM for INR 649.00 is successfully created on your A/c X3478. Validity: 15-11-2027. -SBI",
+    "receivedAt": "2026-11-15T14:20:44+05:30",
+    "expect": { "type": "skipped", "reason": "REQUEST" }
+  },
+  {
+    "id": "core-will-be-debited",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.649.00 will be debited from HDFC Bank A/c XX4521 on 10-Nov-2026 towards NETFLIX for your UPI AutoPay. Please maintain sufficient balance.",
+    "receivedAt": "2026-11-08T09:00:12+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "core-biller-reminder",
+    "sender": "VM-BESCOM",
+    "body": "Dear Consumer, your electricity bill for A/c ID 4412091111 is Rs.1,842. Due date: 25-11-2026. Pay through any UPI app before the due date.",
+    "receivedAt": "2026-11-12T11:15:00+05:30",
+    "expect": { "type": "skipped", "reason": "UPCOMING" }
+  },
+  {
+    "id": "core-balance-enquiry",
+    "sender": "VM-HDFCBK",
+    "body": "Available Bal in HDFC Bank A/c XX4521 as on yesterday:14-NOV-26 INR 45,210.55. Cheques are subject to clearing.",
+    "receivedAt": "2026-11-15T07:02:00+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "core-statement-no-total",
+    "sender": "VM-HDFCBK",
+    "body": "Your HDFC Bank Credit Card ending 4521 statement has been sent to your registered email ID.",
+    "receivedAt": "2026-11-16T06:55:13+05:30",
+    "expect": { "type": "skipped", "reason": "BALANCE_INFO" }
+  },
+  {
+    "id": "core-not-about-money",
+    "sender": "VM-CANBNK",
+    "body": "Your Canara Bank Debit Card ending 6634 has been dispatched through Speed Post. It will reach your registered address in 5-7 working days.",
+    "receivedAt": "2026-11-11T15:50:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "core-phone-number-sender",
+    "sender": "+919800000000",
+    "body": "Rs.450.00 debited from A/c XX4521 on 16-11-26 to VPA swiggy@icici (UPI Ref No 632045871111). -HDFC Bank",
+    "receivedAt": "2026-11-16T10:20:00+05:30",
+    "expect": { "type": "skipped", "reason": "NOT_FINANCIAL" }
+  },
+  {
+    "id": "core-unreadable-amount-missing",
+    "sender": "VM-SBIINB",
+    "body": "Your a/c no. XXXXXXXX7788 is credited by Rs. on 10-11-26 by a/c linked to mobile 8XXXXXX456-MEERA PILLAI (IMPS Ref no 631445611111). -SBI",
+    "receivedAt": "2026-11-10T11:26:40+05:30",
+    "expect": { "type": "unreadable" }
+  }
+]

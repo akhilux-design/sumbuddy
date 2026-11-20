@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- SMS permissions imply telephony; the app still works without it (expenses typed in by hand). -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!-- Bank SMS are read and parsed on this phone only. -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- Payment detected notifications (asked for during onboarding on Android 13 and later). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Splitting with friends talks to the app's server (only group data; never SMS or personal expenses). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- androidx.credentials brings in androidx.biometric, which asks for these two (for passkeys). The app signs in
+         with Google only and never asks for a fingerprint or face, so they are taken out of the merged manifest. -->
+    <uses-permission
+        android:name="android.permission.USE_BIOMETRIC"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT"
+        tools:node="remove" />
+
+    <!-- Apps the split screens hand over to (Android 11 and later only show apps listed here): a UPI app for Pay by
+         UPI (03-getting-paid-back/00), WhatsApp for Remind (03-getting-paid-back/05), any app that takes shared text
+         for Copy or share, and the contacts picker for Add friend (no contacts permission: only the picked one). -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="upi" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="text/plain" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.PICK" />
+            <data android:mimeType="vnd.android.cursor.dir/phone_v2" />
+        </intent>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
+
+    <application
+        android:name=".ExpensesApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- A friend's pay link https://<LINK_HOST>/pay/<token> opens Join group (docs/server.md 9.8). The host comes
+                 from app.linkHost; MainActivity accepts only /pay/ and a 24 character token, and never logs it. -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="${linkHost}"
+                    android:pathPrefix="/pay/" />
+            </intent-filter>
+        </activity>
+
+        <!-- The only way into a detected payment from outside the app: the app's own notification. Not exported, so
+             no other app can open a payment's screen; MainActivity reads the payment id only when it is started
+             through this alias. -->
+        <activity-alias
+            android:name=".NotificationTarget"
+            android:exported="false"
+            android:targetActivity=".MainActivity" />
+
+        <!-- New SMS. Exported because the system sends SMS_RECEIVED; only a sender holding BROADCAST_SMS (the
+             system) can reach it. -->
+        <receiver
+            android:name=".sms.SmsReceivedReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Ignore on the "Payment detected" notification. Reached only by the app's own PendingIntents. -->
+        <receiver
+            android:name=".sms.PaymentActionReceiver"
+            android:exported="false" />
+
+        <!-- Actions on "Groups" notifications, such as Confirm. Reached only by the app's own PendingIntents. -->
+        <receiver
+            android:name=".groups.sync.GroupActionReceiver"
+            android:exported="false" />
+
+        <!-- Push (docs/server.md 9.6). There is no google-services.json: Firebase starts only from PushSetup, and only
+             when all four app.fcm.* values are set. Its automatic start-up provider and token are switched off. -->
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="${applicationId}.firebaseinitprovider"
+            tools:node="remove" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+        <!-- Data-only messages ("group X changed"): the app syncs and writes any notification itself. -->
+        <service
+            android:name=".groups.push.GroupsMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

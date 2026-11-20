@@ -1,0 +1,2814 @@
+{
+  "name": "Swipe Card",
+  "id": "151:292",
+  "properties": {
+    "Amount#151:0": {
+      "type": "TEXT",
+      "defaultValue": "₹450"
+    },
+    "Payee#151:4": {
+      "type": "TEXT",
+      "defaultValue": "Swiggy"
+    },
+    "When#151:8": {
+      "type": "TEXT",
+      "defaultValue": "Today, 9:12 pm"
+    },
+    "Account#151:12": {
+      "type": "TEXT",
+      "defaultValue": "HDFC Credit Card ••4521"
+    },
+    "Category#151:16": {
+      "type": "TEXT",
+      "defaultValue": "Food"
+    },
+    "Category icon#151:20": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "106:91"
+    },
+    "Stamp": {
+      "type": "VARIANT",
+      "defaultValue": "None",
+      "variantOptions": [
+        "None",
+        "Add",
+        "Ignore"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Swipe Card",
+    "x": 0,
+    "y": 36,
+    "w": 1082,
+    "h": 464,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "size": [
+      "HUG",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Stamp=None",
+        "x": 25,
+        "y": 26,
+        "w": 328,
+        "h": 413,
+        "lay": "col",
+        "gap": 16,
+        "pad": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/16",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 24,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "fx": [
+          "DROP_SHADOW(0,5,0,color/edge/neutral)"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Top",
+            "x": 22,
+            "y": 22,
+            "w": 285,
+            "h": 40,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "CENTER",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Tag",
+                "x": 95,
+                "y": 8,
+                "w": 95,
+                "h": 24,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  8,
+                  4,
+                  8
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 8,
+                "fill": [
+                  "color/accent/blue-soft"
+                ],
+                "comp": "Tag",
+                "variant": "Tone=Blue",
+                "props": {
+                  "Label": "From SMS"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "From SMS",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/info"
+                    ]
+                  }
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Label",
+                    "x": 8,
+                    "y": 4,
+                    "w": 79,
+                    "h": 16,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/info"
+                    ],
+                    "text": "From SMS",
+                    "style": "Label",
+                    "textCase": "UPPER"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Amount",
+            "x": 22,
+            "y": 78,
+            "w": 285,
+            "h": 84,
+            "lay": "col",
+            "gap": 4,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/4",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Amount",
+                "x": 82,
+                "y": 0,
+                "w": 122,
+                "h": 56,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "₹450",
+                "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT",
+                "n": "Payee",
+                "x": 107,
+                "y": 60,
+                "w": 71,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Swiggy",
+                "style": "Heading/M",
+                "align": "CENTER"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 178,
+            "w": 285,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Details",
+            "x": 22,
+            "y": 195,
+            "w": 285,
+            "h": 48,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "When row",
+                "x": 0,
+                "y": 0,
+                "w": 285,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "When label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 38,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "When",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "When",
+                    "x": 188,
+                    "y": 0,
+                    "w": 97,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Today, 9:12 pm",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Account row",
+                "x": 0,
+                "y": 28,
+                "w": 285,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Account label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 55,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "Account",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Account",
+                    "x": 120,
+                    "y": 0,
+                    "w": 165,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "HDFC Credit Card ••4521",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 259,
+            "w": 285,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Category row",
+            "x": 22,
+            "y": 276,
+            "w": 285,
+            "h": 51,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Category label",
+                "x": 0,
+                "y": 16,
+                "w": 60,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Category",
+                "style": "Body/M"
+              },
+              {
+                "t": "FRAME",
+                "n": "Category chip",
+                "x": 124,
+                "y": 0,
+                "w": 161,
+                "h": 51,
+                "lay": "row",
+                "gap": 8,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  8
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/8",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 10,
+                    "y": 10,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/food",
+                    "variant": "Style=3D",
+                    "c": [
+                      {
+                        "t": "FRAME",
+                        "n": "Art",
+                        "x": 0,
+                        "y": 0,
+                        "w": 32,
+                        "h": 32,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "c": [
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 23,
+                            "w": 23.5,
+                            "h": 6.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 19,
+                            "w": 25.5,
+                            "h": 4.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#C2946C,#946848,#724D33)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 20,
+                            "w": 23,
+                            "h": 0.6,
+                            "op": 0.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "#FFFFFF"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "cr1.2_0",
+                            "x": 3,
+                            "y": 17,
+                            "w": 25.5,
+                            "h": 5.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "r": 0.6000000238418579,
+                            "fill": [
+                              "GRADIENT_LINEAR(#FCDD82,#EEBB3E,#CF9A26)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 15,
+                            "w": 27,
+                            "h": 3.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#CBE6A2,#96C466,#6FA145)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 4,
+                            "w": 25,
+                            "h": 12.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 5,
+                            "w": 10,
+                            "h": 6,
+                            "op": 0.7,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#FFFFFF@70,#FFFFFF@0)"
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 10,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 10,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 15,
+                            "y": 5,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 15,
+                                "y": 5,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 20,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 20,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 13,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 10,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 13,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 10,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 18,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -12,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 18,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -12,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 23,
+                            "y": 11,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -30,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 23,
+                                "y": 11,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -30,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 7,
+                            "y": 12,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 35,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 7,
+                                "y": 12,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 35,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Category",
+                    "x": 50,
+                    "y": 16,
+                    "w": 34,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Food",
+                    "style": "Body/M Strong"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Change",
+                    "x": 92,
+                    "y": 16,
+                    "w": 52,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Change",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Split button",
+            "x": 91,
+            "y": 343,
+            "w": 146,
+            "h": 49,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Ghost, Size=Medium, State=Default",
+            "props": {
+              "Label": "Split it instead"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Split it instead",
+                "style": "Button",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Face",
+                "x": 0,
+                "y": 0,
+                "w": 146,
+                "h": 44,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Label",
+                    "x": 16,
+                    "y": 12,
+                    "w": 114,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Split it instead",
+                    "style": "Button"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Stamp=Add",
+        "x": 377,
+        "y": 25,
+        "w": 328,
+        "h": 414,
+        "lay": "col",
+        "gap": 16,
+        "pad": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/16",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 24,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/brand/primary"
+        ],
+        "sw": 2,
+        "fx": [
+          "DROP_SHADOW(0,5,0,color/brand/edge)"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Top",
+            "x": 22,
+            "y": 22,
+            "w": 284,
+            "h": 40,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Stamp",
+                "x": 0,
+                "y": 0,
+                "w": 101,
+                "h": 40,
+                "lay": "row",
+                "gap": 8,
+                "pad": [
+                  6,
+                  14,
+                  6,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/8",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 12,
+                "fill": [
+                  "color/brand/soft"
+                ],
+                "stroke": [
+                  "color/brand/primary"
+                ],
+                "sw": 2,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 14,
+                    "y": 8,
+                    "w": 24,
+                    "h": 24,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/check",
+                    "variant": "Style=Line",
+                    "c": [
+                      {
+                        "t": "VECTOR",
+                        "n": "Vector",
+                        "x": 4,
+                        "y": 6,
+                        "w": 16,
+                        "h": 11,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "stroke": [
+                          "color/text/brand"
+                        ],
+                        "sw": 2
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Stamp label",
+                    "x": 46,
+                    "y": 8,
+                    "w": 39,
+                    "h": 24,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Add",
+                    "style": "Heading/M"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Amount",
+            "x": 22,
+            "y": 78,
+            "w": 284,
+            "h": 84,
+            "lay": "col",
+            "gap": 4,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/4",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Amount",
+                "x": 81,
+                "y": 0,
+                "w": 122,
+                "h": 56,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "₹450",
+                "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT",
+                "n": "Payee",
+                "x": 107,
+                "y": 60,
+                "w": 71,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Swiggy",
+                "style": "Heading/M",
+                "align": "CENTER"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 178,
+            "w": 284,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Details",
+            "x": 22,
+            "y": 195,
+            "w": 284,
+            "h": 48,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "When row",
+                "x": 0,
+                "y": 0,
+                "w": 284,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "When label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 38,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "When",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "When",
+                    "x": 187,
+                    "y": 0,
+                    "w": 97,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Today, 9:12 pm",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Account row",
+                "x": 0,
+                "y": 28,
+                "w": 284,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Account label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 55,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "Account",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Account",
+                    "x": 119,
+                    "y": 0,
+                    "w": 165,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "HDFC Credit Card ••4521",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 259,
+            "w": 284,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Category row",
+            "x": 22,
+            "y": 276,
+            "w": 284,
+            "h": 51,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Category label",
+                "x": 0,
+                "y": 16,
+                "w": 60,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Category",
+                "style": "Body/M"
+              },
+              {
+                "t": "FRAME",
+                "n": "Category chip",
+                "x": 123,
+                "y": 0,
+                "w": 161,
+                "h": 51,
+                "lay": "row",
+                "gap": 8,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  8
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/8",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 10,
+                    "y": 10,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/food",
+                    "variant": "Style=3D",
+                    "c": [
+                      {
+                        "t": "FRAME",
+                        "n": "Art",
+                        "x": 0,
+                        "y": 0,
+                        "w": 32,
+                        "h": 32,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "c": [
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 23,
+                            "w": 23.5,
+                            "h": 6.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 19,
+                            "w": 25.5,
+                            "h": 4.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#C2946C,#946848,#724D33)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 20,
+                            "w": 23,
+                            "h": 0.6,
+                            "op": 0.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "#FFFFFF"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "cr1.2_0",
+                            "x": 3,
+                            "y": 17,
+                            "w": 25.5,
+                            "h": 5.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "r": 0.6000000238418579,
+                            "fill": [
+                              "GRADIENT_LINEAR(#FCDD82,#EEBB3E,#CF9A26)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 15,
+                            "w": 27,
+                            "h": 3.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#CBE6A2,#96C466,#6FA145)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 4,
+                            "w": 25,
+                            "h": 12.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 5,
+                            "w": 10,
+                            "h": 6,
+                            "op": 0.7,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#FFFFFF@70,#FFFFFF@0)"
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 10,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 10,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 15,
+                            "y": 5,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 15,
+                                "y": 5,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 20,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 20,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 13,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 10,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 13,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 10,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 18,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -12,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 18,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -12,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 23,
+                            "y": 11,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -30,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 23,
+                                "y": 11,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -30,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 7,
+                            "y": 12,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 35,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 7,
+                                "y": 12,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 35,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Category",
+                    "x": 50,
+                    "y": 16,
+                    "w": 34,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Food",
+                    "style": "Body/M Strong"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Change",
+                    "x": 92,
+                    "y": 16,
+                    "w": 52,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Change",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Split button",
+            "x": 91,
+            "y": 343,
+            "w": 146,
+            "h": 49,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Ghost, Size=Medium, State=Default",
+            "props": {
+              "Label": "Split it instead"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Split it instead",
+                "style": "Button",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Face",
+                "x": 0,
+                "y": 0,
+                "w": 146,
+                "h": 44,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Label",
+                    "x": 16,
+                    "y": 12,
+                    "w": 114,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Split it instead",
+                    "style": "Button"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Stamp=Ignore",
+        "x": 729,
+        "y": 25,
+        "w": 328,
+        "h": 414,
+        "lay": "col",
+        "gap": 16,
+        "pad": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/16",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "r": 24,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/status/negative"
+        ],
+        "sw": 2,
+        "fx": [
+          "DROP_SHADOW(0,5,0,color/edge/neutral)"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Top",
+            "x": 22,
+            "y": 22,
+            "w": 284,
+            "h": 40,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MAX",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Stamp",
+                "x": 160,
+                "y": 0,
+                "w": 124,
+                "h": 40,
+                "lay": "row",
+                "gap": 8,
+                "pad": [
+                  6,
+                  14,
+                  6,
+                  12
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/8",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 12,
+                "fill": [
+                  "color/status/negative-soft"
+                ],
+                "stroke": [
+                  "color/status/negative"
+                ],
+                "sw": 2,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 14,
+                    "y": 8,
+                    "w": 24,
+                    "h": 24,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/ban",
+                    "variant": "Style=Line",
+                    "c": [
+                      {
+                        "t": "VECTOR",
+                        "n": "Vector",
+                        "x": 2,
+                        "y": 2,
+                        "w": 20,
+                        "h": 20,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "stroke": [
+                          "color/status/negative"
+                        ],
+                        "sw": 2
+                      },
+                      {
+                        "t": "VECTOR",
+                        "n": "Vector",
+                        "x": 5,
+                        "y": 5,
+                        "w": 14.2,
+                        "h": 14.2,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "stroke": [
+                          "color/status/negative"
+                        ],
+                        "sw": 2
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Stamp label",
+                    "x": 46,
+                    "y": 8,
+                    "w": 62,
+                    "h": 24,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/status/negative"
+                    ],
+                    "text": "Ignore",
+                    "style": "Heading/M"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Amount",
+            "x": 22,
+            "y": 78,
+            "w": 284,
+            "h": 84,
+            "lay": "col",
+            "gap": 4,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/4",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Amount",
+                "x": 81,
+                "y": 0,
+                "w": 122,
+                "h": 56,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "₹450",
+                "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT",
+                "n": "Payee",
+                "x": 107,
+                "y": 60,
+                "w": 71,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "Swiggy",
+                "style": "Heading/M",
+                "align": "CENTER"
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 178,
+            "w": 284,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Details",
+            "x": 22,
+            "y": 195,
+            "w": 284,
+            "h": 48,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "When row",
+                "x": 0,
+                "y": 0,
+                "w": 284,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "When label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 38,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "When",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "When",
+                    "x": 187,
+                    "y": 0,
+                    "w": 97,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Today, 9:12 pm",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Account row",
+                "x": 0,
+                "y": 28,
+                "w": 284,
+                "h": 20,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "SPACE_BETWEEN",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Account label",
+                    "x": 0,
+                    "y": 0,
+                    "w": 55,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/secondary"
+                    ],
+                    "text": "Account",
+                    "style": "Body/M"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Account",
+                    "x": 119,
+                    "y": 0,
+                    "w": 165,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "HDFC Credit Card ••4521",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Divider",
+            "x": 22,
+            "y": 259,
+            "w": 284,
+            "h": 1,
+            "size": [
+              "FILL",
+              "FIXED"
+            ],
+            "fill": [
+              "color/border/subtle"
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Category row",
+            "x": 22,
+            "y": 276,
+            "w": 284,
+            "h": 51,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "SPACE_BETWEEN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Category label",
+                "x": 0,
+                "y": 16,
+                "w": 60,
+                "h": 20,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Category",
+                "style": "Body/M"
+              },
+              {
+                "t": "FRAME",
+                "n": "Category chip",
+                "x": 123,
+                "y": 0,
+                "w": 161,
+                "h": 51,
+                "lay": "row",
+                "gap": 8,
+                "pad": [
+                  8,
+                  16,
+                  8,
+                  8
+                ],
+                "main": "MIN",
+                "cross": "CENTER",
+                "gapVar": "space/8",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/bg/surface"
+                ],
+                "stroke": [
+                  "color/border/subtle"
+                ],
+                "sw": 1.5,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 10,
+                    "y": 10,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/food",
+                    "variant": "Style=3D",
+                    "c": [
+                      {
+                        "t": "FRAME",
+                        "n": "Art",
+                        "x": 0,
+                        "y": 0,
+                        "w": 32,
+                        "h": 32,
+                        "size": [
+                          "FIXED",
+                          "FIXED"
+                        ],
+                        "c": [
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 23,
+                            "w": 23.5,
+                            "h": 6.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 19,
+                            "w": 25.5,
+                            "h": 4.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#C2946C,#946848,#724D33)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 20,
+                            "w": 23,
+                            "h": 0.6,
+                            "op": 0.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "#FFFFFF"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "cr1.2_0",
+                            "x": 3,
+                            "y": 17,
+                            "w": 25.5,
+                            "h": 5.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "r": 0.6000000238418579,
+                            "fill": [
+                              "GRADIENT_LINEAR(#FCDD82,#EEBB3E,#CF9A26)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 3,
+                            "y": 15,
+                            "w": 27,
+                            "h": 3.3,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_LINEAR(#CBE6A2,#96C466,#6FA145)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 4,
+                            "y": 4,
+                            "w": 25,
+                            "h": 12.8,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#F9D598,#E8AC5E,#C98A3E)"
+                            ]
+                          },
+                          {
+                            "t": "VECTOR",
+                            "n": "Vector",
+                            "x": 5,
+                            "y": 5,
+                            "w": 10,
+                            "h": 6,
+                            "op": 0.7,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "fill": [
+                              "GRADIENT_RADIAL(#FFFFFF@70,#FFFFFF@0)"
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 10,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 10,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 15,
+                            "y": 5,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 15,
+                                "y": 5,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 20,
+                            "y": 7,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -25,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 20,
+                                "y": 7,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -25,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 13,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 10,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 13,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 10,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 18,
+                            "y": 10,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -12,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 18,
+                                "y": 10,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -12,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 23,
+                            "y": 11,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": -30,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 23,
+                                "y": 11,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": -30,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "t": "GROUP",
+                            "n": "Group",
+                            "x": 7,
+                            "y": 12,
+                            "w": 2.1,
+                            "h": 1.2,
+                            "rot": 35,
+                            "size": [
+                              "FIXED",
+                              "FIXED"
+                            ],
+                            "c": [
+                              {
+                                "t": "VECTOR",
+                                "n": "Vector",
+                                "x": 7,
+                                "y": 12,
+                                "w": 2.1,
+                                "h": 1.2,
+                                "rot": 35,
+                                "size": [
+                                  "FIXED",
+                                  "FIXED"
+                                ],
+                                "fill": [
+                                  "#FFF5DC"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Category",
+                    "x": 50,
+                    "y": 16,
+                    "w": 34,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/primary"
+                    ],
+                    "text": "Food",
+                    "style": "Body/M Strong"
+                  },
+                  {
+                    "t": "TEXT",
+                    "n": "Change",
+                    "x": 92,
+                    "y": 16,
+                    "w": 52,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Change",
+                    "style": "Body/M Strong"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Split button",
+            "x": 91,
+            "y": 343,
+            "w": 146,
+            "h": 49,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Ghost, Size=Medium, State=Default",
+            "props": {
+              "Label": "Split it instead"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Split it instead",
+                "style": "Button",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ],
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Face",
+                "x": 0,
+                "y": 0,
+                "w": 146,
+                "h": 44,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  12,
+                  16,
+                  12,
+                  16
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "r": 16,
+                "c": [
+                  {
+                    "t": "TEXT",
+                    "n": "Label",
+                    "x": 16,
+                    "y": 12,
+                    "w": 114,
+                    "h": 20,
+                    "size": [
+                      "HUG",
+                      "HUG"
+                    ],
+                    "fill": [
+                      "color/text/brand"
+                    ],
+                    "text": "Split it instead",
+                    "style": "Button"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

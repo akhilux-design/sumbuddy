@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Group page and Group settings (design 02-everyday/23 to 25, 40 to 43, 45, 46). Owned by the group-page area
+         (docs/groups-build-plan.md). Copy from the screens' JSON unless a comment says it is not in the design. -->
+
+    <!-- Group page (24). The top bar's action. -->
+    <string name="grouppage_add">Add</string>
+
+    <!-- The Balance Card. The card shows its label in capitals: "FLAT 302 OWES YOU". %s is the group's name, or the
+         friend's name for a direct split. -->
+    <string name="grouppage_card_owes_you">%s owes you</string>
+    <!-- 42. -->
+    <string name="grouppage_card_you_owe">You owe %s</string>
+    <!-- Not in the design: the card when the person's balance in the group is 0. -->
+    <string name="grouppage_card_settled">All settled in %s</string>
+    <!-- "3 people · 12 expenses in Nov". -->
+    <string name="grouppage_card_caption">%1$s · %2$s</string>
+    <plurals name="grouppage_card_people">
+        <item quantity="one">%d person</item>
+        <item quantity="other">%d people</item>
+    </plurals>
+    <!-- %2$s is the month's short name ("Nov"). -->
+    <plurals name="grouppage_card_expenses">
+        <item quantity="one">%1$d expense in %2$s</item>
+        <item quantity="other">%1$d expenses in %2$s</item>
+    </plurals>
+
+    <!-- Balances. The heading shows in capitals. -->
+    <string name="grouppage_balances">Balances</string>
+    <string name="grouppage_balance_owes_you">owes you</string>
+    <string name="grouppage_balance_you_owe">you owe</string>
+    <string name="grouppage_balance_settled">all settled</string>
+    <!-- 42: no payment joins them to the person, but they owe or are owed by others. -->
+    <string name="grouppage_balance_settles_with_others">settles with others</string>
+
+    <!-- This month. The heading shows in capitals. A row reads "Today · equally". -->
+    <string name="grouppage_this_month">This month</string>
+    <string name="grouppage_row_subtitle">%1$s · %2$s</string>
+    <string name="grouppage_row_today">Today</string>
+    <string name="grouppage_method_equal">equally</string>
+    <!-- Not in the design: the rows of the other three ways of splitting, named as on Split it's chips. -->
+    <string name="grouppage_method_amounts">amounts</string>
+    <string name="grouppage_method_percent" formatted="false">%</string>
+    <string name="grouppage_method_shares">shares</string>
+    <string name="grouppage_method_auto">splits itself</string>
+    <string name="grouppage_paid_by_you">You paid</string>
+    <!-- 42: "Kiran paid". -->
+    <string name="grouppage_paid_by">%s paid</string>
+
+    <!-- A change the server refused (43). -->
+    <string name="grouppage_not_saved">Not saved</string>
+    <string name="grouppage_not_saved_create">Not added to %s. The group changed before it was sent.</string>
+    <!-- Not in the design: the designer's proposal for a refused edit (plan section 6.4). -->
+    <string name="grouppage_not_saved_edit">Your edit was not saved. The group changed before it was sent.</string>
+    <!-- Not in the design: the designer's proposal for a refused delete (plan section 6.4). -->
+    <string name="grouppage_not_saved_delete">Not deleted. The group changed before it was sent.</string>
+    <!-- Not in the design: the note of a "Not saved" row that has no Try again, in place of the notes above, so the
+         row says why. These two: the expense names someone (the payer or a share) who has left the group since.
+         %s is the group's name. -->
+    <string name="grouppage_not_saved_create_someone_left">Not added to %s. Someone in this expense has left the group. Add it again without them.</string>
+    <string name="grouppage_not_saved_edit_someone_left">Your edit was not saved. Someone in this expense has left the group. Edit it again without them.</string>
+    <!-- Not in the design: the same for any other change that cannot be tried again as it is. %s is the group's
+         name. -->
+    <string name="grouppage_not_saved_create_no_retry">Not added to %s. This cannot be tried again.</string>
+    <string name="grouppage_not_saved_edit_no_retry">Your edit was not saved. This cannot be tried again.</string>
+    <string name="grouppage_not_saved_delete_no_retry">Not deleted. This cannot be tried again.</string>
+    <string name="grouppage_try_again">Try again</string>
+    <string name="grouppage_dismiss">Dismiss</string>
+
+    <!-- The footer. -->
+    <string name="grouppage_settle_up">Settle up</string>
+    <string name="grouppage_remind">Remind</string>
+
+    <!-- Not in the design: the Setting Row at the end of the Group page's body that opens Group settings (plan section
+         6.11). The title is grouppage_settings_title. -->
+    <string name="grouppage_settings_row_body">People, name and leaving</string>
+    <!-- Not in the design: the same row for a direct split with one friend, which has no name. -->
+    <string name="grouppage_settings_row_body_direct">People and leaving</string>
+
+    <!-- Someone joined by a friend's link (40). %s is the name of the person who joined; the second one is the
+         friend's name the place had before. -->
+    <string name="grouppage_joined_title">%s joined</string>
+    <string name="grouppage_joined_body">Not %s?</string>
+    <string name="grouppage_undo">Undo</string>
+    <!-- The join was undone (41). %s is the friend's name. -->
+    <string name="grouppage_undone_title">Join undone</string>
+    <string name="grouppage_undone_body">%s is back as not on the app. That link is now off.</string>
+
+    <!-- Could not load (23). The button is grouppage_try_again. -->
+    <string name="grouppage_error_title">Could not load this group</string>
+    <string name="grouppage_error_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: what a screen reader says for the grey placeholders while the group loads. -->
+    <string name="grouppage_loading_description">Loading the group</string>
+
+    <!-- Not in the design for these screens: the banner when Undo, Remind, Leave, Delete or Turn off link needs the
+         server and the phone is offline (the wording of 02-everyday/23). -->
+    <string name="grouppage_offline_title">You\'re offline</string>
+    <string name="grouppage_offline_body">Check your connection and try again. Nothing is lost.</string>
+    <!-- Not in the design: the same banner when the server refused one of those for another reason. -->
+    <string name="grouppage_failed_title">Could not do that now</string>
+    <string name="grouppage_failed_body">Try again in a moment.</string>
+    <!-- Not in the design: what Remind did. %s is "Rahul", "Rahul and Priya" or "Rahul, Priya and Kiran". -->
+    <string name="grouppage_reminded_title">Reminder sent</string>
+    <string name="grouppage_reminded_body">Sent to %s.</string>
+    <!-- Not in the design: Remind reached nobody (everyone was reminded in the last day, or owes nothing now). -->
+    <string name="grouppage_not_reminded_title">No reminder sent</string>
+    <string name="grouppage_not_reminded_body">They were reminded recently. Try again later.</string>
+    <!-- Not in the design: the last two names of a list ("Rahul, Priya and Kiran"). -->
+    <string name="grouppage_names_and">%1$s and %2$s</string>
+
+    <!-- Group settings (25, 45). Also the Group page's row that opens it. -->
+    <string name="grouppage_settings_title">Group settings</string>
+    <string name="grouppage_settings_name">Group name</string>
+    <!-- The design's helper of the name field: shown when the name is left blank (nothing is saved then). -->
+    <string name="grouppage_settings_name_error">That does not look right.</string>
+    <!-- Headings; they show in capitals. -->
+    <string name="grouppage_settings_people">People</string>
+    <string name="grouppage_settings_leaving">Leaving</string>
+    <string name="grouppage_settings_you">You</string>
+    <!-- %s is the app's name (app_name). -->
+    <string name="grouppage_settings_on_app">On %s</string>
+    <string name="grouppage_settings_not_on_app">Not on %s</string>
+    <string name="grouppage_settings_link_sent">Not on %s · link sent</string>
+    <!-- The tag on the owner's row; it shows in capitals. -->
+    <string name="grouppage_settings_owner">Owner</string>
+    <string name="grouppage_settings_add_someone">Add someone</string>
+    <string name="grouppage_settings_add_someone_body">By name and phone number</string>
+    <string name="grouppage_settings_leave">Leave group</string>
+    <string name="grouppage_settings_leave_body">You can leave once your balance is ₹0.</string>
+    <string name="grouppage_settings_delete">Delete group</string>
+    <string name="grouppage_settings_delete_body">Removes it for everyone. Balances must be settled first.</string>
+    <!-- 143: the owner may delete while nobody else in the group is on the app, settled or not. -->
+    <string name="grouppage_settings_delete_body_alone">Removes it for everyone. Nobody else has joined it yet.</string>
+    <!-- 45: "Only Rahul Menon can do this. Rahul is the owner." %1$s is the owner's name, %2$s their first name. -->
+    <string name="grouppage_settings_delete_not_owner">Only %1$s can do this. %2$s is the owner.</string>
+
+    <!-- Not in the design: the confirm before leaving (plan 4.2 task 8). %s is the group's name. The first choice is
+         grouppage_settings_leave. -->
+    <string name="grouppage_leave_confirm_title">Leave %s?</string>
+    <!-- Not in the design: the same for a direct split, %s is the friend's name. -->
+    <string name="grouppage_leave_confirm_title_direct">Leave your split with %s?</string>
+    <string name="grouppage_leave_confirm_body">You can come back only if someone adds you again.</string>
+    <string name="grouppage_leave_confirm_stay">Stay</string>
+    <!-- Not in the design: the confirm before deleting (plan 4.2 task 8). The first choice is
+         grouppage_settings_delete. -->
+    <string name="grouppage_delete_confirm_title">Delete %s for everyone?</string>
+    <string name="grouppage_delete_confirm_body">Everyone loses its expenses and balances. This cannot be undone.</string>
+    <string name="grouppage_delete_confirm_keep">Keep it</string>
+
+    <!-- The friend's link (46). The title is the friend's name; the first row's title is grouppage_settings_not_on_app.
+         %s is the friend's first name. -->
+    <string name="grouppage_link_not_on_app_body">%s sees and pays from a link. No app needed.</string>
+    <string name="grouppage_link_on_title">Link is on</string>
+    <string name="grouppage_link_on_body">Anyone with it can see what %1$s owes and join as %1$s.</string>
+    <string name="grouppage_link_note">Turning it off stops the link working. Remind sends %s a new one.</string>
+    <string name="grouppage_link_turn_off">Turn off link</string>
+    <string name="grouppage_link_cancel">Cancel</string>
+    <!-- Not in the design: the same sheet for a friend with no link from this phone (plan 4.2 task 9), laid out as 46.
+         %1$s is the friend's first name. It says only what this phone knows: another member, or the person on another
+         phone, may have sent a link, which Turn off link (grouppage_link_turn_off, a Secondary button here) also
+         stops. The main button opens Remind on WhatsApp, which makes the link and sends it; it is off while the friend
+         owes the person nothing, and the second note says so. -->
+    <string name="grouppage_link_off_title">No link from this phone</string>
+    <string name="grouppage_link_off_body">If %1$s got a link from another phone, Turn off link stops it.</string>
+    <string name="grouppage_link_off_note">Remind sends %1$s a link on WhatsApp with what they owe.</string>
+    <string name="grouppage_link_off_note_owes_nothing">Remind can send %1$s a link once they owe you.</string>
+    <string name="grouppage_link_remind">Remind %1$s</string>
+</resources>

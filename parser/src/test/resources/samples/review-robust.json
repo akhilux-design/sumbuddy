@@ -1,0 +1,262 @@
+[
+  {
+    "id": "rv-robust-thin-space-after-rs",
+    "sender": "VM-HDFCBK",
+    "body": "Rs. 450.00 debited from a/c **4521 on 16-11-26 to VPA swiggy.stores@icici (UPI Ref No 632045871301). Not you? Call 18002586161",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "bank": "HDFC Bank",
+      "instrumentLast4": "4521",
+      "vpa": "swiggy.stores@icici"
+    }
+  },
+  {
+    "id": "rv-robust-zwsp-after-rupee-sign",
+    "sender": "AD-ICICIB",
+    "body": "₹​1,250.00 spent using ICICI Bank Card XX7788 on 16-Nov-26 on AMAZON. Avl Limit: INR 1,48,750.00. If not you, call 18002662.",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 125000,
+      "bank": "ICICI Bank",
+      "instrumentLast4": "7788"
+    }
+  },
+  {
+    "id": "rv-robust-nbsp-between-every-word",
+    "sender": "VM-HDFCBK",
+    "body": "Rs. 450.00 debited from a/c **4521 on 16-11-26 to VPA swiggy.stores@icici (UPI Ref No 632045871304).",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "vpa": "swiggy.stores@icici",
+      "instrumentLast4": "4521",
+      "referenceId": "632045871304",
+      "occurredAt": "2026-11-16T00:00:00+05:30"
+    }
+  },
+  {
+    "id": "rv-robust-thin-space-before-merchant",
+    "sender": "VM-IDFCFB",
+    "body": "Your A/c XX4521 debited by INR 800.00 on 16/11/26 towards CHAI POINT. RRN 632045871303. Not you? Call 18004194332",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 80000,
+      "counterparty": "Chai Point",
+      "referenceId": "632045871303"
+    }
+  },
+  {
+    "id": "rv-robust-overlong-amount-digits",
+    "sender": "VM-HDFCBK",
+    "body": "Rs 12345678901234567890.00 debited from a/c **4521 on 16-11-26 to VPA swiggy.stores@icici (UPI Ref No 632045871305).",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "unreadable"
+    }
+  },
+  {
+    "id": "rv-robust-hindi-ru-abbreviation-debit",
+    "sender": "BZ-SBIINB",
+    "body": "प्रिय ग्राहक, आपके खाते XX4521 से रु.500.00 डेबिट हुए दिनांक 16-11-26. -SBI",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 50000,
+      "bank": "State Bank of India",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-hindi-devanagari-digits",
+    "sender": "BZ-SBIINB",
+    "body": "प्रिय ग्राहक, आपके खाते XX4521 से रु. ५००.०० डेबिट हुए। -SBI",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "unreadable"
+    }
+  },
+  {
+    "id": "rv-robust-hindi-rupee-sign-credit",
+    "sender": "AD-PNBSMS",
+    "body": "आपके खाते XX4521 में ₹2,000.00 जमा किए गए दिनांक 16-11-26. -PNB",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 200000,
+      "bank": "Punjab National Bank",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-emoji-after-sender-name",
+    "sender": "JM-JUPITR-S",
+    "body": "🎉 ₹1,500.00 received from RAHUL SHARMA 🙌 in your Jupiter account XX4521 via UPI. Ref 632045871306",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 150000,
+      "counterparty": "Rahul Sharma",
+      "bank": "Jupiter",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-emoji-after-merchant",
+    "sender": "VK-SLCEIT",
+    "body": "Paid ₹249 to ZOMATO 🍕 using your slice card XX7788 on 16 Nov 2026. Ref 632045871307",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 24900,
+      "counterparty": "Zomato",
+      "bank": "slice"
+    }
+  },
+  {
+    "id": "rv-robust-accented-foreign-merchant",
+    "sender": "AD-HDFCBK",
+    "body": "EUR 24.50 spent on HDFC Bank Card x4521 at CAFÉ DE FLORE PARIS on 2026-11-16:20:15:32.Not U? To Block & Reissue Call 18002586161",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 2450,
+      "currency": "EUR",
+      "counterparty": "Café De Flore Paris",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-curly-apostrophe-name",
+    "sender": "JD-FIMONY",
+    "body": "₹3,000 received from ROHAN D’SOUZA in your Federal Bank account XX4521 via UPI on 16-11-26. Ref 632045871308",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 300000,
+      "counterparty": "Rohan D’Souza",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-en-dash-after-merchant",
+    "sender": "VM-PHONPE",
+    "body": "₹450 paid to RAMESH KIRANA – Txn ID T2611161015123456 from your HDFC Bank a/c XX4521",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "counterparty": "Ramesh Kirana",
+      "instrumentLast4": "4521"
+    }
+  },
+  {
+    "id": "rv-robust-bullet-mask-card",
+    "sender": "AX-ONECRD",
+    "body": "₹1,299 spent on your OneCard ••4521 at AMAZON on 16 Nov 2026",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 129900,
+      "bank": "OneCard",
+      "instrumentLast4": "4521",
+      "instrumentType": "CREDIT_CARD"
+    }
+  },
+  {
+    "id": "rv-robust-empty-body",
+    "sender": "VM-HDFCBK",
+    "body": "",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "NOT_FINANCIAL"
+    }
+  },
+  {
+    "id": "rv-robust-rupee-sign-only",
+    "sender": "VM-HDFCBK",
+    "body": "₹",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "NOT_FINANCIAL"
+    }
+  },
+  {
+    "id": "rv-robust-unicode-whitespace-only",
+    "sender": "VM-HDFCBK",
+    "body": "  \n\t  \r\n",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "NOT_FINANCIAL"
+    }
+  },
+  {
+    "id": "rv-robust-zero-width-only",
+    "sender": "VM-HDFCBK",
+    "body": "​",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "NOT_FINANCIAL"
+    }
+  },
+  {
+    "id": "rv-robust-long-footer-balance",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.450.00 debited from a/c **4521 on 16-11-26 to VPA swiggy.stores@icici (UPI Ref No 632045871309). Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Never share your card number, PIN or CVV with anyone; bank staff will never ask for them. Avl Bal Rs 12,000.00",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "balanceMinor": 1200000,
+      "referenceId": "632045871309"
+    }
+  },
+  {
+    "id": "rv-robust-crlf-tabs-mixed",
+    "sender": "VM-HDFCBK",
+    "body": "Sent Rs.450.00\r\n\tFrom HDFC Bank A/C *4521\r\nTo HARI OM GENERAL STORE \t\r\nOn 16/11/26\rRef 632045871310",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "counterparty": "Hari Om General Store",
+      "instrumentLast4": "4521",
+      "referenceId": "632045871310"
+    }
+  },
+  {
+    "id": "rv-robust-sender-nbsp-lowercase",
+    "sender": "vm-hdfcbk-s ",
+    "body": "Rs.450.00 debited from a/c **4521 on 16-11-26 to VPA swiggy.stores@icici (UPI Ref No 632045871311).",
+    "receivedAt": "2026-11-16T10:00:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 45000,
+      "bank": "HDFC Bank",
+      "confidence": "HIGH"
+    }
+  }
+]

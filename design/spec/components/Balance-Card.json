@@ -1,0 +1,166 @@
+{
+  "name": "Balance Card", "id": "21:198",
+  "properties": {
+    "Label#21:37": {"type": "TEXT", "defaultValue": "YOU ARE OWED"}, "Amount#21:41": {"type": "TEXT", "defaultValue": "₹3,450"},
+    "Caption#21:45": {"type": "TEXT", "defaultValue": "from 4 friends"},
+    "Tone": {"type": "VARIANT", "defaultValue": "Positive", "options": ["Positive", "Negative", "Neutral"]},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Balance Card", "x": 0, "y": 36, "w": 1082, "h": 364, "lay": "row", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "wrap": true, "crossGap": 24, "size": ["FIXED", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "Tone=Positive, State=Default", "x": 25, "y": 25, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 0, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tone=Negative, State=Default", "x": 377, "y": 25, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 0, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/accent/pink"],
+            "fx": ["DROP_SHADOW(0,5,0,color/accent/pink-edge)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tone=Neutral, State=Default", "x": 729, "y": 25, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 0, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/bg/surface-raised"],
+            "fx": ["DROP_SHADOW(0,5,0,color/edge/neutral)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tone=Positive, State=Pressed", "x": 25, "y": 194, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 4, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/brand/primary"],
+            "fx": ["DROP_SHADOW(0,1,0,color/brand/edge)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tone=Negative, State=Pressed", "x": 377, "y": 194, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 4, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/accent/pink"],
+            "fx": ["DROP_SHADOW(0,1,0,color/accent/pink-edge)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Tone=Neutral, State=Pressed", "x": 729, "y": 194, "w": 328, "h": 145, "lay": "col", "gap": 0, "pad": [4, 0, 1, 0],
+        "main": "MIN", "cross": "MIN", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Face", "x": 0, "y": 4, "w": 328, "h": 140, "lay": "col", "gap": 4, "pad": [20, 20, 20, 20], "main": "MIN",
+            "cross": "MIN", "gapVar": "space/4", "size": ["FILL", "HUG"], "r": 24, "fill": ["color/bg/surface-raised"],
+            "fx": ["DROP_SHADOW(0,1,0,color/edge/neutral)"],
+            "c": [
+              {
+                "t": "TEXT", "n": "Label", "x": 20, "y": 20, "w": 115, "h": 16, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "YOU ARE OWED", "style": "Label", "textCase": "UPPER"
+              },
+              {
+                "t": "TEXT", "n": "Amount", "x": 20, "y": 40, "w": 161, "h": 56, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "₹3,450", "style": "Amount/XL"
+              },
+              {
+                "t": "TEXT", "n": "Caption", "x": 20, "y": 100, "w": 96, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/primary"],
+                "text": "from 4 friends", "style": "Body/M Strong"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

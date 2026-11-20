@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quiet notification while groups sync in the background (Android 11 and older only). -->
+    <string name="sync_channel">Syncing groups</string>
+    <string name="sync_channel_description">Shown while shared expenses are sent and fetched.</string>
+    <string name="sync_title">Syncing shared expenses</string>
+</resources>

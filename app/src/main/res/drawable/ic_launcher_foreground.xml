@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher icon mark: the rupee sign of the design's "App badge" (02-everyday/04 Notification: a color/brand/primary
+     tile with "₹" in color/text/on-brand). A stand-in until the owner designs the real launcher icon.
+     Drawn inside the 66dp safe zone of the 108dp adaptive icon canvas. Also used as the monochrome (themed) layer. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M40,34 H68"
+        android:strokeColor="@color/ic_launcher_mark"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M40,45 H68"
+        android:strokeColor="@color/ic_launcher_mark"
+        android:strokeWidth="6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M40,34 H49 A11,11 0 0 1 49,56 H40 L60,76"
+        android:strokeColor="@color/ic_launcher_mark"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

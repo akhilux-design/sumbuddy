@@ -1,0 +1,582 @@
+{
+  "name": "Mark as paid",
+  "group": "Group/03 Getting paid back",
+  "index": 1,
+  "darkId": "97:3849",
+  "lightId": "98:4930",
+  "tree": {
+    "t": "FRAME",
+    "n": "Mark as paid",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "Mark as paid"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "Mark as paid",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 0,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": ""
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 585,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Amount",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 200,
+            "lay": "col",
+            "gap": 8,
+            "pad": [
+              16,
+              0,
+              16,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/8",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Avatar",
+                "x": 144,
+                "y": 16,
+                "w": 40,
+                "h": 40,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 999,
+                "fill": [
+                  "color/brand/primary"
+                ],
+                "comp": "Avatar",
+                "variant": "Color=Green",
+                "props": {
+                  "Initial": "R"
+                },
+                "texts": [
+                  {
+                    "n": "Initial",
+                    "text": "R",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT",
+                "n": "Rahul paid you",
+                "x": 93,
+                "y": 64,
+                "w": 142,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "Rahul paid you",
+                "style": "Heading/M"
+              },
+              {
+                "t": "TEXT",
+                "n": "₹1,200",
+                "x": 90,
+                "y": 96,
+                "w": 149,
+                "h": 56,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "₹1,200",
+                "style": "Amount/XL"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Tag",
+                "x": 122,
+                "y": 160,
+                "w": 85,
+                "h": 24,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  8,
+                  4,
+                  8
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 8,
+                "fill": [
+                  "color/bg/surface-raised"
+                ],
+                "comp": "Tag",
+                "variant": "Tone=Neutral",
+                "props": {
+                  "Label": "Flat 302"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Flat 302",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "FRAME",
+            "n": "Options",
+            "x": 16,
+            "y": 220,
+            "w": 328,
+            "h": 181,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Option Card",
+                "x": 0,
+                "y": 0,
+                "w": 328,
+                "h": 85,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Option Card",
+                "variant": "Selected=True, State=Default",
+                "props": {
+                  "Icon": "Icon/cash / Style=3D",
+                  "Subtitle": "Rahul handed it over.",
+                  "Title": "Cash"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Cash",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "Rahul handed it over.",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/cash",
+                    "variant": "Style=3D"
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Option Card",
+                "x": 0,
+                "y": 97,
+                "w": 328,
+                "h": 84,
+                "lay": "col",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Option Card",
+                "variant": "Selected=False, State=Default",
+                "props": {
+                  "Subtitle": "It did not arrive as a UPI SMS.",
+                  "Icon": "Icon/bank / Style=3D",
+                  "Title": "Bank transfer or other"
+                },
+                "texts": [
+                  {
+                    "n": "Title",
+                    "text": "Bank transfer or other",
+                    "style": "Title",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  },
+                  {
+                    "n": "Subtitle",
+                    "text": "It did not arrive as a UPI SMS.",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  }
+                ],
+                "nested": [
+                  {
+                    "n": "Icon",
+                    "w": 30,
+                    "h": 30,
+                    "comp": "Icon/bank",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Info Row",
+            "x": 16,
+            "y": 413,
+            "w": 328,
+            "h": 64,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Info Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/check-circle / Style=3D",
+              "Subtitle": "They get a note that you marked it as paid.",
+              "Title": "Rahul can confirm"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Rahul can confirm",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "They get a note that you marked it as paid.",
+                "style": "Body/M",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/check-circle",
+                "variant": "Style=3D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 695,
+        "w": 360,
+        "h": 81,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Mark ₹1,200 as paid"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Mark ₹1,200 as paid",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

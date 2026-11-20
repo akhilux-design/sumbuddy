@@ -1,0 +1,495 @@
+{
+  "name": "Review payments (all sorted)",
+  "group": "Group/02 Everyday",
+  "index": 38,
+  "darkId": "153:9805",
+  "lightId": "153:10237",
+  "tree": {
+    "t": "FRAME",
+    "n": "Review payments (all sorted)",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 588,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          40,
+          16,
+          40,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "FRAME",
+            "n": "Sticker tile (edge wrapper)",
+            "x": 16,
+            "y": 40,
+            "w": 72,
+            "h": 77,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "clip": true,
+            "c": [
+              {
+                "t": "FRAME",
+                "n": "Sticker tile",
+                "x": 0,
+                "y": 0,
+                "w": 72,
+                "h": 72,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "FIXED",
+                  "FIXED"
+                ],
+                "r": 24,
+                "fill": [
+                  "color/brand/soft"
+                ],
+                "stroke": [
+                  "color/brand/primary"
+                ],
+                "sw": 2,
+                "fx": [
+                  "DROP_SHADOW(0,5,0,color/brand/edge)"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Icon",
+                    "x": 20,
+                    "y": 20,
+                    "w": 32,
+                    "h": 32,
+                    "size": [
+                      "FIXED",
+                      "FIXED"
+                    ],
+                    "comp": "Icon/check-circle",
+                    "variant": "Style=3D"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "All sorted",
+            "x": 16,
+            "y": 129,
+            "w": 328,
+            "h": 36,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "All sorted",
+            "style": "Display/L"
+          },
+          {
+            "t": "TEXT",
+            "n": "14 payments from your SMS are sorted.",
+            "x": 16,
+            "y": 177,
+            "w": 328,
+            "h": 24,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "14 payments from your SMS are sorted.",
+            "style": "Body/L"
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Info Row",
+            "x": 16,
+            "y": 213,
+            "w": 328,
+            "h": 44,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Info Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/check / Style=3D",
+              "Subtitle": "₹7,190 is in your November expenses.",
+              "Title": "Added 12"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Added 12",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "₹7,190 is in your November expenses.",
+                "style": "Body/M",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/check",
+                "variant": "Style=3D"
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Info Row",
+            "x": 16,
+            "y": 269,
+            "w": 328,
+            "h": 64,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Info Row",
+            "variant": "State=Default",
+            "props": {
+              "Icon": "Icon/ban / Style=3D",
+              "Subtitle": "Not counted. Listed under Ignored in Activity.",
+              "Title": "Ignored 2"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Ignored 2",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "Not counted. Listed under Ignored in Activity.",
+                "style": "Body/M",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/ban",
+                "variant": "Style=3D"
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Stat Tile",
+            "x": 16,
+            "y": 345,
+            "w": 328,
+            "h": 70,
+            "lay": "col",
+            "gap": 2,
+            "pad": [
+              12,
+              16,
+              12,
+              16
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/2",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "comp": "Stat Tile",
+            "variant": "Tone=Neutral, State=Default",
+            "props": {
+              "Value": "₹25,430",
+              "Label": "November so far"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "November so far",
+                "style": "Label",
+                "textCase": "UPPER",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              },
+              {
+                "n": "Value",
+                "text": "₹25,430",
+                "style": "Heading/L",
+                "fill": [
+                  "color/text/primary"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Footer",
+        "x": 0,
+        "y": 634,
+        "w": 360,
+        "h": 142,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          16,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "fill": [
+          "color/bg/canvas"
+        ],
+        "clip": true,
+        "c": [
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 16,
+            "w": 328,
+            "h": 57,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Primary, Size=Large, State=Default",
+            "props": {
+              "Label": "Done"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Done",
+                "style": "Button",
+                "fill": [
+                  "color/text/on-brand"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Button",
+            "x": 16,
+            "y": 85,
+            "w": 328,
+            "h": 49,
+            "lay": "col",
+            "gap": 0,
+            "pad": [
+              0,
+              0,
+              5,
+              0
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "comp": "Button",
+            "variant": "Style=Ghost, Size=Medium, State=Default",
+            "props": {
+              "Label": "Undo"
+            },
+            "texts": [
+              {
+                "n": "Label",
+                "text": "Undo",
+                "style": "Button",
+                "fill": [
+                  "color/text/brand"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

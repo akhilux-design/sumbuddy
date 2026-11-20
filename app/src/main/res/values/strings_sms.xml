@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SMS reading and the "Payment detected" notification (design/spec/screens/02-everyday/04-notification). -->
+
+    <!-- Notification channel of detected payments, shown in the phone's notification settings. -->
+    <string name="sms_channel_payment_detected">Payment detected</string>
+    <string name="sms_channel_payment_detected_description">A payment was read from a bank SMS and waits for you to add, split or ignore it.</string>
+
+    <!-- Notification title. %1$s is the amount ("₹450"), with its payee when the SMS names one ("₹450 at Swiggy":
+         format_amount_at, _to or _for, ui/format/PayeeWording.kt). -->
+    <string name="sms_notification_title">Payment detected: %1$s</string>
+
+    <!-- Notification text: the account. %1$s is the bank or the person's name for it, %2$s the last digits. -->
+    <string name="sms_notification_account_card">%1$s card ••%2$s</string>
+    <string name="sms_notification_account_digits">%1$s ••%2$s</string>
+    <string name="sms_notification_account_unknown">Read from a bank SMS</string>
+
+    <!-- An amount in a currency other than rupees. %1$s is the currency code ("USD"), %2$s the amount ("12.50"). -->
+    <string name="sms_notification_amount_foreign">%1$s %2$s</string>
+
+    <!-- Notification buttons. -->
+    <string name="sms_notification_action_add">Add</string>
+    <string name="sms_notification_action_split">Split</string>
+    <string name="sms_notification_action_ignore">Ignore</string>
+
+    <!-- The notification of a payment that split itself by an automatic rule ("Yes, every month" on Same split?,
+         02-everyday/14), posted in place of "Payment detected". A tap opens the group. -->
+    <!-- Not in the design: the channel's name and description in the phone's notification settings. -->
+    <string name="sms_channel_auto_split">Automatic splits</string>
+    <!-- Not in the design. -->
+    <string name="sms_channel_auto_split_description">A payment was split by itself, the way you asked for that merchant.</string>
+    <!-- Not in the design: "₹24,000 to Rent · split with Flat 302". %1$s is the amount with its payee
+         (format_amount_at, _to or _for), %2$s the group's name, or the friend's name for a split with one friend. -->
+    <string name="sms_auto_split_title">%1$s · split with %2$s</string>
+    <!-- Not in the design: "Your ₹8,000 share counts in November. Nothing to tick." -->
+    <string name="sms_auto_split_text">Your %1$s share counts in %2$s. Nothing to tick.</string>
+
+    <!-- Quiet notification while SMS are read in the background (Android 11 and older only). -->
+    <string name="sms_channel_reading">Reading SMS</string>
+    <string name="sms_channel_reading_description">Shown while bank SMS are read on this phone.</string>
+    <string name="sms_reading_title">Reading bank SMS on this phone</string>
+</resources>

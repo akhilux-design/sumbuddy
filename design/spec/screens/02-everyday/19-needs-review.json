@@ -1,0 +1,570 @@
+{
+  "name": "Needs review",
+  "group": "Group/02 Everyday",
+  "index": 19,
+  "darkId": "35:715",
+  "lightId": "80:1825",
+  "tree": {
+    "t": "FRAME",
+    "n": "Needs review",
+    "x": 0,
+    "y": 32,
+    "w": 360,
+    "h": 800,
+    "lay": "col",
+    "gap": 0,
+    "pad": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "main": "MIN",
+    "cross": "MIN",
+    "size": [
+      "FIXED",
+      "FIXED"
+    ],
+    "r": 24,
+    "fill": [
+      "color/bg/canvas"
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "INSTANCE",
+        "n": "Status Bar",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 46,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          14,
+          20,
+          14,
+          20
+        ],
+        "main": "SPACE_BETWEEN",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Status Bar",
+        "texts": [
+          {
+            "n": "Time",
+            "text": "9:41",
+            "style": "UI/Status",
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Top Bar",
+        "x": 0,
+        "y": 46,
+        "w": 360,
+        "h": 64,
+        "lay": "row",
+        "gap": 12,
+        "pad": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "main": "MIN",
+        "cross": "CENTER",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "HUG"
+        ],
+        "comp": "Top Bar",
+        "props": {
+          "Title": "Needs review"
+        },
+        "texts": [
+          {
+            "n": "Title",
+            "text": "Needs review",
+            "style": "Heading/M",
+            "fill": [
+              "color/text/primary"
+            ]
+          },
+          {
+            "n": "Label",
+            "text": "",
+            "style": "Body/M Strong",
+            "fill": [
+              "color/text/brand"
+            ]
+          }
+        ],
+        "nested": [
+          {
+            "n": "Back",
+            "w": 40,
+            "h": 40,
+            "comp": "Top Bar Back",
+            "variant": "State=Default"
+          },
+          {
+            "n": "Action",
+            "w": 0,
+            "h": 20,
+            "comp": "Top Bar Action",
+            "variant": "State=Default",
+            "props": {
+              "Label": ""
+            }
+          }
+        ]
+      },
+      {
+        "t": "FRAME",
+        "n": "Body",
+        "x": 0,
+        "y": 110,
+        "w": 360,
+        "h": 666,
+        "lay": "col",
+        "gap": 12,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/12",
+        "size": [
+          "FILL",
+          "FILL"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "We couldn't read 2 messages for sure. Type the amount to add one, or mark it as not a spend.",
+            "x": 16,
+            "y": 8,
+            "w": 328,
+            "h": 40,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "We couldn't read 2 messages for sure. Type the amount to add one, or mark it as not a spend.",
+            "style": "Body/M"
+          },
+          {
+            "t": "FRAME",
+            "n": "Fix card",
+            "x": 16,
+            "y": 60,
+            "w": 328,
+            "h": 363,
+            "lay": "col",
+            "gap": 12,
+            "pad": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "main": "MIN",
+            "cross": "MIN",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "stroke": [
+              "color/accent/yellow"
+            ],
+            "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE",
+                "n": "Tag",
+                "x": 18,
+                "y": 18,
+                "w": 106,
+                "h": 24,
+                "lay": "row",
+                "gap": 0,
+                "pad": [
+                  4,
+                  8,
+                  4,
+                  8
+                ],
+                "main": "CENTER",
+                "cross": "CENTER",
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "r": 8,
+                "fill": [
+                  "color/accent/yellow"
+                ],
+                "comp": "Tag",
+                "variant": "Tone=Yellow",
+                "props": {
+                  "Label": "Check this"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Check this",
+                    "style": "Label",
+                    "textCase": "UPPER",
+                    "fill": [
+                      "color/text/on-brand"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "TEXT",
+                "n": "\"Rs 1200.00 debited from A/c XX4521 to VPA rk.menon@okaxis on 15-11-26\"",
+                "x": 18,
+                "y": 54,
+                "w": 293,
+                "h": 36,
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/secondary"
+                ],
+                "text": "\"Rs 1200.00 debited from A/c XX4521 to VPA rk.menon@okaxis on 15-11-26\"",
+                "style": "Caption"
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Input",
+                "x": 18,
+                "y": 102,
+                "w": 293,
+                "h": 85,
+                "lay": "col",
+                "gap": 8,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/8",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Input",
+                "variant": "State=Default",
+                "props": {
+                  "Helper": "That does not look right.",
+                  "Value": "₹1,200",
+                  "Label": "Amount"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Amount",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "₹1,200",
+                    "style": "Body/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE",
+                "n": "Input",
+                "x": 18,
+                "y": 199,
+                "w": 293,
+                "h": 86,
+                "lay": "col",
+                "gap": 8,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/8",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "comp": "Input",
+                "variant": "State=Focused",
+                "props": {
+                  "Helper": "That does not look right.",
+                  "Value": "Rahul Menon",
+                  "Label": "Paid to"
+                },
+                "texts": [
+                  {
+                    "n": "Label",
+                    "text": "Paid to",
+                    "style": "Caption",
+                    "fill": [
+                      "color/text/secondary"
+                    ]
+                  },
+                  {
+                    "n": "Value",
+                    "text": "Rahul Menon",
+                    "style": "Body/L",
+                    "fill": [
+                      "color/text/primary"
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "FRAME",
+                "n": "Actions",
+                "x": 18,
+                "y": 297,
+                "w": 293,
+                "h": 49,
+                "lay": "row",
+                "gap": 12,
+                "pad": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "main": "MIN",
+                "cross": "MIN",
+                "gapVar": "space/12",
+                "size": [
+                  "FILL",
+                  "HUG"
+                ],
+                "clip": true,
+                "c": [
+                  {
+                    "t": "INSTANCE",
+                    "n": "Button",
+                    "x": 0,
+                    "y": 0,
+                    "w": 140.5,
+                    "h": 49,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      5,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "comp": "Button",
+                    "variant": "Style=Primary, Size=Medium, State=Default",
+                    "props": {
+                      "Label": "Save"
+                    },
+                    "texts": [
+                      {
+                        "n": "Label",
+                        "text": "Save",
+                        "style": "Button",
+                        "fill": [
+                          "color/text/on-brand"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "INSTANCE",
+                    "n": "Button",
+                    "x": 153,
+                    "y": 0,
+                    "w": 140.5,
+                    "h": 49,
+                    "lay": "col",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      5,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "MIN",
+                    "size": [
+                      "FILL",
+                      "HUG"
+                    ],
+                    "comp": "Button",
+                    "variant": "Style=Secondary, Size=Medium, State=Default",
+                    "props": {
+                      "Label": "Not a spend"
+                    },
+                    "texts": [
+                      {
+                        "n": "Label",
+                        "text": "Not a spend",
+                        "style": "Button",
+                        "fill": [
+                          "color/text/primary"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "INSTANCE",
+            "n": "Expense Row",
+            "x": 16,
+            "y": 435,
+            "w": 328,
+            "h": 87,
+            "lay": "row",
+            "gap": 12,
+            "pad": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "gapVar": "space/12",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 16,
+            "fill": [
+              "color/bg/surface"
+            ],
+            "stroke": [
+              "color/accent/yellow"
+            ],
+            "sw": 1.5,
+            "comp": "Expense Row",
+            "variant": "Kind=Review, State=Default",
+            "props": {
+              "Meta": "Check this",
+              "Amount": "₹2,499",
+              "Icon": "Icon/help / Style=3D",
+              "Subtitle": "ICICI card ••8890 · 14 Nov",
+              "Title": "Unknown merchant"
+            },
+            "texts": [
+              {
+                "n": "Title",
+                "text": "Unknown merchant",
+                "style": "Title",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Subtitle",
+                "text": "ICICI card ••8890 · 14 Nov",
+                "style": "Caption",
+                "fill": [
+                  "color/text/secondary"
+                ]
+              },
+              {
+                "n": "Amount",
+                "text": "₹2,499",
+                "style": "Amount/M",
+                "fill": [
+                  "color/text/primary"
+                ]
+              },
+              {
+                "n": "Meta",
+                "text": "Check this",
+                "style": "Caption",
+                "fill": [
+                  "color/text/warning"
+                ]
+              }
+            ],
+            "nested": [
+              {
+                "n": "Icon",
+                "w": 30,
+                "h": 30,
+                "comp": "Icon/help",
+                "variant": "Style=3D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "INSTANCE",
+        "n": "Gesture Bar",
+        "x": 0,
+        "y": 776,
+        "w": 360,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "FILL",
+          "FIXED"
+        ],
+        "comp": "Gesture Bar"
+      }
+    ]
+  }
+}

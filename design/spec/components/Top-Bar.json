@@ -1,0 +1,45 @@
+{
+  "name": "Top Bar", "id": "21:66", "properties": {"Title#21:35": {"type": "TEXT", "defaultValue": "Flat 302"}},
+  "tree": {
+    "t": "COMPONENT", "n": "Top Bar", "x": 0, "y": 36, "w": 360, "h": 64, "lay": "row", "gap": 12, "pad": [12, 16, 12, 16], "main": "MIN",
+    "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"],
+    "c": [
+      {
+        "t": "INSTANCE", "n": "Back", "x": 16, "y": 12, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+        "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/bg/surface-raised"], "clip": true, "comp": "Top Bar Back",
+        "variant": "State=Default",
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon", "x": 10, "y": 10, "w": 20, "h": 20, "size": ["FIXED", "FIXED"], "clip": true,
+            "c": [
+              {
+                "t": "GROUP", "n": "Group", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"],
+                "c": [
+                  {
+                    "t": "VECTOR", "n": "Vector", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/primary"],
+                    "sw": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "TEXT", "n": "Title", "x": 68, "y": 20, "w": 237, "h": 24, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Flat 302",
+        "style": "Heading/M"
+      },
+      {
+        "t": "INSTANCE", "n": "Action", "x": 317, "y": 22, "w": 27, "h": 20, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "MIN",
+        "cross": "CENTER", "size": ["HUG", "HUG"], "comp": "Top Bar Action", "variant": "State=Default", "props": {"Label": "Edit"},
+        "texts": [{"n": "Label", "text": "Edit", "style": "Body/M Strong", "fill": ["color/text/brand"]}],
+        "c": [
+          {
+            "t": "TEXT", "n": "Label", "x": 0, "y": 0, "w": 27, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/brand"], "text": "Edit",
+            "style": "Body/M Strong"
+          }
+        ]
+      }
+    ]
+  }
+}

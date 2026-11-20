@@ -1,0 +1,529 @@
+{
+  "name": "Bottom Nav", "id": "21:183",
+  "properties": {"Active": {"type": "VARIANT", "defaultValue": "Home", "options": ["Home", "Groups", "Activity", "You"]}},
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Bottom Nav", "x": 0, "y": 36, "w": 410, "h": 506, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "Active=Home", "x": 25, "y": 25, "w": 360, "h": 96, "lay": "row", "gap": 0, "pad": [16, 16, 8, 16], "main": "MIN",
+        "cross": "CENTER", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Dock", "x": 16, "y": 16, "w": 328, "h": 72, "lay": "row", "gap": 0, "pad": [8, 8, 8, 8], "main": "SPACE_BETWEEN",
+            "cross": "CENTER", "size": ["FILL", "HUG"], "r": 999, "fill": ["color/bg/surface-raised"], "stroke": ["color/border/subtle"], "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Tab/Home", "x": 10, "y": 10, "w": 104, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0], "main": "MIN",
+                "cross": "MIN", "size": ["HUG", "HUG"], "clip": true, "comp": "Bottom Nav Pill", "variant": "Tab=Home, State=Default",
+                "texts": [{"n": "Label", "text": "Home", "style": "Body/M Strong", "fill": ["color/text/on-brand"]}],
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 104, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+                    "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+                    "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+                    "c": [
+                      {
+                        "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                        "c": [
+                          {
+                            "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                            "c": [
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 40, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                        "text": "Home", "style": "Body/M Strong"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Groups", "x": 134, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Groups, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Activity", "x": 202, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0],
+                "main": "CENTER", "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon",
+                "variant": "Tab=Activity, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/You", "x": 271, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=You, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Active=Groups", "x": 25, "y": 145, "w": 360, "h": 96, "lay": "row", "gap": 0, "pad": [16, 16, 8, 16], "main": "MIN",
+        "cross": "CENTER", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Dock", "x": 16, "y": 16, "w": 328, "h": 72, "lay": "row", "gap": 0, "pad": [8, 8, 8, 8], "main": "SPACE_BETWEEN",
+            "cross": "CENTER", "size": ["FILL", "HUG"], "r": 999, "fill": ["color/bg/surface-raised"], "stroke": ["color/border/subtle"], "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Tab/Home", "x": 10, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Home, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Groups", "x": 75, "y": 10, "w": 114, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0], "main": "MIN",
+                "cross": "MIN", "size": ["HUG", "HUG"], "clip": true, "comp": "Bottom Nav Pill", "variant": "Tab=Groups, State=Default",
+                "texts": [{"n": "Label", "text": "Groups", "style": "Body/M Strong", "fill": ["color/text/on-brand"]}],
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 114, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+                    "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+                    "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+                    "c": [
+                      {
+                        "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                        "c": [
+                          {
+                            "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                            "c": [
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 50, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                        "text": "Groups", "style": "Body/M Strong"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Activity", "x": 206, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0],
+                "main": "CENTER", "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon",
+                "variant": "Tab=Activity, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/You", "x": 271, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=You, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Active=Activity", "x": 25, "y": 265, "w": 360, "h": 96, "lay": "row", "gap": 0, "pad": [16, 16, 8, 16], "main": "MIN",
+        "cross": "CENTER", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Dock", "x": 16, "y": 16, "w": 328, "h": 72, "lay": "row", "gap": 0, "pad": [8, 8, 8, 8], "main": "SPACE_BETWEEN",
+            "cross": "CENTER", "size": ["FILL", "HUG"], "r": 999, "fill": ["color/bg/surface-raised"], "stroke": ["color/border/subtle"], "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Tab/Home", "x": 10, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Home, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Groups", "x": 74, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Groups, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Activity", "x": 138, "y": 10, "w": 117, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0], "main": "MIN",
+                "cross": "MIN", "size": ["HUG", "HUG"], "clip": true, "comp": "Bottom Nav Pill", "variant": "Tab=Activity, State=Default",
+                "texts": [{"n": "Label", "text": "Activity", "style": "Body/M Strong", "fill": ["color/text/on-brand"]}],
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 117, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+                    "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+                    "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+                    "c": [
+                      {
+                        "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                        "c": [
+                          {
+                            "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                            "c": [
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 53, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                        "text": "Activity", "style": "Body/M Strong"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/You", "x": 271, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=You, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Active=You", "x": 25, "y": 385, "w": 360, "h": 96, "lay": "row", "gap": 0, "pad": [16, 16, 8, 16], "main": "MIN",
+        "cross": "CENTER", "size": ["FIXED", "HUG"],
+        "c": [
+          {
+            "t": "FRAME", "n": "Dock", "x": 16, "y": 16, "w": 328, "h": 72, "lay": "row", "gap": 0, "pad": [8, 8, 8, 8], "main": "SPACE_BETWEEN",
+            "cross": "CENTER", "size": ["FILL", "HUG"], "r": 999, "fill": ["color/bg/surface-raised"], "stroke": ["color/border/subtle"], "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "INSTANCE", "n": "Tab/Home", "x": 10, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Home, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 3, "w": 18, "h": 18, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Groups", "x": 83, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+                "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon", "variant": "Tab=Groups, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 3, "y": 5, "w": 19, "h": 15.5, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 6, "y": 5, "w": 7, "h": 7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 3, "y": 14, "w": 13, "h": 6, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 16, "y": 5, "w": 2.7, "h": 6.8, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 18, "y": 14, "w": 3.5, "h": 5.7, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/Activity", "x": 156, "y": 12, "w": 48, "h": 48, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0],
+                "main": "CENTER", "cross": "CENTER", "size": ["FIXED", "FIXED"], "clip": true, "comp": "Bottom Nav Icon",
+                "variant": "Tab=Activity, State=Default",
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Icon", "x": 12, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                    "c": [
+                      {
+                        "t": "GROUP", "n": "Group", "x": 4, "y": 6, "w": 16, "h": 12, "size": ["FIXED", "FIXED"],
+                        "c": [
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 6, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 12, "w": 16, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          },
+                          {
+                            "t": "VECTOR", "n": "Vector", "x": 4, "y": 18, "w": 10, "h": 0, "size": ["FIXED", "FIXED"],
+                            "stroke": ["color/text/tertiary"], "sw": 2
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "INSTANCE", "n": "Tab/You", "x": 230, "y": 10, "w": 89, "h": 53, "lay": "col", "gap": 0, "pad": [0, 0, 5, 0], "main": "MIN",
+                "cross": "MIN", "size": ["HUG", "HUG"], "clip": true, "comp": "Bottom Nav Pill", "variant": "Tab=You, State=Default",
+                "texts": [{"n": "Label", "text": "You", "style": "Body/M Strong", "fill": ["color/text/on-brand"]}],
+                "c": [
+                  {
+                    "t": "FRAME", "n": "Pill", "x": 0, "y": 0, "w": 89, "h": 48, "lay": "row", "gap": 8, "pad": [12, 16, 12, 16], "main": "MIN",
+                    "cross": "CENTER", "gapVar": "space/8", "size": ["HUG", "HUG"], "r": 999, "fill": ["color/brand/primary"],
+                    "fx": ["DROP_SHADOW(0,5,0,color/brand/edge)"], "clip": true,
+                    "c": [
+                      {
+                        "t": "FRAME", "n": "Icon", "x": 16, "y": 12, "w": 24, "h": 24, "size": ["FIXED", "FIXED"], "clip": true,
+                        "c": [
+                          {
+                            "t": "GROUP", "n": "Group", "x": 4, "y": 4, "w": 16, "h": 17, "size": ["FIXED", "FIXED"],
+                            "c": [
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 8, "y": 4, "w": 8, "h": 8, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              },
+                              {
+                                "t": "VECTOR", "n": "Vector", "x": 4, "y": 14, "w": 16, "h": 7, "size": ["FIXED", "FIXED"],
+                                "stroke": ["color/text/on-brand"], "sw": 2
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "t": "TEXT", "n": "Label", "x": 48, "y": 14, "w": 25, "h": 20, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"],
+                        "text": "You", "style": "Body/M Strong"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

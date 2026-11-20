@@ -1,0 +1,54 @@
+{
+  "name": "Top Bar Back", "id": "430:569", "properties": {"State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}},
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Top Bar Back", "x": 0, "y": 206, "w": 154, "h": 90, "lay": "row", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "wrap": true, "crossGap": 24, "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "State=Default", "x": 25, "y": 25, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+        "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/bg/surface-raised"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon", "x": 10, "y": 10, "w": 20, "h": 20, "size": ["FIXED", "FIXED"], "clip": true,
+            "c": [
+              {
+                "t": "GROUP", "n": "Group", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"],
+                "c": [
+                  {
+                    "t": "VECTOR", "n": "Vector", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/primary"],
+                    "sw": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "State=Pressed", "x": 89, "y": 25, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+        "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/bg/surface-raised"], "clip": true,
+        "c": [
+          {
+            "t": "FRAME", "n": "Icon", "x": 10, "y": 10, "w": 20, "h": 20, "size": ["FIXED", "FIXED"], "clip": true,
+            "c": [
+              {
+                "t": "GROUP", "n": "Group", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"],
+                "c": [
+                  {
+                    "t": "VECTOR", "n": "Vector", "x": 7, "y": 4, "w": 5.8, "h": 11.7, "size": ["FIXED", "FIXED"], "stroke": ["color/text/primary"],
+                    "sw": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 40, "h": 40, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 999,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

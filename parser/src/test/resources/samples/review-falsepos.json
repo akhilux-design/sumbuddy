@@ -1,0 +1,242 @@
+[
+  {
+    "id": "rv-falsepos-otp-paren-01",
+    "sender": "AD-AMEXIN",
+    "body": "Your One Time Password (OTP) for txn of INR 2,350.00 at MYNTRA on your American Express Card ending 31005 is 482913. Do not share it with anyone.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "OTP"
+    }
+  },
+  {
+    "id": "rv-falsepos-otp-hyphen-01",
+    "sender": "VM-SBICRD",
+    "body": "Dear Cardholder, OTP-739105 for txn of Rs.5,000.00 at AMAZON on SBI Card ending 6789. Valid for 10 mins. Do not share with anyone.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "OTP"
+    }
+  },
+  {
+    "id": "rv-falsepos-otp-authcode-01",
+    "sender": "JD-ICICIB",
+    "body": "Your authentication code for txn of INR 999.00 at NETFLIX on ICICI Bank Credit Card XX7003 is 204471. Valid for 3 minutes. Never share it with anyone.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "OTP"
+    }
+  },
+  {
+    "id": "rv-falsepos-promo-win-cashback-01",
+    "sender": "VM-PAYTMB",
+    "body": "Pay your electricity bill on Paytm and win cashback up to Rs.500. Hurry, limited period only! paytm.me/b1Lx9",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "PROMOTION"
+    }
+  },
+  {
+    "id": "rv-falsepos-promo-instant-loan-01",
+    "sender": "VM-KOTAKB",
+    "body": "Need funds? An instant Personal Loan of up to Rs.3,00,000 can be credited to your Kotak Mahindra Bank A/c in 30 seconds. Click kotak.com/pl/Ab12 to know more.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "PROMOTION"
+    }
+  },
+  {
+    "id": "rv-falsepos-promo-refer-01",
+    "sender": "VM-JUPITR",
+    "body": "Refer a friend to Jupiter and Rs.500 will be added to your account when they open theirs. Share your link: jupiter.money/r/xk29",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "PROMOTION"
+    }
+  },
+  {
+    "id": "rv-falsepos-upcoming-to-be-debited-01",
+    "sender": "VM-HDFCBK",
+    "body": "Rs.1,499.00 to be debited from your HDFC Bank A/c XX4521 on 01-Dec-2026 towards TATA PLAY via UPI AutoPay. Please maintain sufficient balance.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "UPCOMING"
+    }
+  },
+  {
+    "id": "rv-falsepos-upcoming-emi-debit-01",
+    "sender": "VM-AXISBK",
+    "body": "Upcoming EMI debit Rs.12,345.00 on 05-12-2026 from A/c XX1102 for Loan XX8890. Maintain sufficient balance to avoid charges. -Axis Bank",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "UPCOMING"
+    }
+  },
+  {
+    "id": "rv-falsepos-upcoming-refund-01",
+    "sender": "VM-AMAZON",
+    "body": "Your order for Prestige Kettle has been cancelled. Refund of Rs.1,299.00 will be credited to your original payment method in 5-7 working days.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped"
+    }
+  },
+  {
+    "id": "rv-falsepos-upcoming-redemption-01",
+    "sender": "VM-AXISMF",
+    "body": "Dear Investor, your redemption of Rs.50,000.00 in Folio 91023456789 has been accepted. Amount will be credited to your bank A/c XX4410 in 2-3 working days.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped"
+    }
+  },
+  {
+    "id": "rv-falsepos-insurance-claim-01",
+    "sender": "VM-HDFCLF",
+    "body": "Dear Customer, your claim no. CLM2611045 for Rs.25,000.00 has been approved and will be transferred to your bank A/c XX1102 within 3 working days.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped"
+    }
+  },
+  {
+    "id": "rv-falsepos-insurance-premium-recd-01",
+    "sender": "VM-LICIND",
+    "body": "We have received premium of Rs.8,214.00 for Policy No. 123456789. Next premium falls on 28/11/2027. Thank you. -LIC",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "BILLER_RECEIPT"
+    }
+  },
+  {
+    "id": "rv-falsepos-request-money-01",
+    "sender": "VM-GPAYIN",
+    "body": "Money request of Rs.750.00 received from priya.k@ybl. Open your UPI app to pay or decline.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "REQUEST"
+    }
+  },
+  {
+    "id": "rv-falsepos-failed-not-successful-01",
+    "sender": "VM-ICICIB",
+    "body": "Your txn of INR 2,500.00 at AMAZON on ICICI Bank Credit Card XX7003 was not successful due to insufficient credit limit.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "FAILED"
+    }
+  },
+  {
+    "id": "rv-falsepos-failed-timedout-01",
+    "sender": "VM-YESBNK",
+    "body": "Your UPI txn of Rs.500.00 to swiggy@icici timed out. The debited amount will be reversed to your Yes Bank A/c XX5512 within 48 hrs.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "FAILED"
+    }
+  },
+  {
+    "id": "rv-falsepos-failed-rejected-01",
+    "sender": "VM-BOBTXN",
+    "body": "UPI txn of Rs.1,200.00 to rahul.example@okaxis rejected by beneficiary bank. No amount has been deducted. -Bank of Baroda",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "FAILED"
+    }
+  },
+  {
+    "id": "rv-falsepos-delivery-received-01",
+    "sender": "VM-FLPKRT",
+    "body": "Delivered: Your Flipkart order of Rs.2,199 for Prestige Induction Cooktop has been delivered. Received by: SELF.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped"
+    }
+  },
+  {
+    "id": "rv-falsepos-cod-to-be-paid-01",
+    "sender": "VM-SWIGGY",
+    "body": "Your Swiggy order #142233 is out for delivery. Amount to be paid on delivery: Rs.349.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped"
+    }
+  },
+  {
+    "id": "rv-falsepos-service-received-01",
+    "sender": "VM-HDFCBK",
+    "body": "Dear Customer, we have received your request for a new cheque book for A/c XX4521. It will be dispatched in 3 working days. -HDFC Bank",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "skipped",
+      "reason": "NOT_FINANCIAL"
+    }
+  },
+  {
+    "id": "rv-falsepos-near-otp-footer-01",
+    "sender": "VM-INDUSB",
+    "body": "INR 1,250.00 debited from A/c XX7781 on 14-11-26 to VPA zepto@ybl. UPI Ref 631912340011. Never disclose your OTP to anyone. -IndusInd Bank",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 125000
+    }
+  },
+  {
+    "id": "rv-falsepos-near-refund-failed-01",
+    "sender": "VM-FEDBNK",
+    "body": "Rs.850.00 refunded to your A/c XX7745 for failed UPI txn Ref 631912345670 dated 15-11-26. -Federal Bank",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 85000
+    }
+  },
+  {
+    "id": "rv-falsepos-near-cashback-offer-01",
+    "sender": "VM-AMAZON",
+    "body": "Rs.50 cashback credited to your Amazon Pay balance for the Mobile Recharge offer. Use it on your next purchase.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "CREDIT",
+      "amountMinor": 5000
+    }
+  },
+  {
+    "id": "rv-falsepos-near-scheduled-done-01",
+    "sender": "VM-KOTAKB",
+    "body": "Scheduled transfer of Rs.10,000.00 to SUNITA DEVI executed. A/c XX3301 debited on 01-11-26. IMPS Ref 631955512399. -Kotak Mahindra Bank",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1000000
+    }
+  },
+  {
+    "id": "rv-falsepos-near-emi-next-due-01",
+    "sender": "VM-ICICIB",
+    "body": "EMI of Rs.12,345.00 for Home Loan A/c XX8890 debited from ICICI Bank A/c XX1102 on 05-Nov-26. Next EMI is due on 05-Dec-26.",
+    "receivedAt": "2026-11-16T10:15:00+05:30",
+    "expect": {
+      "type": "payment",
+      "direction": "DEBIT",
+      "amountMinor": 1234500
+    }
+  }
+]

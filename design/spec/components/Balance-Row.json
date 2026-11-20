@@ -1,0 +1,319 @@
+{
+  "name": "Balance Row", "id": "21:53",
+  "properties": {
+    "Name#21:20": {"type": "TEXT", "defaultValue": "Rahul"}, "Detail#21:24": {"type": "TEXT", "defaultValue": "owes you"},
+    "Amount#21:28": {"type": "TEXT", "defaultValue": "+₹1,200"},
+    "Direction": {"type": "VARIANT", "defaultValue": "Owes you", "options": ["Owes you", "You owe", "Settled", "Plain"]},
+    "State": {"type": "VARIANT", "defaultValue": "Default", "options": ["Default", "Pressed"]}
+  },
+  "tree": {
+    "t": "COMPONENT_SET", "n": "Balance Row", "x": 0, "y": 36, "w": 378, "h": 746, "lay": "col", "gap": 24, "pad": [24, 24, 24, 24], "main": "MIN",
+    "cross": "CENTER", "size": ["HUG", "HUG"], "r": 16, "stroke": ["color/border/subtle"], "sw": 1, "dash": [6, 6], "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT", "n": "Direction=Owes you, State=Default", "x": 25, "y": 25, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/status/positive"],
+            "text": "+₹1,200", "style": "Amount/M"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=You owe, State=Default", "x": 25, "y": 115, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/status/negative"],
+            "text": "+₹1,200", "style": "Amount/M"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=Settled, State=Default", "x": 25, "y": 205, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/tertiary"],
+            "text": "+₹1,200", "style": "Amount/M"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=Plain, State=Default", "x": 25, "y": 295, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "+₹1,200",
+            "style": "Amount/M"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=Owes you, State=Pressed", "x": 25, "y": 385, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/status/positive"],
+            "text": "+₹1,200", "style": "Amount/M"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 66, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=You owe, State=Pressed", "x": 25, "y": 475, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/status/negative"],
+            "text": "+₹1,200", "style": "Amount/M"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 66, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=Settled, State=Pressed", "x": 25, "y": 565, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/tertiary"],
+            "text": "+₹1,200", "style": "Amount/M"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 66, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT", "n": "Direction=Plain, State=Pressed", "x": 25, "y": 655, "w": 328, "h": 66, "lay": "row", "gap": 12,
+        "pad": [12, 12, 12, 12], "main": "MIN", "cross": "CENTER", "gapVar": "space/12", "size": ["FIXED", "HUG"], "r": 16,
+        "fill": ["color/bg/surface"],
+        "c": [
+          {
+            "t": "INSTANCE", "n": "Avatar", "x": 12, "y": 13, "w": 40, "h": 40, "lay": "row", "gap": 0, "pad": [0, 0, 0, 0], "main": "CENTER",
+            "cross": "CENTER", "size": ["FIXED", "FIXED"], "r": 999, "fill": ["color/brand/primary"], "comp": "Avatar", "variant": "Color=Green",
+            "props": {"Initial": "R"}, "texts": [{"n": "Initial", "text": "R", "style": "Title", "fill": ["color/text/on-brand"]}],
+            "c": [
+              {
+                "t": "TEXT", "n": "Initial", "x": 15, "y": 9, "w": 10, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/on-brand"], "text": "R",
+                "style": "Title"
+              }
+            ]
+          },
+          {
+            "t": "FRAME", "n": "Text", "x": 64, "y": 12, "w": 175, "h": 42, "lay": "col", "gap": 2, "pad": [0, 0, 0, 0], "main": "MIN", "cross": "MIN",
+            "gapVar": "space/2", "size": ["FILL", "HUG"], "clip": true,
+            "c": [
+              {
+                "t": "TEXT", "n": "Title", "x": 0, "y": 0, "w": 175, "h": 22, "size": ["FILL", "HUG"], "fill": ["color/text/primary"], "text": "Rahul",
+                "style": "Title"
+              },
+              {
+                "t": "TEXT", "n": "Subtitle", "x": 0, "y": 24, "w": 175, "h": 18, "size": ["FILL", "HUG"], "fill": ["color/text/secondary"],
+                "text": "owes you", "style": "Caption"
+              }
+            ]
+          },
+          {
+            "t": "TEXT", "n": "Amount", "x": 251, "y": 22, "w": 65, "h": 22, "size": ["HUG", "HUG"], "fill": ["color/text/primary"], "text": "+₹1,200",
+            "style": "Amount/M"
+          },
+          {
+            "t": "RECTANGLE", "n": "Pressed overlay", "x": 0, "y": 0, "w": 328, "h": 66, "op": 0.1, "size": ["FIXED", "FIXED"], "abs": true, "r": 16,
+            "fill": ["color/text/primary"]
+          }
+        ]
+      }
+    ]
+  }
+}

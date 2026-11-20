@@ -1,0 +1,332 @@
+{
+  "name": "Tag",
+  "id": "20:48",
+  "properties": {
+    "Label#20:10": {
+      "type": "TEXT",
+      "defaultValue": "Auto"
+    },
+    "Tone": {
+      "type": "VARIANT",
+      "defaultValue": "Brand",
+      "variantOptions": [
+        "Brand",
+        "Yellow",
+        "Purple",
+        "Blue",
+        "Negative",
+        "Neutral"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Tag",
+    "x": 0,
+    "y": 36,
+    "w": 512,
+    "h": 74,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "size": [
+      "HUG",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Brand",
+        "x": 25,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/brand/soft"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/brand"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Yellow",
+        "x": 106,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/accent/yellow"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Purple",
+        "x": 187,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/accent/purple"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Blue",
+        "x": 268,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/accent/blue-soft"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/info"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Negative",
+        "x": 349,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/status/negative-soft"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/negative"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Tone=Neutral",
+        "x": 430,
+        "y": 25,
+        "w": 57,
+        "h": 24,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          4,
+          8,
+          4,
+          8
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 8,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 8,
+            "y": 4,
+            "w": 41,
+            "h": 16,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Auto",
+            "style": "Label",
+            "textCase": "UPPER"
+          }
+        ]
+      }
+    ]
+  }
+}

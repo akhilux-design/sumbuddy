@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Onboarding (design/spec/screens/01-onboarding). Onboarding has no sign-in: Sign in and Your name (after sign-in)
+         are in strings_signin.xml and open only when splitting first needs them, or from "I already have an account". -->
+
+    <!-- Welcome (00-welcome). The cards at the top are an illustration, not the person's data. -->
+    <string name="onboarding_welcome_tag">No typing</string>
+    <string name="onboarding_welcome_coin">₹</string>
+    <string name="onboarding_welcome_sample_food_title">Swiggy</string>
+    <string name="onboarding_welcome_sample_food_subtitle">Read from your bank SMS</string>
+    <string name="onboarding_welcome_sample_food_meta">Just you</string>
+    <string name="onboarding_welcome_sample_month_title">November so far</string>
+    <string name="onboarding_welcome_sample_month_subtitle">38 payments, added up</string>
+    <string name="onboarding_welcome_sample_month_meta">This month</string>
+    <string name="onboarding_welcome_sample_rent_title">Rent</string>
+    <string name="onboarding_welcome_sample_rent_subtitle">Split with Flat 302</string>
+    <string name="onboarding_welcome_sample_rent_meta">Your share</string>
+    <!-- The headline is drawn in two colours: these two parts follow each other. -->
+    <string name="onboarding_welcome_headline_start">Track.\nSplit.\n</string>
+    <string name="onboarding_welcome_headline_end">Sorted.</string>
+    <!-- %1$s is the app name. -->
+    <string name="onboarding_welcome_body">%1$s reads your bank SMS on this phone and adds up your month for you. Split with friends, watch card bills and share a family month.</string>
+    <string name="onboarding_welcome_start">Get started</string>
+    <string name="onboarding_welcome_sign_in">I already have an account</string>
+
+    <!-- Steps in the top bar of Your name, How far back and Confirm accounts. -->
+    <string name="onboarding_step_1">Step 1 of 3</string>
+    <string name="onboarding_step_2">Step 2 of 3</string>
+    <string name="onboarding_step_3">Step 3 of 3</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_type_by_hand">Not now, I\'ll type them in</string>
+
+    <!-- Your name (04-your-name). The name stays on this phone in this version. -->
+    <string name="onboarding_name_title">What should we call you?</string>
+    <string name="onboarding_name_body">We use it on Home. It stays on this phone.</string>
+    <string name="onboarding_name_label">Your name</string>
+
+    <!-- Privacy promise (05-privacy-promise). This is the disclosure shown right before Android's SMS dialog, so it
+         must say exactly what is read and what is kept. Also shown when SMS tracking is turned on later. -->
+    <string name="onboarding_privacy_title">Your messages never leave this phone</string>
+    <string name="onboarding_privacy_phone_title">Read on your phone only</string>
+    <string name="onboarding_privacy_phone_body">Nothing is uploaded, ever.</string>
+    <string name="onboarding_privacy_bank_title">Only payments are kept</string>
+    <string name="onboarding_privacy_bank_body">We read your SMS inbox to find bank and UPI payments. Other messages, OTPs included, are skipped and never stored.</string>
+    <string name="onboarding_privacy_code_title">What we keep stays here</string>
+    <string name="onboarding_privacy_code_body">Amount, merchant, account and the payment message are kept on this phone. See them any time in You.</string>
+    <string name="onboarding_privacy_note">Android will ask for SMS permission next. You can switch it off any time in Settings.</string>
+    <string name="onboarding_privacy_allow">Allow SMS access</string>
+
+    <!-- SMS access blocked: Android will not show its prompt again, so the person is sent to Settings. -->
+    <string name="onboarding_sms_blocked_title">Turn on SMS access in Settings</string>
+    <string name="onboarding_sms_blocked_body">Android will not ask again on this phone. Open Settings, tap Permissions, then SMS, and choose Allow. Come back here when it is on.</string>
+    <string name="onboarding_sms_blocked_open_settings">Open Settings</string>
+
+    <!-- Allow notifications (07-allow-notifications). %1$s is the app name. -->
+    <string name="onboarding_notifications_title">Know the moment you pay</string>
+    <string name="onboarding_notifications_body">%1$s tells you when it spots a payment, so you can add, split or ignore it in one tap.</string>
+    <string name="onboarding_notifications_payment_title">Payment detected</string>
+    <string name="onboarding_notifications_payment_body">One notification per payment, with three choices.</string>
+    <string name="onboarding_notifications_bills_title">Bill reminders</string>
+    <string name="onboarding_notifications_bills_body">Only if you switch them on.</string>
+    <string name="onboarding_notifications_nothing_title">Nothing else</string>
+    <string name="onboarding_notifications_nothing_body">No offers, no marketing.</string>
+    <string name="onboarding_notifications_allow">Allow notifications</string>
+    <string name="onboarding_not_now">Not now</string>
+
+    <!-- How far back (08-how-far-back). %1$s is a short date such as "1 Nov". -->
+    <string name="onboarding_how_far_title">How far back should we go?</string>
+    <string name="onboarding_how_far_body">We look for bank messages from the day you pick.</string>
+    <string name="onboarding_how_far_fresh_title">Start fresh</string>
+    <string name="onboarding_how_far_fresh_body">No past payments. Begin with an empty list.</string>
+    <string name="onboarding_how_far_month_title">This month</string>
+    <string name="onboarding_how_far_three_months_title">Last 3 months</string>
+    <string name="onboarding_how_far_since">Payments since %1$s are added.</string>
+    <string name="onboarding_how_far_date_title">Pick a date</string>
+    <string name="onboarding_how_far_date_body">Choose your own starting day.</string>
+
+    <!-- Scanning SMS (09-scanning-sms). %1$s is a short date such as "1 Nov". -->
+    <string name="onboarding_scanning_title">Reading your bank messages</string>
+    <string name="onboarding_scanning_body">Only messages since %1$s. Everything stays on this phone.</string>
+    <string name="onboarding_scanning_starting">Looking for messages</string>
+    <!-- %1$d is how many messages were read so far, %2$d how many there are. -->
+    <string name="onboarding_scanning_progress">%1$d of %2$d messages</string>
+    <string name="onboarding_scanning_found">Found so far</string>
+    <!-- Shown when reading the messages stopped with an error. -->
+    <string name="onboarding_scanning_failed_title">Reading stopped</string>
+    <string name="onboarding_scanning_failed_body">Something went wrong while reading your messages. Nothing was lost. Try again to read the rest.</string>
+    <string name="onboarding_scanning_retry">Try again</string>
+    <plurals name="onboarding_payments">
+        <item quantity="one">%d payment</item>
+        <item quantity="other">%d payments</item>
+    </plurals>
+
+    <!-- Nothing found (10-nothing-found). %1$s is a short date such as "1 Nov". -->
+    <string name="onboarding_nothing_title">No bank messages yet</string>
+    <string name="onboarding_nothing_body">We looked at messages since %1$s and found no payments. That is fine if your bank does not text you, or this is a new phone.</string>
+    <string name="onboarding_nothing_today_title">Start from today</string>
+    <string name="onboarding_nothing_today_body">New payments show up as soon as the SMS arrives.</string>
+    <string name="onboarding_nothing_by_hand_title">Or add them by hand</string>
+    <string name="onboarding_nothing_by_hand_body">Tap + Add on Home any time.</string>
+    <string name="onboarding_nothing_home">Go to Home</string>
+    <string name="onboarding_nothing_further_back">Look further back</string>
+
+    <!-- Confirm accounts (11-confirm-accounts). -->
+    <plurals name="onboarding_accounts_title">
+        <item quantity="one">We found %d account</item>
+        <item quantity="other">We found %d accounts</item>
+    </plurals>
+    <string name="onboarding_accounts_body">Switch off any you don\'t want tracked. Tap one to rename it.</string>
+    <!-- %1$s is the account's current name, for example "HDFC Bank". -->
+    <string name="onboarding_accounts_rename_label">New name for %1$s</string>
+    <string name="onboarding_accounts_rename_save">Save</string>
+    <string name="onboarding_accounts_rename_cancel">Cancel</string>
+    <string name="onboarding_accounts_done">Looks good</string>
+
+    <!-- Account names and kinds, as on Scanning and Confirm accounts. -->
+    <string name="onboarding_account_bank_account">Bank account</string>
+    <string name="onboarding_account_credit_card">Credit card</string>
+    <string name="onboarding_account_debit_card">Debit card</string>
+    <string name="onboarding_account_wallet">Wallet</string>
+    <string name="onboarding_account_upi">UPI</string>
+    <string name="onboarding_account_other">Account</string>
+    <!-- %1$s is an account name or kind, %2$s the last digits, for example "HDFC Bank ••4521". -->
+    <string name="onboarding_account_with_digits">%1$s ••%2$s</string>
+</resources>

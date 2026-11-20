@@ -1,0 +1,286 @@
+{
+  "name": "Chip",
+  "id": "20:33",
+  "properties": {
+    "Label#20:7": {
+      "type": "TEXT",
+      "defaultValue": "Equally"
+    },
+    "Selected": {
+      "type": "VARIANT",
+      "defaultValue": "False",
+      "variantOptions": [
+        "False",
+        "True"
+      ]
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Default",
+      "variantOptions": [
+        "Default",
+        "Pressed"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Chip",
+    "x": 0,
+    "y": 36,
+    "w": 236,
+    "h": 146,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "wrap": true,
+    "crossGap": 24,
+    "size": [
+      "FIXED",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "Selected=False, State=Default",
+        "x": 25,
+        "y": 25,
+        "w": 81,
+        "h": 36,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 8,
+            "w": 49,
+            "h": 20,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "Equally",
+            "style": "Body/M Strong"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=True, State=Default",
+        "x": 130,
+        "y": 25,
+        "w": 81,
+        "h": 36,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/brand/primary"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 8,
+            "w": 49,
+            "h": 20,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "Equally",
+            "style": "Body/M Strong"
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=False, State=Pressed",
+        "x": 25,
+        "y": 85,
+        "w": 81,
+        "h": 36,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/bg/surface-raised"
+        ],
+        "stroke": [
+          "color/border/subtle"
+        ],
+        "sw": 1.5,
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 8,
+            "w": 49,
+            "h": 20,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/primary"
+            ],
+            "text": "Equally",
+            "style": "Body/M Strong"
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Pressed overlay",
+            "x": 0,
+            "y": 0,
+            "w": 81,
+            "h": 36,
+            "op": 0.1,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "abs": true,
+            "r": 999,
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "Selected=True, State=Pressed",
+        "x": 130,
+        "y": 85,
+        "w": 81,
+        "h": 36,
+        "lay": "row",
+        "gap": 0,
+        "pad": [
+          8,
+          16,
+          8,
+          16
+        ],
+        "main": "CENTER",
+        "cross": "CENTER",
+        "size": [
+          "HUG",
+          "HUG"
+        ],
+        "r": 999,
+        "fill": [
+          "color/brand/primary"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 16,
+            "y": 8,
+            "w": 49,
+            "h": 20,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/on-brand"
+            ],
+            "text": "Equally",
+            "style": "Body/M Strong"
+          },
+          {
+            "t": "RECTANGLE",
+            "n": "Pressed overlay",
+            "x": 0,
+            "y": 0,
+            "w": 81,
+            "h": 36,
+            "op": 0.1,
+            "size": [
+              "FIXED",
+              "FIXED"
+            ],
+            "abs": true,
+            "r": 999,
+            "fill": [
+              "color/text/primary"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

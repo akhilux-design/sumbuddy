@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Payment screens: Add to expenses, Choose category, Expense added, Expense detail, Add expense and Needs
+         review (design 02-everyday/05, 06, 07, 08, 15, 19 and 47). -->
+
+    <!-- Shared by several payment screens -->
+    <string name="payment_tag_from_sms">From SMS</string>
+    <string name="payment_tag_by_hand">Added by hand</string>
+    <string name="payment_tag_not_counted">Not counted</string>
+    <string name="payment_tag_money_in">Money in</string>
+    <string name="payment_unknown_merchant">Unknown merchant</string>
+    <!-- When and how a payment was made, under the amount: "Today 9:12 · HDFC card ••4521". -->
+    <string name="payment_when_with_source">%1$s · %2$s</string>
+    <string name="payment_when_today">Today %1$s</string>
+    <string name="payment_when_yesterday">Yesterday %1$s</string>
+    <!-- A date and a time, for example "14 Nov 9:12". -->
+    <string name="payment_when_date_time">%1$s %2$s</string>
+    <!-- Where a payment came from. %1$s is the bank or the name the person gave the account, %2$s the last digits. -->
+    <string name="payment_account_card">%1$s card ••%2$s</string>
+    <string name="payment_account_last4">%1$s ••%2$s</string>
+    <string name="payment_account_card_no_bank">Card ••%1$s</string>
+    <string name="payment_account_no_bank">Account ••%1$s</string>
+    <string name="payment_account_upi">UPI %1$s</string>
+    <string name="payment_paid_with_cash">Cash</string>
+    <string name="payment_paid_with_upi">UPI</string>
+    <string name="payment_paid_with_card">Card</string>
+    <string name="payment_paid_with_bank_transfer">Bank transfer</string>
+    <string name="payment_paid_with_wallet">Wallet</string>
+    <string name="payment_paid_with_atm">ATM</string>
+    <string name="payment_paid_with_other">Other</string>
+    <string name="payment_label_category">Category</string>
+    <string name="payment_label_count_it_in">Count it in</string>
+    <string name="payment_scope_me">Just me</string>
+    <string name="payment_scope_family">Family</string>
+    <string name="payment_category_more">More</string>
+    <string name="payment_input_paid_to">Paid to</string>
+    <string name="payment_input_note">Note (optional)</string>
+    <string name="payment_input_amount">Amount</string>
+    <!-- The only error message the design shows under a field. -->
+    <string name="payment_error_amount">That does not look right.</string>
+    <!-- Primary button that counts a payment in its month, for example "Add to November". -->
+    <string name="payment_add_to_month">Add to %1$s</string>
+    <string name="payment_gone_title">This payment is not here any more</string>
+    <string name="payment_gone_body">It may have been removed. Your other expenses are unchanged.</string>
+    <string name="payment_go_back">Go back</string>
+    <!-- An amount in a currency other than rupees: "USD 12.50". -->
+    <string name="payment_amount_foreign">%1$s %2$s</string>
+
+    <!-- Add to expenses (05) -->
+    <string name="payment_add_title">Add to expenses</string>
+    <string name="payment_add_split_instead">Split it instead</string>
+    <string name="payment_add_always_title">Do this every time</string>
+    <!-- "Swiggy is always Food" -->
+    <string name="payment_add_always_subtitle">%1$s is always %2$s</string>
+    <string name="payment_add_always_subtitle_no_merchant">Payments to this merchant get this category</string>
+    <string name="payment_add_sorted_title">Already sorted</string>
+    <string name="payment_add_sorted_body_added">This payment is already in your expenses.</string>
+    <string name="payment_add_sorted_body_ignored">You said this payment is not an expense.</string>
+    <string name="payment_add_see_expense">See expense</string>
+
+    <!-- Choose category (06) -->
+    <string name="payment_category_title">Category</string>
+    <string name="payment_category_current">Chosen now</string>
+
+    <!-- Expense added (07) -->
+    <!-- "Added to November" -->
+    <string name="payment_added_title">Added to %1$s</string>
+    <!-- "₹450 at Swiggy is in your expenses.": %1$s is the amount, with its payee when there is one
+         (format_amount_at, _to or _for, ui/format/PayeeWording.kt). -->
+    <string name="payment_added_body">%1$s is in your expenses.</string>
+    <!-- Stat tile label, "November so far". -->
+    <string name="payment_added_month_so_far">%1$s so far</string>
+    <!-- Expense row subtitle, "Food · HDFC card ••4521". -->
+    <string name="payment_row_subtitle">%1$s · %2$s</string>
+    <string name="payment_added_meta_me">Just you</string>
+    <string name="payment_added_meta_family">Family</string>
+    <string name="payment_added_done">Done</string>
+    <string name="payment_added_undo">Undo</string>
+
+    <!-- Expense detail (08) -->
+    <string name="payment_detail_title">Expense</string>
+    <string name="payment_detail_edit">Edit</string>
+    <string name="payment_detail_cancel">Cancel</string>
+    <string name="payment_detail_paid_to">Paid to</string>
+    <!-- Under the name of who sent money in (a refund or cashback). -->
+    <string name="payment_detail_from">From</string>
+    <string name="payment_detail_category">Category</string>
+    <string name="payment_detail_note">Note</string>
+    <string name="payment_detail_no_note">No note</string>
+    <!-- "Counted in November" -->
+    <string name="payment_detail_counted_in">Counted in %1$s</string>
+    <string name="payment_detail_counted_family">Counted in %1$s and in the family month</string>
+    <string name="payment_detail_not_counted">Not counted in %1$s</string>
+    <string name="payment_detail_money_in">Money in. Never counted as spending.</string>
+    <string name="payment_detail_waiting">Not added yet. Add or ignore it.</string>
+    <!-- "Not in rupees, so not counted in November" -->
+    <string name="payment_detail_foreign">Not in rupees, so not counted in %1$s</string>
+    <string name="payment_detail_original_message">Original message</string>
+    <string name="payment_detail_original_message_privacy">Kept on this phone only. Never uploaded.</string>
+    <string name="payment_detail_split">Split this expense</string>
+    <string name="payment_detail_delete">Delete expense</string>
+    <string name="payment_detail_add_back">Count it again</string>
+    <string name="payment_detail_review">Add or ignore it</string>
+    <string name="payment_detail_save">Save changes</string>
+    <string name="payment_detail_confirm_title">Delete this expense?</string>
+    <!-- "It will not count in November any more." -->
+    <string name="payment_detail_confirm_body">It will not count in %1$s any more. The bank message stays on your phone.</string>
+    <string name="payment_detail_confirm_body_manual">It will not count in %1$s any more.</string>
+    <string name="payment_detail_confirm_delete">Delete</string>
+    <string name="payment_detail_confirm_keep">Keep it</string>
+
+    <!-- Expense detail of a split (47) -->
+    <!-- "Split equally · your share ₹150", under the group's name in place of Just me or Family. -->
+    <string name="payment_detail_split_equally">Split equally · your share %1$s</string>
+    <!-- Not in the design: the other ways of splitting. "Split by amounts · your share ₹200" -->
+    <string name="payment_detail_split_amounts">Split by amounts · your share %1$s</string>
+    <!-- Not in the design. -->
+    <string name="payment_detail_split_percent">Split by percentage · your share %1$s</string>
+    <!-- Not in the design. -->
+    <string name="payment_detail_split_shares">Split by shares · your share %1$s</string>
+    <!-- Not in the design: a merchant whose payments split themselves (Same split? "Yes, every month"). A tap opens
+         Same split?, where it can be turned off. "Split equally · your share ₹8,000 · splits itself" -->
+    <string name="payment_detail_splits_itself">%1$s · splits itself</string>
+    <!-- "Delete Swiggy from Flat 302?" -->
+    <string name="payment_detail_confirm_split_title">Delete %1$s from %2$s?</string>
+    <!-- "It is removed for everyone in the group. Your ₹150 share stops counting in November." -->
+    <string name="payment_detail_confirm_split_body">It is removed for everyone in the group. Your %1$s share stops counting in %2$s.</string>
+    <!-- Not in the design: the person has no share in it (they paid for the others). -->
+    <string name="payment_detail_confirm_split_body_no_share">It is removed for everyone in the group.</string>
+    <string name="payment_detail_confirm_split_delete">Delete for everyone</string>
+    <!-- Not in the design: the tag of a friend's expense shown here because the person has a share in it.
+         "From Flat 302" (shown in capitals). -->
+    <string name="payment_tag_from_group">From %1$s</string>
+    <!-- Not in the design: the line under a friend's expense, after the day: "12 Nov · Rahul paid". -->
+    <string name="payment_detail_someone_paid">%1$s paid</string>
+
+    <!-- Add expense (15) -->
+    <string name="payment_manual_title">Add expense</string>
+    <string name="payment_manual_amount_label">Amount</string>
+    <string name="payment_manual_amount_placeholder">0</string>
+    <string name="payment_manual_currency">₹</string>
+    <string name="payment_manual_what_for">What was it for?</string>
+    <string name="payment_manual_what_for_placeholder">Dinner, auto, chemist</string>
+    <string name="payment_manual_paid_with">Paid with</string>
+    <string name="payment_manual_date">Date</string>
+    <string name="payment_manual_date_change">Tap to change the date</string>
+    <string name="payment_day_today">Today</string>
+    <string name="payment_day_yesterday">Yesterday</string>
+    <string name="payment_manual_paid_by">Paid by</string>
+    <string name="payment_manual_you">You</string>
+    <string name="payment_manual_split_title">Split this</string>
+    <string name="payment_manual_split_subtitle">Pick who shares it on the next step</string>
+    <string name="payment_manual_next">Next: choose split</string>
+
+    <!-- Needs review (19) -->
+    <string name="payment_review_title">Needs review</string>
+    <plurals name="payment_review_intro">
+        <item quantity="one">We couldn\'t read %1$d message for sure. Type the amount to add it, or mark it as not a spend.</item>
+        <item quantity="other">We couldn\'t read %1$d messages for sure. Type the amount to add one, or mark it as not a spend.</item>
+    </plurals>
+    <string name="payment_review_check_this">Check this</string>
+    <!-- The SMS text in quotes. -->
+    <string name="payment_review_quote">\"%1$s\"</string>
+    <string name="payment_review_save">Save</string>
+    <string name="payment_review_not_a_spend">Not a spend</string>
+    <string name="payment_review_amount_unknown">Amount?</string>
+    <string name="payment_review_amount_placeholder">₹0</string>
+    <!-- Shown after a message was added: "Added ₹1,200 to November." -->
+    <string name="payment_review_added">Added %1$s to %2$s.</string>
+    <!-- %1$s is the amount, %2$s the month. -->
+    <string name="payment_review_added_money_in">Listed %1$s as money in for %2$s. Money in never counts as spending.</string>
+    <string name="payment_review_already_counted">%1$s is already in your %2$s payments from another message, so it was not added again.</string>
+    <!-- Subtitle of a collapsed item: "VM-HDFCBK · 14 Nov". -->
+    <string name="payment_review_row_subtitle">%1$s · %2$s</string>
+    <string name="payment_review_empty_title">All sorted</string>
+    <string name="payment_review_empty_body">Bank messages we can\'t read for sure show up here, so nothing is missed.</string>
+
+    <!-- Add to expenses (Family every time) (06-family/25): "Swiggy is always Food · Family". -->
+    <string name="payment_add_always_subtitle_family">%1$s is always %2$s · Family</string>
+    <!-- Expense detail (delete, Family) (06-family/26): the row is shared in the family month. %1$s is the month. -->
+    <string name="payment_detail_delete_family_body">It will not count in %1$s or in the family month any more. The bank message stays on your phone.</string>
+</resources>

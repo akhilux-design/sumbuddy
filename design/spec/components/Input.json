@@ -1,0 +1,354 @@
+{
+  "name": "Input",
+  "id": "20:81",
+  "properties": {
+    "Label#20:24": {
+      "type": "TEXT",
+      "defaultValue": "Phone number"
+    },
+    "Value#20:27": {
+      "type": "TEXT",
+      "defaultValue": "98765 43210"
+    },
+    "Helper#100:2": {
+      "type": "TEXT",
+      "defaultValue": "That does not look right."
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Default",
+      "variantOptions": [
+        "Default",
+        "Focused",
+        "Error"
+      ]
+    }
+  },
+  "tree": {
+    "t": "COMPONENT_SET",
+    "n": "Input",
+    "x": 0,
+    "y": 36,
+    "w": 1034,
+    "h": 162,
+    "lay": "row",
+    "gap": 24,
+    "pad": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "main": "MIN",
+    "cross": "CENTER",
+    "size": [
+      "HUG",
+      "HUG"
+    ],
+    "r": 16,
+    "stroke": [
+      "color/border/subtle"
+    ],
+    "sw": 1,
+    "dash": [
+      6,
+      6
+    ],
+    "clip": true,
+    "c": [
+      {
+        "t": "COMPONENT",
+        "n": "State=Default",
+        "x": 25,
+        "y": 39,
+        "w": 312,
+        "h": 85,
+        "lay": "col",
+        "gap": 8,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/8",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 0,
+            "y": 0,
+            "w": 97,
+            "h": 18,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Phone number",
+            "style": "Caption"
+          },
+          {
+            "t": "FRAME",
+            "n": "Field",
+            "x": 0,
+            "y": 26,
+            "w": 312,
+            "h": 59,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 12,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/border/subtle"
+            ],
+            "sw": 1.5,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Value",
+                "x": 18,
+                "y": 18,
+                "w": 96,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "98765 43210",
+                "style": "Body/L"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "State=Focused",
+        "x": 361,
+        "y": 38,
+        "w": 312,
+        "h": 86,
+        "lay": "col",
+        "gap": 8,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/8",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 0,
+            "y": 0,
+            "w": 97,
+            "h": 18,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Phone number",
+            "style": "Caption"
+          },
+          {
+            "t": "FRAME",
+            "n": "Field",
+            "x": 0,
+            "y": 26,
+            "w": 312,
+            "h": 60,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 12,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/brand/primary"
+            ],
+            "sw": 2,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Value",
+                "x": 18,
+                "y": 18,
+                "w": 96,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "98765 43210",
+                "style": "Body/L"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "t": "COMPONENT",
+        "n": "State=Error",
+        "x": 697,
+        "y": 25,
+        "w": 312,
+        "h": 112,
+        "lay": "col",
+        "gap": 8,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "main": "MIN",
+        "cross": "MIN",
+        "gapVar": "space/8",
+        "size": [
+          "FIXED",
+          "HUG"
+        ],
+        "c": [
+          {
+            "t": "TEXT",
+            "n": "Label",
+            "x": 0,
+            "y": 0,
+            "w": 97,
+            "h": 18,
+            "size": [
+              "HUG",
+              "HUG"
+            ],
+            "fill": [
+              "color/text/secondary"
+            ],
+            "text": "Phone number",
+            "style": "Caption"
+          },
+          {
+            "t": "FRAME",
+            "n": "Field",
+            "x": 0,
+            "y": 26,
+            "w": 312,
+            "h": 60,
+            "lay": "row",
+            "gap": 0,
+            "pad": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "main": "MIN",
+            "cross": "CENTER",
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "r": 12,
+            "fill": [
+              "color/bg/surface-raised"
+            ],
+            "stroke": [
+              "color/status/negative"
+            ],
+            "sw": 2,
+            "clip": true,
+            "c": [
+              {
+                "t": "TEXT",
+                "n": "Value",
+                "x": 18,
+                "y": 18,
+                "w": 96,
+                "h": 24,
+                "size": [
+                  "HUG",
+                  "HUG"
+                ],
+                "fill": [
+                  "color/text/primary"
+                ],
+                "text": "98765 43210",
+                "style": "Body/L"
+              }
+            ]
+          },
+          {
+            "t": "TEXT",
+            "n": "Helper",
+            "x": 0,
+            "y": 94,
+            "w": 312,
+            "h": 18,
+            "size": [
+              "FILL",
+              "HUG"
+            ],
+            "fill": [
+              "color/status/negative"
+            ],
+            "text": "That does not look right.",
+            "style": "Caption"
+          }
+        ]
+      }
+    ]
+  }
+}
