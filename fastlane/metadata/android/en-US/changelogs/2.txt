@@ -1,7 +1,7 @@
 First public release.
 * Tracks your month from bank and UPI SMS, read on the phone
 * Add, Split or Ignore each payment; Review payments with Add all and Undo
-* Month by category, card bills and due dates
+* Month by category, and this month against last month
 * Split with friends and groups, settle up by UPI, WhatsApp reminder links
 * Family month with your partner
 * Import a group from Splitwise
