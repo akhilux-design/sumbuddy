@@ -14,7 +14,7 @@ Releases.
   app without SMS access and add payments by hand.
 - Home shows the month's spending, what friends owe you and what you owe; Month shows spending by category against
   last month; Activity lists everything.
-- Card bills and due dates from card statement SMS.
+- Card statement SMS are read for each card's due date and amount, never as spending (a card bill screen comes later).
 - Skips OTPs, offers, and reward or loyalty points that are not money.
 - "Do this every time" rules for merchants you always categorise or split the same way.
 

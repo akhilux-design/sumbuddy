@@ -5,7 +5,7 @@ Track your month
 * Add, Split or Ignore each one; nothing is added silently
 * Review payments one card at a time, with Add all and Undo
 * Spending by category, this month against last month
-* Card bills and due dates from statement SMS
+* Card statement SMS are kept for the due date and amount, never counted as spending
 * Skips OTPs, offers and reward points that are not money
 * No SMS access? Add payments by hand
 
