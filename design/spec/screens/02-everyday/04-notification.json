@@ -220,7 +220,7 @@
                       "FIXED",
                       "FIXED"
                     ],
-                    "r": 8,
+                    "r": 999,
                     "fill": [
                       "color/brand/primary"
                     ],
@@ -548,7 +548,7 @@
                       "FIXED",
                       "FIXED"
                     ],
-                    "r": 8,
+                    "r": 999,
                     "fill": [
                       "color/brand/primary"
                     ],
@@ -727,7 +727,7 @@
                       "FIXED",
                       "FIXED"
                     ],
-                    "r": 8,
+                    "r": 999,
                     "fill": [
                       "color/brand/primary"
                     ],

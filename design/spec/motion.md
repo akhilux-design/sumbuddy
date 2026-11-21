@@ -38,7 +38,7 @@ Rows marked "spring target" are not durations to code: they are what the named s
 | `motion/duration/medium` | 250 ms | Spring target for the dialog card (spring/default) and for Back (spring/screen). Sheet out, tab content. |
 | `motion/duration/long` | 300 ms | Spring target for spring/screen: push, modal rise, sheet in, result arrival. |
 | `motion/hold/press` | 100 ms | Not motion: a press stays visible at least this long, counted on the frame clock. Kept when Remove animations is on. |
-| `motion/delay/placeholder` | 200 ms | Tween delay: loading placeholders fade in only after this. |
+| `motion/delay/placeholder` | 200 ms | Not motion: loading placeholders show only after this wait, counted on the frame clock. Kept when Remove animations is on. |
 | Fade-through | out 90, in 160 ms | Tween for content that swaps in place. The new content starts after 90 ms. |
 | Placeholder pulse | 900 ms each way | The only loop: alpha 1 to 0.55 and back, a tween. Static when Remove animations is on. |
 | Cap | 350 ms | No tween is longer. Springs have no fixed length; they are tuned to land near their target. |
@@ -89,7 +89,8 @@ Physics
 Remove animations
 - When Remove animations is on (animator duration scale 0), screens, dialogs and sheets change with no transition.
 - No placeholder pulse, no fling or tilt on the review card and no shake. The next review card replaces the last.
-- What stays: the 100 ms press hold, gestures that follow the finger, error messages and every haptic.
+- What stays: the 100 ms press hold, the 200 ms wait before loading placeholders, gestures that follow the finger,
+  error messages and every haptic.
 
 Haptic rules
 - Haptics follow the system Touch feedback setting, never Remove animations.
@@ -169,7 +170,8 @@ Toggle, Expense Row, Option Card, Input and Icon/check-circle instances. There a
   100 ms out. Haptic: none.
 - **Placeholder pulse** (`422:667`). Loading placeholders show only if loading takes longer than 200 ms, then fade in
   over 150 ms. All bars on a screen pulse together, from full to 55% and back, 900 ms each way. It is the only loop in
-  the app. With Remove animations on they stay still. Tween: 900 ms each way, repeating. Delay: 200 ms. Haptic: none.
+  the app. With Remove animations on they stay still and still wait 200 ms before they show. Tween: 900 ms each way,
+  repeating. Delay: 200 ms. Haptic: none.
 
 ## Where this differs from the body of docs/motion.md
 

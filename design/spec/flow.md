@@ -538,6 +538,10 @@ Where shared expenses live. Friends do not need the app.
 
 1. `SCREEN` `V3` **Groups (empty)** - Offers New group. Only after the server answered with no groups, or when every split with one friend here is settled.
 
+### Branch: If there are only splits with friends
+
+1. `SCREEN` `NEW` **Groups (friends only)** - No group yet, only splits with one friend. The card counts friends: 'across 2 friends'.
+
 ### Branch: If the file is not a Splitwise export
 
 1. `SCREEN` `NEW` **Wrong file** - Says so and asks for another file.

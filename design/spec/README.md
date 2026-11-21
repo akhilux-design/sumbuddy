@@ -18,8 +18,63 @@ Everything needed to build the SumBuddy Android app without opening Figma. Expor
 A screen `.json` holds `name`, `group`, `index`, `darkId` and `lightId` (Figma node ids of the two themes) and `tree`,
 the dump of the screen frame. Both themes share one tree: colours are token names, resolved per theme in `tokens.json`.
 
-There are 243 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
+There are 244 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
+
+## 0.3.2 design follow-ups, 2026-11-22
+
+Fixes from the device check of release 0.3.2, on both boards where a frame has both.
+
+- `01-onboarding/05` Privacy promise: the two footer Buttons now hug their height, as the Button component and the app
+  do. "Allow SMS access" (Primary Large) was fixed at 52 and is now 57 (52 face plus 5 edge). "Not now, I'll type them
+  in" (Ghost Medium) was fixed at 44 and is now 49. So the Footer is 142 high (16 + 57 + 12 + 49 + 8) and runs 634 to
+  776. The Body is 588 (it was 598) and runs 46 to 634. Its content is 581, so nothing is clipped. Allow's face runs
+  650 to 702 with its edge to 707; the Ghost face runs 719 to 763. Before, the frame drew Allow 10 lower and the Ghost
+  button 5 lower than the app. Same fix as the card bill footers of 2026-11-21. Nodes: Dark `23:90`, `23:92`; Light
+  `80:1344`, `80:1345`.
+- Not changed yet: 23 other frames still fix a footer or dialog Button at 52 (Primary Large) or 44 (Ghost Medium):
+  `01-onboarding/00`, `06`, `08`, `11`, `12`, `13`, `15` (Footer and Rename dialog); `02-everyday/09`, `10`, `11`,
+  `42` (Actions), `68` to `72`; `03-getting-paid-back/00`, `07`, `08`, `09`; and the friend web page `06`, `12`, `13`.
+  The app likely draws each fixed button 5 higher. Each waits for a check against its app screen on the device.
+- `02-everyday/04`, `53`, `54`, `146` Notification: every `App badge` (20 x 20) is now a circle. Its corners are bound
+  to `radius/full` (they were `radius/sm`, 8), so the trees read `r: 999`. Android 12 and later draws the small icon
+  inside a circle. 24 badges in all, 12 per board.
+- Same frames, system colours (no visual change): Android draws two things the app cannot set.
+  - Action labels (Add, Split, Ignore, Confirm, Remind friends) take the system accent colour (Material You; #B0C6FF on
+    the test phone). `setColor` does not reach them, and Android 16 strips colour spans from them. The frames keep
+    `color/text/brand` as a stand-in. The owner decides whether to keep it.
+  - In light mode Android darkens the badge green until it has 4.5:1 contrast with the shade (#007A0C on the test
+    phone, not `color/brand/primary` #16C253), and draws the ₹ in the shade's background colour. Dark mode matches
+    (#34D36C). The Light board keeps `color/brand/primary`: no token gives #34D36C in dark and #007A0C in light, and a
+    different fill on Light would split the shared tree.
+  - Each is a Figma annotation (Development) on the first `App badge` and on each `Actions` row of the eight frames.
+    Annotations are not in the dumps or the PNGs.
+- Motion (Design System page, `Section/Motion`; it exists once, not per board): with Remove animations on the app
+  still waits 200 ms before loading placeholders show (commit 17ad11e). The Placeholder pulse card (`422:667`, text
+  `422:679`) adds "and still wait 200 ms before they show". The Remove animations rule (`382:447`) adds the 200 ms wait
+  to What stays. The `motion/delay/placeholder` row (`382:320`) now reads "Not motion: ... counted on the frame clock.
+  Kept when Remove animations is on.", like `motion/hold/press`. `motion.md` follows.
+- Predictive back: no change. `motion.md` already says it settles with spring/screen from the release velocity.
+- Exported: the JSON and both PNGs of `01-onboarding/05` and `02-everyday/04`, `53`, `54`, `146`, and `motion.md`.
+  Each JSON was checked by hash against a fresh `dump.js` dump of its Dark frame, and the Dark and Light dumps are
+  equal. These fixes did not change `flow.md`: no screen, state or path changed.
+- New `02-everyday/147` Groups (friends only): Dark `482:35979`, Light `482:36049` (wrappers `482:35977`, `482:36047`).
+  Release 0.3.2 fixed the Groups tab's overall card when there is no named group, only friends with direct splits: it
+  read "across 0 groups" and now reads "across 2 friends" (plural `groups_overall_caption_friends`). No frame drew
+  that state. `147` is `20` Groups without the Groups list: the Balance Card (Positive) "OVERALL YOU ARE OWED",
+  ₹3,000, "across 2 friends", then the FRIENDS label and `20`'s two friend Balance Rows, Rahul +₹1,800 and Priya
+  +₹1,200 (they add up to the card). Every instance, token and text style is `20`'s, and the spacing is its
+  auto-layout (Body gap `space/12`, Friends gap `space/8`). On the frame the card runs 115 to 260, FRIENDS 272 to 288,
+  the rows 300 to 366 and 374 to 440. On each board it sits right after `44` Groups (you owe overall).
+- Checked against the 0.3.2 app on the emulator: every part matches within 2 dp. The app draws the header, card,
+  label and rows 2 dp higher because the emulator's status bar is 44 dp (the design's Status Bar is 46); the dock and
+  gesture bar match within 1 dp. Text only: "₹3,000" (Amount/XL) ends 8 dp further right in the app, and "Groups"
+  (Display/L) 2 dp, since Bricolage Grotesque renders wider on Android.
+- Flow page and `flow.md`: lane 04 has a new branch after "If there are no groups yet", "If there are only splits with
+  friends" (`484:2`), with the card Groups (friends only) (`484:12`).
+- Exported: the JSON and both PNGs of `147`. The JSON was checked by hash against a fresh `dump.js` dump of its Dark
+  frame, and the Dark and Light dumps are equal.
+- 244 screens per theme.
 
 ## Notification actions as text, 2026-11-22
 
