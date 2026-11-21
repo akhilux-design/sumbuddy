@@ -201,7 +201,7 @@ review and success screens (see section 6). Priority is must, should or nice.
 | `OptionCard.kt` (How far back, Tracking start, Same split?, Mark as paid, Settle up, "Which one is you?") | Face, border and edge alpha over 150 ms. The radio dot scales 0 to 1 with spring/pop; ring to fill over 150 ms. The face does not rise as well (one motion per change). | selection when the selection changes | should |
 | `payment/ChooseCategory.kt` row pick | Overlay. | selection | should |
 | `AppInput.kt`, `payment/AddExpenseScreen.kt` AmountField | Focus border colour over 150 ms (width snaps). Error border to `color/status/negative` over 150 ms. The helper text and the Amount error row use `Reveal` (2.5). | (2.7) | should |
-| `LoadingPlaceholders.kt` (owner A): Groups, Group page and Join group loading | Pulse alpha 1 to 0.55, tween(900, standard), reverse, infinite. One `rememberInfiniteTransition` per screen so the bars pulse together, applied in `graphicsLayer { alpha }`. Placeholders are in the tree at once (so semantics and tests see "Loading groups") and fade in with `tween(150, delayMillis = 200)`. Static when motion is reduced. | none | should |
+| `LoadingPlaceholders.kt` (owner A): Groups, Group page and Join group loading | Pulse alpha 1 to 0.55, tween(900, standard), reverse, infinite. One `rememberInfiniteTransition` per screen so the bars pulse together, applied in `graphicsLayer { alpha }`. Placeholders are in the tree at once (so semantics and tests see "Loading groups") and fade in with `tween(150, delayMillis = 200)`. Static when motion is reduced, and still shown only after 200 ms, counted on the frame clock (3.11), so quick data never flashes them. | none | should |
 | `ProgressBar.kt` (owner A): Scanning, Reading older payments, Importing | Fill uses `animateFloatAsState(tween(250, standard))` drawn in `drawBehind`; it snaps when the value goes down. The "20 of 46" text stays plain text. | none | should |
 | `Banner.kt` call sites (owner A): GroupPageCommon, SettleWidgets, RemindScreen, ImportSplitwiseScreen, SignInNameScreen, YouAccountScreen, JoinGroupScreen, Home offline | `Reveal` from the top. Joined to Undone: a 150 ms crossfade. The `liveRegion` stays on the stable outer node. | (2.7) | should |
 
@@ -366,7 +366,8 @@ Compose already ends `tween` and `spring` animations on the next frame. These ne
    play.
 4. Shake: skipped; the message and the haptic stay.
 5. Anything timed outside an animation spec. Use `tween(delayMillis = ...)` for delays: those are scaled, so they
-   vanish at scale 0. The press hold uses the frame clock and stays (3.3).
+   vanish at scale 0. The press hold uses the frame clock and stays (3.3), and so does the 200 ms wait before loading
+   placeholders show (3.11): a wait is not motion.
 6. Haptics: never affected. They follow the Touch feedback setting only.
 
 ### 3.8 Rules for every change
@@ -432,6 +433,26 @@ Measured on emulator-5554 (`build/keep/motion-032/b-blank-frames/`, share of eac
   first composition (about 100 ms on the software emulator, `gfxinfo` framestats), before its data is read: the
   incoming page, still empty, fades in over the old one. It is not specific to any screen and is one frame long here.
 
+### 3.11 Loading with Remove animations on (2026-11-22)
+
+What the code did: `rememberPlaceholderMotion` showed placeholders at once when motion was reduced. Their 200 ms wait
+was the delay of the fade-in tween, and Compose scales tween delays by the animator duration scale, so at 0 it was
+gone. Measured on emulator-5554 with all three scales at 0 (`build/keep/motion-032/c-reduced-loading/`): a push to a
+Group page drew the grey placeholders for about 65 ms (2 frames) before its data, a flash of the loading state.
+
+Fix: with motion reduced, placeholders wait the same 200 ms on the frame clock (`awaitFrameMillis(scaled = false)`),
+then show at once and stay still. They are in the tree from the start, so screen readers still hear "Loading groups".
+After: the push draws the page's frame for those 2 frames and then the data; no placeholders.
+
+Still open: the first visit to the Groups tab (and to any tab not visited yet) with Remove animations on draws the tab
+with nothing but its dock for about 2 frames (85 ms here). That is not the loading state: the tab's ViewModel has no
+value yet (`state` is null until its first database read), so the route draws nothing. With motion on, `MainScaffold`
+hides it by keeping the old tab drawn until the new one has content (3.6). With Remove animations on that is not
+possible through the NavHost: at scale 0 every transition, and a delay inside it, ends on the next frame, so the old tab
+is gone at once. Fixing it means giving a tab its first state at once (for Groups, a value of
+`GroupsRepository.observeHome()` kept warm for the app, read synchronously as the ViewModel's first state), which is a
+data change, not a motion change.
+
 ## 4. How the design records it
 
 - **Motion section in Figma.** Add a "Motion" section on the Figma Design System page, on both boards, with:
@@ -479,7 +500,7 @@ Measured on emulator-5554 (`build/keep/motion-032/b-blank-frames/`, share of eac
 | Success arrival test | Robolectric, `StateRestorationTester` | ExpenseAdded gives `confirm()` exactly once, also across recreation |
 | `AnimatedOverlayTest` | Robolectric | the last content stays during the exit and taps are ignored; reduced motion removes it in the same frame; a rename Save refused by state keeps the dialog |
 | `TabMemoryTest` | Robolectric | content animates only when arriving from another tab |
-| Placeholders under reduced motion | Robolectric | the pulse is static and "Loading groups" exists at once |
+| Placeholders under reduced motion | Robolectric | the pulse is static, "Loading groups" exists at once, and they show only after 200 ms (`PlaceholderMotionTest`) |
 
 ### 5.2 Adjust or keep green
 

@@ -27,6 +27,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.expenses.app.ui.motion.awaitFrameMillis
 import com.expenses.app.ui.theme.AppTheme
 import com.expenses.app.ui.theme.LocalReducedMotion
 import com.expenses.app.ui.theme.Motion
@@ -39,7 +40,7 @@ import com.expenses.app.ui.theme.Space
 // Motion (design/spec/motion.md, "Placeholder pulse"): a placeholder is in the tree at once (screen readers and tests
 // find it), but shows only if loading takes longer than 200 ms: it then fades in over 150 ms. Its bars pulse from full
 // to 55% and back, 900 ms each way; placeholders drawn in the same frame pulse together. It is the only loop in the app,
-// and it stays still with Remove animations on.
+// and it stays still with Remove animations on. The 200 ms wait stays too, so quick data never flashes them.
 
 /** Placeholder sizes from the loading design. */
 private val PlaceholderLabelWidth = 150.dp
@@ -148,14 +149,16 @@ internal class PlaceholderMotion(val shown: State<Float>, val pulse: State<Float
 
 /**
  * The fade-in (after 200 ms, over 150 ms) and the pulse (1 to 0.55 and back, 900 ms each way) of one placeholder. With
- * Remove animations on it is shown at once and still.
+ * Remove animations on it waits the same 200 ms (counted on the frame clock: the wait is not motion, and a tween's
+ * delay would vanish), then shows at once and stays still. So data that comes quickly never flashes the placeholders.
  */
 @Composable
 internal fun rememberPlaceholderMotion(): PlaceholderMotion {
     val reduced = LocalReducedMotion.current
-    val shown = remember { Animatable(if (reduced) 1f else 0f) }
+    val shown = remember { Animatable(0f) }
     LaunchedEffect(reduced) {
         if (reduced) {
+            if (shown.value < 1f) awaitFrameMillis(Motion.PlaceholderDelayMillis.toLong(), scaled = false)
             shown.snapTo(1f)
         } else {
             shown.animateTo(1f, Motion.fade(Motion.RevealFade.InMillis, delayMillis = Motion.PlaceholderDelayMillis))

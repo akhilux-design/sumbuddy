@@ -14,7 +14,8 @@ import org.robolectric.RobolectricTestRunner
 
 /**
  * Loading placeholders (`design/spec/motion.md`, "Placeholder pulse"; `docs/motion.md` 5.1): they are in the tree at
- * once, fade in only after 200 ms and pulse; with Remove animations on they show at once and stay still.
+ * once, fade in only after 200 ms and pulse; with Remove animations on they show after the same 200 ms, at once, and
+ * stay still.
  */
 @RunWith(RobolectricTestRunner::class)
 class PlaceholderMotionTest {
@@ -35,9 +36,17 @@ class PlaceholderMotionTest {
         }
     }
 
-    @Test fun withRemoveAnimationsItShowsAtOnceAndStaysStill() {
+    @Test fun withRemoveAnimationsItWaitsTheSameDelayThenShowsAtOnceAndStaysStill() {
         show(reducedMotion = true)
+        // In the tree at once, so screen readers hear "Loading groups", but not drawn: data that comes within 200 ms
+        // replaces it before it ever shows, also with Remove animations on (no flash of the loading state).
         compose.onNodeWithContentDescription("Loading groups").assertExists()
+        compose.mainClock.advanceTimeBy(16L)
+        assertEquals(0f, motion.shown.value, 0f)
+        compose.mainClock.advanceTimeBy(150L)
+        assertEquals("still hidden inside the 200 ms delay", 0f, motion.shown.value, 0f)
+        compose.mainClock.advanceTimeBy(100L)
+        assertEquals("then shown at once, with no fade", 1f, motion.shown.value, 0f)
         listOf(16L, 450L, 900L, 1_350L).forEach { step ->
             compose.mainClock.advanceTimeBy(step)
             assertEquals(1f, motion.shown.value, 0f)
