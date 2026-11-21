@@ -117,6 +117,15 @@ class ScreenTransitionsTest {
         ScreenKind.entries.forEach { to -> assertEquals("$to", Move.FadeThrough, move(Result, to, pop = true)) }
     }
 
+    @Test fun backSwipesSettleOnlyWhereTheyShowAPreview() {
+        assertEquals(setOf(Move.Back, Move.FadeThrough, Move.ModalDrop), Move.entries.filter { it.previewsBack }.toSet())
+        assertEquals(true, move(Push, Tab, pop = true).previewsBack)
+        assertEquals(true, move(Result, Push, pop = true).previewsBack)
+        assertEquals(true, move(Modal, Tab, pop = true).previewsBack)
+        assertEquals(false, move(Tab, Tab, pop = true).previewsBack) // Groups > back to Home: no preview
+        assertEquals(false, move(Push, Tab, pop = true, reducedMotion = true).previewsBack)
+    }
+
     @Test fun reducedMotionNeverMoves() {
         ScreenKind.entries.forEach { from ->
             ScreenKind.entries.forEach { to ->

@@ -50,8 +50,9 @@ private const val NamesBeforeMore = 3
  */
 @Composable
 fun JoinGroupScreen(state: JoinGroupUiState, onEvent: (JoinGroupEvent) -> Unit, modifier: Modifier = Modifier) {
-    // Loading and the invite swap with a fade-through, keyed by the kind of state.
-    FadeThroughContent(targetState = state, contentKey = { it::class }) { state ->
+    // Loading and the invite swap with a fade-through, keyed by the kind of state; an invite read quickly replaces the
+    // loading state at once.
+    FadeThroughContent(targetState = state, contentKey = { it::class }, isLoading = { it == JoinGroupUiState.Loading }) { state ->
         when (state) {
             JoinGroupUiState.Loading -> PageFrame(
                 title = null,

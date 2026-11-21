@@ -163,7 +163,7 @@ review and success screens (see section 6). Priority is must, should or nice.
 | Arriving at a tab from outside: `finishOnboarding()` to Home, GroupImported "Done" to Groups | "Arrival": `fadeIn(250)` + `scaleIn(0.96, 300)`; the dock comes with the screen. The leaving screen: `fadeOut(150)`. | none | should |
 | Tab to tab (bottom nav, the "Owed to you" / "You owe" tiles, Back from a tab to Home) | The destination transition stays **None**, as today, because each tab draws its own dock. `MainScaffold` animates only the content: alpha 0 to 1 over tween(200, standard) and scale 0.96 to 1 over tween(250, emphasized-decelerate), in one `graphicsLayer`. This runs only when the tab was reached from another tab (see 3.6). (Changed after the device check: the old tab stays drawn until the new tab's page covers it; see 3.6.) | none | must |
 | `ui/components/BottomNav.kt` pill | Draw all four tabs with one composable whose "selectedness" comes from a transition from the previous tab to the active one. **Label:** `expandHorizontally(spring/fast)` + `fadeIn(150, delay 50)`; the old label uses `shrinkHorizontally(spring/fast)` + `fadeOut(100)`. **Face colour and edge alpha:** 150 ms. **Icon tint:** `textTertiary` to `textOnBrand` over 150 ms. `SpaceBetween` lets the other icons glide. **Press:** the pill gets the 3D press (2.3) without the press haptic, and the overlay its inner Row draws today is removed. | none | should |
-| Predictive back (Android 14+; on by default for targetSdk 36 on Android 16): the `NavHost` parameters `predictivePopEnterTransition` and `predictivePopExitTransition` (`(scope, swipeEdge: Int)`, present in 2.10.2) | **Leaving screen:** `scaleOut(0.9)` + slide by width/8 toward the side being swiped (`EDGE_LEFT` moves right) + `fadeOut`, all `tween(250, LinearEasing)` so it tracks the finger. **Screen under it:** slide from -30 dp + `fadeIn`, linear. **Tab to tab:** None, so the gesture shows no preview, as today. Screens with an enabled `BackHandler` get no preview, which is correct there: SplitAdded, Same split, GroupImported, ImportSplitwise, SignInName, Review (sheet open, All sorted), ExpenseDetail (editing), GroupSettings (sheet open), Join (while joining), You (must finish). | none | must |
+| Predictive back (Android 14+; on by default for targetSdk 36 on Android 16): the `NavHost` parameters `predictivePopEnterTransition` and `predictivePopExitTransition` (`(scope, swipeEdge: Int)`, present in 2.10.2) | **Leaving screen:** `scaleOut(0.9)` + slide by width/8 toward the side being swiped (`EDGE_LEFT` moves right) + `fadeOut`, all `tween(250, LinearEasing)` so it tracks the finger. **Screen under it:** slide from -30 dp + `fadeIn`, linear. **Tab to tab:** None, so the gesture shows no preview, as today. Screens with an enabled `BackHandler` get no preview, which is correct there: SplitAdded, Same split, GroupImported, ImportSplitwise, SignInName, Review (sheet open, All sorted), ExpenseDetail (editing), GroupSettings (sheet open), Join (while joining), You (must finish). **After the finger lets go:** the progress springs on to 1 (`motion/spring/screen`, from the finger's speed) before the swipe completes, so the screens settle instead of stopping dead (`ui/nav/SpringBack.kt`, 3.9). | none | must |
 | Remove animations | Every `NavHost` lambda returns `EnterTransition.None` / `ExitTransition.None`, which avoids a one-frame flash. | n/a | must |
 | Gated screens when signed out: `SplitPayment`, `SplitTyped`, `JoinGroup` (`ui/nav/SignInGate.kt`) | The gate draws nothing and opens Sign in only once RESUMED, which is after the 300 ms push. That gives 600 ms of motion on an empty page. **Fix:** when the target is a gate route and the person is signed out (a `() -> Boolean` passed from `AppRoot` into the transition table), the enter is `fadeIn(150)` only. | none | should |
 | `ui/screens/signin/SignInNav.kt` | `offerAutomatically` (the Credential Manager sheet) runs in `LaunchedEffect` at composition, during the modal rise. **Fix:** run it once on the first RESUMED instead. | none | should |
@@ -201,7 +201,7 @@ review and success screens (see section 6). Priority is must, should or nice.
 | `OptionCard.kt` (How far back, Tracking start, Same split?, Mark as paid, Settle up, "Which one is you?") | Face, border and edge alpha over 150 ms. The radio dot scales 0 to 1 with spring/pop; ring to fill over 150 ms. The face does not rise as well (one motion per change). | selection when the selection changes | should |
 | `payment/ChooseCategory.kt` row pick | Overlay. | selection | should |
 | `AppInput.kt`, `payment/AddExpenseScreen.kt` AmountField | Focus border colour over 150 ms (width snaps). Error border to `color/status/negative` over 150 ms. The helper text and the Amount error row use `Reveal` (2.5). | (2.7) | should |
-| `LoadingPlaceholders.kt` (owner A): Groups, Group page and Join group loading | Pulse alpha 1 to 0.55, tween(900, standard), reverse, infinite. One `rememberInfiniteTransition` per screen so the bars pulse together, applied in `graphicsLayer { alpha }`. Placeholders are in the tree at once (so semantics and tests see "Loading groups") and fade in with `tween(150, delayMillis = 200)`. Static when motion is reduced. | none | should |
+| `LoadingPlaceholders.kt` (owner A): Groups, Group page and Join group loading | Pulse alpha 1 to 0.55, tween(900, standard), reverse, infinite. One `rememberInfiniteTransition` per screen so the bars pulse together, applied in `graphicsLayer { alpha }`. Placeholders are in the tree at once (so semantics and tests see "Loading groups") and fade in with `tween(150, delayMillis = 200)`. Static when motion is reduced, and still shown only after 200 ms, counted on the frame clock (3.11), so quick data never flashes them. | none | should |
 | `ProgressBar.kt` (owner A): Scanning, Reading older payments, Importing | Fill uses `animateFloatAsState(tween(250, standard))` drawn in `drawBehind`; it snaps when the value goes down. The "20 of 46" text stays plain text. | none | should |
 | `Banner.kt` call sites (owner A): GroupPageCommon, SettleWidgets, RemindScreen, ImportSplitwiseScreen, SignInNameScreen, YouAccountScreen, JoinGroupScreen, Home offline | `Reveal` from the top. Joined to Undone: a 150 ms crossfade. The `liveRegion` stays on the stable outer node. | (2.7) | should |
 
@@ -366,7 +366,8 @@ Compose already ends `tween` and `spring` animations on the next frame. These ne
    play.
 4. Shake: skipped; the message and the haptic stay.
 5. Anything timed outside an animation spec. Use `tween(delayMillis = ...)` for delays: those are scaled, so they
-   vanish at scale 0. The press hold uses the frame clock and stays (3.3).
+   vanish at scale 0. The press hold uses the frame clock and stays (3.3), and so does the 200 ms wait before loading
+   placeholders show (3.11): a wait is not motion.
 6. Haptics: never affected. They follow the Touch feedback setting only.
 
 ### 3.8 Rules for every change
@@ -383,6 +384,74 @@ Compose already ends `tween` and `spring` animations on the next frame. These ne
 - Never put a `liveRegion` node inside `AnimatedContent`. Hide leaving content from accessibility.
 - Never delay an `onClick` or a callback behind an animation.
 - No Lottie, no shimmer gradient, no blur or shadow animation, no shared-element framework.
+
+### 3.9 Predictive back settle (`ui/nav/SpringBack.kt`, 2026-11-22)
+
+Owner rule 2 says a back swipe follows the finger, then settles with a spring from where it was released. The NavHost
+alone does not do the second half. What navigation-compose 2.10.2 does (read in its bytecode, `NavHostKt` and
+`NavHostEventHandler`):
+- While the finger moves, it seeks its `SeekableTransitionState` to each back event's progress
+  (`seekTo(progress, previousEntry)`), so the predictive specs (linear tracks) follow the finger.
+- On commit it pops, then calls `transitionState.animateTo(entry)` with no spec. animation-core 1.12.1 then moves the
+  fraction linearly over the rest of the transition's duration, so each screen glides on at the speed of its 250 ms
+  linear track and stops dead. There is no parameter for this spec.
+- On cancel it runs `animate(fraction, 0, tween(fraction x duration))` and snaps back. On Android 16 this is never
+  seen: the system springs the progress back to 0 (events keep coming after the finger lifts) before it cancels.
+- Android 16 sends no progress after the finger lifts on a commit: it calls completed at once.
+
+So `SpringBack` wraps the NavHost (public API only: navigationevent 1.1.2's `NavigationEventDispatcher`,
+`NavigationEventInput` and `LocalNavigationEventDispatcherOwner`; no fork). The NavHost and every `BackHandler` inside
+it register with its own dispatcher. Its one handler on the activity's dispatcher is enabled exactly while one of
+theirs is, and passes each event on. When a swipe that moved the screens is committed, and the NavHost takes it
+(the handler on top is the NavHost's, `NavBackStackEntryInfo`) and shows a preview (`Move.previewsBack`: Back,
+FadeThrough, ModalDrop), it springs the progress to 1 with `motion/spring/screen` from the finger's speed (the last
+100 ms of events, capped at 5 per second), sends each frame as a progress event, then completes. The NavHost then has
+nothing left to play. Everything else is passed on at once: a Back button (Android 16 starts a swipe at 0 and
+completes it at once; nothing moved, so the NavHost plays its pop), a screen's own `BackHandler`, tab to tab (no
+preview) and Remove animations. A settle still running ends at once when a new swipe starts or the app pauses.
+
+Measured on emulator-5554 (`build/keep/motion-032/a-predictive-back/`): before, the last frames before the end move
+at about 4 progress per second (the linear track's speed) and then stop. After, the relay's frames go 0.37 at the
+finger's 0.7/s, up to 4.3/s, then 3.0, 2.1, 1.3, 0.5, 0.2, 0.07/s and rest at 1, about 300 ms to 0.995. Tab to tab,
+cancel and Back button behave as before.
+
+### 3.10 No blank frames while a pushed screen loads (2026-11-22)
+
+Measured on emulator-5554 (`build/keep/motion-032/b-blank-frames/`, share of each frame that is not canvas; a page is
+40 to 70%, a near-blank frame under 5%):
+- Push to Review: 6 near-blank frames, about 150 ms. Push to a Group page: 8, about 230 ms. Push to Month, to an
+  expense and the Expense added result: none, or a single dim first frame.
+- Cause: Review, the Group page and Join group start in a loading state (the ViewModel's first value) that shows only
+  the page's frame, since placeholders wait 200 ms. Their data came about 100 ms later, and the state swap is a
+  `FadeThroughContent`: the frame (title, back button) faded out over 90 ms and the content faded in only after that,
+  so the screen faded to nothing in the middle of its push. This happens on every phone, fast or slow, because the
+  fade-through has fixed timings.
+- Fix: `FadeThroughContent(isLoading = ...)`. A loading state that the data replaces before
+  `motion/delay/placeholder` (200 ms) is replaced at once; the screen's own push carries the motion. A loading state
+  that stayed long enough to show its placeholders still fades through to the content, as the design draws it.
+- After: Review none; Group page one dim first frame. That frame is the first transition frame after the new screen's
+  first composition (about 100 ms on the software emulator, `gfxinfo` framestats), before its data is read: the
+  incoming page, still empty, fades in over the old one. It is not specific to any screen and is one frame long here.
+
+### 3.11 Loading with Remove animations on (2026-11-22)
+
+What the code did: `rememberPlaceholderMotion` showed placeholders at once when motion was reduced. Their 200 ms wait
+was the delay of the fade-in tween, and Compose scales tween delays by the animator duration scale, so at 0 it was
+gone. Measured on emulator-5554 with all three scales at 0 (`build/keep/motion-032/c-reduced-loading/`): a push to a
+Group page drew the grey placeholders for about 65 ms (2 frames) before its data, a flash of the loading state.
+
+Fix: with motion reduced, placeholders wait the same 200 ms on the frame clock (`awaitFrameMillis(scaled = false)`),
+then show at once and stay still. They are in the tree from the start, so screen readers still hear "Loading groups".
+After: the push draws the page's frame for those 2 frames and then the data; no placeholders.
+
+Still open: the first visit to the Groups tab (and to any tab not visited yet) with Remove animations on draws the tab
+with nothing but its dock for about 2 frames (85 ms here). That is not the loading state: the tab's ViewModel has no
+value yet (`state` is null until its first database read), so the route draws nothing. With motion on, `MainScaffold`
+hides it by keeping the old tab drawn until the new one has content (3.6). With Remove animations on that is not
+possible through the NavHost: at scale 0 every transition, and a delay inside it, ends on the next frame, so the old tab
+is gone at once. Fixing it means giving a tab its first state at once (for Groups, a value of
+`GroupsRepository.observeHome()` kept warm for the app, read synchronously as the ViewModel's first state), which is a
+data change, not a motion change.
 
 ## 4. How the design records it
 
@@ -431,7 +500,7 @@ Compose already ends `tween` and `spring` animations on the next frame. These ne
 | Success arrival test | Robolectric, `StateRestorationTester` | ExpenseAdded gives `confirm()` exactly once, also across recreation |
 | `AnimatedOverlayTest` | Robolectric | the last content stays during the exit and taps are ignored; reduced motion removes it in the same frame; a rename Save refused by state keeps the dialog |
 | `TabMemoryTest` | Robolectric | content animates only when arriving from another tab |
-| Placeholders under reduced motion | Robolectric | the pulse is static and "Loading groups" exists at once |
+| Placeholders under reduced motion | Robolectric | the pulse is static, "Loading groups" exists at once, and they show only after 200 ms (`PlaceholderMotionTest`) |
 
 ### 5.2 Adjust or keep green
 

@@ -144,8 +144,14 @@ fun ReviewPaymentsScreen(
     val leaving = state == ReviewPaymentsUiState.NothingWaiting && last.state != null
     val shown = if (leaving) last.state ?: state else state
     val events: (ReviewPaymentsEvent) -> Unit = if (leaving) ({}) else onEvent
-    // Reviewing to All sorted swaps in place (fade-through); a new card keeps the same content.
-    FadeThroughContent(targetState = shown, modifier = modifier, contentKey = { it::class }) { current ->
+    // Reviewing to All sorted swaps in place (fade-through); a new card keeps the same content. Cards that come quickly
+    // replace the loading frame at once.
+    FadeThroughContent(
+        targetState = shown,
+        modifier = modifier,
+        contentKey = { it::class },
+        isLoading = { it == ReviewPaymentsUiState.Loading },
+    ) { current ->
         when (current) {
             ReviewPaymentsUiState.Loading, ReviewPaymentsUiState.NothingWaiting -> PaymentPage(
                 title = stringResource(R.string.review_title),
