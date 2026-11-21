@@ -1,6 +1,7 @@
 package com.expenses.app.ui.screens.groups
 
 import android.app.Activity
+import androidx.lifecycle.viewModelScope
 import com.expenses.app.data.category.Category
 import com.expenses.app.groups.G1
 import com.expenses.app.groups.G2
@@ -29,11 +30,14 @@ import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -74,7 +78,13 @@ class GroupsViewModelTest {
 
     @Before fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
 
+    /** Every view model a test made, cleared after it. */
+    private val made = CopyOnWriteArrayList<GroupsViewModel>()
+
     @After fun tearDown() {
+        // A view model's coroutines would otherwise outlive the test: they read the closed database, or touch Main
+        // while the next test sets it, and fail that test instead.
+        runBlocking { made.forEach { it.viewModelScope.coroutineContext.job.cancelAndJoin() } }
         Dispatchers.resetMain()
         env.close()
     }
@@ -94,6 +104,7 @@ class GroupsViewModelTest {
                 signInResult
             },
         )
+        made += vm
         backgroundScope.launch { vm.state.collect { seen += it } }
         return vm
     }

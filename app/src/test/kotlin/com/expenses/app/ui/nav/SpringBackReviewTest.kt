@@ -111,9 +111,11 @@ class SpringBackReviewTest {
     private fun lift() = compose.onRoot().performTouchInput { up() }
 
     /**
-     * A person swipes back from a pushed screen to Home and, as Home slides back in, taps a row on it (here: opens
-     * Review payments). Before SpringBack the NavHost popped at once on commit, so the tap opened Review payments.
-     * The finger goes down about 64 ms into the settle, and its click navigates when it lifts.
+     * A person swipes back from a pushed screen to Home and, as Home slides back in, a click reaches Home (here: it
+     * opens Review payments). The finger goes down about 64 ms into the settle, and the click navigates when it lifts.
+     * This checks the back stack only: the touch ends the settle, so the click acts on Home with the swiped screen gone.
+     * On a phone a tap there usually lands on the screen leaving instead, which the NavHost keeps drawn on top until
+     * its pop ends, and does nothing, as during the Back button's pop (`docs/motion.md` 3.9).
      */
     @Test fun aTapOnTheScreenComingBackWhileTheSwipeSettlesIsKept() {
         host(relay = true)

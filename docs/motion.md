@@ -421,6 +421,15 @@ settle there, before the touch's click or drag lands. A navigation made by code 
 navigation made straight on the NavController during a settle, by code that goes through neither, is still undone.
 None in the app is known to run then: the screens' event handlers check `isCurrent` and follow taps.
 
+What a tap during the settle does on a phone (device check round 2, `build/keep/check-032/round-2/motion/`): it
+does nothing. Until a pop's transition ends, the NavHost keeps the screen leaving drawn above the one coming back, so
+the tap lands on the screen leaving, which is no longer resumed and drops its navigation. Ending the settle at the touch
+keeps the back stack right (the dock tap above), but it cannot move a touch that has already landed to the screen
+beneath. The Back button's pop has the same window (taps dropped for about 0.35 s on emulator-5554). After a swipe the
+window lasts until the settle ends: taps were dropped up to 0.5 s after the finger lifted and worked from 0.6 s on,
+measured with `adb shell input`, which adds its own delay. The NavHost builds the layer each screen is drawn in, and
+no simple way was found to let a touch through the screen leaving to the one beneath, so this stays.
+
 Measured on emulator-5554 (`build/keep/motion-032/a-predictive-back/`): before, the last frames before the end move
 at about 4 progress per second (the linear track's speed) and then stop. After, the relay's frames go 0.37 at the
 finger's 0.7/s, up to 4.3/s, then 3.0, 2.1, 1.3, 0.5, 0.2, 0.07/s and rest at 1, about 300 ms to 0.995. Tab to tab,
