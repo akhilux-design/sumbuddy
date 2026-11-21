@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.3.2: notifications with the app's ₹, and smoother motion
+
+**Notifications**
+
+- Every notification now shows the app's ₹ as its small icon, tinted in the app's green, instead of a different line
+  icon for each kind. On Android 12 and later Android draws it in a circle and picks the exact shade of green.
+- On Android 11 and older, the quiet "Reading SMS" notification now shows once when an SMS arrives, not again each
+  time the app tries again to find that SMS in the inbox.
+
+**Motion**
+
+- A back swipe now settles with a spring from your finger's speed after you let go, instead of gliding at a fixed
+  speed and stopping dead.
+- Review payments, a group page and joining a group no longer show a near-blank screen for a moment when their data
+  comes quickly: the content shows at once.
+- With Remove animations on, loading placeholders no longer flash for a moment: they still wait 200 ms before they
+  show, and then stay still.
+
 ## 0.3.1: an SMS right after another is read within seconds
 
 **Fixes**

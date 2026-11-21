@@ -22,8 +22,8 @@ android {
         applicationId = providers.gradleProperty("app.applicationId").get()
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.3.1"
+        versionCode = 5
+        versionName = "0.3.2"
 
         buildConfigField("String", "LINK_HOST", "\"${providers.gradleProperty("app.linkHost").get()}\"")
         // The host of the App Link intent filter for friends' pay links (AndroidManifest.xml, docs/server.md 9.8).
