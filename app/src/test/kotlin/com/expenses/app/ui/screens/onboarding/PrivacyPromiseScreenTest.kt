@@ -2,11 +2,15 @@ package com.expenses.app.ui.screens.onboarding
 
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasNoClickAction
+import androidx.compose.ui.test.assertIsEqualTo
+import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.height
 import com.expenses.app.ui.theme.AppTheme
 import org.junit.Assert.assertEquals
 import org.junit.Rule
@@ -59,6 +63,25 @@ class PrivacyPromiseScreenTest {
             assertEquals(16.dp.toPx(), bounds.left, 1f)
             assertEquals(336.dp.toPx(), bounds.width, 1f)
         }
+    }
+
+    /**
+     * The footer as the Button component draws it, and as the 81 high footers of 02-everyday/99 and 04-you/04 do: each
+     * Button hugs its height, its face and the 5 kept under it for the edge (Primary Large 52 + 5, Ghost Medium
+     * 44 + 5), 12 apart, with the footer's 8 under them. So the Ghost face ends 13 above the bottom and Allow SMS
+     * access's 74. Frame 01-onboarding/05 fixes the two Buttons at 52 and 44 instead (a 132 high Footer, not 142),
+     * which draws them 10 and 5 lower than this: the frame is the one to change.
+     */
+    @Test fun theFooterButtonsHugTheirHeightAsTheButtonDoes() {
+        show()
+        val bottom = compose.onRoot().getUnclippedBoundsInRoot().bottom
+        val allow = compose.onNodeWithText("Allow SMS access").getUnclippedBoundsInRoot()
+        val byHand = compose.onNodeWithText("Not now, I'll type them in").getUnclippedBoundsInRoot()
+        allow.height.assertIsEqualTo(52.dp, "Allow SMS access's face")
+        byHand.height.assertIsEqualTo(44.dp, "the Ghost face")
+        (bottom - byHand.bottom).assertIsEqualTo(13.dp, "under the Ghost face")
+        (byHand.top - allow.bottom).assertIsEqualTo(17.dp, "from Allow's face to the Ghost face: its edge and the gap")
+        (bottom - allow.bottom).assertIsEqualTo(74.dp, "under Allow's face")
     }
 
     /** The fourth promise (docs/card-bills.md D26): the code is public. It is not a link. */
