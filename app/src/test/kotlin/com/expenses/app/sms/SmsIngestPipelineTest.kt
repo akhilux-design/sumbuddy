@@ -7,6 +7,7 @@ import com.expenses.app.data.model.ExpenseStatus
 import com.expenses.app.data.model.ReadOutcome
 import com.expenses.app.data.repository.RoomTransactionRunner
 import com.expenses.app.data.repository.TestDatabase
+import com.expenses.app.data.repository.TransactionRunner
 import com.expenses.app.data.repository.nov
 import com.expenses.app.ingest.InboxSms
 import com.expenses.app.ingest.IngestResult
@@ -106,6 +107,53 @@ class SmsIngestPipelineTest {
         assertEquals(1, again.credits.size)
         assertEquals(2, count("expenses"))
         assertEquals(3, test.readSms.observeCounts().first().total)
+    }
+
+    @Test fun newestFirstReadIsTheNewestMessageThisCallMarkedRead() = runTest {
+        // An OTP stores nothing but is read for the first time all the same.
+        val first = pipeline.ingest(listOf(sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
+        assertEquals(nov(16, 13, 5), first.newestFirstRead)
+
+        // Read before: none of them counts, even the newest of the call.
+        val again = pipeline.ingest(listOf(sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
+        assertNull(again.newestFirstRead)
+
+        // An older message read for the first time counts, though a newer one in the call was read before.
+        val older = pipeline.ingest(listOf(sms(3, HDFC, CREDIT, nov(16, 12)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
+        assertEquals(nov(16, 12), older.newestFirstRead)
+        assertEquals(1, older.alreadyRead)
+    }
+
+    @Test fun aMessageAnotherReaderStoredMeanwhileIsNotFirstReadHere() = runTest {
+        val message = sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2))
+        var otherReader: (suspend () -> Unit)? = { pipeline.ingest(listOf(message)) }
+        val real = RoomTransactionRunner(test.db)
+        // Another reader stores the message between this call's first check and its transaction.
+        val racing = object : TransactionRunner {
+            override suspend fun <T> run(block: suspend () -> T): T {
+                otherReader?.invoke()
+                otherReader = null
+                return real.run(block)
+            }
+        }
+        val late = SmsIngestPipeline(
+            parser = SmsParser(),
+            transactions = racing,
+            expenses = test.expenses,
+            accounts = test.accounts,
+            cardBills = test.cardBills,
+            reviews = test.reviews,
+            readSms = test.readSms,
+            clock = test.clock,
+            parsing = Dispatchers.Unconfined,
+        )
+
+        val result = late.ingest(listOf(message))
+
+        assertNull(result.newestFirstRead)
+        assertEquals(1, result.alreadyRead)
+        assertTrue(result.detected.isEmpty())
+        assertEquals(1, count("expenses"))
     }
 
     @Test fun appCopyInTheSameBatchIsDroppedForTheBankSms() = runTest {
@@ -293,7 +341,7 @@ class SmsIngestPipelineTest {
 
         assertEquals(listOf(2, 4, 5), progress)
         assertEquals(5, summary.read)
-        assertEquals(nov(16, 15), summary.newest)
+        assertEquals(nov(16, 15), summary.result.newestFirstRead)
         // The app copy came first and was replaced by the bank SMS on the next page, so it is one detected payment.
         assertEquals(1, summary.result.detected.size)
         assertEquals(1, count("expenses", "direction = 'DEBIT'"))
@@ -301,11 +349,23 @@ class SmsIngestPipelineTest {
         assertEquals(1, summary.result.cardBills.size)
         assertEquals(1, summary.result.skipped)
         assertEquals(HDFC, test.expenses.observeDetected().first().single().expense.smsSender)
+
+        // The same period again: every message was read before, so none is read for the first time.
+        val again = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null)
+        assertEquals(5, again.read)
+        assertEquals(5, again.result.alreadyRead)
+        assertNull(again.result.newestFirstRead)
     }
 
     @Test fun resultsAddUp() {
         val sum = IngestResult(duplicates = 1, skipped = 2) + IngestResult(skipped = 3, alreadyRead = 4)
         assertEquals(IngestResult(duplicates = 1, skipped = 5, alreadyRead = 4), sum)
+        assertEquals(nov(16, 14), (IngestResult(newestFirstRead = nov(16, 14)) + IngestResult()).newestFirstRead)
+        assertEquals(nov(16, 14), (IngestResult() + IngestResult(newestFirstRead = nov(16, 14))).newestFirstRead)
+        assertEquals(
+            nov(16, 15),
+            (IngestResult(newestFirstRead = nov(16, 15)) + IngestResult(newestFirstRead = nov(16, 14))).newestFirstRead,
+        )
     }
 
     private fun sms(id: Long, sender: String, body: String, at: Instant) =

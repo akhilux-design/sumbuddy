@@ -313,6 +313,8 @@ class SmsIngestPipeline(
             duplicates = duplicates,
             skipped = skipped,
             alreadyRead = alreadyRead,
+            // Exactly the messages this call marks read: a message another reader marked meanwhile is not among them.
+            newestFirstRead = read.maxOfOrNull { it.receivedAt },
         )
     }
 
@@ -327,7 +329,10 @@ class SmsIngestPipeline(
 private val InboxSms.key: SmsKey
     get() = SmsKey(providerId, Instant.ofEpochMilli(message.receivedAtMillis), message.sender)
 
-/** The sum of two results, for a scan that ingests the inbox one page at a time. Lists keep their order. */
+/**
+ * The sum of two results, for a scan that ingests the inbox one page at a time. Lists keep their order; the newest
+ * first read is the later of the two.
+ */
 operator fun IngestResult.plus(other: IngestResult): IngestResult = IngestResult(
     detected = detected + other.detected,
     credits = credits + other.credits,
@@ -337,4 +342,5 @@ operator fun IngestResult.plus(other: IngestResult): IngestResult = IngestResult
     duplicates = duplicates + other.duplicates,
     skipped = skipped + other.skipped,
     alreadyRead = alreadyRead + other.alreadyRead,
+    newestFirstRead = listOfNotNull(newestFirstRead, other.newestFirstRead).maxOrNull(),
 )

@@ -1,0 +1,2 @@
+An SMS right after another is read at once.
+* Fixed: when two SMS came seconds apart (often a bank SMS and a UPI SMS for one payment), the second one could show up only later, at the next SMS or when you opened the app. It is now read as it arrives, with its "Payment detected" notification

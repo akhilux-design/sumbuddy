@@ -350,6 +350,7 @@ data class IngestResult(
     val detected: List<Expense>, val credits: List<Expense>, val newAccounts: List<Account>,
     val cardBills: List<CardBill>, val reviewItems: List<ReviewItem>,
     val duplicates: Int, val skipped: Int, val alreadyRead: Int,
+    val newestFirstRead: Instant?,   // arrival time of the newest message this call marked read itself, else null
 )
 ```
 
@@ -380,6 +381,9 @@ data class IngestResult(
    new credit card is made and the `OTHER` account stays as it is.
 7. `Unreadable` → `ReviewRepository.add(ReviewItem(...body = text))`, `ReadSms(REVIEW)`.
 8. Each message's writes and its `ReadSms` row go in one `TransactionRunner.run { }`.
+9. `newestFirstRead` is the newest `receivedAt` among the `ReadSms` rows this call wrote, whatever their outcome (an
+   OTP counts). A message read before, or by another reader between the first check and the transaction, is not in
+   it. `IncomingSmsWorker` uses it to tell that its SMS has reached the inbox.
 
 Payments found by the onboarding scan of past months start as DETECTED like any other; when more than one waits,
 Home's payment card offers "Review all N", which opens Review payments (swipe review and Add all, below).
@@ -604,9 +608,15 @@ stored data on show.
 - `ScanWorker.startOlderScan(context, newStart, oldStart)` ("Add older payments"): reads `[newStart, oldStart)` and
   moves the tracking start to `newStart` only when it succeeded, even if the screen was closed.
 - `IncomingSmsWorker.enqueue(context, arrivedAt)` after each new SMS reads from `lastScanAt` (or the tracking start
-  when there is none) less 30 minutes, never before the tracking start. `IncomingSmsWorker.catchUp(context)` (unique,
-  KEEP) runs the same read without a new SMS; `ExpensesApplication` queues it when the app starts with SMS tracking
-  on and whenever tracking begins.
+  when there is none) less 30 minutes, never before the tracking start. Its input is only the arrival time. The
+  default SMS app may write the message to the inbox a moment after the broadcast, so the worker may run first. It
+  takes the SMS as read only when this run read a message for the first time (`IngestResult.newestFirstRead`: the
+  messages this `ingest` call marked read itself) that arrived at most 2 minutes before the broadcast. A message read
+  before does not count, however close: a bank SMS and a UPI SMS for one payment often arrive seconds apart.
+  Otherwise it tries again up to 5 times, 10, 20, 30, 40 and 50 s apart (linear backoff, about 2.5 minutes in all),
+  then stops. When another read took the SMS first, those tries find nothing new and post nothing.
+  `IncomingSmsWorker.catchUp(context)` (unique, KEEP) runs the same read without a new SMS and never tries again;
+  `ExpensesApplication` queues it when the app starts with SMS tracking on and whenever tracking begins.
 - Turning SMS tracking on again (`turnSmsTrackingOn`) moves the tracking start and the last scan to now; the time
   it was off can be read with "Add older payments".
 

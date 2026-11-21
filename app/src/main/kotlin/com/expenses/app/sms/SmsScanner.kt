@@ -21,23 +21,20 @@ class SmsScanner(private val inbox: PagedSmsInbox, private val pipeline: IngestP
     suspend fun scan(from: Instant, until: Instant?, onProgress: suspend (read: Int) -> Unit = {}): ScanSummary {
         var result = IngestResult()
         var read = 0
-        var newest: Instant? = null
         inbox.forEachPage(from, until) { page ->
             result += pipeline.ingest(page)
             read += page.size
-            val pageNewest = Instant.ofEpochMilli(page.maxOf { it.message.receivedAtMillis })
-            newest = newest?.let { maxOf(it, pageNewest) } ?: pageNewest
             onProgress(read)
         }
-        return ScanSummary(result, read, newest)
+        return ScanSummary(result, read)
     }
 }
 
 /**
  * What one [SmsScanner.scan] did.
  *
- * @param result everything the pages stored, added up.
+ * @param result everything the pages stored, added up. Its [IngestResult.newestFirstRead] is when the newest message
+ * this scan read for the first time arrived; messages of the period read before are not in it.
  * @param read how many inbox messages the period held, including ones read before.
- * @param newest when the newest of them arrived, or null when the period held none.
  */
-data class ScanSummary(val result: IngestResult, val read: Int, val newest: Instant?)
+data class ScanSummary(val result: IngestResult, val read: Int)

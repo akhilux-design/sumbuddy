@@ -69,7 +69,12 @@ interface IngestPipeline {
  * @param reviewItems new Needs review items.
  * @param duplicates messages dropped as a second report of one payment.
  * @param skipped messages that were not about a payment and were not stored.
- * @param alreadyRead messages ignored because they had been read before.
+ * @param alreadyRead messages ignored because they had been read before, by an earlier call or by another reader
+ * while this call ran.
+ * @param newestFirstRead when the newest of the messages this call marked read arrived: the messages it read for the
+ * first time, whether or not they gave anything to store (an OTP counts). Null when it marked none read, so every
+ * message was read before or by another reader meanwhile. `IncomingSmsWorker` uses it to tell that its SMS has
+ * reached the inbox.
  */
 data class IngestResult(
     val detected: List<Expense> = emptyList(),
@@ -80,4 +85,5 @@ data class IngestResult(
     val duplicates: Int = 0,
     val skipped: Int = 0,
     val alreadyRead: Int = 0,
+    val newestFirstRead: Instant? = null,
 )
