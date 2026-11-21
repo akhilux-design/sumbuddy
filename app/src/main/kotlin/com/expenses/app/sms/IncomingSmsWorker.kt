@@ -6,11 +6,11 @@ import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
 import androidx.work.ForegroundInfo
+import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.OutOfQuotaPolicy
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import androidx.work.workDataOf
 import com.expenses.app.data.model.Account
 import com.expenses.app.data.settings.SettingsRepository
 import com.expenses.app.data.settings.TrackingMode
@@ -41,10 +41,13 @@ import kotlinx.coroutines.flow.first
  * early the SMS app dated it. A message read before does not count, however close: a bank SMS and a UPI SMS for one
  * payment often arrive seconds apart, and the first one read must not end the wait for the second. Otherwise it tries
  * again [MAX_ATTEMPTS] times, 10, 20, 30, 40 and 50 seconds apart, and then stops: about two and a half minutes in
- * all, longer when the system holds the work back (on Android 12 and later only the first run is expedited). When
- * another read took the SMS first, these tries find nothing new and post no "Payment detected"; on Android 11 and
- * older each try still shows the quiet "Reading SMS" notification while it runs, because WorkManager runs every try of
- * expedited work as a foreground service there.
+ * all, longer when the system holds the work back. When another read took the SMS first, these tries find nothing new
+ * and post no "Payment detected".
+ *
+ * Only the first run is expedited. A try is not a WorkManager retry: the run ends with success and queues the next try
+ * as new, not expedited work ([nextTry]) with the same times, the try's number and a delay. On Android 11 and older
+ * WorkManager runs every run of expedited work, retries included, as a foreground service with the quiet "Reading
+ * SMS" notification; so only the first run shows it there, not each try.
  *
  * Another SMS read for the first time within the two minutes ends the wait too, on purpose. When two SMS arrive a
  * second or so apart, each read often finds only the other one (the SMS app writes each a moment after its read
@@ -69,7 +72,7 @@ class IncomingSmsWorker internal constructor(
     constructor(context: Context, params: WorkerParameters) : this(context, params, null)
 
     override suspend fun doWork(): Result {
-        val app = given ?: ContainerParts(applicationContext.appContainer)
+        val app = given ?: ContainerParts(applicationContext.appContainer, applicationContext)
         val settings = app.settings.settings.first()
         val trackingStart = settings.trackingStartAt
         if (!settings.onboardingDone || settings.trackingMode != TrackingMode.SMS || trackingStart == null) {
@@ -108,13 +111,14 @@ class IncomingSmsWorker internal constructor(
         // The SMS is in only when this run read it for the first time. A message read before (by an earlier run, or by
         // another reader meanwhile) says nothing about this SMS, however close.
         val arrived = catchingUp || summary.result.firstRead.isNotEmpty()
-        return if (!arrived && runAttemptCount < MAX_ATTEMPTS) Result.retry() else Result.success()
+        if (!arrived) nextTry(inputData)?.let { app.queue(it) }
+        return Result.success()
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo = readingForegroundInfo(applicationContext, FOREGROUND_ID)
 
     /** The parts of the app's [AppContainer] the worker uses, each made only when first used. */
-    private class ContainerParts(private val app: AppContainer) : IncomingSmsParts {
+    private class ContainerParts(private val app: AppContainer, private val context: Context) : IncomingSmsParts {
         override val settings: SettingsRepository get() = app.settings
         override val inbox: PagedSmsInbox get() = app.smsInbox
         override val pipeline: IngestPipeline get() = app.ingestPipeline
@@ -124,6 +128,10 @@ class IncomingSmsWorker internal constructor(
         override suspend fun account(id: Long): Account? = app.accounts.get(id)
 
         override suspend fun planCardBillReminders() = app.cardBillReminders.syncQuietly()
+
+        override fun queue(request: OneTimeWorkRequest) {
+            WorkManager.getInstance(context).enqueue(request)
+        }
     }
 
     /** Starting the worker. */
@@ -133,6 +141,7 @@ class IncomingSmsWorker internal constructor(
 
         private const val KEY_ARRIVED_AT = "arrived_at"
         private const val KEY_SENT_AT = "sent_at"
+        private const val KEY_TRY = "try"
         private const val FOREGROUND_ID = 7101
         private const val CATCH_UP = "sms_catch_up"
         private val OVERLAP: Duration = Duration.ofMinutes(30)
@@ -142,30 +151,50 @@ class IncomingSmsWorker internal constructor(
 
         /**
          * Queues a read for an SMS that arrived at [arrivedAt], expedited when the quota allows. [sentAt] holds the
-         * service-centre times of its parts; empty when the broadcast gave none.
+         * service-centre times of its parts; empty when the broadcast gave none. Only this first run is expedited:
+         * its tries are queued by [nextTry].
          */
         fun enqueue(context: Context, arrivedAt: Instant, sentAt: List<Instant> = emptyList()) {
-            val request = OneTimeWorkRequestBuilder<IncomingSmsWorker>()
+            WorkManager.getInstance(context).enqueue(firstRun(arrivedAt, sentAt))
+        }
+
+        /** The first run of the read for an SMS that arrived at [arrivedAt] ([enqueue]): the only expedited one. */
+        internal fun firstRun(arrivedAt: Instant, sentAt: List<Instant> = emptyList()): OneTimeWorkRequest =
+            OneTimeWorkRequestBuilder<IncomingSmsWorker>()
                 .setInputData(arrivalInput(arrivedAt, sentAt))
                 .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .setBackoffCriteria(BackoffPolicy.LINEAR, RETRY_DELAY.toMillis(), TimeUnit.MILLISECONDS)
                 .build()
-            WorkManager.getInstance(context).enqueue(request)
+
+        /**
+         * The worker's input for an SMS that arrived at [arrivedAt] with the service-centre times [sentAt], read for
+         * the [tryNumber]th time (0 for the first run): those times and that count, nothing else. With no
+         * service-centre time there is no [KEY_SENT_AT]; on the first run there is no [KEY_TRY].
+         */
+        internal fun arrivalInput(arrivedAt: Instant, sentAt: List<Instant> = emptyList(), tryNumber: Int = 0): Data {
+            val input = Data.Builder().putLong(KEY_ARRIVED_AT, arrivedAt.toEpochMilli())
+            if (sentAt.isNotEmpty()) input.putLongArray(KEY_SENT_AT, sentAt.map(Instant::toEpochMilli).toLongArray())
+            if (tryNumber > 0) input.putInt(KEY_TRY, tryNumber)
+            return input.build()
         }
 
         /**
-         * The worker's input for an SMS that arrived at [arrivedAt] with the service-centre times [sentAt]: those
-         * times and nothing else. With no service-centre time it is the arrival time alone.
+         * The next try of the read whose input is [input], or null after the last try ([MAX_ATTEMPTS]): not expedited
+         * (on Android 11 and older expedited work runs as a foreground service, which would show "Reading SMS" on every
+         * try), with the same times and the try's number, and delayed so the tries keep their schedule, 10, 20, 30, 40
+         * and 50 seconds after the run before.
          */
-        internal fun arrivalInput(arrivedAt: Instant, sentAt: List<Instant> = emptyList()): Data =
-            if (sentAt.isEmpty()) {
-                workDataOf(KEY_ARRIVED_AT to arrivedAt.toEpochMilli())
-            } else {
-                workDataOf(
-                    KEY_ARRIVED_AT to arrivedAt.toEpochMilli(),
-                    KEY_SENT_AT to sentAt.map(Instant::toEpochMilli).toLongArray(),
-                )
-            }
+        internal fun nextTry(input: Data): OneTimeWorkRequest? {
+            val next = input.getInt(KEY_TRY, 0) + 1
+            if (next > MAX_ATTEMPTS) return null
+            val arrivedAt = Instant.ofEpochMilli(input.getLong(KEY_ARRIVED_AT, 0))
+            val sentAt = input.getLongArray(KEY_SENT_AT)?.map(Instant::ofEpochMilli).orEmpty()
+            return OneTimeWorkRequestBuilder<IncomingSmsWorker>()
+                .setInputData(arrivalInput(arrivedAt, sentAt, next))
+                .setInitialDelay(RETRY_DELAY.multipliedBy(next.toLong()))
+                .setBackoffCriteria(BackoffPolicy.LINEAR, RETRY_DELAY.toMillis(), TimeUnit.MILLISECONDS)
+                .build()
+        }
 
         /**
          * Whether [read], a message a run read for the first time, may be the SMS that arrived at [arrivedAt] with
@@ -213,4 +242,7 @@ internal interface IncomingSmsParts {
 
     /** Plans the card bill reminders again; never fails. */
     suspend fun planCardBillReminders()
+
+    /** Queues [request], the next try of a read ([IncomingSmsWorker.nextTry]). */
+    fun queue(request: OneTimeWorkRequest)
 }

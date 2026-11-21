@@ -614,17 +614,20 @@ stored data on show.
   start when there is none) less 30 minutes, never before the tracking start. Its input is only times: the arrival
   time, and the service-centre times of the SMS's parts (`SmsMessage.getTimestampMillis()` from the broadcast, the
   time the default SMS app records as `date_sent`), which `SmsReceivedReceiver` takes from the broadcast without
-  keeping its text. The default SMS app may write the message to the inbox a moment after the broadcast, so the
+  keeping its text; a try adds only its number. The default SMS app may write the message to the inbox a moment after the broadcast, so the
   worker may run first. It takes the SMS as read only when this run read for the first time (`IngestResult.firstRead`:
   the messages this `ingest` call marked read itself; the scan keeps only those that may be this SMS) a message that
   arrived at most 2 minutes before the broadcast, or one whose `date_sent` is one of the broadcast's service-centre
   times, however early the SMS app dated it. A `date_sent` that does not match never rules a message out. A message
   read before does not count, however close: a bank SMS and a UPI SMS for one payment often arrive seconds apart.
-  Otherwise it tries again up to 5 times, 10, 20, 30, 40 and 50 s apart (linear backoff, about 2.5 minutes in all),
-  then stops. On Android 12 and later only the first run is expedited, so the system may hold the tries back (about 4
-  minutes on the emulator). When another read took the SMS first, those tries find nothing new and post no "Payment
-  detected". On Android 11 and older each try still shows the quiet "Reading SMS" notification while it runs:
-  WorkManager runs every try of expedited work as a foreground service there.
+  Otherwise it tries again up to 5 times, 10, 20, 30, 40 and 50 s apart (about 2.5 minutes in all), then stops. A try
+  is not a WorkManager retry: the run ends with success and queues the next try (`IncomingSmsWorker.nextTry`) as new
+  work that is not expedited, with the same times, the try's number (`try`, 1 to 5) and an initial delay of 10 s times
+  that number; after the fifth try nothing is queued. So only the first run is expedited, on every Android version,
+  and the system may hold the tries back (about 4 minutes on the emulator). On Android 11 and older WorkManager runs
+  expedited work as a foreground service (every run of it, retries included), so the quiet "Reading SMS" notification
+  shows for the first run only, not for each try. When another read took the SMS first, those tries find nothing new
+  and post no "Payment detected".
   Another SMS read for the first time within the 2 minutes ends the wait too, on purpose: when two SMS arrive a second
   or so apart, each read often finds only the other one, and the read still trying reads the later one. Asking for a
   matching `date_sent` there (0.3.1 before its final check) made both reads use every try, 12 runs for a pair instead

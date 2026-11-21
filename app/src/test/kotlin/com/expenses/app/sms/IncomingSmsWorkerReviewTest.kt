@@ -7,6 +7,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.test.core.app.ApplicationProvider
 import androidx.work.ListenableWorker
+import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
@@ -56,6 +57,9 @@ class IncomingSmsWorkerReviewTest {
     private var now: Instant = X_AT
     private var transactions: TransactionRunner = RoomTransactionRunner(test.db)
 
+    /** The tries the runs queued, in order. */
+    private val queued = mutableListOf<OneTimeWorkRequest>()
+
     private val parts = object : IncomingSmsParts {
         override val settings: SettingsRepository get() = this@IncomingSmsWorkerReviewTest.settings
         override val inbox: PagedSmsInbox get() = this@IncomingSmsWorkerReviewTest.inbox
@@ -78,6 +82,9 @@ class IncomingSmsWorkerReviewTest {
         override val hooks: List<NewPaymentsHook> = emptyList()
         override suspend fun account(id: Long): Account? = test.accounts.get(id)
         override suspend fun planCardBillReminders() = Unit
+        override fun queue(request: OneTimeWorkRequest) {
+            queued += request
+        }
     }
 
     @After fun close() {
@@ -99,18 +106,26 @@ class IncomingSmsWorkerReviewTest {
 
     private fun worker(arrivedAt: Instant?, attempt: Int = 0): IncomingSmsWorker {
         val builder = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
-            .setRunAttemptCount(attempt)
             .setWorkerFactory(
                 object : WorkerFactory() {
                     override fun createWorker(appContext: Context, workerClassName: String, workerParameters: WorkerParameters) =
                         IncomingSmsWorker(appContext, workerParameters, parts)
                 },
             )
-        if (arrivedAt != null) builder.setInputData(IncomingSmsWorker.arrivalInput(arrivedAt))
+        if (arrivedAt != null) builder.setInputData(IncomingSmsWorker.arrivalInput(arrivedAt, tryNumber = attempt))
         return builder.build()
     }
 
-    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0) = worker(arrivedAt, attempt).doWork()
+    /**
+     * One run, its [attempt]th try. It always ends with success; it tries again when it queued its next try. Two runs
+     * may run at once, so a run's tries are told apart by their SMS's arrival time.
+     */
+    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0): ReadEnd {
+        fun tries() = queued.count { it.input.getLong("arrived_at", 0) == arrivedAt?.toEpochMilli() }
+        val before = tries()
+        assertEquals(ListenableWorker.Result.success(), worker(arrivedAt, attempt).doWork())
+        return if (tries() > before) ReadEnd.TRIES_AGAIN else ReadEnd.DONE
+    }
 
     private fun posted(): List<Instant> = shadowOf(manager).allNotifications
         .filter { it.channelId == PaymentNotifications.CHANNEL_ID }
@@ -140,8 +155,8 @@ class IncomingSmsWorkerReviewTest {
         val results = listOf(first.await(), second.await())
 
         assertEquals(listOf(Y_AT, X_AT), posted())
-        assertEquals(1, results.count { it == ListenableWorker.Result.success() })
-        assertEquals(1, results.count { it == ListenableWorker.Result.retry() })
+        assertEquals(1, results.count { it == ReadEnd.DONE })
+        assertEquals(1, results.count { it == ReadEnd.TRIES_AGAIN })
     }
 
     /** A message missed 20 minutes ago is read and notified, but it does not end the wait for the new SMS. */
@@ -149,12 +164,12 @@ class IncomingSmsWorkerReviewTest {
         val old = sms(50, "Rs.75.00 debited from A/c XX4521 on 16-11-26 to VPA tea@ybl (UPI Ref No 632000000050). -HDFC Bank", X_AT.minusSeconds(20 * 60))
         inbox += old
         now = X_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(X_AT))
+        assertEquals(ReadEnd.TRIES_AGAIN, run(X_AT))
         assertTrue(wasRead(old))
 
         inbox += X
         now = X_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(X_AT, attempt = 1))
+        assertEquals(ReadEnd.DONE, run(X_AT, attempt = 1))
         assertEquals(listOf(old.at(), X_AT), posted())
     }
 
@@ -172,8 +187,8 @@ class IncomingSmsWorkerReviewTest {
         }
         assertTrue(wasRead(late))
         assertEquals(listOf(late.at()), posted())
-        assertEquals(IncomingSmsWorker.MAX_ATTEMPTS, results.count { it == ListenableWorker.Result.retry() })
-        assertEquals(ListenableWorker.Result.success(), results.last())
+        assertEquals(IncomingSmsWorker.MAX_ATTEMPTS, results.count { it == ReadEnd.TRIES_AGAIN })
+        assertEquals(ReadEnd.DONE, results.last())
     }
 
     private class Inbox : PagedSmsInbox {

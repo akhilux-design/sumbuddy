@@ -7,6 +7,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.test.core.app.ApplicationProvider
 import androidx.work.ListenableWorker
+import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
@@ -51,6 +52,9 @@ class IncomingSmsWorkerAdversarialTest {
     private lateinit var settings: SettingsRepository
     private var now: Instant = A_AT
 
+    /** The tries the runs queued, in order. */
+    private val queued = mutableListOf<OneTimeWorkRequest>()
+
     private val parts = object : IncomingSmsParts {
         override val settings: SettingsRepository get() = this@IncomingSmsWorkerAdversarialTest.settings
         override val inbox: PagedSmsInbox get() = this@IncomingSmsWorkerAdversarialTest.inbox
@@ -69,6 +73,9 @@ class IncomingSmsWorkerAdversarialTest {
         override val hooks: List<NewPaymentsHook> = emptyList()
         override suspend fun account(id: Long): Account? = test.accounts.get(id)
         override suspend fun planCardBillReminders() = Unit
+        override fun queue(request: OneTimeWorkRequest) {
+            queued += request
+        }
     }
 
     @After fun close() {
@@ -88,18 +95,21 @@ class IncomingSmsWorkerAdversarialTest {
         block()
     }
 
-    private suspend fun run(arrivedAt: Instant, attempt: Int = 0, sent: List<Instant> = emptyList()): ListenableWorker.Result =
-        TestListenableWorkerBuilder<IncomingSmsWorker>(context)
-            .setRunAttemptCount(attempt)
+    /** One run, its [attempt]th try. It always ends with success; it tries again when it queued its next try. */
+    private suspend fun run(arrivedAt: Instant, attempt: Int = 0, sent: List<Instant> = emptyList()): ReadEnd {
+        val worker = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
             .setWorkerFactory(
                 object : WorkerFactory() {
                     override fun createWorker(appContext: Context, workerClassName: String, workerParameters: WorkerParameters) =
                         IncomingSmsWorker(appContext, workerParameters, parts)
                 },
             )
-            .setInputData(IncomingSmsWorker.arrivalInput(arrivedAt, sent))
+            .setInputData(IncomingSmsWorker.arrivalInput(arrivedAt, sent, attempt))
             .build()
-            .doWork()
+        val before = queued.size
+        assertEquals(ListenableWorker.Result.success(), worker.doWork())
+        return if (queued.size > before) ReadEnd.TRIES_AGAIN else ReadEnd.DONE
+    }
 
     private fun posted(): List<Instant> = shadowOf(manager).allNotifications
         .filter { it.channelId == PaymentNotifications.CHANNEL_ID }
@@ -117,12 +127,12 @@ class IncomingSmsWorkerAdversarialTest {
     @Test fun crossedReadsOfSameSecondSmsReadBoth() = workerTest {
         inbox += A
         now = B_AT.plusMillis(30)
-        assertEquals(ListenableWorker.Result.success(), run(B_AT, sent = listOf(SAME_SECOND)))
+        assertEquals(ReadEnd.DONE, run(B_AT, sent = listOf(SAME_SECOND)))
         assertTrue(wasRead(A))
 
         inbox += B
         now = B_AT.plusMillis(200)
-        assertEquals(ListenableWorker.Result.success(), run(A_AT, sent = listOf(SAME_SECOND)))
+        assertEquals(ReadEnd.DONE, run(A_AT, sent = listOf(SAME_SECOND)))
         assertTrue(wasRead(B))
         assertEquals(listOf(A_AT, B_AT), posted())
     }
@@ -131,7 +141,7 @@ class IncomingSmsWorkerAdversarialTest {
     @Test fun workQueuedBy030StillEnds() = workerTest {
         inbox += B
         now = B_AT.plusSeconds(5)
-        assertEquals(ListenableWorker.Result.success(), run(B_AT))
+        assertEquals(ReadEnd.DONE, run(B_AT))
         assertEquals(listOf(B_AT), posted())
     }
 
@@ -143,7 +153,7 @@ class IncomingSmsWorkerAdversarialTest {
     @Test fun dateSentThatIsTheArrivalTimeCostsNoTries() = workerTest {
         inbox += B.copy(sentAt = B_AT)
         now = B_AT.plusMillis(30)
-        assertEquals(ListenableWorker.Result.success(), run(B_AT, sent = listOf(SAME_SECOND)))
+        assertEquals(ReadEnd.DONE, run(B_AT, sent = listOf(SAME_SECOND)))
         assertEquals(listOf(B_AT), posted())
     }
 
@@ -174,10 +184,10 @@ class IncomingSmsWorkerAdversarialTest {
         var qResult = runQ(0) // reads P for the first time
         inbox += q
         var attempt = 1
-        while ((pResult == ListenableWorker.Result.retry() || qResult == ListenableWorker.Result.retry()) && attempt <= IncomingSmsWorker.MAX_ATTEMPTS) {
+        while ((pResult == ReadEnd.TRIES_AGAIN || qResult == ReadEnd.TRIES_AGAIN) && attempt <= IncomingSmsWorker.MAX_ATTEMPTS) {
             val delay = 10L * attempt * (attempt + 1) / 2
-            if (pResult == ListenableWorker.Result.retry()) { now = pAt.plusSeconds(delay); pResult = runP(attempt) }
-            if (qResult == ListenableWorker.Result.retry()) { now = qAt.plusSeconds(delay); qResult = runQ(attempt) }
+            if (pResult == ReadEnd.TRIES_AGAIN) { now = pAt.plusSeconds(delay); pResult = runP(attempt) }
+            if (qResult == ReadEnd.TRIES_AGAIN) { now = qAt.plusSeconds(delay); qResult = runQ(attempt) }
             attempt++
         }
 

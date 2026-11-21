@@ -6,7 +6,9 @@ import android.app.NotificationManager
 import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.test.core.app.ApplicationProvider
+import androidx.work.Data
 import androidx.work.ListenableWorker
+import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
@@ -27,6 +29,7 @@ import com.expenses.parser.SmsParser
 import java.io.File
 import java.nio.file.Files
 import java.time.Clock
+import java.time.Duration
 import java.time.Instant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -35,6 +38,8 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -60,6 +65,9 @@ class IncomingSmsWorkerTest {
     /** "Now" for the next run. */
     private var now: Instant = SMS_53_AT
 
+    /** The tries the runs queued, in order. */
+    private val queued = mutableListOf<OneTimeWorkRequest>()
+
     private val parts = object : IncomingSmsParts {
         override val settings: SettingsRepository get() = this@IncomingSmsWorkerTest.settings
         override val inbox: PagedSmsInbox get() = this@IncomingSmsWorkerTest.inbox
@@ -80,6 +88,10 @@ class IncomingSmsWorkerTest {
         override suspend fun account(id: Long): Account? = test.accounts.get(id)
 
         override suspend fun planCardBillReminders() = Unit
+
+        override fun queue(request: OneTimeWorkRequest) {
+            queued += request
+        }
     }
 
     @After fun close() {
@@ -104,9 +116,13 @@ class IncomingSmsWorkerTest {
      * One run of the read for an SMS that arrived at [arrivedAt] (a catch-up when null), its [attempt]th try. [sent]
      * holds the service-centre times the broadcast gave.
      */
-    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0, sent: List<Instant> = emptyList()): ListenableWorker.Result {
-        val builder = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
-            .setRunAttemptCount(attempt)
+    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0, sent: List<Instant> = emptyList()): ReadEnd =
+        run(arrivedAt?.let { IncomingSmsWorker.arrivalInput(it, sent, attempt) } ?: Data.EMPTY)
+
+    /** One run with [input]. It always ends with success; it tries again when it queued its next try. */
+    private suspend fun run(input: Data): ReadEnd {
+        val worker = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
+            .setInputData(input)
             .setWorkerFactory(
                 object : WorkerFactory() {
                     override fun createWorker(
@@ -116,8 +132,10 @@ class IncomingSmsWorkerTest {
                     ): ListenableWorker = IncomingSmsWorker(appContext, workerParameters, parts)
                 },
             )
-        if (arrivedAt != null) builder.setInputData(IncomingSmsWorker.arrivalInput(arrivedAt, sent))
-        return builder.build().doWork()
+            .build()
+        val before = queued.size
+        assertEquals(ListenableWorker.Result.success(), worker.doWork())
+        return if (queued.size > before) ReadEnd.TRIES_AGAIN else ReadEnd.DONE
     }
 
     /** The "Payment detected" notifications showing, each named by when its SMS arrived. */
@@ -137,21 +155,21 @@ class IncomingSmsWorkerTest {
         // SMS 53 arrives and is read at once.
         inbox += SMS_53
         now = SMS_53_AT.plusSeconds(1)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_53_AT))
+        assertEquals(ReadEnd.DONE, run(SMS_53_AT))
         assertEquals(listOf(SMS_53_AT), posted())
         dismissAll()
 
         // SMS 54 arrives 43 s later. Its read runs 40 ms after the broadcast, before the SMS app wrote it to the inbox:
         // the inbox holds only SMS 53, read before and within two minutes of the arrival. That is not SMS 54.
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT))
+        assertEquals(ReadEnd.TRIES_AGAIN, run(SMS_54_AT))
         assertTrue(posted().isEmpty())
         assertEquals(false, wasRead(SMS_54))
 
         // The next try finds it: read, waiting on Home, and one "Payment detected".
         inbox += SMS_54
         now = SMS_54_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, attempt = 1))
         assertTrue(wasRead(SMS_54))
         assertEquals(2, waiting())
         assertEquals(listOf(SMS_54_AT), posted())
@@ -159,11 +177,11 @@ class IncomingSmsWorkerTest {
 
     @Test fun aLoneSmsWrittenLateIsWaitedForThenRead() = workerTest {
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT))
+        assertEquals(ReadEnd.TRIES_AGAIN, run(SMS_54_AT))
 
         inbox += SMS_54
         now = SMS_54_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, attempt = 1))
         assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_54_AT), posted())
     }
@@ -177,9 +195,9 @@ class IncomingSmsWorkerTest {
         // SMS 54 never reaches the inbox (the SMS app dropped it): every try but the last asks to try again.
         for (attempt in 0 until IncomingSmsWorker.MAX_ATTEMPTS) {
             now = SMS_54_AT.plusSeconds(10L * attempt)
-            assertEquals("try $attempt", ListenableWorker.Result.retry(), run(SMS_54_AT, attempt))
+            assertEquals("try $attempt", ReadEnd.TRIES_AGAIN, run(SMS_54_AT, attempt))
         }
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, IncomingSmsWorker.MAX_ATTEMPTS))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, IncomingSmsWorker.MAX_ATTEMPTS))
         assertTrue(posted().isEmpty())
         assertEquals(1, waiting())
     }
@@ -189,16 +207,16 @@ class IncomingSmsWorkerTest {
         inbox += SMS_53
         inbox += SMS_54
         now = SMS_54_AT.plusSeconds(1)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_53_AT))
+        assertEquals(ReadEnd.DONE, run(SMS_53_AT))
         assertEquals(listOf(SMS_53_AT, SMS_54_AT), posted())
         dismissAll()
 
         // The read for SMS 54 finds nothing it had not read: it tries again until its last try and posts nothing.
         for (attempt in 0 until IncomingSmsWorker.MAX_ATTEMPTS) {
             now = SMS_54_AT.plusSeconds(2 + 10L * attempt)
-            assertEquals("try $attempt", ListenableWorker.Result.retry(), run(SMS_54_AT, attempt))
+            assertEquals("try $attempt", ReadEnd.TRIES_AGAIN, run(SMS_54_AT, attempt))
         }
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, IncomingSmsWorker.MAX_ATTEMPTS))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, IncomingSmsWorker.MAX_ATTEMPTS))
         assertTrue(posted().isEmpty())
         assertEquals(2, waiting())
     }
@@ -211,13 +229,13 @@ class IncomingSmsWorkerTest {
 
         // Nothing new: done at once, as before.
         now = SMS_54_AT
-        assertEquals(ListenableWorker.Result.success(), run(arrivedAt = null))
+        assertEquals(ReadEnd.DONE, run(arrivedAt = null))
         assertTrue(posted().isEmpty())
 
         // A message that arrived while nothing read it: read and notified, done at once.
         inbox += SMS_54
         now = SMS_54_AT.plusSeconds(60)
-        assertEquals(ListenableWorker.Result.success(), run(arrivedAt = null))
+        assertEquals(ReadEnd.DONE, run(arrivedAt = null))
         assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_54_AT), posted())
     }
@@ -228,14 +246,14 @@ class IncomingSmsWorkerTest {
         // its service-centre time is not SMS 54's, but within the two minutes that does not rule it out.
         inbox += SMS_53.sent(SMS_53_SENT)
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
         assertTrue(wasRead(SMS_53))
 
         // SMS 54 waits for the next read: here the catch-up when the app starts.
         inbox += SMS_54.sent(SMS_54_SENT)
         assertEquals(false, wasRead(SMS_54))
         now = SMS_54_AT.plusSeconds(600)
-        assertEquals(ListenableWorker.Result.success(), run(arrivedAt = null))
+        assertEquals(ReadEnd.DONE, run(arrivedAt = null))
         assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_53_AT, SMS_54_AT), posted())
     }
@@ -249,11 +267,11 @@ class IncomingSmsWorkerTest {
 
         // Its time matches, but it was read before, so it says nothing about SMS 54.
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.TRIES_AGAIN, run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
 
         inbox += SMS_54.sent(SMS_54_SENT)
         now = SMS_54_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
         assertEquals(listOf(SMS_54_AT), posted())
     }
 
@@ -262,7 +280,7 @@ class IncomingSmsWorkerTest {
         val early = SMS_54_AT.minusSeconds(180)
         inbox += sms(54, SMS_54.message.body, early).sent(early)
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(early)))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, sent = listOf(early)))
         assertEquals(listOf(early), posted())
     }
 
@@ -271,7 +289,7 @@ class IncomingSmsWorkerTest {
         inbox += SMS_54.sent(SMS_54_SENT.plusSeconds(1))
         now = SMS_54_AT.plusMillis(40)
         assertEquals(
-            ListenableWorker.Result.success(),
+            ReadEnd.DONE,
             run(SMS_54_AT, sent = listOf(SMS_54_SENT, SMS_54_SENT.plusSeconds(1))),
         )
     }
@@ -279,11 +297,11 @@ class IncomingSmsWorkerTest {
     @Test fun withNoServiceCentreTimeInTheInboxTheArrivalTimeDecides() = workerTest {
         // The SMS app records no date_sent: the broadcast's time cannot be matched, so the two-minute rule decides.
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.TRIES_AGAIN, run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
 
         inbox += SMS_54
         now = SMS_54_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
         assertEquals(listOf(SMS_54_AT), posted())
     }
 
@@ -291,7 +309,7 @@ class IncomingSmsWorkerTest {
         // The inbox's date_sent is not the broadcast's: the two-minute rule decides, so the first run ends.
         inbox += SMS_54.sent(SMS_54_SENT.minusSeconds(30))
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertEquals(ReadEnd.DONE, run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
         assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_54_AT), posted())
     }
@@ -305,6 +323,61 @@ class IncomingSmsWorkerTest {
         assertTrue(IncomingSmsWorker.isTheSms(early, SMS_54_AT, setOf(SMS_54_SENT)))
         assertEquals(false, IncomingSmsWorker.isTheSms(early.copy(sentAt = null), SMS_54_AT, setOf(SMS_54_SENT)))
         assertEquals(false, IncomingSmsWorker.isTheSms(early, SMS_54_AT, emptySet()))
+    }
+
+    /**
+     * Each try is new work queued by the run before (not a WorkManager retry), run here from the queued request's own
+     * input: not expedited, so Android 11 and older show no "Reading SMS" for it, 10, 20, 30, 40 and 50 s after the run
+     * before, and none after the last try.
+     */
+    @Test fun eachTryIsQueuedByTheRunBeforeUntilTheLast() = workerTest {
+        // SMS 54 never reaches the inbox.
+        now = SMS_54_AT.plusMillis(40)
+        var input = IncomingSmsWorker.arrivalInput(SMS_54_AT, listOf(SMS_54_SENT))
+        for (attempt in 0 until IncomingSmsWorker.MAX_ATTEMPTS) {
+            assertEquals("try $attempt", ReadEnd.TRIES_AGAIN, run(input))
+            input = queued.last().input
+        }
+        assertEquals(ReadEnd.DONE, run(input))
+
+        assertEquals(IncomingSmsWorker.MAX_ATTEMPTS, queued.size)
+        assertEquals((1..5).map { Duration.ofSeconds(10L * it) }, queued.map { it.delay })
+        assertTrue(queued.none { it.expedited })
+        assertEquals((1..5).toList(), queued.map { it.input.getInt("try", 0) })
+        queued.forEach {
+            assertEquals(SMS_54_AT.toEpochMilli(), it.input.getLong("arrived_at", 0))
+            assertArrayEquals(longArrayOf(SMS_54_SENT.toEpochMilli()), it.input.getLongArray("sent_at"))
+        }
+    }
+
+    @Test fun onlyTheFirstRunIsExpedited() {
+        val first = IncomingSmsWorker.firstRun(SMS_54_AT, listOf(SMS_54_SENT))
+        assertTrue(first.expedited)
+        assertEquals(Duration.ZERO, first.delay)
+        assertFalse(IncomingSmsWorker.nextTry(first.input)!!.expedited)
+    }
+
+    @Test fun aTryCarriesOnlyTimesAndItsNumber() {
+        val withSent = IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT, listOf(SMS_54_SENT)))!!.input
+        assertEquals(setOf("arrived_at", "sent_at", "try"), withSent.keyValueMap.keys)
+        val arrivalOnly = IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT))!!.input
+        assertEquals(setOf("arrived_at", "try"), arrivalOnly.keyValueMap.keys)
+        assertEquals(SMS_54_AT.toEpochMilli(), arrivalOnly.getLong("arrived_at", 0))
+        assertEquals(1, arrivalOnly.getInt("try", 0))
+    }
+
+    @Test fun theTriesKeepTheirScheduleAndStopAfterTheLast() {
+        val delays = (0 until IncomingSmsWorker.MAX_ATTEMPTS).map { attempt ->
+            IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT, tryNumber = attempt))!!.delay.seconds
+        }
+        assertEquals(listOf(10L, 20L, 30L, 40L, 50L), delays)
+        assertNull(IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT, tryNumber = IncomingSmsWorker.MAX_ATTEMPTS)))
+    }
+
+    @Test fun aCatchUpQueuesNoTry() = workerTest {
+        now = SMS_54_AT
+        assertEquals(ReadEnd.DONE, run(arrivedAt = null))
+        assertTrue(queued.isEmpty())
     }
 
     @Test fun theWorkersInputIsOnlyTheArrivalTime() {
