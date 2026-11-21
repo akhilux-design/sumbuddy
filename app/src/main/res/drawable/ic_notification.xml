@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The small icon of every SumBuddy notification: the "₹" of the design's "App badge" (02-everyday/04, 53, 54, 146:
+     "₹" in Caption, DM Sans Medium), as the glyph's outline from res/font/dm_sans_medium.ttf, 20dp high and centred.
+     White on transparent: Android uses only its shape and colours it (with the brand colour, R.color.brand_primary,
+     set by NotificationCompat.Builder.appLook). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M11.326,22Q8.461,22 7,20.427Q5.539,18.854 5.539,15.989L5.539,12Q8.208,12 9.795,11.832Q11.382,11.663 12.168,11.143Q12.955,10.624 13.208,9.585Q13.461,8.545 13.461,6.803L13.461,3.124L16.101,3.124L16.101,6.775Q16.101,8.742 15.708,10.118Q15.315,11.494 14.416,12.337Q13.517,13.18 11.986,13.559Q10.455,13.938 8.18,13.938L8.18,16.157Q8.18,17.815 8.882,18.812Q9.584,19.809 11.326,19.809Q12.955,19.809 13.671,18.882Q14.388,17.955 14.388,16.298L17,16.298Q16.944,19.079 15.497,20.54Q14.051,22 11.326,22ZM4.416,8.854L4.416,6.916L19.584,6.916L19.584,8.854L4.416,8.854ZM4.416,3.994L4.416,2L19.584,2L19.584,3.994L4.416,3.994Z" />
+</vector>

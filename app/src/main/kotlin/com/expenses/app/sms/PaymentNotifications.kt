@@ -20,6 +20,7 @@ import com.expenses.app.data.model.payee
 import com.expenses.app.ui.format.formatRupees
 import com.expenses.app.ui.format.payeeWording
 import com.expenses.app.ui.nav.AppLink
+import com.expenses.app.ui.theme.appLook
 import java.math.BigDecimal
 import java.time.YearMonth
 import java.time.format.TextStyle
@@ -68,7 +69,7 @@ object PaymentNotifications {
         val payment = expense.payee?.let { context.getString(expense.payeeWording().amountAndPayee, amount, it) } ?: amount
         val title = context.getString(R.string.sms_notification_title, payment)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_receipt_line)
+            .appLook(context)
             .setContentTitle(title)
             .setContentText(accountLabel(context, account))
             .setCategory(NotificationCompat.CATEGORY_STATUS)
@@ -126,7 +127,7 @@ object PaymentNotifications {
         val payment = expense.payee?.let { context.getString(expense.payeeWording().amountAndPayee, amount, it) } ?: amount
         val monthName = month.month.getDisplayName(TextStyle.FULL, Locale.getDefault())
         val notification = NotificationCompat.Builder(context, AUTO_SPLIT_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_split_line)
+            .appLook(context)
             .setContentTitle(context.getString(R.string.sms_auto_split_title, payment, groupName))
             .setContentText(context.getString(R.string.sms_auto_split_text, formatRupees(myShareMinor), monthName))
             .setCategory(NotificationCompat.CATEGORY_STATUS)

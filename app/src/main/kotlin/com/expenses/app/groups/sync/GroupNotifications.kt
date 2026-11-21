@@ -16,6 +16,7 @@ import com.expenses.app.R
 import com.expenses.app.groups.data.GroupKind
 import com.expenses.app.ui.format.formatRupees
 import com.expenses.app.ui.nav.AppLink
+import com.expenses.app.ui.theme.appLook
 
 /**
  * The "Groups" notifications (docs/server.md 9.7): what friends did that involves the person, and what the phone
@@ -183,7 +184,7 @@ class GroupNotifications internal constructor(
      */
     private fun summarize() {
         val summary = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_users_line)
+            .appLook(context)
             .setContentTitle(context.getString(R.string.notify_channel))
             .setNumber(children().size)
             .setCategory(NotificationCompat.CATEGORY_SOCIAL)
@@ -240,7 +241,7 @@ class GroupNotifications internal constructor(
     private fun builder(key: String, title: String, body: String?, link: AppLink): NotificationCompat.Builder {
         val id = notificationId(key)
         return NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_users_line)
+            .appLook(context)
             .setContentTitle(title)
             .apply { if (body != null) setContentText(body) }
             .setCategory(NotificationCompat.CATEGORY_SOCIAL)

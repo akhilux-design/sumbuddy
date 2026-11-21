@@ -20,6 +20,7 @@ import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 import com.expenses.app.R
 import com.expenses.app.sms.appContainer
+import com.expenses.app.ui.theme.appLook
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -211,7 +212,7 @@ class SyncWorker(context: Context, params: WorkerParameters) : CoroutineWorker(c
             ).apply { description = applicationContext.getString(R.string.sync_channel_description) },
         )
         val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_users_line)
+            .appLook(applicationContext)
             .setContentTitle(applicationContext.getString(R.string.sync_title))
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .setOngoing(true)

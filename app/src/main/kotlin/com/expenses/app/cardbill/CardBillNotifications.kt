@@ -15,6 +15,7 @@ import com.expenses.app.R
 import com.expenses.app.ui.format.formatRupees
 import com.expenses.app.ui.format.shortName
 import com.expenses.app.ui.nav.AppLink
+import com.expenses.app.ui.theme.appLook
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -83,8 +84,8 @@ object CardBillNotifications {
         createChannel(context)
         val billId = detail.bill.id
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            // Payment detected's small icon (docs/card-bills.md 2.7): the status bar shows one icon for the app.
-            .setSmallIcon(R.drawable.ic_receipt_line)
+            // The app's one small icon and colour (docs/card-bills.md 2.7): the status bar shows one icon for the app.
+            .appLook(context)
             .setContentTitle(title(context, detail, dueDate, today))
             .setContentText(body(context, detail, dueDate))
             .setCategory(NotificationCompat.CATEGORY_REMINDER)

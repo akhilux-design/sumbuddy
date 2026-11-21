@@ -15,6 +15,9 @@ The line icons, the bottom bar icons and the back arrow are based on Feather (ht
 licence, Copyright (c) 2013-2023 Cole Bemis); the notice is in `THIRD_PARTY_NOTICES.md`.
 The bottom bar and back arrow have their own drawables (`ic_nav_home`, `ic_nav_groups`, `ic_nav_activity`,
 `ic_nav_you`, `ic_back`), taken from the Bottom Nav and Top Bar components.
+The notifications' small icon, `ic_notification`, is the "₹" of the design's App badge (02-everyday/04: the
+glyph in DM Sans Medium, the Caption font), drawn from the font's outline, white on transparent, 24dp. Every
+notification uses it with the brand colour (`appLook` in `ui/theme/NotificationLook.kt`).
 
 ## Names
 

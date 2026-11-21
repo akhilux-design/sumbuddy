@@ -8,6 +8,7 @@ import androidx.work.ForegroundInfo
 import com.expenses.app.ExpensesApplication
 import com.expenses.app.R
 import com.expenses.app.di.AppContainer
+import com.expenses.app.ui.theme.appLook
 import java.time.Instant
 
 /** The app's dependencies, for receivers and workers, which get no ViewModel factory. */
@@ -41,7 +42,7 @@ internal fun readingForegroundInfo(context: Context, notificationId: Int): Foreg
     ).apply { description = context.getString(R.string.sms_channel_reading_description) }
     context.getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
     val notification = NotificationCompat.Builder(context, READING_CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_message_line)
+        .appLook(context)
         .setContentTitle(context.getString(R.string.sms_reading_title))
         .setPriority(NotificationCompat.PRIORITY_LOW)
         .setOngoing(true)
