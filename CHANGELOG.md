@@ -6,9 +6,11 @@
 
 - An SMS that arrived seconds after another one (often a bank SMS and a UPI SMS for one payment) could be missed
   until the next SMS came or the app next started: no "Payment detected", and Home and card bills did not show it.
-  It is now read within about 10 seconds of arriving.
+  It is now read, usually within seconds of arriving.
 - A bank SMS whose sender comes without the hyphen (VMHDFCBK rather than VM-HDFCBK) is now known by its bank, so a
-  UPI payment whose text names no bank goes on the right account.
+  UPI payment whose text names no bank goes on the right account. Such payments read before this update stay on the
+  account with no bank name.
+- Two payments of the same amount from such a sender within 15 minutes are no longer counted as one.
 
 ## 0.3.0: card bills and See the code
 

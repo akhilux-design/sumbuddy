@@ -11,11 +11,11 @@ import java.time.Instant
  * [IncomingSmsWorker], so parsing and storing never run on the main thread.
  *
  * Only times are handed on: when the SMS arrived, and when the network's service centre stamped its parts (the time
- * the default SMS app records as the message's `date_sent`), so the worker can tell this SMS from another one in the
- * inbox. The text the broadcast carries is not kept. The worker reads the message from the inbox, where the default
- * SMS app stores it with all its parts joined, so a long bank SMS sent in several parts is read as one message and its
- * text never goes into WorkManager's queue on disk. Several parts of one message arrive in one broadcast and queue one
- * read.
+ * the default SMS app records as the message's `date_sent`), so the worker knows this SMS in the inbox even when the
+ * SMS app dates it more than two minutes before the broadcast. The text the broadcast carries is not kept. The worker
+ * reads the message from the inbox, where the default SMS app stores it with all its parts joined, so a long bank SMS
+ * sent in several parts is read as one message and its text never goes into WorkManager's queue on disk. Several parts
+ * of one message arrive in one broadcast and queue one read.
  */
 class SmsReceivedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

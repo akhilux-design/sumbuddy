@@ -139,8 +139,8 @@ object Banks {
     private val BARE_PREFIX = Regex("^[A-Z]{2}(?=[A-Z0-9]{6}$)")
 
     /**
-     * The header code without operator prefix and suffix, upper case: "VM-HDFCBK-S" gives "HDFCBK". Some phones (and
-     * the emulator) give the header without the hyphen: "VMHDFCBK" gives "HDFCBK" too. Those two letters are dropped
+     * The header code without operator prefix and suffix, upper case: "VM-HDFCBK-S" gives "HDFCBK". Some phones give
+     * the header without the hyphen: "VMHDFCBK" gives "HDFCBK" too. Those two letters are dropped
      * only when what is left is a known six-letter header, so an unknown eight-letter header stays as it is.
      */
     fun headerCode(sender: String): String {

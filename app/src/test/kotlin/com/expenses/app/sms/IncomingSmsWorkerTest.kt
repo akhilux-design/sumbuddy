@@ -21,6 +21,7 @@ import com.expenses.app.data.settings.TrackingMode
 import com.expenses.app.ingest.InboxSms
 import com.expenses.app.ingest.IngestPipeline
 import com.expenses.app.ingest.NewPaymentsHook
+import com.expenses.app.ingest.SmsTimes
 import com.expenses.parser.SmsMessage
 import com.expenses.parser.SmsParser
 import java.io.File
@@ -221,17 +222,21 @@ class IncomingSmsWorkerTest {
         assertEquals(listOf(SMS_54_AT), posted())
     }
 
-    @Test fun anUnreadMessageWithAnotherServiceCentreTimeIsNotTheNewSms() = workerTest {
-        // SMS 53 reached the inbox while nothing read it (an app update, say). The read for SMS 54 runs before the SMS
-        // app wrote SMS 54 and reads SMS 53 for the first time: its service-centre time is not SMS 54's.
+    @Test fun anUnreadMessageWithNoReadOfItsOwnStillEndsTheWait() = workerTest {
+        // Still open, on purpose. SMS 53 reached the inbox while nothing read it (an app update, say). The read for
+        // SMS 54 runs before the SMS app wrote SMS 54 and reads SMS 53 for the first time, 43 s before the broadcast:
+        // its service-centre time is not SMS 54's, but within the two minutes that does not rule it out.
         inbox += SMS_53.sent(SMS_53_SENT)
         now = SMS_54_AT.plusMillis(40)
-        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
         assertTrue(wasRead(SMS_53))
 
+        // SMS 54 waits for the next read: here the catch-up when the app starts.
         inbox += SMS_54.sent(SMS_54_SENT)
-        now = SMS_54_AT.plusSeconds(10)
-        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(false, wasRead(SMS_54))
+        now = SMS_54_AT.plusSeconds(600)
+        assertEquals(ListenableWorker.Result.success(), run(arrivedAt = null))
+        assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_53_AT, SMS_54_AT), posted())
     }
 
@@ -282,17 +287,24 @@ class IncomingSmsWorkerTest {
         assertEquals(listOf(SMS_54_AT), posted())
     }
 
-    @Test fun anSmsAppThatRecordsAnotherSentTimeCostsOnlyTries() = workerTest {
-        // The inbox's date_sent is not the broadcast's: the SMS is read and notified at once, the tries go on for nothing.
+    @Test fun anSmsAppThatRecordsAnotherSentTimeCostsNoTries() = workerTest {
+        // The inbox's date_sent is not the broadcast's: the two-minute rule decides, so the first run ends.
         inbox += SMS_54.sent(SMS_54_SENT.minusSeconds(30))
-        val results = (0..IncomingSmsWorker.MAX_ATTEMPTS).map { attempt ->
-            now = SMS_54_AT.plusSeconds(10L * attempt)
-            run(SMS_54_AT, attempt, sent = listOf(SMS_54_SENT))
-        }
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
         assertTrue(wasRead(SMS_54))
         assertEquals(listOf(SMS_54_AT), posted())
-        assertEquals(IncomingSmsWorker.MAX_ATTEMPTS, results.count { it == ListenableWorker.Result.retry() })
-        assertEquals(ListenableWorker.Result.success(), results.last())
+    }
+
+    @Test fun anotherSmsReadForTheFirstTimeWithinTheMarginEndsTheWait() {
+        // Two SMS a second apart, stamped in different seconds: each read may find only the other one.
+        val other = SmsTimes(SMS_54_AT.minusMillis(1_250), SMS_54_SENT.minusSeconds(2))
+        assertTrue(IncomingSmsWorker.isTheSms(other, SMS_54_AT, setOf(SMS_54_SENT)))
+        // Outside the two minutes only the service-centre time can tell it is this SMS.
+        val early = SmsTimes(SMS_54_AT.minusSeconds(180), SMS_54_SENT)
+        assertTrue(IncomingSmsWorker.isTheSms(early, SMS_54_AT, setOf(SMS_54_SENT)))
+        assertEquals(false, IncomingSmsWorker.isTheSms(early.copy(sentAt = null), SMS_54_AT, setOf(SMS_54_SENT)))
+        assertEquals(false, IncomingSmsWorker.isTheSms(early, SMS_54_AT, emptySet()))
     }
 
     @Test fun theWorkersInputIsOnlyTheArrivalTime() {

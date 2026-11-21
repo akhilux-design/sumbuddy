@@ -341,7 +341,7 @@ class SmsIngestPipelineTest {
         )
         val progress = mutableListOf<Int>()
 
-        val summary = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null) { progress += it }
+        val summary = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null, keepFirstRead = { true }) { progress += it }
 
         assertEquals(listOf(2, 4, 5), progress)
         assertEquals(5, summary.read)
@@ -358,10 +358,39 @@ class SmsIngestPipelineTest {
         assertEquals(HDFC, test.expenses.observeDetected().first().single().expense.smsSender)
 
         // The same period again: every message was read before, so none is read for the first time.
-        val again = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null)
+        val again = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null, keepFirstRead = { true })
         assertEquals(5, again.read)
         assertEquals(5, again.result.alreadyRead)
         assertTrue(again.result.firstRead.isEmpty())
+    }
+
+    @Test fun aScanKeepsOnlyTheFirstReadTimesItIsAskedFor() = runTest {
+        // A read for a new SMS keeps only the ones it asks for.
+        val recent = FakeInbox(
+            listOf(
+                sms(1, OTP_SENDER, OTP, nov(16, 13, 1)),
+                sms(2, HDFC, SWIGGY_BANK, nov(16, 13, 2)),
+                sms(3, HDFC, CREDIT, nov(16, 15)),
+            ),
+            pageSize = 2,
+        )
+        val asked = SmsScanner(recent, pipeline).scan(nov(16, 0), until = null, keepFirstRead = { it.receivedAt >= nov(16, 14) })
+        assertEquals(3, asked.read)
+        assertEquals(listOf(SmsTimes(nov(16, 15), null)), asked.result.firstRead)
+
+        // A long scan (onboarding, "Add older payments") keeps no times by default, though it reads every message.
+        val older = FakeInbox(
+            listOf(
+                sms(4, OTP_SENDER, OTP, nov(15, 13, 1)),
+                sms(5, HDFC, SWIGGY_BANK, nov(15, 13, 2)),
+                sms(6, HDFC, CREDIT, nov(15, 15)),
+            ),
+            pageSize = 2,
+        )
+        val all = SmsScanner(older, pipeline).scan(nov(15, 0), until = nov(16, 0))
+        assertEquals(3, all.read)
+        assertTrue(all.result.firstRead.isEmpty())
+        assertEquals(0, all.result.alreadyRead)
     }
 
     @Test fun resultsAddUp() {

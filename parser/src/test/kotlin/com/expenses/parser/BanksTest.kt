@@ -14,7 +14,7 @@ class BanksTest {
     }
 
     @Test fun aKnownHeaderWithoutTheHyphenIsKnown() {
-        // As some phones and the emulator ("adb emu sms send") give it.
+        // As some phones give it. The emulator keeps the sender as "adb emu sms send" was given it, hyphen or not.
         assertEquals("HDFCBK", Banks.headerCode("VMHDFCBK"))
         assertEquals("HDFCBK", Banks.headerCode("VMHDFCBK-S"))
         assertEquals(Banks.HDFC, Banks.fromSender("VMHDFCBK"))
