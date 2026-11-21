@@ -47,6 +47,37 @@ data class GroupSummary(
 )
 
 /**
+ * What one friend owes the person in one group for some of the person's split payments (the card bill view,
+ * docs/card-bills.md 2.1): one per (group, other member with a share above 0) of those payments.
+ *
+ * @param groupId the group or direct split.
+ * @param groupName the group's name; null for a direct split.
+ * @param memberId the friend's member in that group.
+ * @param personKey the friend across groups ([personKeyOf]).
+ * @param name the friend's name.
+ * @param onApp true when the friend is on the app (a push can remind them).
+ * @param removed true when the friend was removed from the group; such a part never counts.
+ * @param avatar the colour behind their initial ([AvatarColors.ofPerson]).
+ * @param shareMinor the sum of their shares of those payments, in paise.
+ * @param expenseCount how many of those payments they have a share of.
+ * @param pairMinor what they owe the person in that group now ([GroupBalance.pairBalance]); negative when the person
+ * owes them.
+ */
+data class OwedPart(
+    val groupId: String,
+    val groupName: String?,
+    val memberId: String,
+    val personKey: String,
+    val name: String,
+    val onApp: Boolean,
+    val removed: Boolean,
+    val avatar: AvatarColor,
+    val shareMinor: Long,
+    val expenseCount: Int,
+    val pairMinor: Long,
+)
+
+/**
  * One person under Friends (02/20): the sum of the person's transfers with them over every group (6.4).
  *
  * @param key the person across groups ([personKeyOf]).

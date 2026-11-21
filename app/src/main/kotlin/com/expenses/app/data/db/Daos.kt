@@ -158,6 +158,16 @@ interface ExpenseDao {
     )
     fun observeLatest(limit: Int): Flow<List<ExpenseWithAccount>>
 
+    /**
+     * Every expense of account [accountId] with [occurredAt][Expense.occurredAt] from [from] (included) to [to]
+     * (excluded), oldest first: every direction and status (the card bill view, docs/card-bills.md 2.1).
+     */
+    @Query(
+        "SELECT * FROM expenses WHERE accountId = :accountId AND occurredAt >= :from AND occurredAt < :to " +
+            "ORDER BY occurredAt, id",
+    )
+    fun observeOnAccount(accountId: Long, from: Instant, to: Instant): Flow<List<Expense>>
+
     /** The newest IGNORED payments. */
     @Transaction
     @Query("SELECT * FROM expenses WHERE status = 'IGNORED' ORDER BY occurredAt DESC, id DESC LIMIT :limit")
@@ -326,6 +336,22 @@ interface CardBillDao {
     /** Bills of one card account, the latest due date first. */
     @Query("SELECT * FROM card_bills WHERE accountId = :accountId ORDER BY dueDate DESC, receivedAt DESC")
     fun observeForAccount(accountId: Long): Flow<List<CardBill>>
+
+    /** The bill with this id, or null. */
+    @Query("SELECT * FROM card_bills WHERE id = :id")
+    suspend fun get(id: Long): CardBill?
+
+    /** The bill with this id, or null once it is gone; emits again on every change of the table. */
+    @Query("SELECT * FROM card_bills WHERE id = :id")
+    fun observe(id: Long): Flow<CardBill?>
+
+    /** Every bill, the latest due date first. */
+    @Query("SELECT * FROM card_bills ORDER BY dueDate DESC, receivedAt DESC")
+    suspend fun all(): List<CardBill>
+
+    /** Records when the automatic reminder of bill [id] was posted. */
+    @Query("UPDATE card_bills SET remindedAt = :at WHERE id = :id")
+    suspend fun setRemindedAt(id: Long, at: Instant?)
 }
 
 /** Database access for [ReviewItem]. Use [com.expenses.app.data.repository.ReviewRepository] instead. */

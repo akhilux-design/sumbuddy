@@ -55,6 +55,9 @@ class IncomingSmsWorker(context: Context, params: WorkerParameters) : CoroutineW
         // never stops the others or the notifications.
         val handled = runNewPaymentsHooks(app.newPaymentsHooks, summary.result)
 
+        // A new card bill, or a payment on a card that may pay one: the bill reminders are planned again.
+        if (summary.result.cardBills.isNotEmpty() || summary.result.credits.isNotEmpty()) app.cardBillReminders.syncQuietly()
+
         val notifyFrom = now.minus(NOTIFY_WINDOW)
         for (expense in summary.result.detected) {
             if (expense.id in handled) continue

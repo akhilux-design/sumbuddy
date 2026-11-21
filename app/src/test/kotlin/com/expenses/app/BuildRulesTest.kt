@@ -31,4 +31,14 @@ class BuildRulesTest {
         val names = PreviewRegistry.entries.map { it.name }
         assertEquals(emptyList<String>(), names.groupBy { it }.filterValues { it.size > 1 }.keys.toList())
     }
+
+    /** The repository's address is written once, as `source_code_url` in strings.xml (docs/card-bills.md D25). */
+    @Test fun theSourceCodeAddressIsWrittenOnce() {
+        val url = "github.com/akhilux-design/sumbuddy"
+        val roots = listOf(File("src/main"), File("src/debug"), File("src/release"))
+        val found = roots.flatMap { root -> root.walkTopDown().filter { it.isFile && (it.extension in setOf("kt", "xml", "json")) }.toList() }
+            .filter { url in it.readText() }
+            .map { it.path.replace(File.separatorChar, '/') }
+        assertEquals(listOf("src/main/res/values/strings.xml"), found)
+    }
 }

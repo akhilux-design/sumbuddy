@@ -3,4 +3,7 @@
     <!-- The app's name (chosen 2026-11-20, docs/product.md). This is the only place it is set: screens, the friends'
          page build (server/web) and share messages read it from here. -->
     <string name="app_name">SumBuddy</string>
+    <!-- The public repository, opened by "See the code" on You and What we've read (docs/card-bills.md D25). This is
+         the only place the address is written. -->
+    <string name="source_code_url" translatable="false">https://github.com/akhilux-design/sumbuddy</string>
 </resources>

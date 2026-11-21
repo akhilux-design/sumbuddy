@@ -104,6 +104,12 @@ fun PrivacyPromiseScreen(onAllow: () -> Unit, onTypeByHand: () -> Unit, modifier
                 subtitle = stringResource(R.string.onboarding_privacy_code_body),
                 icon = AppIcon.Eye,
             )
+            // Not a link (D26): leaving onboarding for a browser is not wanted; You has See the code.
+            InfoRow(
+                title = stringResource(R.string.onboarding_privacy_source_title),
+                subtitle = stringResource(R.string.onboarding_privacy_source_body),
+                icon = AppIcon.Receipt,
+            )
         }
         SurfaceCard(style = SurfaceCardStyle.Note) {
             AppText(

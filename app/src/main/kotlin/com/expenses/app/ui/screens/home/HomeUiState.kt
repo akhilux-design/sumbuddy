@@ -1,6 +1,7 @@
 package com.expenses.app.ui.screens.home
 
 import androidx.compose.runtime.Immutable
+import com.expenses.app.cardbill.CardBillSummary
 import com.expenses.app.data.model.CategoryTotal
 import com.expenses.app.groups.data.FamilyPersonTotal
 import com.expenses.app.groups.data.FamilyRow
@@ -27,6 +28,8 @@ import java.time.YearMonth
  * @param familyCard the Family card under the spent card on the Family side (02-everyday/51, 06-family/03 and 04), or
  * null for none.
  * @param familyCaption the spent card's caption on the Family side, or null on the Me side.
+ * @param cardBills the CARD BILLS rows between the split totals and Latest (design 02-everyday/145; docs/card-bills.md
+ * 2.4): the current bill of each tracked card until it is paid. Empty on the Family side and in manual mode.
  */
 @Immutable
 data class HomeUiState(
@@ -39,6 +42,7 @@ data class HomeUiState(
     val content: HomeContent,
     val familyCard: FamilyCard? = null,
     val familyCaption: FamilyCaption? = null,
+    val cardBills: List<CardBillSummary> = emptyList(),
 )
 
 /** The Family card on Home's Family side (docs/family.md 1.5): a raised card with a Tag, a title, a line and a button. */
@@ -266,4 +270,7 @@ sealed interface HomeEvent {
 
     /** One of the person's own family rows: open Expense detail of [expenseId]. The partner's rows are not tappable. */
     data class FamilyRowTapped(val expenseId: Long) : HomeEvent
+
+    /** A CARD BILLS row: open the Card bill view of [billId]. */
+    data class OpenCardBill(val billId: Long) : HomeEvent
 }

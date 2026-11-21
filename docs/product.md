@@ -164,6 +164,22 @@ Spec: `docs/family.md` (rules, server, phone, screens, decisions). Design: `desi
 - **Sign in.** Set up Family and Family settings ask to sign in first with the family copy ("Share a family month"); a
   family invite link opened signed out uses the Join group copy, since its kind is known only after sign-in.
 
+## Card bills (decided 2026-11-21)
+
+Spec: `docs/card-bills.md`. Design: `03-getting-paid-back/04` and `20` to `26`, `02-everyday/145` and `146`.
+
+- **Reminders go to the person only.** The automatic reminder is a notification on the phone at 09:00 three days
+  before a card bill is due (never between 21:00 and 09:00). Friends get something only when the person taps Remind
+  everyone, or the notification's Remind friends (D1).
+- **What friends owe of a bill** is, per friend and group, the smaller of their shares of the bill's split card
+  payments and what they owe the person in that group now, because repayments are not tied to expenses (D9).
+- **Paid** is read from the card's own "payment received" SMS after the statement: a bill is paid once they add up
+  to it. A minimum-due payment does not mark it paid (D13).
+- **Manual mode** shows no card bills on Home and sends no reminders (D16).
+- **Where it shows:** a CARD BILLS card on Home (Me side), one row per card's latest bill, until it is paid. The
+  design draws no in-app entry; Home is the only one (D17).
+- Card bills, the reminder and its text stay on the phone; the server gets nothing new.
+
 ## Distribution and privacy (2026-11-20)
 
 - SumBuddy is not on Google Play. It is open source (GPL-3.0-or-later) and ships as a signed APK on GitHub Releases
@@ -175,10 +191,9 @@ Spec: `docs/family.md` (rules, server, phone, screens, decisions). Design: `desi
 
 ## Privacy gaps to close after publishing
 
-- The design's "See the code" (You, What we've read, and "The code that reads SMS is public" on the Privacy promise)
-  needs a public link to the SMS reading code. Until the repository is public, the app does not make that claim and
-  has no "See the code" button. Add them back, with the link (https://github.com/akhilux-design/sumbuddy) in a
-  string resource, once it is published, in the design and the app together.
+- Done 2026-11-21: "See the code" is back (You > Privacy and What we've read open the public repository in the
+  browser; the Privacy promise says "The code that reads SMS is public."). The address is written once, in the
+  `source_code_url` string resource (docs/card-bills.md 3).
 - The app does not link the privacy policy yet. A "Privacy policy" row in You > Privacy and a link on the Privacy
   promise need the design and the app changed together.
 

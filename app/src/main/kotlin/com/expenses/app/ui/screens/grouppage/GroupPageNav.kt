@@ -109,10 +109,11 @@ private fun GroupPageRoute(navController: NavController, entry: NavBackStackEntr
 /**
  * The haptic for a banner that a tap left on the page (`design/spec/motion.md`, Haptics): `haptic/confirm` for
  * "Reminder sent", `haptic/reject` for "No reminder sent", offline and "Could not do that now". It plays once when the
- * banner appears, not for a banner already there when the page opens, and not again when the page is rebuilt.
+ * banner appears, not for a banner already there when the page opens, and not again when the page is rebuilt. The
+ * Card bill view's Remind everyone uses it too.
  */
 @Composable
-private fun NoticeHaptics(notice: GroupNotice?) {
+internal fun NoticeHaptics(notice: GroupNotice?) {
     val haptics = LocalAppHaptics.current
     var heard by rememberSaveable { mutableStateOf(noticeKey(notice)) }
     LaunchedEffect(notice) {

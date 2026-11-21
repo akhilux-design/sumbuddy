@@ -38,6 +38,15 @@ sealed interface AppLink {
     data class Join(val token: String) : AppLink
 
     /**
+     * A card bill's view (the card bill reminder, docs/card-bills.md 2.5): its tap, or "Remind friends" when [remind].
+     *
+     * @param billId the bill.
+     * @param remind true for "Remind friends": Remind everyone runs once as the view opens.
+     */
+    @Serializable
+    data class CardBill(val billId: Long, val remind: Boolean = false) : AppLink
+
+    /**
      * Home with the Family side of the toggle chosen ("Meera joined Home"; docs/family.md 1.1). [openLink] sets
      * `AppContainer.homeView` to Family before it opens Home.
      */
@@ -52,6 +61,7 @@ fun AppLink.route(): Any = when (this) {
     is AppLink.MoneyReceived -> PaymentMatch(creditExpenseId)
     is AppLink.AllSquare -> BalanceCleared(groupId, memberId, amountMinor)
     is AppLink.Join -> JoinGroup(token)
+    is AppLink.CardBill -> CardBillView(billId, remind)
     AppLink.Family -> Home
 }
 

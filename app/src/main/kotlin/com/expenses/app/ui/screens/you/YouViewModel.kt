@@ -2,6 +2,7 @@ package com.expenses.app.ui.screens.you
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.expenses.app.cardbill.CardBillReminders
 import com.expenses.app.data.repository.AccountRepository
 import com.expenses.app.data.repository.ReadSmsRepository
 import com.expenses.app.data.settings.SettingsRepository
@@ -76,7 +77,7 @@ class YouViewModel(
             is YouEvent.SetSmsTracking -> if (!event.on) viewModelScope.launch { settings.turnSmsTrackingOff() }
             is YouEvent.SetReminders -> viewModelScope.launch { settings.setRemindersOn(event.on) }
             YouEvent.OpenAccountsAndCards, YouEvent.OpenTrackingStartDate, YouEvent.OpenWhatWeRead,
-            YouEvent.OpenAccount, YouEvent.SignIn, YouEvent.OpenImport, YouEvent.OpenFamily,
+            YouEvent.OpenAccount, YouEvent.SignIn, YouEvent.OpenImport, YouEvent.OpenFamily, YouEvent.OpenSourceCode,
             -> Unit
         }
     }

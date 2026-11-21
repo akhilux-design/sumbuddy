@@ -55,6 +55,9 @@ class ScanWorker(context: Context, params: WorkerParameters) : CoroutineWorker(c
             if (currentStart == null || from < currentStart) app.settings.setTrackingStart(from)
         }
 
+        // New card bills, or payments on cards that may pay them: the bill reminders are planned again.
+        if (summary.result.cardBills.isNotEmpty() || summary.result.credits.isNotEmpty()) app.cardBillReminders.syncQuietly()
+
         val result = summary.result
         return Result.success(
             workDataOf(

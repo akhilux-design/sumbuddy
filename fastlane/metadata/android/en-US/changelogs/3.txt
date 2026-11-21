@@ -1,0 +1,6 @@
+Card bills and See the code.
+* A card bill screen: what is due, what friends owe you of it, and who owes what
+* Home lists each card's latest bill until it is paid
+* Remind everyone who owes part of a bill
+* Automatic reminder 3 days before a card bill is due (to you only; switch it off in You)
+* See the code: You links to the app's public code

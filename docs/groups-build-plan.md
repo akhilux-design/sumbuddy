@@ -97,7 +97,9 @@ If the owner commits the scaffold first, nothing here changes: the copies are st
   takes it as a `%s` argument.
 - SMS text never leaves the phone and is never logged. Tokens, ids, names and amounts are never logged either.
 - Plus, Family (`06-family`), Splitwise import (`02-everyday/28` to `31`) and the card bill view
-  (`03-getting-paid-back/04`, Home's card bill notification) are out of scope: leave them as they are now.
+  (`03-getting-paid-back/04`, Home's card bill notification) are out of scope: leave them as they are now. (History:
+  Family, Splitwise import and the card bill view were built later; see docs/family.md, docs/splitwise-import.md and
+  docs/card-bills.md.)
 - **Online-only actions** (leave, delete, undo-join, turn off link, remind, invites, share links) answer an
   `ActionResult` or `ApiResult`. Offline (`ActionResult.Offline`, or `network.online` false before you start): keep
   the screen as it is and show the `Banner` (Notice tone, wifi-off icon) at the top of the body with "You're

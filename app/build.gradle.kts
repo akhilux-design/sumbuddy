@@ -22,8 +22,8 @@ android {
         applicationId = providers.gradleProperty("app.applicationId").get()
         minSdk = 26
         targetSdk = 36
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.3.0"
 
         buildConfigField("String", "LINK_HOST", "\"${providers.gradleProperty("app.linkHost").get()}\"")
         // The host of the App Link intent filter for friends' pay links (AndroidManifest.xml, docs/server.md 9.8).
@@ -180,6 +180,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.room.testing)
+    testImplementation(libs.androidx.work.testing)
     testImplementation(libs.okhttp.mockwebserver)
     testImplementation(platform(libs.compose.bom))
     testImplementation(libs.compose.ui.test.junit4)

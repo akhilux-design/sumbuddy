@@ -23,6 +23,8 @@ import java.time.LocalDate
  * @param receivedAt when the SMS arrived.
  * @param smsId the SMS provider's id of the message. With [receivedAt] it names one message: the provider reuses the
  * id of a deleted newest message.
+ * @param remindedAt when the automatic reminder for this bill was posted, or null before (version 7;
+ * docs/card-bills.md D8). A bill is reminded at most once.
  */
 @Entity(
     tableName = "card_bills",
@@ -51,6 +53,7 @@ data class CardBill(
     val dueDate: LocalDate?,
     val receivedAt: Instant,
     val smsId: Long?,
+    val remindedAt: Instant? = null,
 )
 
 /**

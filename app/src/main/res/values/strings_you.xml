@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- You tab (design/spec/screens/04-you/00-you signed in, 06-you-not-signed-in signed out). Plus and "See the
-         code" are left out (docs/product.md); MORE holds Import from Splitwise only. -->
+    <!-- You tab (design/spec/screens/04-you/00-you signed in, 06-you-not-signed-in signed out). Plus is left out
+         (docs/product.md); MORE holds Import from Splitwise only. -->
     <string name="you_section_tracking">Tracking</string>
     <string name="you_section_privacy">Privacy</string>
     <string name="you_section_more">More</string>
@@ -34,6 +34,10 @@
     <string name="you_start_date_not_set">Not started</string>
 
     <string name="you_what_we_read_title">What we\'ve read</string>
+    <!-- Under PRIVACY, after What we've read (00, 06, 09), and the footer button of What we've read (04): opens the
+         public repository (source_code_url) in the browser. -->
+    <string name="you_see_code_title">See the code</string>
+    <string name="you_see_code_body">The SMS reader is public</string>
     <!-- %1$s is the count, written with digit grouping ("1,902"). -->
     <plurals name="you_what_we_read_messages">
         <item quantity="one">%1$s message</item>

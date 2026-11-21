@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.ProgressBarRangeInfo
 import androidx.compose.ui.semantics.progressBarRangeInfo
 import androidx.compose.ui.semantics.semantics
@@ -35,10 +36,26 @@ private val ProgressHeight = 10.dp
  * @param done how many are finished.
  * @param total how many there are; 0 draws an empty track.
  * @param modifier outer modifier. The bar fills the width it is given.
+ * @param fillColor the fill: `color/brand/primary`, or `color/accent/yellow` for the friends' part of a card bill
+ * (03-getting-paid-back/04).
  */
 @Composable
-fun ProgressBar(done: Int, total: Int, modifier: Modifier = Modifier) {
-    val fraction = if (total > 0) (done.toFloat() / total).coerceIn(0f, 1f) else 0f
+fun ProgressBar(done: Int, total: Int, modifier: Modifier = Modifier, fillColor: Color = AppTheme.colors.brandPrimary) {
+    ProgressBar(done = done.toLong(), total = total.toLong(), modifier = modifier, fillColor = fillColor)
+}
+
+/**
+ * [ProgressBar] for amounts in paise: the card bill's bar is what friends owe ([done]) of the bill ([total]), at most
+ * full.
+ *
+ * @param done the part that is filled.
+ * @param total the whole; 0 or less draws an empty track.
+ * @param modifier outer modifier. The bar fills the width it is given.
+ * @param fillColor the fill.
+ */
+@Composable
+fun ProgressBar(done: Long, total: Long, modifier: Modifier = Modifier, fillColor: Color = AppTheme.colors.brandPrimary) {
+    val fraction = if (total > 0) (done.toDouble() / total).coerceIn(0.0, 1.0).toFloat() else 0f
     val shape = RoundedCornerShape(Radius.full)
     // The fill grows with motion/spring/default from where it is; it jumps when the value goes down (a new count).
     val fill = remember { Animatable(fraction) }
@@ -46,7 +63,6 @@ fun ProgressBar(done: Int, total: Int, modifier: Modifier = Modifier) {
     LaunchedEffect(fraction) {
         if (reduced || fraction < fill.value) fill.snapTo(fraction) else fill.animateTo(fraction, Motion.Spring.Default.spec(FILL_THRESHOLD))
     }
-    val fillColor = AppTheme.colors.brandPrimary
     Box(
         modifier = modifier
             .fillMaxWidth()

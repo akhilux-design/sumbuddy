@@ -191,6 +191,47 @@ class GroupsRepository(
         return totals.values.filter { it.netMinor != 0L }.sortedByDescending { kotlin.math.abs(it.netMinor) }
     }
 
+    /**
+     * What friends owe the person for the group expenses [groupExpenseIds] (the card payments of a card bill,
+     * docs/card-bills.md 2.1): for each of them that is not deleted, not in a family and paid by the person's member,
+     * one [OwedPart] per (group, other member with a share above 0). Empty while signed out (no group data).
+     */
+    fun observeOwedOn(groupExpenseIds: Set<String>): Flow<List<OwedPart>> =
+        if (groupExpenseIds.isEmpty()) flowOf(emptyList()) else snapshot.map { data -> owedOn(data, groupExpenseIds) }.distinctUntilChanged()
+
+    private fun owedOn(data: Snapshot, ids: Set<String>): List<OwedPart> {
+        val byId = data.splitGroups.associateBy { it.id }
+        val parts = LinkedHashMap<Pair<String, String>, OwedPart>()
+        for (row in data.expenses) {
+            val expense = row.expense
+            if (expense.id !in ids || expense.deleted) continue
+            val group = byId[expense.groupId] ?: continue
+            if (expense.paidByMemberId != group.myMemberId) continue
+            val members = data.membersByGroup[group.id].orEmpty()
+            for (share in row.shares) {
+                if (share.memberId == group.myMemberId || share.shareMinor <= 0) continue
+                val member = members.firstOrNull { it.id == share.memberId } ?: continue
+                val key = group.id to member.id
+                val before = parts[key]
+                val person = personKeyOf(member)
+                parts[key] = OwedPart(
+                    groupId = group.id,
+                    groupName = if (group.kind == GroupKind.GROUP) displayName(group, members) else null,
+                    memberId = member.id,
+                    personKey = person,
+                    name = member.name,
+                    onApp = member.onApp && member.userId != null,
+                    removed = member.removed,
+                    avatar = data.avatars.ofPerson(person),
+                    shareMinor = (before?.shareMinor ?: 0L) + share.shareMinor,
+                    expenseCount = (before?.expenseCount ?: 0) + 1,
+                    pairMinor = data.balanceOf(group.id).pairBalance(group.myMemberId, member.id),
+                )
+            }
+        }
+        return parts.values.toList()
+    }
+
     /** The person's totals over every group and direct split (Groups card, Home "Owed to you" / "You owe"). */
     fun observeTotals(): Flow<OwedTotals> = snapshot.map(::totalsOf).distinctUntilChanged()
 

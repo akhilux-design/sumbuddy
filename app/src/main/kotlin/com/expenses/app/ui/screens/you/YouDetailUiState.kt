@@ -122,6 +122,9 @@ sealed interface WhatWeReadEvent {
      * @param expenseId the payment's expense id.
      */
     data class OpenPayment(val expenseId: Long) : WhatWeReadEvent
+
+    /** "See the code" in the footer: open the public repository in the browser. */
+    data object OpenSourceCode : WhatWeReadEvent
 }
 
 /**

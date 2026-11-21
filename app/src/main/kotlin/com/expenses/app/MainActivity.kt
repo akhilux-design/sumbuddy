@@ -13,6 +13,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.expenses.app.cardbill.CardBillNotifications
 import com.expenses.app.groups.sync.GroupNotifications
 import com.expenses.app.ui.nav.AppLink
 import com.expenses.app.ui.nav.PayLinks
@@ -92,6 +93,8 @@ class MainActivity : ComponentActivity() {
         // A tap on one of the app's own notifications. A "Groups" notification says which one it was, so its bundle's
         // summary goes with the last one now, without waiting for a sync (GroupNotifications.removedByPerson).
         if (intent?.component?.className == NOTIFICATION_TARGET) GroupNotifications(this).removedByPerson(intent)
+        // A card bill reminder's tap or "Remind friends": the reminder has done its work (an action does not close it).
+        if (link is AppLink.CardBill) CardBillNotifications.cancel(this, link.billId)
     }
 
     private fun linkOf(intent: Intent?): AppLink? {

@@ -3,7 +3,8 @@
 SumBuddy adds up your month for you. It reads the bank and UPI SMS already on your Android phone, finds the
 payments in them, and asks you to add, split or ignore each one. Your SMS never leave the phone.
 
-- **Your month, without typing.** Spending by category, and this month against last month.
+- **Your month, without typing.** Spending by category, this month against last month, and card bills: what is due,
+  what friends owe you of it, and a reminder 3 days before.
 - **Private.** The SMS are read on the phone. There are no ads, no analytics and no tracking.
 - **Free and open source** (GPL-3.0-or-later). No subscription and no paid features.
 - **Split with friends.** Groups, who owes whom, settle up by UPI, cash or bank transfer, and a WhatsApp link for
@@ -116,7 +117,7 @@ then from the repository root:
 
 What a self-built app can do:
 
-- **Tracking works fully**: SMS reading, Home, Review payments, Month and Activity need no server.
+- **Tracking works fully**: SMS reading, Home, Review payments, Month, card bills and Activity need no server.
 - **A self-built app has no push, and cannot sign in to the public server.** Google sign-in works only for an app
   signed with the maintainer's key, and the app's Firebase values (needed for push) are not in this repository.
   Without push the app still syncs when it is opened, over the live connection while it is open, and every 12 hours.

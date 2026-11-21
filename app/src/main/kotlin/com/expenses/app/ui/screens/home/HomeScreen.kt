@@ -38,6 +38,8 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.expenses.app.R
+import com.expenses.app.cardbill.BillState
+import com.expenses.app.cardbill.CardBillSummary
 import com.expenses.app.ui.motion.AnimatedItem
 import com.expenses.app.ui.components.AppButton
 import com.expenses.app.ui.components.Avatar
@@ -46,6 +48,7 @@ import com.expenses.app.ui.components.Banner
 import com.expenses.app.ui.components.ButtonSize
 import com.expenses.app.ui.components.ButtonStyle
 import com.expenses.app.ui.components.EmptyState
+import com.expenses.app.ui.components.InfoRow
 import com.expenses.app.ui.components.OnRaisedSurface
 import com.expenses.app.ui.components.PlaceholderCard
 import com.expenses.app.ui.components.SectionLabel
@@ -53,6 +56,7 @@ import com.expenses.app.ui.components.SegmentedToggle
 import com.expenses.app.ui.components.SegmentedToggleSide
 import com.expenses.app.ui.components.StatTile
 import com.expenses.app.ui.components.StatTilePair
+import com.expenses.app.ui.components.SurfaceCard
 import com.expenses.app.ui.components.StatTileTone
 import com.expenses.app.ui.components.Tag
 import com.expenses.app.ui.components.TagTone
@@ -64,6 +68,7 @@ import com.expenses.app.ui.format.upiIdLineBreaks
 import com.expenses.app.ui.icons.AppIcon
 import com.expenses.app.ui.screens.activity.ActivityItem
 import com.expenses.app.ui.screens.activity.ActivityItemRow
+import com.expenses.app.ui.screens.cardbill.dayMonth
 import com.expenses.app.ui.theme.AppTheme
 import com.expenses.app.ui.theme.Radius
 import com.expenses.app.ui.theme.Space
@@ -153,7 +158,7 @@ fun HomeScreen(
         }
         when (val content = state.content) {
             is HomeContent.FamilyMonth -> familyMonthItems(content, onEvent)
-            is HomeContent.Tracking -> trackingItems(content, onEvent)
+            is HomeContent.Tracking -> trackingItems(content, state.cardBills, onEvent)
             HomeContent.StartFresh -> item(key = "start-fresh") {
                 AnimatedItem {
                     StartFreshState(onAdd = { onEvent(HomeEvent.AddExpense) })
@@ -174,14 +179,21 @@ private val HomeContent.spentCaption: Int
         is HomeContent.FamilyMonth -> R.string.home_spent_caption_family
     }
 
-/** The tracking body: payment waiting for a decision, split totals, the Latest header and the latest expenses. */
-private fun LazyListScope.trackingItems(content: HomeContent.Tracking, onEvent: (HomeEvent) -> Unit) {
+/**
+ * The tracking body: payment waiting for a decision, split totals, CARD BILLS (design 02-everyday/145), the Latest
+ * header and the latest expenses.
+ */
+private fun LazyListScope.trackingItems(content: HomeContent.Tracking, cardBills: List<CardBillSummary>, onEvent: (HomeEvent) -> Unit) {
     content.detected?.let { payment ->
         // Keyed by the payment, so a new one fades in where the decided one was.
         item(key = "detected-${payment.id}") { AnimatedItem { DetectedPaymentCard(payment = payment, onEvent = onEvent) } }
     }
     content.splitTotals?.let { totals ->
         item(key = "split-totals") { AnimatedItem { SplitTotalTiles(totals = totals, onClick = { onEvent(HomeEvent.SplitTotalsClicked) }) } }
+    }
+    if (cardBills.isNotEmpty()) {
+        item(key = "card-bills-label") { AnimatedItem { SectionLabel(text = stringResource(R.string.cardbill_home_label)) } }
+        item(key = "card-bills") { AnimatedItem { CardBillsCard(bills = cardBills, onOpen = { onEvent(HomeEvent.OpenCardBill(it)) }) } }
     }
     item(key = "latest-header") { AnimatedItem { LatestHeader(onAdd = { onEvent(HomeEvent.AddExpense) }) } }
     expenseItems(content.latest, onEvent)
@@ -600,3 +612,37 @@ private fun StartFreshState(onAdd: () -> Unit) {
         },
     )
 }
+
+/**
+ * The CARD BILLS list card (design 02-everyday/145; docs/card-bills.md 2.4): one Info Row per card, "HDFC Millennia
+ * bill" / "₹24,300 due in 5 days · friends owe ₹8,200". A row opens the Card bill view.
+ */
+@Composable
+private fun CardBillsCard(bills: List<CardBillSummary>, onOpen: (Long) -> Unit) {
+    SurfaceCard {
+        bills.forEach { bill ->
+            InfoRow(
+                title = stringResource(R.string.cardbill_home_title, bill.cardName ?: stringResource(R.string.onboarding_account_credit_card)),
+                subtitle = cardBillLine(bill),
+                icon = AppIcon.Card,
+                onClick = { onOpen(bill.billId) },
+            )
+        }
+    }
+}
+
+/** "₹24,300 due in 5 days", "₹24,300 was due 14 Nov", "₹24,300 to pay", then " · friends owe ₹8,200" when they do. */
+@Composable
+private fun cardBillLine(bill: CardBillSummary): String {
+    val amount = formatRupees(bill.totalMinor)
+    val line = when (val state = bill.state) {
+        is BillState.DueIn -> pluralStringResource(R.plurals.cardbill_home_due_in, state.days, amount, state.days)
+        BillState.DueToday -> stringResource(R.string.cardbill_home_due_today, amount)
+        BillState.DueTomorrow -> stringResource(R.string.cardbill_home_due_tomorrow, amount)
+        is BillState.Overdue -> stringResource(R.string.cardbill_home_was_due, amount, dayMonth(state.dueDate))
+        // Paid bills are not on Home; the line still reads as a bill to pay.
+        BillState.NoDate, is BillState.Paid -> stringResource(R.string.cardbill_home_no_date, amount)
+    }
+    return if (bill.friendsMinor > 0) stringResource(R.string.cardbill_home_friends, line, formatRupees(bill.friendsMinor)) else line
+}
+

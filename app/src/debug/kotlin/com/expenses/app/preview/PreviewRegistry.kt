@@ -21,6 +21,7 @@ import com.expenses.app.preview.components.statTilePreviews
 import com.expenses.app.preview.components.tagPreviews
 import com.expenses.app.preview.components.topBarPreviews
 import com.expenses.app.preview.screens.activityScreenPreviews
+import com.expenses.app.preview.screens.cardBillScreenPreviews
 import com.expenses.app.preview.screens.familyScreenPreviews
 import com.expenses.app.preview.screens.groupPageScreenPreviews
 import com.expenses.app.preview.screens.groupsScreenPreviews
@@ -71,6 +72,7 @@ object PreviewRegistry {
             topBarPreviews,
             // Screens
             activityScreenPreviews,
+            cardBillScreenPreviews,
             familyScreenPreviews,
             groupPageScreenPreviews,
             groupsScreenPreviews,

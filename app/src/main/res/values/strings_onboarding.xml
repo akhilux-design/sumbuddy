@@ -44,6 +44,9 @@
     <string name="onboarding_privacy_bank_body">We read your SMS inbox to find bank and UPI payments. Other messages, OTPs included, are skipped and never stored.</string>
     <string name="onboarding_privacy_code_title">What we keep stays here</string>
     <string name="onboarding_privacy_code_body">Amount, merchant, account and the payment message are kept on this phone. See them any time in You.</string>
+    <!-- Fourth promise (docs/card-bills.md D26). Not a link: the link is on You. -->
+    <string name="onboarding_privacy_source_title">Check it yourself</string>
+    <string name="onboarding_privacy_source_body">The code that reads SMS is public.</string>
     <string name="onboarding_privacy_note">Android will ask for SMS permission next. You can switch it off any time in Settings.</string>
     <string name="onboarding_privacy_allow">Allow SMS access</string>
 

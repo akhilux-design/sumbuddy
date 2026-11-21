@@ -21,6 +21,8 @@ val homeScreenPreviews: List<PreviewEntry> = listOf(
     homePreview(name = "screen-home-offline", state = HomeSamples.offline),
     homePreview(name = "screen-home-several-waiting", state = HomeSamples.severalWaiting),
     homePreview(name = "groups-home-home-no-splits", state = HomeSamples.noSplits),
+    // 145: CARD BILLS between the spent card and Latest (docs/card-bills.md 2.4).
+    homePreview(name = "screen-home-card-bills", state = HomeSamples.cardBills),
     // Not drawn: UPI-ID payees shown whole, broken only after the "@", and ₹0 tiles in the neutral colour.
     homePreview(name = "screen-home-upi-payees", state = HomeSamples.upiPayees),
 )

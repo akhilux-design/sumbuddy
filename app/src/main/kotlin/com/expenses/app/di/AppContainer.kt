@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.expenses.app.BuildConfig
+import com.expenses.app.cardbill.CardBillReader
+import com.expenses.app.cardbill.CardBillReminders
 import com.expenses.app.data.db.AppDatabase
 import com.expenses.app.data.repository.AccountRepository
 import com.expenses.app.data.repository.CardBillRepository
@@ -20,6 +22,7 @@ import com.expenses.app.groups.api.serverHttpClient
 import com.expenses.app.groups.auth.AndroidCredentials
 import com.expenses.app.groups.auth.AuthHooks
 import com.expenses.app.groups.auth.AuthRepository
+import com.expenses.app.groups.auth.AuthState
 import com.expenses.app.groups.auth.GoogleSignIn
 import com.expenses.app.groups.auth.KeystoreCipher
 import com.expenses.app.groups.auth.TokenStore
@@ -57,6 +60,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 
@@ -302,6 +307,27 @@ class AppContainer(context: Context) {
     /** Splits a new payment by itself when its merchant has an automatic split rule (docs/server.md 9.4). */
     val autoSplitter: AutoSplitter by lazy {
         AutoSplitter(appContext, groups, expenses, signedIn = { auth.isSignedIn() }, clock = clock)
+    }
+
+    /**
+     * Card bills with their card, payments and what friends owe (docs/card-bills.md 2.10). It waits until the session
+     * is read, so a signed-in person never sees the signed-out view for a moment.
+     */
+    val cardBillReader: CardBillReader by lazy {
+        CardBillReader(
+            bills = cardBills,
+            accounts = accounts,
+            expenses = expenses,
+            owedOn = { ids -> groups.observeOwedOn(ids) },
+            signedIn = auth.state.filter { it != AuthState.Loading }.map { it is AuthState.SignedIn },
+            settings = settings.settings,
+            zone = ZONE,
+        )
+    }
+
+    /** The automatic card bill reminder: a notification to the person only (docs/card-bills.md 2.7). */
+    val cardBillReminders: CardBillReminders by lazy {
+        CardBillReminders(appContext, cardBills, cardBillReader, settings.settings, clock)
     }
 
     /** Settles balances from payment and money-received SMS, and Pay by UPI (docs/server.md 9.5). */

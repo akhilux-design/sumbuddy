@@ -49,6 +49,8 @@ import java.time.LocalDate
  *   `IMPORT` (stored by name, so no column changes). A new table only: automatic migration.
  * - 6: Family (docs/family.md 6.1): `expenses.familyExpenseId` (unique index), `category_rules.scope`, and the group
  *   kind `FAMILY` (stored by name). Nullable columns and an index only: automatic migration, new columns null.
+ * - 7: card bill reminders (docs/card-bills.md D8): `card_bills.remindedAt`. A nullable column only: automatic
+ *   migration, every stored bill not reminded yet.
  */
 @Database(
     entities = [
@@ -57,11 +59,12 @@ import java.time.LocalDate
         SettlementEntity::class, OutboxEntry::class, LinkEntity::class, SplitRuleEntity::class,
         PendingUpiEntity::class, RejectedChangeEntity::class, LinkPriorEntity::class, ImportEntity::class,
     ],
-    version = 6,
+    version = 7,
     exportSchema = true,
     autoMigrations = [
         AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3), AutoMigration(from = 3, to = 4),
         AutoMigration(from = 4, to = 5), AutoMigration(from = 5, to = 6),
+        AutoMigration(from = 6, to = 7),
     ],
 )
 @TypeConverters(TimeConverters::class)

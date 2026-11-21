@@ -2,6 +2,7 @@ package com.expenses.app.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.expenses.app.cardbill.CardBillSummary
 import com.expenses.app.data.model.Expense
 import com.expenses.app.data.model.ExpenseScope
 import com.expenses.app.data.model.ExpenseWithAccount
@@ -71,6 +72,8 @@ import kotlinx.coroutines.launch
  * without, the person's own Family expenses with the Set up Family card.
  * @param homeView the side of the Me or Family toggle, app-scoped (`AppContainer.homeView`) so Join Family, Set up
  * Family and the joined notification can open Home on the Family side.
+ * @param cardBills the CARD BILLS rows on each day (`CardBillReader.observeHomeBills`), shown on the Me side between
+ * the split totals and Latest (docs/card-bills.md 2.4); empty in manual mode.
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 class HomeViewModel(
@@ -82,6 +85,7 @@ class HomeViewModel(
     online: Flow<Boolean>,
     family: FamilyRepository,
     private val homeView: MutableStateFlow<HomeView> = MutableStateFlow(HomeView.Me),
+    cardBills: (today: Flow<LocalDate>) -> Flow<List<CardBillSummary>> = { flowOf(emptyList()) },
 ) : ViewModel() {
     private val local = MutableStateFlow(LocalState())
 
@@ -105,8 +109,11 @@ class HomeViewModel(
     private val splitLabels = groups.observeSplitLabels()
         .shareIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), 1)
 
-    private val lists = combine(waiting, expenses.observeLatest(LATEST_LIMIT), splitLabels) { detected, latest, labels ->
-        Lists(detected, latest, labels)
+    /** Home's CARD BILLS rows, read again as the day turns. */
+    private val bills: Flow<List<CardBillSummary>> = cardBills(now.map { it.atZone(clock.zone).toLocalDate() }.distinctUntilChanged())
+
+    private val lists = combine(waiting, expenses.observeLatest(LATEST_LIMIT), splitLabels, bills) { detected, latest, labels, cards ->
+        Lists(detected, latest, labels, cards)
     }
 
     /**
@@ -210,7 +217,7 @@ class HomeViewModel(
                 showTrackingTip = !local.tipDismissed,
                 latest = latestItems,
             )
-            !family && detected.isEmpty() && latest.isEmpty() -> HomeContent.StartFresh
+            !family && detected.isEmpty() && latest.isEmpty() && lists.cardBills.isEmpty() -> HomeContent.StartFresh
             else -> HomeContent.Tracking(
                 // The waiting list is oldest first, as on Review payments; the oldest waits longest, so it is shown.
                 detected = detected.firstOrNull()?.toDetectedPayment(now, detected.size - 1, split.lastSplitWith),
@@ -229,6 +236,8 @@ class HomeViewModel(
             // No family on this phone: the person's own Family expenses, and the card that sets one up (51).
             familyCard = if (family) FamilyCard.SetUp else null,
             familyCaption = if (family) FamilyCaption.Local else null,
+            // Card bills are the person's own, on the Me side only (D16 hides them in manual mode, in the reader).
+            cardBills = if (family) emptyList() else lists.cardBills,
         )
     }
 
@@ -309,11 +318,12 @@ class HomeViewModel(
     /** The current month, its counted spending and its added expenses, newest first. */
     private data class MonthData(val month: YearMonth, val spentMinor: Long, val added: List<ExpenseWithAccount>)
 
-    /** The waiting payments (oldest first), the latest expenses and what each split payment is part of. */
+    /** The waiting payments (oldest first), the latest expenses, what each split payment is part of and the card bills. */
     private data class Lists(
         val detected: List<ExpenseWithAccount>,
         val latest: List<ExpenseWithAccount>,
         val splitLabels: Map<String, SplitLabel>,
+        val cardBills: List<CardBillSummary> = emptyList(),
     )
 
     /**

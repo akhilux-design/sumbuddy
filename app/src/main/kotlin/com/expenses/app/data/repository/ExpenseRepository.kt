@@ -73,6 +73,13 @@ class ExpenseRepository(
     /** The newest [limit] ADDED expenses, debits and credits. */
     fun observeLatest(limit: Int): Flow<List<ExpenseWithAccount>> = expenses.observeLatest(limit)
 
+    /**
+     * Every expense of account [accountId] that happened from [from] (included) to [to] (excluded), oldest first, of
+     * every direction and status: the card payments and card credits of a card bill (docs/card-bills.md 2.1).
+     */
+    fun observeOnAccount(accountId: Long, from: Instant, to: Instant): Flow<List<Expense>> =
+        expenses.observeOnAccount(accountId, from, to)
+
     /** The newest [limit] payments the person ignored. */
     fun observeIgnored(limit: Int): Flow<List<ExpenseWithAccount>> = expenses.observeIgnored(limit)
 

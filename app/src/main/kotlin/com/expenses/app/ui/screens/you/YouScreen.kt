@@ -41,8 +41,8 @@ private val ProfileAvatarSize = 56.dp
 /**
  * The You tab (design 04-you/00-you; 06-you-not-signed-in): the person's name and whether they are signed in, then the
  * tracking settings and what was read on this phone. Signed in, the name opens Account; signed out, the "Sign in with
- * Google" card under it opens Sign in. Under MORE, "Import from Splitwise" opens the import (04-you/00); Plus and "See
- * the code" are left out (docs/product.md).
+ * Google" card under it opens Sign in. Under PRIVACY, "See the code" opens the public repository in the browser; under
+ * MORE, "Import from Splitwise" opens the import (04-you/00). Plus is left out (docs/product.md).
  * It draws only what is between the status bar and the bottom navigation, and scrolls.
  *
  * @param state what to show; see [YouUiState].
@@ -102,6 +102,12 @@ fun YouScreen(
                 ),
                 icon = AppIcon.Eye,
                 onClick = { onEvent(YouEvent.OpenWhatWeRead) },
+            )
+            InfoRow(
+                title = stringResource(R.string.you_see_code_title),
+                subtitle = stringResource(R.string.you_see_code_body),
+                icon = AppIcon.Receipt,
+                onClick = { onEvent(YouEvent.OpenSourceCode) },
             )
         }
         SectionLabel(text = stringResource(R.string.you_section_family))

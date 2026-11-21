@@ -1,5 +1,7 @@
 package com.expenses.app.ui.screens.home
 
+import com.expenses.app.cardbill.BillState
+import com.expenses.app.cardbill.CardBillSummary
 import com.expenses.app.data.category.Category
 import com.expenses.app.data.model.PaidWith
 import com.expenses.app.groups.data.LoadState
@@ -92,6 +94,37 @@ object HomeSamples {
                     detail = ActivityItemDetail.Personal(Category.TRAVEL, PaidWithLabel.Method(PaidWith.UPI)),
                 ),
             ),
+        ),
+    )
+
+    /**
+     * Design 02-everyday/145 "Home (card bill)": 52 (nothing waiting, no split tiles) with CARD BILLS above Latest:
+     * HDFC Millennia's ₹24,300 due in 5 days, of which friends owe ₹8,200, and ICICI Amazon Pay's ₹6,480 due in 12 days.
+     */
+    val cardBills: HomeUiState = default.copy(
+        content = tracking.copy(
+            detected = null,
+            splitTotals = null,
+            latest = listOf(
+                ActivityItem(
+                    id = ActivityItemId.Expense(21),
+                    title = "Swiggy",
+                    icon = AppIcon.Food,
+                    amountPaise = 45_000,
+                    detail = ActivityItemDetail.Personal(Category.FOOD, PaidWithLabel.Account("HDFC", "4521")),
+                ),
+                ActivityItem(
+                    id = ActivityItemId.Expense(22),
+                    title = "Blinkit",
+                    icon = AppIcon.Cart,
+                    amountPaise = 31_200,
+                    detail = ActivityItemDetail.Personal(Category.GROCERIES, PaidWithLabel.Method(PaidWith.UPI)),
+                ),
+            ),
+        ),
+        cardBills = listOf(
+            CardBillSummary(billId = 1, cardName = "HDFC Millennia", totalMinor = 2_430_000, state = BillState.DueIn(5), friendsMinor = 820_000),
+            CardBillSummary(billId = 2, cardName = "ICICI Amazon Pay", totalMinor = 648_000, state = BillState.DueIn(12), friendsMinor = 0),
         ),
     )
 

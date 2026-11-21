@@ -11,6 +11,7 @@ import com.expenses.app.di.appViewModel
 import com.expenses.app.ui.components.MainTab
 import com.expenses.app.ui.nav.AddExpense
 import com.expenses.app.ui.nav.AddToExpenses
+import com.expenses.app.ui.nav.CardBillView
 import com.expenses.app.ui.nav.ExpenseDetail
 import com.expenses.app.ui.nav.FamilyMonthView
 import com.expenses.app.ui.nav.FamilySettings
@@ -49,7 +50,10 @@ fun NavGraphBuilder.homeDestinations(navController: NavController) {
 @Composable
 private fun HomeRoute(contentPadding: PaddingValues, navController: NavController) {
     val viewModel = appViewModel { app ->
-        HomeViewModel(app.expenses, app.settings, app.clock, app.groups, app.auth.state, app.network.online, app.family, app.homeView)
+        HomeViewModel(
+            app.expenses, app.settings, app.clock, app.groups, app.auth.state, app.network.online, app.family, app.homeView,
+            cardBills = { today -> app.cardBillReader.observeHomeBills(today) },
+        )
     }
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -89,6 +93,7 @@ private fun HomeRoute(contentPadding: PaddingValues, navController: NavControlle
                         }
                     }
                     HomeEvent.SplitTotalsClicked -> once { navController.openTab(MainTab.Groups) }
+                    is HomeEvent.OpenCardBill -> once { navController.navigate(CardBillView(event.billId)) { launchSingleTop = true } }
                     HomeEvent.TurnOnTracking -> if (context.hasSmsAccess()) {
                         viewModel.onSmsAccessGranted()
                     } else {

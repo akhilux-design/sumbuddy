@@ -6,18 +6,24 @@ import com.expenses.app.di.AppContainer
 import com.expenses.app.sms.IncomingSmsWorker
 import com.expenses.app.sms.PaymentNotifications
 import kotlin.coroutines.cancellation.CancellationException
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 /**
  * The app's [Application]. It makes the [AppContainer] that every screen and worker gets its dependencies from,
  * starts push and, while someone is signed in, the 12-hour group sync and the push token's registration,
- * removes a payment's notification once the payment stops waiting, wherever it was added or ignored, and catches up
+ * removes a payment's notification once the payment stops waiting, wherever it was added or ignored, catches up
  * on SMS that arrived while nothing read them: when the app starts with SMS tracking on, and each time tracking
- * begins (onboarding done, or tracking turned on again).
+ * begins (onboarding done, or tracking turned on again), and plans the card bill reminders (docs/card-bills.md 2.7).
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 class ExpensesApplication : Application() {
     /** The app's dependencies; made in [onCreate], before any activity, receiver or worker runs. */
     lateinit var container: AppContainer
@@ -52,6 +58,27 @@ class ExpensesApplication : Application() {
                 .map { waiting -> waiting.mapTo(HashSet()) { it.expense.id } }
                 .distinctUntilChanged()
                 .collect { PaymentNotifications.cancelHandled(this@ExpensesApplication, it) }
+        }
+        container.appScope.launch {
+            // Card bill reminders are planned at every start (an update, a missed run) and again whenever what they
+            // read changes: the reminders switch, the tracking mode, a card switched on or off, a bill stored,
+            // replaced, reminded or deleted. Paid bills come from SMS reads, which plan them too. Nothing before
+            // onboarding is done.
+            container.settings.settings
+                .map { it.onboardingDone }
+                .distinctUntilChanged()
+                .flatMapLatest { done ->
+                    if (!done) {
+                        emptyFlow()
+                    } else {
+                        combine(
+                            container.settings.settings.map { it.remindersOn to it.trackingMode }.distinctUntilChanged(),
+                            container.accounts.observeAll().map { all -> all.filter { it.tracked }.map { it.id }.toSet() }.distinctUntilChanged(),
+                            container.cardBills.observeAll().distinctUntilChanged(),
+                        ) { _, _, _ -> }
+                    }
+                }
+                .collectLatest { container.cardBillReminders.syncQuietly() }
         }
         container.appScope.launch {
             container.settings.settings

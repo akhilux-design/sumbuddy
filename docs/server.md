@@ -2403,9 +2403,8 @@ hand-written router; hand-written validators. (`@cloudflare/vitest-pool-workers`
     all (copy not designed).
 14. **Rejected changes**: copy for "A change in Flat 302 could not be saved" (4.1 roll back), and the confirm for
     deleting an expense that is in a group (9.4).
-15. **Automatic reminders** (flow 06, You "Automatic reminders"): the phone could call `/reminders` by itself before
-    a card due date for friends on the app; friends without the app cannot be messaged automatically. Decide what the
-    setting promises.
+15. **Automatic reminders** (flow 06, You "Automatic reminders"): decided 2026-11-21 (lead): automatic reminders are
+    local notifications to the person only (docs/card-bills.md); the phone never calls `/reminders` by itself.
 16. **Friends without the app**: their name and phone are typed by someone else and kept on the server for the
     group. The privacy policy must say so, and say how such a friend can ask for removal.
 17. **Pay by UPI with an amount** (`upi://pay?...&am=`), from the app and from a web page: some UPI apps limit

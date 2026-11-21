@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.navigation
 import com.expenses.app.ui.screens.activity.activityDestinations
+import com.expenses.app.ui.screens.cardbill.cardBillDestinations
 import com.expenses.app.ui.screens.family.familyDestinations
 import com.expenses.app.ui.screens.grouppage.groupPageDestinations
 import com.expenses.app.ui.screens.groups.groupsDestinations
@@ -68,5 +69,6 @@ fun AppNavHost(
         joinDestinations(navController)
         splitwiseDestinations(navController)
         familyDestinations(navController)
+        cardBillDestinations(navController)
     }
 }

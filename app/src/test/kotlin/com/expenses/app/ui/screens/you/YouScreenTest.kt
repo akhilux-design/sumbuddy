@@ -1,6 +1,8 @@
 package com.expenses.app.ui.screens.you
 
+import android.app.Application
 import android.content.Context
+import android.content.Intent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -13,12 +15,15 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
 import com.expenses.app.R
+import com.expenses.app.ui.nav.openSourceCode
 import com.expenses.app.ui.theme.AppTheme
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.Shadows.shadowOf
 
 /** The top of the You tab, signed in (04-you/00) and signed out (06). */
 @RunWith(RobolectricTestRunner::class)
@@ -55,12 +60,32 @@ class YouScreenTest {
         compose.onNodeWithText("To split with friends. Your SMS stay on this phone.").assertExists()
     }
 
-    @Test fun plusAndSeeTheCodeStayOut() {
+    @Test fun plusStaysOut() {
         show(YouSamples.default)
         val appName = ApplicationProvider.getApplicationContext<Context>().getString(R.string.app_name)
-        for (text in listOf("$appName Plus", "See the code")) {
-            compose.onNodeWithText(text, substring = true).assertDoesNotExist()
+        compose.onNodeWithText("$appName Plus", substring = true).assertDoesNotExist()
+    }
+
+    /** 04-you/00, 06 and 09: See the code under PRIVACY, after What we've read. */
+    @Test fun seeTheCodeIsUnderPrivacySignedInSignedOutAndInManualMode() {
+        var shown by mutableStateOf(YouSamples.default)
+        compose.setContent { AppTheme(dark = false) { YouScreen(state = shown, onEvent = { events += it }) } }
+        for (state in listOf(YouSamples.default, YouSamples.signedOut, YouSamples.default.copy(smsTrackingOn = false))) {
+            shown = state
+            compose.onNodeWithText("The SMS reader is public").assertExists()
         }
+        compose.onNodeWithText("See the code").performScrollTo().performClick()
+        assertEquals(listOf<YouEvent>(YouEvent.OpenSourceCode), events)
+    }
+
+    /** The link opens in the browser: ACTION_VIEW of `source_code_url`, browsable apps only. */
+    @Test fun seeTheCodeOpensTheRepositoryInTheBrowser() {
+        val context = ApplicationProvider.getApplicationContext<Application>()
+        openSourceCode(context)
+        val started = shadowOf(context).nextStartedActivity
+        assertEquals(Intent.ACTION_VIEW, started.action)
+        assertEquals(context.getString(R.string.source_code_url), started.dataString)
+        assertTrue(started.hasCategory(Intent.CATEGORY_BROWSABLE))
     }
 
     @Test fun importFromSplitwiseUnderMoreOpensTheImport() {

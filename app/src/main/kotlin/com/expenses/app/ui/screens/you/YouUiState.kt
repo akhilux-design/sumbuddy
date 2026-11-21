@@ -6,15 +6,15 @@ import java.time.LocalDate
 
 /**
  * Everything the You tab shows: who the person is and whether they are signed in, how tracking is set up, what has
- * been read on this phone, and the family. MORE always holds Import from Splitwise; Plus and "See the code" are left
- * out (docs/product.md).
+ * been read on this phone, and the family. PRIVACY holds What we've read and See the code; MORE always holds Import
+ * from Splitwise; Plus is left out (docs/product.md).
  *
  * @param profile the person's name and avatar at the top.
  * @param signedIn true when this phone is signed in: the line under the name reads "Signed in with Google" and opens
  * Account (04-you/00). False: it reads "Not signed in" and the "Sign in with Google" card follows (04-you/06).
  * @param smsTrackingOn whether payments are read from bank SMS. Shown by the switch on the "SMS auto-tracking" row.
  * @param trackedAccountCount how many accounts and cards are being tracked, for example 4.
- * @param remindersOn whether the app sends reminders before a card bill is due.
+ * @param remindersOn whether the app reminds the person before a card bill is due (docs/card-bills.md 2.7).
  * @param reminderDaysBefore how many days before the due date the reminders go out, for example 3.
  * @param trackingStartDate the first day whose SMS are read, or null when SMS were never read.
  * @param messagesRead how many bank messages have been used on this phone, for example 214.
@@ -93,6 +93,9 @@ sealed interface YouEvent {
 
     /** The "What we've read" row was tapped: open What we've read. */
     data object OpenWhatWeRead : YouEvent
+
+    /** The "See the code" row under PRIVACY was tapped: open the public repository in the browser. */
+    data object OpenSourceCode : YouEvent
 
     /** The "Import from Splitwise" row under MORE was tapped: open Import from Splitwise (Sign in first if needed). */
     data object OpenImport : YouEvent

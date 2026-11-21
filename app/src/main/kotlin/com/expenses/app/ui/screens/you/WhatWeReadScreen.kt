@@ -10,8 +10,11 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.expenses.app.R
+import com.expenses.app.ui.components.AppButton
 import com.expenses.app.ui.components.BalanceCard
 import com.expenses.app.ui.components.BalanceCardTone
+import com.expenses.app.ui.components.ButtonSize
+import com.expenses.app.ui.components.ButtonStyle
 import com.expenses.app.ui.components.ExpenseRow
 import com.expenses.app.ui.components.ExpenseRowKind
 import com.expenses.app.ui.components.InfoRow
@@ -27,7 +30,7 @@ import java.time.format.FormatStyle
 /**
  * What we've read (design 04-you/04-what-we-ve-read): a card that says how many messages left the phone (none)
  * and how many bank messages were used, the newest payments read from SMS, and how many other messages were
- * skipped without being kept. "See the code" is left out until the public link to the reading code exists.
+ * skipped without being kept. "See the code" in the footer opens the public repository in the browser.
  *
  * @param state what to show; see [WhatWeReadUiState].
  * @param modifier outer modifier. The screen fills the space it is given.
@@ -43,6 +46,15 @@ fun WhatWeReadScreen(
         title = stringResource(R.string.you_what_we_read_title),
         onBack = { onEvent(WhatWeReadEvent.Back) },
         modifier = modifier,
+        footer = {
+            AppButton(
+                label = stringResource(R.string.you_see_code_title),
+                onClick = { onEvent(WhatWeReadEvent.OpenSourceCode) },
+                modifier = Modifier.fillMaxWidth(),
+                style = ButtonStyle.Secondary,
+                size = ButtonSize.Large,
+            )
+        },
     ) {
         BalanceCard(
             label = stringResource(R.string.you_read_sent_label),

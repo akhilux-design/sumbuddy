@@ -378,6 +378,17 @@ data class BalanceCleared(val groupId: String, val memberId: String, val amountM
 data class RemindOnWhatsApp(val groupId: String, val memberId: String)
 
 /**
+ * Card bill (design 03-getting-paid-back/04, 20 to 26; docs/card-bills.md 2.3): a credit card bill, what friends owe
+ * of it and Remind everyone. From Home's CARD BILLS rows and the card bill reminder. Owned by the card bill area
+ * (`ui/screens/cardbill/CardBillNav.kt`).
+ *
+ * @param billId the bill.
+ * @param remind true from the reminder's "Remind friends": Remind everyone runs once as the view opens.
+ */
+@Serializable
+data class CardBillView(val billId: Long, val remind: Boolean = false)
+
+/**
  * Import from Splitwise (design 02-everyday/28 to 30, 133 to 140; docs/splitwise-import.md 5.6): pick a group's export
  * file, say which column is you, and bring the group across. From New group opened on the Groups tab, and You > More.
  * Signed in only (`SignInGate`). Owned by the splitwise area (`ui/screens/splitwise/SplitwiseNav.kt`).

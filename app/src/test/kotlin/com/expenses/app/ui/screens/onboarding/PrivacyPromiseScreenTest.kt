@@ -1,6 +1,7 @@
 package com.expenses.app.ui.screens.onboarding
 
 import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performSemanticsAction
@@ -58,5 +59,12 @@ class PrivacyPromiseScreenTest {
             assertEquals(16.dp.toPx(), bounds.left, 1f)
             assertEquals(336.dp.toPx(), bounds.width, 1f)
         }
+    }
+
+    /** The fourth promise (docs/card-bills.md D26): the code is public. It is not a link. */
+    @Test fun theFourthPromiseSaysTheCodeIsPublic() {
+        show()
+        compose.onNodeWithText("Check it yourself").assertExists()
+        compose.onNodeWithText("The code that reads SMS is public.").assertExists().assertHasNoClickAction()
     }
 }

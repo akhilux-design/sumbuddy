@@ -2,6 +2,18 @@ package com.expenses.app.ui.screens.home
 
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import com.expenses.app.data.category.Category
+import com.expenses.app.cardbill.BillState
+import com.expenses.app.cardbill.CardBillReader
+import com.expenses.app.data.model.Account
+import com.expenses.app.data.model.AccountType
+import com.expenses.app.data.model.CardBill
+import com.expenses.app.data.model.ExpenseStatus
+import com.expenses.app.data.repository.AccountRepository
+import com.expenses.app.data.repository.CardBillRepository
+import com.expenses.app.data.repository.TestZone
+import com.expenses.app.data.repository.nov
+import com.expenses.app.data.settings.AppSettings
+import com.expenses.app.data.settings.TrackingMode
 import com.expenses.app.data.settings.SettingsRepository
 import com.expenses.app.groups.G1
 import com.expenses.app.groups.GroupsTestEnv
@@ -16,10 +28,12 @@ import com.expenses.app.ui.screens.family.ClearedViewModels
 import com.expenses.splits.SplitMethod
 import java.io.File
 import java.nio.file.Files
+import java.time.LocalDate
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -46,6 +60,7 @@ class HomeViewModelTest {
     private val online = MutableStateFlow(true)
     private val homeView = MutableStateFlow(HomeView.Me)
     private val viewModels = ClearedViewModels()
+    private val cardBillSettings = MutableStateFlow(AppSettings(onboardingDone = true, trackingMode = TrackingMode.SMS))
 
     @Before fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
 
@@ -60,7 +75,21 @@ class HomeViewModelTest {
         val settings = SettingsRepository(
             PreferenceDataStoreFactory.create(scope = backgroundScope) { File(folder, "settings.preferences_pb") },
         )
-        val vm = viewModels.keep { HomeViewModel(env.expenses, settings, env.clock, env.groups, auth, online, env.family, homeView) }
+        val reader = CardBillReader(
+            CardBillRepository(env.db.cardBillDao(), env.transactions),
+            AccountRepository(env.db.accountDao(), env.transactions, env.clock),
+            env.expenses,
+            env.groups::observeOwedOn,
+            auth.map { it is AuthState.SignedIn },
+            cardBillSettings,
+            TestZone,
+        )
+        val vm = viewModels.keep {
+            HomeViewModel(
+                env.expenses, settings, env.clock, env.groups, auth, online, env.family, homeView,
+                cardBills = { today -> reader.observeHomeBills(today) },
+            )
+        }
         backgroundScope.launch { vm.state.collect {} }
         return vm
     }
@@ -233,5 +262,46 @@ class HomeViewModelTest {
 
         val shown = vm.familySide { it.content is HomeContent.FamilyMonth }
         assertTrue(shown.offline)
+    }
+
+    // ---- Card bills (docs/card-bills.md 2.4; 02-everyday/145) ----
+
+    private suspend fun cardWithBill(name: String, last4: String, due: Int, total: Long, smsId: Long): Long {
+        val card = env.db.accountDao().insert(
+            Account(bank = "$name Bank", type = AccountType.CREDIT_CARD, last4 = last4, displayName = name, firstSeenAt = nov(1)),
+        )
+        return env.db.cardBillDao().upsert(
+            CardBill(
+                accountId = card, bank = "$name Bank", cardLast4 = last4, totalDueMinor = total, minimumDueMinor = null,
+                dueDate = LocalDate.of(2026, 11, due), receivedAt = nov(2), smsId = smsId,
+            ),
+        )
+    }
+
+    @Test fun cardBillsShowAboveLatestSoonestFirst() = runTest {
+        env.smsPayment(30_000, "Uber", status = ExpenseStatus.ADDED)
+        val icici = cardWithBill("ICICI Amazon Pay", "1100", due = 28, total = 648_000, smsId = 91)
+        val hdfc = cardWithBill("HDFC Millennia", "2217", due = 21, total = 2_430_000, smsId = 92)
+        val vm = viewModel()
+        val shown = vm.state.first { it?.cardBills?.size == 2 }!!
+        assertEquals(listOf(hdfc, icici), shown.cardBills.map { it.billId })
+        assertEquals(listOf("HDFC Millennia", "ICICI Amazon Pay"), shown.cardBills.map { it.cardName })
+        // 16 Nov: due in 5 and 12 days.
+        assertEquals(listOf<BillState>(BillState.DueIn(5), BillState.DueIn(12)), shown.cardBills.map { it.state })
+        assertTrue(shown.content is HomeContent.Tracking)
+    }
+
+    @Test fun cardBillsAreLeftOutOnTheFamilySide() = runTest {
+        cardWithBill("HDFC Millennia", "2217", due = 21, total = 2_430_000, smsId = 92)
+        val vm = viewModel()
+        vm.state.first { it?.cardBills?.size == 1 }
+        homeView.value = HomeView.Family
+        assertTrue(vm.familySide().cardBills.isEmpty())
+    }
+
+    @Test fun aCardBillAloneIsNotAFreshStart() = runTest {
+        cardWithBill("HDFC Millennia", "2217", due = 21, total = 2_430_000, smsId = 92)
+        val vm = viewModel()
+        assertTrue(vm.state.first { it?.cardBills?.size == 1 }!!.content is HomeContent.Tracking)
     }
 }

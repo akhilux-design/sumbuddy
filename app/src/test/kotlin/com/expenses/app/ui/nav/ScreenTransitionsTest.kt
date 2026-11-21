@@ -54,6 +54,7 @@ class ScreenTransitionsTest {
         PaymentMatch::class to Push,
         BalanceCleared::class to Result,
         RemindOnWhatsApp::class to Push,
+        CardBillView::class to Push,
         ImportSplitwise::class to Modal,
         GroupImported::class to Result,
         YouAccount::class to Push,

@@ -26,6 +26,7 @@ import com.expenses.app.ui.nav.You
 import com.expenses.app.ui.nav.YouAccount
 import com.expenses.app.ui.nav.isCurrent
 import com.expenses.app.ui.nav.leave
+import com.expenses.app.ui.nav.openSourceCode
 import com.expenses.app.ui.nav.mainTab
 import com.expenses.app.ui.nav.rememberNavigateOnce
 import com.expenses.app.ui.screens.onboarding.CollectEffects
@@ -72,6 +73,7 @@ fun NavGraphBuilder.youDestinations(navController: NavController) {
     }
     composable<WhatWeHaveRead> { entry ->
         val once = rememberNavigateOnce()
+        val context = LocalContext.current
         val viewModel = appViewModel { app -> WhatWeReadViewModel(app.expenses, app.readSms, app.clock) }
         val state by viewModel.state.collectAsStateWithLifecycle()
         state?.let { shown ->
@@ -80,6 +82,7 @@ fun NavGraphBuilder.youDestinations(navController: NavController) {
                 onEvent = { event ->
                     when (event) {
                         WhatWeReadEvent.Back -> navController.leave(entry)
+                        WhatWeReadEvent.OpenSourceCode -> openSourceCode(context)
                         is WhatWeReadEvent.OpenPayment -> once {
                             navController.navigate(ExpenseDetail(event.expenseId)) { launchSingleTop = true }
                         }
@@ -140,6 +143,7 @@ private fun YouRoute(
                     YouEvent.SignIn -> onSignIn()
                     YouEvent.OpenImport -> onOpenImport()
                     YouEvent.OpenFamily -> onOpenFamily(shown.family != YouFamily.None)
+                    YouEvent.OpenSourceCode -> openSourceCode(context)
                     is YouEvent.SetSmsTracking -> when {
                         !event.on -> viewModel.onEvent(event)
                         context.hasSmsAccess() -> viewModel.onSmsAccessGranted()

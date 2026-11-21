@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased (0.3.0)
+
+**Card bills**
+
+- A card bill screen for each credit card: the bill, when it is due, how much of it friends owe you for payments
+  you split with that card, and who owes what. Your own part is what is left.
+- Home lists each card's latest bill under CARD BILLS until it is paid.
+- Remind everyone: friends on the app get a reminder; WhatsApp opens for the friend without the app who owes the most.
+- Automatic reminders now work: a notification 3 days before a card bill is due, at 9 in the morning. It goes to you
+  only; "Remind friends" on it opens the card bill and reminds them. Switch it off in You.
+- A bill counts as paid once the card's payment SMS add up to it.
+
+**See the code**
+
+- You and What we've read link to the app's public code; the privacy promise says the code that reads SMS is public.
+
 ## 0.2.0: first public release
 
 SumBuddy (formerly the working name "Xpense") is now open source under the GPL-3.0-or-later and published on GitHub

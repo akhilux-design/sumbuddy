@@ -32,8 +32,9 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 
 /**
- * Test installs have version 1 to 5 databases: the moves to version 2 (splitting), 3 (undo a join, owner label,
- * refused changes), 4 (link priors), 5 (Splitwise imports) and 6 (Family) must keep every row as it was.
+ * Test installs have version 1 to 6 databases: the moves to version 2 (splitting), 3 (undo a join, owner label,
+ * refused changes), 4 (link priors), 5 (Splitwise imports), 6 (Family) and 7 (card bill reminders) must keep every
+ * row as it was.
  *
  * The version 1 database is built from its exported schema (app/schemas, exactly what Room made for version 1), then
  * opened by the app's [AppDatabase]: Room runs the migrations and then checks every table, column, index and foreign
@@ -282,6 +283,25 @@ class DatabaseMigrationTest {
                 GroupEntity("b0000000-0000-4000-8000-000000000031", GroupKind.FAMILY, "Home", "u1", "m9", 1, 1, false, SyncState.SYNCED, Instant.EPOCH),
             )
             assertEquals(GroupKind.FAMILY, db.groupDao().familyGroup()!!.kind)
+        } finally {
+            db.close()
+        }
+    }
+
+    @Test fun version6CardBillsStayInVersion7NotRemindedYet() = runTest {
+        createFromSchema(6) { version1Rows() }
+        val db = open()
+        try {
+            val bill = db.cardBillDao().get(3)!!
+            assertEquals(1_250_000L, bill.totalDueMinor)
+            assertEquals(1L, bill.accountId)
+            assertEquals(43L, bill.smsId)
+            assertNull(bill.remindedAt)
+            assertEquals(45_000L, db.expenseDao().get(7)!!.amountMinor)
+
+            // The new column takes when the reminder was posted.
+            db.cardBillDao().setRemindedAt(3, Instant.ofEpochMilli(1_763_400_000_000))
+            assertEquals(Instant.ofEpochMilli(1_763_400_000_000), db.cardBillDao().get(3)!!.remindedAt)
         } finally {
             db.close()
         }

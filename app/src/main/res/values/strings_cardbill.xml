@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Card bill view (design/spec/screens/03-getting-paid-back/04, 20 to 26; docs/card-bills.md 2.3 and 2.8). -->
+    <string name="cardbill_title">Card bill</string>
+    <!-- The card's last digits on the green card: "•• 2217". -->
+    <string name="cardbill_digits">•• %1$s</string>
+    <!-- The line over the amount, written in capitals on the card. -->
+    <plurals name="cardbill_due_in">
+        <item quantity="one">Bill due in %d day</item>
+        <item quantity="other">Bill due in %d days</item>
+    </plurals>
+    <string name="cardbill_due_today">Bill due today</string>
+    <string name="cardbill_due_tomorrow">Bill due tomorrow</string>
+    <!-- %1$s is the due date, "14 Nov". -->
+    <string name="cardbill_was_due">Bill was due %1$s</string>
+    <!-- %1$s is the day the card's payments reached the bill, "19 Nov". -->
+    <string name="cardbill_paid_on">Bill paid on %1$s</string>
+    <!-- The SMS printed no due date. Not in the design. -->
+    <string name="cardbill_no_date">Latest bill</string>
+    <!-- What the screen reader says for the green card: card, its digits, the line and the amount. -->
+    <string name="cardbill_card_description">%1$s, card ending %2$s. %3$s. %4$s.</string>
+    <string name="cardbill_card_description_no_digits">%1$s. %2$s. %3$s.</string>
+
+    <!-- The yellow insight card. %1$s is what friends owe, drawn in yellow. -->
+    <string name="cardbill_friends_owe">Friends owe you %1$s of this</string>
+    <!-- One friend. Not in the design. %1$s is the friend's first name, %2$s the amount. -->
+    <string name="cardbill_friend_owes">%1$s owes you %2$s of this</string>
+    <!-- %1$s is the due date ("21 Nov"), %2$s the person's own part. -->
+    <string name="cardbill_get_back_by">Get it back before %1$s and you only pay your own %2$s.</string>
+    <!-- No due date. Not in the design. -->
+    <string name="cardbill_get_back_no_date">Get it back before it is due and you only pay your own %1$s.</string>
+    <!-- After the due date (22) and once paid (23). -->
+    <string name="cardbill_own_overdue">Your own part of it is %1$s.</string>
+    <string name="cardbill_own_paid">Your own part of it was %1$s.</string>
+
+    <string name="cardbill_who_owes">Who owes what</string>
+    <!-- A friend's row: "Goa trip · 3 expenses", "2 groups · 4 expenses". -->
+    <string name="cardbill_row_detail">%1$s · %2$s</string>
+    <plurals name="cardbill_expenses">
+        <item quantity="one">%d expense</item>
+        <item quantity="other">%d expenses</item>
+    </plurals>
+    <plurals name="cardbill_groups">
+        <item quantity="one">%d group</item>
+        <item quantity="other">%d groups</item>
+    </plurals>
+    <string name="cardbill_remind_everyone">Remind everyone</string>
+    <!-- Signed in, and no friend owes part of the bill (20). -->
+    <string name="cardbill_nothing_owed_title">Nobody owes you for this bill</string>
+    <string name="cardbill_nothing_owed_body">Split a payment made with this card and what friends owe of it shows here.</string>
+
+    <!-- Home's CARD BILLS list (design 02-everyday/145). -->
+    <string name="cardbill_home_label">Card bills</string>
+    <!-- %1$s is the card's name. -->
+    <string name="cardbill_home_title">%1$s bill</string>
+    <!-- %1$s is the bill ("₹24,300"). -->
+    <plurals name="cardbill_home_due_in">
+        <item quantity="one">%1$s due in %2$d day</item>
+        <item quantity="other">%1$s due in %2$d days</item>
+    </plurals>
+    <string name="cardbill_home_due_today">%1$s due today</string>
+    <string name="cardbill_home_due_tomorrow">%1$s due tomorrow</string>
+    <!-- %2$s is the due date, "14 Nov". -->
+    <string name="cardbill_home_was_due">%1$s was due %2$s</string>
+    <string name="cardbill_home_no_date">%1$s to pay</string>
+    <!-- %1$s is one of the lines above, %2$s what friends owe: "₹24,300 due in 5 days · friends owe ₹8,200". -->
+    <string name="cardbill_home_friends">%1$s · friends owe %2$s</string>
+
+    <!-- The card bill reminder (design 02-everyday/146; docs/card-bills.md 2.7). -->
+    <string name="cardbill_channel">Card bills</string>
+    <string name="cardbill_channel_description">A credit card bill is due in a few days.</string>
+    <!-- %1$s is the card's name. -->
+    <plurals name="cardbill_notify_due_in">
+        <item quantity="one">%1$s bill due in %2$d day</item>
+        <item quantity="other">%1$s bill due in %2$d days</item>
+    </plurals>
+    <string name="cardbill_notify_due_today">%1$s bill due today</string>
+    <string name="cardbill_notify_due_tomorrow">%1$s bill due tomorrow</string>
+    <!-- %1$s is what friends owe, %2$s the bill. -->
+    <string name="cardbill_notify_friends">Friends owe you %1$s of the %2$s.</string>
+    <!-- %1$s is the friend's first name, %2$s what they owe, %3$s the bill. -->
+    <string name="cardbill_notify_friend">%1$s owes you %2$s of the %3$s.</string>
+    <!-- Nobody owes part of it, or nobody is signed in. %2$s is the due date, "21 Nov". -->
+    <string name="cardbill_notify_pay_by">Pay %1$s by %2$s.</string>
+    <string name="cardbill_notify_remind">Remind friends</string>
+</resources>

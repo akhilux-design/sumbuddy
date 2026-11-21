@@ -96,9 +96,9 @@ The group tables (`grp_*`, version 2) are listed in docs/server.md 9.3. Version 
 `grp_imports` (the Splitwise imports made on this phone, docs/splitwise-import.md 5.1) and the outbox kind `IMPORT`,
 which is stored by name and so changes no column; version 5 to 6 (Family, docs/family.md 6.1) adds
 `expenses.familyExpenseId` with its unique index, `category_rules.scope`, and the group kind `FAMILY` (stored by
-name). All five are `AutoMigration`s (`AutoMigration(from = 5, to = 6)` is the newest), tested by
-`DatabaseMigrationTest` from the exported schemas (`app/schemas/.../1.json` to `6.json`). The database is at
-version 6.
+name); version 6 to 7 (card bill reminders, docs/card-bills.md D8) adds `card_bills.remindedAt`. All six are
+`AutoMigration`s (`AutoMigration(from = 6, to = 7)` is the newest), tested by `DatabaseMigrationTest` from the
+exported schemas (`app/schemas/.../1.json` to `7.json`). The database is at version 7.
 
 Read models: `ExpenseWithAccount(expense: Expense, account: Account?)`,
 `DayExpenses(date: LocalDate, expenses: List<ExpenseWithAccount>, spentMinor: Long)`,
@@ -107,8 +107,9 @@ Read models: `ExpenseWithAccount(expense: Expense, account: Account?)`,
 ### `CardBill` (table `card_bills`)
 
 `id`, `accountId: Long?` (FK, cascade), `bank: String?`, `cardLast4: String?`, `totalDueMinor: Long`,
-`minimumDueMinor: Long?`, `dueDate: LocalDate?`, `receivedAt: Instant`, `smsId: Long?`; unique
-`(smsId, receivedAt)`. Never spending.
+`minimumDueMinor: Long?`, `dueDate: LocalDate?`, `receivedAt: Instant`, `smsId: Long?`, `remindedAt: Instant?`
+(version 7: when the automatic reminder was posted; a bill is reminded at most once); unique `(smsId, receivedAt)`.
+Never spending.
 
 ### `ReviewItem` (table `review_items`)
 
@@ -244,7 +245,13 @@ suspend fun deleteUnused()                                                  // a
 
 ```kotlin
 suspend fun upsert(bill: CardBill): Long        // replaces the bill of the same bank + cardLast4 + dueDate; a bill with
-                                                // no due date, or with neither bank nor card, is always a new row
+                                                // no due date, or with neither bank nor card, is always a new row. A
+                                                // replaced bill keeps the first SMS's receivedAt and smsId, and
+                                                // remindedAt; amounts and account come from the newer SMS (D7)
+suspend fun get(id: Long): CardBill?
+fun observe(id: Long): Flow<CardBill?>
+suspend fun all(): List<CardBill>
+suspend fun setRemindedAt(id: Long, at: Instant)
 suspend fun deleteBefore(before: Instant)
 fun observeAll(): Flow<List<CardBill>>
 fun observeDueFrom(from: LocalDate): Flow<List<CardBill>>
@@ -291,7 +298,7 @@ suspend fun completeOnboarding()
 
 `AppSettings(userName: String?, onboardingDone: Boolean, trackingMode: TrackingMode?, trackingStartAt: Instant?,
 lastScanAt: Instant?, themeFollowsSystem: Boolean, remindersOn: Boolean, smsAskedBefore: Boolean)`. `remindersOn` (default true, set with
-`setRemindersOn(on)`) is only stored in this version: nothing schedules card bill reminders yet. Tracking start: "Start fresh" = the moment chosen; "This
+`setRemindersOn(on)`) turns the card bill reminder on and off (`CardBillReminders`, below). Tracking start: "Start fresh" = the moment chosen; "This
 month" = first day of the month 00:00 local; "Last 3 months" = first day of the month two months back; "From a
 date" = that date 00:00 local.
 
@@ -425,6 +432,7 @@ registers its destinations from one file via an extension on `NavGraphBuilder` t
 | `ui/screens/review/ReviewPaymentsNav.kt` | `reviewDestinations(navController)` | `ReviewPayments` (from "Review all N" on Home) |
 | `ui/screens/signin/SignInNav.kt` | `signInDestinations(navController)` | `SignIn(fromWelcome: Boolean = false, forJoin: Boolean = false, forFamily: Boolean = false)`, `SignInName(fromWelcome: Boolean = false)` |
 | `ui/screens/family/FamilyNav.kt` | `familyDestinations(navController)` | `SetUpFamily` and `FamilySettings(sendLink: Boolean = false)` (signed in only, through `SignInGate` with `SignIn(forFamily = true)`), `FamilyMonthView(yearMonth: String)` (docs/family.md 8.3) |
+| `ui/screens/cardbill/CardBillNav.kt` | `cardBillDestinations(navController)` | `CardBillView(billId: Long, remind: Boolean = false)` (docs/card-bills.md 2.5; from Home's CARD BILLS rows and the card bill reminder) |
 
 The four tabs sit in graph `MainGraph` (start `Home`). Register a tab with
 `mainTab<Route>(MainTab.X, navController) { padding -> XRoute(contentPadding = padding) }`: it draws `MainScaffold`
@@ -466,7 +474,8 @@ start and name) before `finishOnboarding()`.
 
 Screens opened from outside are `AppLink`s (`ui/nav/AppLinks.kt`): `Payment(expenseId, split)`, `Group(groupId)`,
 `MoneyReceived(creditExpenseId)`, `AllSquare(groupId, memberId, amountMinor)`, `Join(token)`, `Family` (Home with the
-Family side chosen; `openLink` sets `AppContainer.homeView` first). A `Group` link (or any route to `GroupPage` or
+Family side chosen; `openLink` sets `AppContainer.homeView` first), `CardBill(billId, remind)` (the card bill reminder's
+tap and its "Remind friends"; `MainActivity` cancels that bill's notification when it reads the link). A `Group` link (or any route to `GroupPage` or
 `GroupSettings`) whose id is the family on this phone opens Home on the Family side instead: a family is never shown
 as a group. A notification builds its
 tap intent with `MainActivity.openLinkIntent(context, link)` (or `openExpenseIntent(context, expenseId, split)`), extra
@@ -619,3 +628,37 @@ stored data on show.
 - The session (refresh and access tokens, user id, profile) is stored encrypted with an Android Keystore key
   (`KeystoreCipher`, alias `groups_auth_v1`); a new process reuses the stored access token until a minute before it
   expires. Cleartext HTTP only in debug builds, only to `10.0.2.2`.
+
+## Card bills (docs/card-bills.md)
+
+Package `com.expenses.app.cardbill`, made in `AppContainer` (`cardBillReader`, `cardBillReminders`). Everything stays
+on the phone; the server gets nothing new.
+
+- `CardBillMath`: the pure rules (2.2): statement date (the earlier of the first SMS day and due date − 15), the cycle
+  (the month ending on it), the cycle's split card payments, what each friend owes (`min(shares, pairBalance now)`,
+  removed members 0), friends' part, own part (at least ₹0), the bar (at most full), paid (the card's credits after
+  the statement up to due + 7 add up to the bill), `BillState`, the current bill of a card, Home's list and the
+  reminder time (`fireAt`: 09:00 three days before, never in 21:00 to 09:00).
+- `CardBillReader`: `observeBill(id)` (`CardBillDetail`; null for a bill deleted, with no card, or on a switched-off
+  card), `observeHomeBills(today)` (`CardBillSummary` rows), `detail(id)`. It combines the bill, its account and the
+  other bills of the card, `ExpenseRepository.observeOnAccount(accountId, from, to)`, `GroupsRepository.observeOwedOn`
+  (one `OwedPart` per group and friend of the cycle's split payments), the session and the tracking mode.
+- `CardBillReminders`: `sync()` enqueues unique work `card_bill_reminder_<billId>` (tag `card_bill_reminder`, REPLACE,
+  initial delay to `fireAt`, a `card_bill_fire_at_<millis>` tag so a second sync changes nothing) for each bill due a
+  reminder, cancels every other bill's work, and removes the posted notification of a bill now paid, replaced,
+  deleted or switched off. `remind(billId)` is what `CardBillReminderWorker` runs: it checks everything again, waits
+  again when it ran early or into quiet hours, posts, and sets `remindedAt`. `sync()` runs at every start and whenever
+  the reminders switch, the tracking mode, a card's tracking or the bills change (`ExpensesApplication`, after
+  onboarding), and after an SMS read that stored card bills or credits (`IncomingSmsWorker`, `ScanWorker`).
+  WorkManager keeps the work across reboots by itself.
+- `CardBillNotifications`: channel `card_bills` ("Card bills"), tag `card_bill`, id `billId.hashCode()`; "HDFC
+  Millennia bill due in 3 days" / "Friends owe you ₹8,200 of the ₹24,300." with "Remind friends" (`AppLink.CardBill(id,
+  remind = true)`) only when friends owe part, or "Pay ₹24,300 by 21 Nov.". Nothing posts without notifications
+  allowed.
+- Screens: `ui/screens/cardbill/` (`CardBillScreen`, `CardBillViewModel`, `CardBillUiState`, `CardBillNav`,
+  `CardBillSamples`). Remind everyone pushes once per group to friends on the app who owe part, with the Group page's
+  banners, then opens Remind on WhatsApp for the friend without the app who owes the most. Home shows CARD BILLS
+  (`HomeUiState.cardBills`) on the Me side in SMS mode.
+- See the code: `openInBrowser` / `openSourceCode` in `ui/nav/ExternalLinks.kt` (`ACTION_VIEW`, `CATEGORY_BROWSABLE`;
+  nothing happens with no browser). The address is only in `strings.xml` (`source_code_url`), checked by
+  `BuildRulesTest`.

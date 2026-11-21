@@ -29,13 +29,19 @@ class AppLinksTest {
         assertEquals(PaymentMatch(9), AppLink.MoneyReceived(9).route())
         assertEquals(BalanceCleared("g", "m", 120_000), AppLink.AllSquare("g", "m", 120_000).route())
         assertEquals(JoinGroup(token), AppLink.Join(token).route())
+        // The card bill reminder: its tap, and "Remind friends".
+        assertEquals(CardBillView(3), AppLink.CardBill(3).route())
+        assertEquals(CardBillView(3, remind = true), AppLink.CardBill(3, remind = true).route())
         // "Meera joined Home": Home, with the Family side chosen by openLink.
         assertEquals(Home, AppLink.Family.route())
     }
 
     @Test fun linksSurviveTheNotificationExtra() {
         val json = Json { ignoreUnknownKeys = true }
-        val links = listOf(AppLink.Payment(7, split = true), AppLink.Group("g"), AppLink.AllSquare("g", "m", 5), AppLink.Join(token), AppLink.Family)
+        val links = listOf(
+            AppLink.Payment(7, split = true), AppLink.Group("g"), AppLink.AllSquare("g", "m", 5), AppLink.Join(token), AppLink.Family,
+            AppLink.CardBill(3), AppLink.CardBill(3, remind = true),
+        )
         for (link in links) {
             assertEquals(link, json.decodeFromString(AppLink.serializer(), json.encodeToString(AppLink.serializer(), link)))
         }

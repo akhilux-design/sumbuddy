@@ -32,7 +32,8 @@ enum class TrackingMode {
  * "Start fresh" stores the moment it was chosen; "This month" the start of the month's first day.
  * @param lastScanAt when the inbox was last read up to, or null before the first scan.
  * @param themeFollowsSystem true while the theme follows the phone's dark mode setting.
- * @param remindersOn true while the person wants card bill reminders. Only stored in this version.
+ * @param remindersOn true while the person wants the card bill reminder, a notification 3 days before a bill is due
+ * (docs/card-bills.md 2.7).
  * @param smsAskedBefore true once the person said no to Android's SMS dialog at least once, so the app can tell
  * when Android will no longer show it.
  */
