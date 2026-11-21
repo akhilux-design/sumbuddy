@@ -67,8 +67,11 @@ fun GroupPageScreen(state: GroupPageUiState, onEvent: (GroupPageEvent) -> Unit, 
     val lastShown = remember { LastPage() }
     if (state is GroupPageUiState.Shown) lastShown.page = state
     val drawn = if (state == GroupPageUiState.Gone) lastShown.page ?: state else state
-    // Loading, could not load and shown swap with a fade-through, keyed by the kind of state.
-    FadeThroughContent(targetState = drawn, contentKey = { it::class }) { page -> GroupPageBody(page, onEvent, modifier) }
+    // Loading, could not load and shown swap with a fade-through, keyed by the kind of state; a page that loads quickly
+    // replaces the loading state at once.
+    FadeThroughContent(targetState = drawn, contentKey = { it::class }, isLoading = { it is GroupPageUiState.Loading }) { page ->
+        GroupPageBody(page, onEvent, modifier)
+    }
 }
 
 /** The page for one kind of [state]; see [GroupPageScreen]. */

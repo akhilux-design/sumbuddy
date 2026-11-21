@@ -414,6 +414,24 @@ at about 4 progress per second (the linear track's speed) and then stop. After, 
 finger's 0.7/s, up to 4.3/s, then 3.0, 2.1, 1.3, 0.5, 0.2, 0.07/s and rest at 1, about 300 ms to 0.995. Tab to tab,
 cancel and Back button behave as before.
 
+### 3.10 No blank frames while a pushed screen loads (2026-11-22)
+
+Measured on emulator-5554 (`build/keep/motion-032/b-blank-frames/`, share of each frame that is not canvas; a page is
+40 to 70%, a near-blank frame under 5%):
+- Push to Review: 6 near-blank frames, about 150 ms. Push to a Group page: 8, about 230 ms. Push to Month, to an
+  expense and the Expense added result: none, or a single dim first frame.
+- Cause: Review, the Group page and Join group start in a loading state (the ViewModel's first value) that shows only
+  the page's frame, since placeholders wait 200 ms. Their data came about 100 ms later, and the state swap is a
+  `FadeThroughContent`: the frame (title, back button) faded out over 90 ms and the content faded in only after that,
+  so the screen faded to nothing in the middle of its push. This happens on every phone, fast or slow, because the
+  fade-through has fixed timings.
+- Fix: `FadeThroughContent(isLoading = ...)`. A loading state that the data replaces before
+  `motion/delay/placeholder` (200 ms) is replaced at once; the screen's own push carries the motion. A loading state
+  that stayed long enough to show its placeholders still fades through to the content, as the design draws it.
+- After: Review none; Group page one dim first frame. That frame is the first transition frame after the new screen's
+  first composition (about 100 ms on the software emulator, `gfxinfo` framestats), before its data is read: the
+  incoming page, still empty, fades in over the old one. It is not specific to any screen and is one frame long here.
+
 ## 4. How the design records it
 
 - **Motion section in Figma.** Add a "Motion" section on the Figma Design System page, on both boards, with:

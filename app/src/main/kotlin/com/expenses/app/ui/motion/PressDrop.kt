@@ -10,10 +10,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.withFrameMillis
+import androidx.compose.ui.MotionDurationScale
 import com.expenses.app.ui.theme.LocalAppHaptics
 import com.expenses.app.ui.theme.LocalReducedMotion
 import com.expenses.app.ui.theme.Motion
 import com.expenses.app.ui.theme.SpringToken
+import kotlin.math.roundToLong
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filter
 
@@ -123,4 +126,14 @@ fun rememberPressDrop(source: InteractionSource, enabled: Boolean, haptic: Boole
 internal suspend fun awaitFrameClock(frameMillis: Long) {
     var now = withFrameMillis { it }
     while (now < frameMillis) now = withFrameMillis { it }
+}
+
+/**
+ * Waits [millis] on the frame clock, from the next frame. [scaled]: times the animator duration scale, like a tween
+ * delay, so it is about one frame when Remove animations is on. Unscaled, it is [millis] either way.
+ */
+internal suspend fun awaitFrameMillis(millis: Long, scaled: Boolean = true) {
+    val scale = if (scaled) currentCoroutineContext()[MotionDurationScale]?.scaleFactor ?: 1f else 1f
+    val start = withFrameMillis { it }
+    awaitFrameClock(start + (millis * scale).roundToLong())
 }
