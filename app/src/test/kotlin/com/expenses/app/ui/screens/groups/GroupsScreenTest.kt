@@ -49,6 +49,21 @@ class GroupsScreenTest {
         compose.onNodeWithText("Could not load your groups", useUnmergedTree = true).assertDoesNotExist()
     }
 
+    @Test fun theOverallCardCountsTheNamedGroups() {
+        show(GroupsSamples.default)
+
+        compose.onNodeWithText("across 3 groups", useUnmergedTree = true).assertExists()
+    }
+
+    /** Only direct splits, no named group: the card counts the friends, never "across 0 groups". */
+    @Test fun withOnlyFriendsTheOverallCardCountsTheFriends() {
+        val friends = (GroupsSamples.default as GroupsUiState.Loaded).friends
+        show(GroupsUiState.Loaded(groups = emptyList(), friends = friends, overallPaise = 300_000))
+
+        compose.onNodeWithText("across 2 friends", useUnmergedTree = true).assertExists()
+        compose.onNodeWithText("across 0 groups", useUnmergedTree = true).assertDoesNotExist()
+    }
+
     @Test fun noGroupsYetOffersNewGroup() {
         show(GroupsSamples.empty)
 

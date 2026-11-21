@@ -111,7 +111,7 @@ class IncomingSmsWorker internal constructor(
         // The SMS is in only when this run read it for the first time. A message read before (by an earlier run, or by
         // another reader meanwhile) says nothing about this SMS, however close.
         val arrived = catchingUp || summary.result.firstRead.isNotEmpty()
-        if (!arrived) nextTry(inputData)?.let { app.queue(it) }
+        if (!arrived) nextTry(inputData, runAttemptCount)?.let { app.queue(it) }
         return Result.success()
     }
 
@@ -183,9 +183,13 @@ class IncomingSmsWorker internal constructor(
          * (on Android 11 and older expedited work runs as a foreground service, which would show "Reading SMS" on every
          * try), with the same times and the try's number, and delayed so the tries keep their schedule, 10, 20, 30, 40
          * and 50 seconds after the run before.
+         *
+         * [runAttemptCount] counts only where [input] has no try number: a WorkManager retry queued by 0.3.1 (which
+         * tried again with `Result.retry()`) still runs once after the update, and it has made that many tries already.
          */
-        internal fun nextTry(input: Data): OneTimeWorkRequest? {
-            val next = input.getInt(KEY_TRY, 0) + 1
+        internal fun nextTry(input: Data, runAttemptCount: Int = 0): OneTimeWorkRequest? {
+            val done = if (KEY_TRY in input.keyValueMap) input.getInt(KEY_TRY, 0) else runAttemptCount
+            val next = done + 1
             if (next > MAX_ATTEMPTS) return null
             val arrivedAt = Instant.ofEpochMilli(input.getLong(KEY_ARRIVED_AT, 0))
             val sentAt = input.getLongArray(KEY_SENT_AT)?.map(Instant::ofEpochMilli).orEmpty()

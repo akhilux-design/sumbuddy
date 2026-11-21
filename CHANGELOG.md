@@ -12,11 +12,17 @@
 **Motion**
 
 - A back swipe now settles with a spring from your finger's speed after you let go, instead of gliding at a fixed
-  speed and stopping dead.
+  speed and stopping dead. Touching the screen while it settles ends the settle at once, so a tap on the screen
+  coming back always works, and a tab tapped then never brings back the screen you swiped away.
 - Review payments, a group page and joining a group no longer show a near-blank screen for a moment when their data
   comes quickly: the content shows at once.
 - With Remove animations on, loading placeholders no longer flash for a moment: they still wait 200 ms before they
   show, and then stay still.
+
+**Fixes**
+
+- With only friends and no named group, the Groups tab's overall card says "across 2 friends", not "across 0 groups".
+- An SMS the app was still trying to find when it updated gets only the tries it had left, not five more.
 
 ## 0.3.1: an SMS right after another is read within seconds
 

@@ -119,10 +119,14 @@ class IncomingSmsWorkerTest {
     private suspend fun run(arrivedAt: Instant?, attempt: Int = 0, sent: List<Instant> = emptyList()): ReadEnd =
         run(arrivedAt?.let { IncomingSmsWorker.arrivalInput(it, sent, attempt) } ?: Data.EMPTY)
 
-    /** One run with [input]. It always ends with success; it tries again when it queued its next try. */
-    private suspend fun run(input: Data): ReadEnd {
+    /**
+     * One run with [input], WorkManager's [runAttempt]th. It always ends with success; it tries again when it queued its
+     * next try.
+     */
+    private suspend fun run(input: Data, runAttempt: Int = 0): ReadEnd {
         val worker = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
             .setInputData(input)
+            .setRunAttemptCount(runAttempt)
             .setWorkerFactory(
                 object : WorkerFactory() {
                     override fun createWorker(
@@ -372,6 +376,26 @@ class IncomingSmsWorkerTest {
         }
         assertEquals(listOf(10L, 20L, 30L, 40L, 50L), delays)
         assertNull(IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT, tryNumber = IncomingSmsWorker.MAX_ATTEMPTS)))
+    }
+
+    /**
+     * A WorkManager retry queued by 0.3.1 (its input has no try number) that runs after the update counts the tries it
+     * made: it gets only the tries left, not five more.
+     */
+    @Test fun aRetryQueuedBeforeTheUpdateGetsOnlyTheTriesLeft() = workerTest {
+        // SMS 54 never reaches the inbox.
+        now = SMS_54_AT.plusMillis(40)
+        val oldRetry = IncomingSmsWorker.arrivalInput(SMS_54_AT, listOf(SMS_54_SENT))
+        assertEquals(ReadEnd.DONE, run(oldRetry, runAttempt = IncomingSmsWorker.MAX_ATTEMPTS))
+        assertTrue(queued.isEmpty())
+
+        assertEquals(ReadEnd.TRIES_AGAIN, run(oldRetry, runAttempt = 3))
+        assertEquals(4, queued.single().input.getInt("try", 0))
+        assertEquals(Duration.ofSeconds(40), queued.single().delay)
+
+        // A try queued by 0.3.2 goes by its own number, even when WorkManager ran it again.
+        val restarted = IncomingSmsWorker.nextTry(IncomingSmsWorker.arrivalInput(SMS_54_AT, tryNumber = 1), runAttemptCount = 4)
+        assertEquals(2, restarted!!.input.getInt("try", 0))
     }
 
     @Test fun aCatchUpQueuesNoTry() = workerTest {

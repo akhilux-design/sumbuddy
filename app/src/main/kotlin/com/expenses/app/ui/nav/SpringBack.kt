@@ -3,6 +3,7 @@ package com.expenses.app.ui.nav
 import android.os.SystemClock
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -10,6 +11,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerEventPass
+import androidx.compose.ui.input.pointer.PointerInputScope
+import androidx.compose.ui.input.pointer.changedToDownIgnoreConsumed
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.navigation.compose.NavBackStackEntryInfo
@@ -45,6 +51,12 @@ import kotlin.math.abs
  * before the cancel comes (seen on Android 16); if the progress is still out when it comes, the relay springs it back
  * the same way.
  *
+ * Until a settle ends, the NavController still has the screen swiped away on top, and the NavHost pops it (with
+ * everything above it) only then. So a settle ends at once, as it would end, before anything else can act on the back
+ * stack: when the content is touched (the first pointer down, before any click of it lands; nothing is consumed), when
+ * the app navigates by code through [openTab] or [rememberNavigateOnce] ([endBackSettles]), when a new swipe starts
+ * and when the app pauses. The NavHost then plays the rest of the swipe itself.
+ *
  * Everything else is passed on at once, as before: Back from a button or the keyboard (on Android 16 a button starts
  * a swipe at 0 and completes it at once; the screens never moved, so the NavHost plays its pop), a swipe that a
  * screen's own `BackHandler` takes, a swipe between tabs (no preview), and every swipe with Remove animations on.
@@ -78,8 +90,35 @@ fun SpringBack(settles: () -> Boolean, content: @Composable () -> Unit) {
     }
     // Before the app goes to the background (and its back handlers are removed), a swipe still settling completes.
     LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) { relay.finishNow() }
-    CompositionLocalProvider(LocalNavigationEventDispatcherOwner provides relay.owner) { content() }
+    CompositionLocalProvider(LocalNavigationEventDispatcherOwner provides relay.owner) {
+        // A touch ends a settle before the touch reaches the screens, so a tap acts on the right back stack.
+        Box(Modifier.pointerInput(relay) { finishOnTouch(relay) }, propagateMinConstraints = true) { content() }
+    }
 }
+
+/** Ends [relay]'s settle on each pointer down, seen first (the initial pass) and consumed by nothing here. */
+private suspend fun PointerInputScope.finishOnTouch(relay: BackSpringRelay) {
+    awaitPointerEventScope {
+        while (true) {
+            val event = awaitPointerEvent(PointerEventPass.Initial)
+            if (event.changes.any { it.changedToDownIgnoreConsumed() }) relay.finishNow()
+        }
+    }
+}
+
+/**
+ * Ends every back swipe still settling ([SpringBack]) at once, as it would end. A navigation made by code calls it
+ * first: until a settle ends, the NavController still has the screen swiped away on top, and the NavHost's pop of it,
+ * when the settle ends, would undo the navigation or (with `saveState`) save that screen into a tab's stack. Main
+ * thread only.
+ */
+fun endBackSettles() {
+    if (settling.isEmpty()) return
+    settling.toList().forEach(BackSpringRelay::finishNow)
+}
+
+/** The relays whose settle is running ([endBackSettles]). Touched on the main thread only. */
+private val settling = LinkedHashSet<BackSpringRelay>()
 
 /**
  * The relay of [SpringBack], without Compose. [handler] goes on the outer dispatcher (the activity's); [owner] is what
@@ -118,6 +157,7 @@ internal class BackSpringRelay(
 
     /** Ends a settle that is still running, at once, as it would end. */
     fun finishNow() {
+        settling.remove(this)
         settle?.cancel()
         settle = null
         val pending = end
@@ -174,16 +214,21 @@ internal class BackSpringRelay(
         val from = swipe.last
         val speed = swipe.speed.perSecond(towards = target)
         end = pass
-        settle = scope.launch(start = CoroutineStart.UNDISPATCHED) {
+        settling += this
+        val job = scope.launch(start = CoroutineStart.UNDISPATCHED) {
             Animatable(from.progress, PROGRESS_THRESHOLD).animateTo(target, spec(), initialVelocity = speed) {
                 input.progressed(from.at(value.coerceIn(0f, 1f)))
             }
             if (from.progress != target) input.progressed(from.at(target))
+            settling.remove(this@BackSpringRelay)
             settle = null
             val pending = end
             end = null
             pending?.invoke()
         }
+        settle = job
+        // A settle whose scope was cancelled (the content left) is no longer listed, so nothing ends it later.
+        job.invokeOnCompletion { if (settle === job) settling.remove(this) }
     }
 
     /** Whether the content's handler that takes a swipe now is the NavHost's (not a screen's own `BackHandler`). */

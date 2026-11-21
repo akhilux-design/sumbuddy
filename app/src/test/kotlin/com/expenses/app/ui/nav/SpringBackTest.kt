@@ -164,6 +164,34 @@ class SpringBackTest {
         assertEquals(1, rig.content.log.count { it == "completed" })
     }
 
+    /** A navigation made by code ends every settle first; with none running, or after one ended, it does nothing. */
+    @Test fun endBackSettlesEndsARunningSettleOnce() = runTest {
+        val rig = Rig(this, settles = true)
+        endBackSettles()
+        assertTrue("nothing to end", rig.content.log.isEmpty())
+        rig.swipe(to = 0.4f)
+        rig.system.backCompleted()
+        runCurrent()
+        endBackSettles()
+        assertEquals("completed", rig.content.log.last())
+        val ended = rig.content.log.size
+        advanceUntilIdle()
+        endBackSettles()
+        assertEquals("no frame and no second completion after it ended", ended, rig.content.log.size)
+    }
+
+    /** A settle that ended by itself is no longer ended by a later navigation. */
+    @Test fun aSettleThatEndedIsNotEndedAgain() = runTest {
+        val rig = Rig(this, settles = true)
+        rig.swipe(to = 0.4f)
+        rig.system.backCompleted()
+        advanceUntilIdle()
+        val ended = rig.content.log.size
+        endBackSettles()
+        assertEquals(ended, rig.content.log.size)
+        assertEquals(1, rig.content.log.count { it == "completed" })
+    }
+
     @Test fun aNewSwipeEndsTheSettleFirst() = runTest {
         val rig = Rig(this, settles = true)
         rig.swipe(to = 0.4f)

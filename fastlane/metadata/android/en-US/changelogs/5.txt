@@ -1,6 +1,7 @@
 Notifications with the app's ₹, and smoother motion.
 * Notifications show the app's ₹ as their small icon, in the app's green
-* Android 11 and older: the quiet "Reading SMS" notification shows once per SMS, not again on each try
+* Android 11 and older: "Reading SMS" shows once per SMS, not on each try
 * A back swipe settles smoothly from your finger's speed after you let go
 * Review payments and group pages open without a blank moment
 * With Remove animations on, loading placeholders no longer flash
+* Groups with only friends says "across 2 friends", not "across 0 groups"

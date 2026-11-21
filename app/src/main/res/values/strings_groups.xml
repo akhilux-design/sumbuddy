@@ -13,6 +13,11 @@
         <item quantity="one">across %d group</item>
         <item quantity="other">across %d groups</item>
     </plurals>
+    <!-- Not in the design yet: the caption when there is no named group, only friends with direct splits. -->
+    <plurals name="groups_overall_caption_friends">
+        <item quantity="one">across %d friend</item>
+        <item quantity="other">across %d friends</item>
+    </plurals>
 
     <!-- Rows: "3 people · owes you" for a group, "owes you" for a friend. -->
     <plurals name="groups_row_people">

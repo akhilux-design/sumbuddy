@@ -16,9 +16,11 @@ import com.expenses.app.ui.shell.MainScaffold
 
 /**
  * Opens a main tab the way a bottom navigation should: one copy of each tab on the back stack, Home at the bottom,
- * and each tab's own back stack and scroll position saved and restored when the person comes back to it.
+ * and each tab's own back stack and scroll position saved and restored when the person comes back to it. A back swipe
+ * still settling ends first, so the screen it swiped away is never saved into the tab's stack ([endBackSettles]).
  */
 fun NavController.openTab(tab: MainTab) {
+    endBackSettles()
     navigate(tab.route) {
         popUpTo<Home> { saveState = true }
         launchSingleTop = true
@@ -52,6 +54,8 @@ fun rememberNavigateOnce(): (navigate: () -> Unit) -> Unit {
     val mayNavigate = LocalMayNavigate.current
     return remember(lifecycleOwner, mayNavigate) {
         { navigate ->
+            // A back swipe still settling ends first: until then the screen it swiped away is still on top (SpringBack).
+            endBackSettles()
             val may = mayNavigate?.invoke() ?: lifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)
             if (may) navigate()
         }

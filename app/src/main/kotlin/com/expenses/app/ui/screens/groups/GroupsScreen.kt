@@ -245,7 +245,8 @@ private fun LazyListScope.loadedContent(state: GroupsUiState.Loaded, onEvent: (G
 
 /**
  * The overall balance across all groups and direct splits. The label says in words which way the money goes; the
- * caption counts the named groups listed.
+ * caption counts the named groups listed, or the friends when there is no named group (only direct splits), so it
+ * never says "across 0 groups".
  */
 @Composable
 private fun OverallCard(state: GroupsUiState.Loaded, modifier: Modifier = Modifier) {
@@ -258,7 +259,11 @@ private fun OverallCard(state: GroupsUiState.Loaded, modifier: Modifier = Modifi
     BalanceCard(
         label = stringResource(label),
         amount = formatRupees(abs(overall)),
-        caption = pluralStringResource(R.plurals.groups_overall_caption, state.groupCount, state.groupCount),
+        caption = if (state.groupCount == 0 && state.friends.isNotEmpty()) {
+            pluralStringResource(R.plurals.groups_overall_caption_friends, state.friends.size, state.friends.size)
+        } else {
+            pluralStringResource(R.plurals.groups_overall_caption, state.groupCount, state.groupCount)
+        },
         modifier = modifier,
         tone = tone,
     )

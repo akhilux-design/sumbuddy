@@ -410,6 +410,17 @@ nothing left to play. Everything else is passed on at once: a Back button (Andro
 completes it at once; nothing moved, so the NavHost plays its pop), a screen's own `BackHandler`, tab to tab (no
 preview) and Remove animations. A settle still running ends at once when a new swipe starts or the app pauses.
 
+Until a settle ends, the NavController still has the screen swiped away on top, and the NavHost pops it (with all
+above it) only then, popping the entry it took when the swipe started. So during the settle a dock tap (`openTab`,
+`popUpTo<Home> { saveState = true }`) saved the swiped screen into Home's stack, a tab's row tap was dropped (its
+`LocalMayNavigate` asks whether the tab is on top), and any other navigation was undone when the settle ended (review
+of 0.3.2, `SpringBackReviewTest`). Fix: the settle ends at once, as it would end, before anything acts on the back
+stack. `SpringBack` watches every pointer down in its content on the initial pass, consuming nothing, and ends a
+settle there, before the touch's click or drag lands. A navigation made by code through `openTab` or
+`rememberNavigateOnce` calls `endBackSettles()` first. The NavHost then plays the rest of the swipe itself. A
+navigation made straight on the NavController during a settle, by code that goes through neither, is still undone.
+None in the app is known to run then: the screens' event handlers check `isCurrent` and follow taps.
+
 Measured on emulator-5554 (`build/keep/motion-032/a-predictive-back/`): before, the last frames before the end move
 at about 4 progress per second (the linear track's speed) and then stop. After, the relay's frames go 0.37 at the
 finger's 0.7/s, up to 4.3/s, then 3.0, 2.1, 1.3, 0.5, 0.2, 0.07/s and rest at 1, about 300 ms to 0.995. Tab to tab,
@@ -443,6 +454,11 @@ Group page drew the grey placeholders for about 65 ms (2 frames) before its data
 Fix: with motion reduced, placeholders wait the same 200 ms on the frame clock (`awaitFrameMillis(scaled = false)`),
 then show at once and stay still. They are in the tree from the start, so screen readers still hear "Loading groups".
 After: the push draws the page's frame for those 2 frames and then the data; no placeholders.
+
+Still open (device check of 0.3.2, `build/keep/check-032/round-1/motion/`): a push to a Group page now draws the
+page's frame with no content (only the back arrow) for those 2 frames, about 65 to 85 ms, before its data. With motion
+on, the push slide covers it. Fixing it means seeding the page's first state from the Groups list row, or keeping the
+old screen until the data is read, which the NavHost cannot do at scale 0 (below).
 
 Still open: the first visit to the Groups tab (and to any tab not visited yet) with Remove animations on draws the tab
 with nothing but its dock for about 2 frames (85 ms here). That is not the loading state: the tab's ViewModel has no
