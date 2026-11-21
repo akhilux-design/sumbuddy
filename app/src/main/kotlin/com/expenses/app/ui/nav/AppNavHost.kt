@@ -41,6 +41,24 @@ fun AppNavHost(
     signedOut: () -> Boolean = { false },
 ) {
     val transitions = rememberNavTransitions(signedOut)
+    // A back swipe follows the finger, then settles with a spring (the NavHost alone would finish it on a linear track).
+    SpringBack(
+        settles = {
+            transitions.previewsBack(navController.currentBackStackEntry?.destination, navController.previousBackStackEntry?.destination)
+        },
+    ) {
+        AppNavGraph(navController, startAtOnboarding, modifier, transitions)
+    }
+}
+
+/** The NavHost of [AppNavHost], with every feature's destinations and the [transitions] of each move. */
+@Composable
+private fun AppNavGraph(
+    navController: NavHostController,
+    startAtOnboarding: Boolean,
+    modifier: Modifier,
+    transitions: NavTransitions,
+) {
     NavHost(
         navController = navController,
         startDestination = if (startAtOnboarding) OnboardingGraph else MainGraph,

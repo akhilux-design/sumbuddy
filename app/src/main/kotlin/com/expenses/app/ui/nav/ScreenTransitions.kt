@@ -93,6 +93,13 @@ enum class Move {
     GateFade,
 }
 
+/**
+ * Whether a back swipe making this move shows a preview: the screens follow the finger, then settle with a spring
+ * ([SpringBack]). Tab to tab shows none, and nothing moves with Remove animations on.
+ */
+val Move.previewsBack: Boolean
+    get() = this == Move.Back || this == Move.FadeThrough || this == Move.ModalDrop
+
 private val TabRoutes: Set<KClass<*>> = setOf(Home::class, Groups::class, Activity::class, You::class)
 
 private val ModalRoutes: Set<KClass<*>> =
@@ -195,6 +202,15 @@ class NavTransitions internal constructor(
             reducedMotion = reducedMotion(),
             toSignedOutGate = !pop && target.isSignInGate() && signedOut(),
         )
+    }
+
+    /**
+     * Whether a back swipe from [from] to [to] shows a preview ([Move.previewsBack]), so [SpringBack] settles it with a
+     * spring. False when either is unknown.
+     */
+    fun previewsBack(from: NavDestination?, to: NavDestination?): Boolean {
+        if (from == null || to == null) return false
+        return move(from = from.kind(), to = to.kind(), pop = true, reducedMotion = reducedMotion()).previewsBack
     }
 
     /** How the screen being shown arrives: `enterTransition` ([pop] false) and `popEnterTransition` ([pop] true). */

@@ -163,7 +163,7 @@ review and success screens (see section 6). Priority is must, should or nice.
 | Arriving at a tab from outside: `finishOnboarding()` to Home, GroupImported "Done" to Groups | "Arrival": `fadeIn(250)` + `scaleIn(0.96, 300)`; the dock comes with the screen. The leaving screen: `fadeOut(150)`. | none | should |
 | Tab to tab (bottom nav, the "Owed to you" / "You owe" tiles, Back from a tab to Home) | The destination transition stays **None**, as today, because each tab draws its own dock. `MainScaffold` animates only the content: alpha 0 to 1 over tween(200, standard) and scale 0.96 to 1 over tween(250, emphasized-decelerate), in one `graphicsLayer`. This runs only when the tab was reached from another tab (see 3.6). (Changed after the device check: the old tab stays drawn until the new tab's page covers it; see 3.6.) | none | must |
 | `ui/components/BottomNav.kt` pill | Draw all four tabs with one composable whose "selectedness" comes from a transition from the previous tab to the active one. **Label:** `expandHorizontally(spring/fast)` + `fadeIn(150, delay 50)`; the old label uses `shrinkHorizontally(spring/fast)` + `fadeOut(100)`. **Face colour and edge alpha:** 150 ms. **Icon tint:** `textTertiary` to `textOnBrand` over 150 ms. `SpaceBetween` lets the other icons glide. **Press:** the pill gets the 3D press (2.3) without the press haptic, and the overlay its inner Row draws today is removed. | none | should |
-| Predictive back (Android 14+; on by default for targetSdk 36 on Android 16): the `NavHost` parameters `predictivePopEnterTransition` and `predictivePopExitTransition` (`(scope, swipeEdge: Int)`, present in 2.10.2) | **Leaving screen:** `scaleOut(0.9)` + slide by width/8 toward the side being swiped (`EDGE_LEFT` moves right) + `fadeOut`, all `tween(250, LinearEasing)` so it tracks the finger. **Screen under it:** slide from -30 dp + `fadeIn`, linear. **Tab to tab:** None, so the gesture shows no preview, as today. Screens with an enabled `BackHandler` get no preview, which is correct there: SplitAdded, Same split, GroupImported, ImportSplitwise, SignInName, Review (sheet open, All sorted), ExpenseDetail (editing), GroupSettings (sheet open), Join (while joining), You (must finish). | none | must |
+| Predictive back (Android 14+; on by default for targetSdk 36 on Android 16): the `NavHost` parameters `predictivePopEnterTransition` and `predictivePopExitTransition` (`(scope, swipeEdge: Int)`, present in 2.10.2) | **Leaving screen:** `scaleOut(0.9)` + slide by width/8 toward the side being swiped (`EDGE_LEFT` moves right) + `fadeOut`, all `tween(250, LinearEasing)` so it tracks the finger. **Screen under it:** slide from -30 dp + `fadeIn`, linear. **Tab to tab:** None, so the gesture shows no preview, as today. Screens with an enabled `BackHandler` get no preview, which is correct there: SplitAdded, Same split, GroupImported, ImportSplitwise, SignInName, Review (sheet open, All sorted), ExpenseDetail (editing), GroupSettings (sheet open), Join (while joining), You (must finish). **After the finger lets go:** the progress springs on to 1 (`motion/spring/screen`, from the finger's speed) before the swipe completes, so the screens settle instead of stopping dead (`ui/nav/SpringBack.kt`, 3.9). | none | must |
 | Remove animations | Every `NavHost` lambda returns `EnterTransition.None` / `ExitTransition.None`, which avoids a one-frame flash. | n/a | must |
 | Gated screens when signed out: `SplitPayment`, `SplitTyped`, `JoinGroup` (`ui/nav/SignInGate.kt`) | The gate draws nothing and opens Sign in only once RESUMED, which is after the 300 ms push. That gives 600 ms of motion on an empty page. **Fix:** when the target is a gate route and the person is signed out (a `() -> Boolean` passed from `AppRoot` into the transition table), the enter is `fadeIn(150)` only. | none | should |
 | `ui/screens/signin/SignInNav.kt` | `offerAutomatically` (the Credential Manager sheet) runs in `LaunchedEffect` at composition, during the modal rise. **Fix:** run it once on the first RESUMED instead. | none | should |
@@ -383,6 +383,36 @@ Compose already ends `tween` and `spring` animations on the next frame. These ne
 - Never put a `liveRegion` node inside `AnimatedContent`. Hide leaving content from accessibility.
 - Never delay an `onClick` or a callback behind an animation.
 - No Lottie, no shimmer gradient, no blur or shadow animation, no shared-element framework.
+
+### 3.9 Predictive back settle (`ui/nav/SpringBack.kt`, 2026-11-22)
+
+Owner rule 2 says a back swipe follows the finger, then settles with a spring from where it was released. The NavHost
+alone does not do the second half. What navigation-compose 2.10.2 does (read in its bytecode, `NavHostKt` and
+`NavHostEventHandler`):
+- While the finger moves, it seeks its `SeekableTransitionState` to each back event's progress
+  (`seekTo(progress, previousEntry)`), so the predictive specs (linear tracks) follow the finger.
+- On commit it pops, then calls `transitionState.animateTo(entry)` with no spec. animation-core 1.12.1 then moves the
+  fraction linearly over the rest of the transition's duration, so each screen glides on at the speed of its 250 ms
+  linear track and stops dead. There is no parameter for this spec.
+- On cancel it runs `animate(fraction, 0, tween(fraction x duration))` and snaps back. On Android 16 this is never
+  seen: the system springs the progress back to 0 (events keep coming after the finger lifts) before it cancels.
+- Android 16 sends no progress after the finger lifts on a commit: it calls completed at once.
+
+So `SpringBack` wraps the NavHost (public API only: navigationevent 1.1.2's `NavigationEventDispatcher`,
+`NavigationEventInput` and `LocalNavigationEventDispatcherOwner`; no fork). The NavHost and every `BackHandler` inside
+it register with its own dispatcher. Its one handler on the activity's dispatcher is enabled exactly while one of
+theirs is, and passes each event on. When a swipe that moved the screens is committed, and the NavHost takes it
+(the handler on top is the NavHost's, `NavBackStackEntryInfo`) and shows a preview (`Move.previewsBack`: Back,
+FadeThrough, ModalDrop), it springs the progress to 1 with `motion/spring/screen` from the finger's speed (the last
+100 ms of events, capped at 5 per second), sends each frame as a progress event, then completes. The NavHost then has
+nothing left to play. Everything else is passed on at once: a Back button (Android 16 starts a swipe at 0 and
+completes it at once; nothing moved, so the NavHost plays its pop), a screen's own `BackHandler`, tab to tab (no
+preview) and Remove animations. A settle still running ends at once when a new swipe starts or the app pauses.
+
+Measured on emulator-5554 (`build/keep/motion-032/a-predictive-back/`): before, the last frames before the end move
+at about 4 progress per second (the linear track's speed) and then stop. After, the relay's frames go 0.37 at the
+finger's 0.7/s, up to 4.3/s, then 3.0, 2.1, 1.3, 0.5, 0.2, 0.07/s and rest at 1, about 300 ms to 0.995. Tab to tab,
+cancel and Back button behave as before.
 
 ## 4. How the design records it
 
