@@ -134,7 +134,7 @@
         "x": 0,
         "y": 110,
         "w": 360,
-        "h": 590,
+        "h": 585,
         "lay": "col",
         "gap": 12,
         "pad": [
@@ -765,9 +765,9 @@
         "t": "FRAME",
         "n": "Footer",
         "x": 0,
-        "y": 700,
+        "y": 695,
         "w": 360,
-        "h": 76,
+        "h": 81,
         "lay": "col",
         "gap": 12,
         "pad": [
@@ -794,7 +794,7 @@
             "x": 16,
             "y": 16,
             "w": 328,
-            "h": 52,
+            "h": 57,
             "lay": "col",
             "gap": 0,
             "pad": [
@@ -807,7 +807,7 @@
             "cross": "MIN",
             "size": [
               "FILL",
-              "FIXED"
+              "HUG"
             ],
             "comp": "Button",
             "variant": "Style=Primary, Size=Large, State=Default",

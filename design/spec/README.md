@@ -21,6 +21,28 @@ the dump of the screen frame. Both themes share one tree: colours are token name
 There are 243 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
 
+## Card bill footers and the notification action, 2026-11-21
+
+Two tidy-ups from the device check of release 0.3.0, on both boards.
+
+- Card bill view footers (`03-getting-paid-back/04`, `22` to `26`): the footer Button (Primary Large, "Remind
+  everyone") now hugs its height: 52 face plus 5 edge is 57. So the Footer is 81 high, like `02-everyday/99` and
+  `04-you/04`, with the same padding (16, 16, 8, 16) and layout. Before, the Button was fixed at 52, the Footer was 76
+  and the button's edge spilled out of it. Now the Footer runs 695 to 776, the button face 711 to 763 and its edge to
+  768, which is what the app draws. The Body is 5 shorter (585). In `24` to `26` the Body clips 5 earlier. In `04` the
+  last Balance Row ends at 698, so its bottom 3 sit under the Footer. Nothing else moved. `20` and `21` have no
+  footer and did not change.
+- `02-everyday/146` Notification (card bill): Android draws a notification action as plain text under the body, with
+  no fill and no 3D edge. So the first notification's "Remind friends" is no longer a Primary Medium Button. It is a
+  text-only action: a frame `Action` (row, 48 high, no fill, label centred in its height) with the label in the
+  `Button` text style and `color/text/brand`, like the Ghost button's "Ignore" on Payment detected. It is left aligned
+  with the body text (x 32 on the frame). The `Actions` row is 48 high (it was 49), so the first card is 168 high and
+  the second card sits 1 higher (y 360 in the Body). Nothing else changed.
+- Left as they were: `02-everyday/04`, `53` and `54` still draw their notification actions as Buttons.
+- Exported: the JSON and both PNGs of the seven screens. Each JSON was checked by hash against a fresh `dump.js` dump
+  of its Dark frame, and the Dark and Light dumps are equal. `flow.md` did not change.
+- 243 screens per theme.
+
 ## Card bills and See the code 2026-11-21
 
 The design additions of `docs/card-bills.md` 2.12 (Card bill view states, the Home entry, the reminder notification)
