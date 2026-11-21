@@ -113,7 +113,7 @@ A payment is read from SMS and the user decides what it is.
 2. `AUTOMATIC` **Bank SMS arrives** - Debit alert from the bank or card issuer.
 3. `AUTOMATIC` **Read on the phone** - Pick out amount, merchant, account, date and reference number.
 4. `DECISION` **Is it a spend?** - Skip OTPs, promotions, money received and transfers between own accounts.
-5. `SCREEN` `V3` **Notify: payment detected** - "Payment detected: ₹450 at Swiggy" with three buttons: Add, Split, Ignore.
+5. `SCREEN` `V3` **Notify: payment detected** - "Payment detected: ₹450 at Swiggy" with three actions: Add, Split, Ignore.
 6. `DECISION` `V3` **What does the user tap?**
 
 ### Branch: Other notifications

@@ -21,6 +21,38 @@ the dump of the screen frame. Both themes share one tree: colours are token name
 There are 243 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
 
+## Notification actions as text, 2026-11-22
+
+The owner approved drawing every notification action as Android draws it, on both boards. The app adds them with
+`NotificationCompat.addAction` and no custom view, so every phone shows them as plain text actions of equal weight
+under the body: no fill, no 3D edge, no primary or secondary.
+
+- `02-everyday/04` Notification and `53` Notification (payment variants): Add, Split, Ignore on each Payment detected
+  card (one card on `04`, two on `53`) were a Primary, a Secondary and a Ghost Button Medium, 93.3 x 49 each. Each is
+  now an `Action` frame like `146`'s: row, HUG width, FIXED 48 high, no fill, label centred in its height, holding a
+  TEXT `Label` in the `Button` text style and `color/text/brand`. Same words, same order.
+- `54` Notification (groups): Confirm on "Priya marked ₹1,200 as paid" was a Primary Button Medium (95 x 49). It is
+  now one `Action`, 63 wide.
+- The `Actions` row keeps its layout (row, MIN, FILL width, HUG height, clips) and is 48 high (it was 49). In `04`
+  and `53` its gap is `space/24` (it was `space/8`), so the three short labels and their touch targets read as
+  separate. `54` keeps `space/8`, like `146`, since it holds one action.
+- Positions on the frame: the first action starts at x 32, left aligned with the body text. Add is at x 32 (32 wide),
+  Split at 88 (36), Ignore at 148 (50). The row runs y 330 to 378 on the first card of `04` and `53`, 510 to 558 on
+  the second card of `53`, and 406 to 454 on `54`.
+- What moved: each card with actions is 1 shorter (168; `54`'s is 146). In `04` the second and third cards sit 1
+  higher (y 360 and 480 in the Body). In `53` the second card sits 1 higher (360) and the third 2 higher (540). In
+  `54` the third and fourth sit 1 higher (436 and 534). Nothing else moved.
+- Touch targets: as drawn, Add (32) and Split (36) are narrower than 48. On the phone Android, not the app, sizes the
+  touch area of each action; the design draws only the label frame, as on `146`.
+- Not a component: the notification cards are plain frames on each board. The Design System page has no Notification
+  component and the Button component did not change. No other frame drew a notification action as a Button.
+- Wording: the Flow page card Notify: payment detected and `flow.md` lane 02 now say "with three actions" (it was
+  "three buttons"). `components/Button.md` no longer lists a notification among the raised containers that hold a
+  Button.
+- Exported: the JSON and both PNGs of `04`, `53` and `54`. Each JSON was checked by hash against a fresh `dump.js`
+  dump of its Dark frame, and the Dark and Light dumps are equal.
+- 243 screens per theme.
+
 ## Card bill footers and the notification action, 2026-11-21
 
 Two tidy-ups from the device check of release 0.3.0, on both boards.

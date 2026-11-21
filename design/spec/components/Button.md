@@ -22,7 +22,7 @@ Figma node 20:26. Files: `Button.json` (full dump), `Button.png` (all variants).
   stroke is drawn inside the face and does not add to its size (Figma: stroke not included in layout), so a Secondary
   face is the same size as a Primary or Ghost face with the same label: 52 high (Large) or 44 high (Medium), 57 or 49
   with the edge space, with the same padding.
-  On a container that is itself `color/bg/surface-raised` (Home's payment card and tip, a notification, a bottom
+  On a container that is itself `color/bg/surface-raised` (Home's payment card and tip, a bottom
   sheet, a dialog card), both boards override `Face` to `color/bg/on-raised` (neutral/50 Light, neutral/700 Dark),
   so the button never matches the card and never looks disabled.
 - Ghost: no fill, no stroke, no shadow, label `color/text/brand`. The wrapper still keeps the 5 bottom padding, so all styles line up.

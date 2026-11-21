@@ -153,7 +153,7 @@
             "x": 16,
             "y": 180,
             "w": 328,
-            "h": 169,
+            "h": 168,
             "lay": "col",
             "gap": 12,
             "pad": [
@@ -330,9 +330,9 @@
                 "x": 16,
                 "y": 104,
                 "w": 296,
-                "h": 49,
+                "h": 48,
                 "lay": "row",
-                "gap": 8,
+                "gap": 24,
                 "pad": [
                   0,
                   0,
@@ -341,7 +341,7 @@
                 ],
                 "main": "MIN",
                 "cross": "MIN",
-                "gapVar": "space/8",
+                "gapVar": "space/24",
                 "size": [
                   "FILL",
                   "HUG"
@@ -349,113 +349,125 @@
                 "clip": true,
                 "c": [
                   {
-                    "t": "INSTANCE",
-                    "n": "Button",
+                    "t": "FRAME",
+                    "n": "Action",
                     "x": 0,
                     "y": 0,
-                    "w": 93.3,
-                    "h": 49,
-                    "lay": "col",
+                    "w": 32,
+                    "h": 48,
+                    "lay": "row",
                     "gap": 0,
                     "pad": [
                       0,
                       0,
-                      5,
+                      0,
                       0
                     ],
                     "main": "MIN",
-                    "cross": "MIN",
+                    "cross": "CENTER",
                     "size": [
-                      "FILL",
-                      "HUG"
+                      "HUG",
+                      "FIXED"
                     ],
-                    "comp": "Button",
-                    "variant": "Style=Primary, Size=Medium, State=Default",
-                    "props": {
-                      "Label": "Add"
-                    },
-                    "texts": [
+                    "c": [
                       {
+                        "t": "TEXT",
                         "n": "Label",
-                        "text": "Add",
-                        "style": "Button",
-                        "fill": [
-                          "color/text/on-brand"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "t": "INSTANCE",
-                    "n": "Button",
-                    "x": 101,
-                    "y": 0,
-                    "w": 93.3,
-                    "h": 49,
-                    "lay": "col",
-                    "gap": 0,
-                    "pad": [
-                      0,
-                      0,
-                      5,
-                      0
-                    ],
-                    "main": "MIN",
-                    "cross": "MIN",
-                    "size": [
-                      "FILL",
-                      "HUG"
-                    ],
-                    "comp": "Button",
-                    "variant": "Style=Secondary, Size=Medium, State=Default",
-                    "props": {
-                      "Label": "Split"
-                    },
-                    "texts": [
-                      {
-                        "n": "Label",
-                        "text": "Split",
-                        "style": "Button",
-                        "fill": [
-                          "color/text/primary"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "t": "INSTANCE",
-                    "n": "Button",
-                    "x": 203,
-                    "y": 0,
-                    "w": 93.3,
-                    "h": 49,
-                    "lay": "col",
-                    "gap": 0,
-                    "pad": [
-                      0,
-                      0,
-                      5,
-                      0
-                    ],
-                    "main": "MIN",
-                    "cross": "MIN",
-                    "size": [
-                      "FILL",
-                      "HUG"
-                    ],
-                    "comp": "Button",
-                    "variant": "Style=Ghost, Size=Medium, State=Default",
-                    "props": {
-                      "Label": "Ignore"
-                    },
-                    "texts": [
-                      {
-                        "n": "Label",
-                        "text": "Ignore",
-                        "style": "Button",
+                        "x": 0,
+                        "y": 14,
+                        "w": 32,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
                         "fill": [
                           "color/text/brand"
-                        ]
+                        ],
+                        "text": "Add",
+                        "style": "Button"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Action",
+                    "x": 56,
+                    "y": 0,
+                    "w": 36,
+                    "h": 48,
+                    "lay": "row",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "CENTER",
+                    "size": [
+                      "HUG",
+                      "FIXED"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Label",
+                        "x": 0,
+                        "y": 14,
+                        "w": 36,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/brand"
+                        ],
+                        "text": "Split",
+                        "style": "Button"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "FRAME",
+                    "n": "Action",
+                    "x": 116,
+                    "y": 0,
+                    "w": 50,
+                    "h": 48,
+                    "lay": "row",
+                    "gap": 0,
+                    "pad": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "main": "MIN",
+                    "cross": "CENTER",
+                    "size": [
+                      "HUG",
+                      "FIXED"
+                    ],
+                    "c": [
+                      {
+                        "t": "TEXT",
+                        "n": "Label",
+                        "x": 0,
+                        "y": 14,
+                        "w": 50,
+                        "h": 20,
+                        "size": [
+                          "HUG",
+                          "HUG"
+                        ],
+                        "fill": [
+                          "color/text/brand"
+                        ],
+                        "text": "Ignore",
+                        "style": "Button"
                       }
                     ]
                   }
@@ -467,7 +479,7 @@
             "t": "FRAME",
             "n": "Notification",
             "x": 16,
-            "y": 361,
+            "y": 360,
             "w": 328,
             "h": 108,
             "lay": "col",
@@ -646,7 +658,7 @@
             "t": "FRAME",
             "n": "Notification",
             "x": 16,
-            "y": 481,
+            "y": 480,
             "w": 328,
             "h": 108,
             "lay": "col",
