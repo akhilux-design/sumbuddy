@@ -49,8 +49,8 @@ interface PagedSmsInbox : SmsInbox {
 }
 
 /**
- * Reads `content://sms/inbox` with the READ_SMS permission. Only the columns `_id`, `address`, `body` and `date` are
- * read. Pages are read with a keyset on (`date`, `_id`), so messages that arrive during a scan neither shift nor
+ * Reads `content://sms/inbox` with the READ_SMS permission. Only the columns `_id`, `address`, `body`, `date` and
+ * `date_sent` are read. Pages are read with a keyset on (`date`, `_id`), so messages that arrive during a scan neither shift nor
  * repeat a page. Nothing is logged or kept: the text only passes through to the caller.
  *
  * @param context any context; only its application context is kept.
@@ -114,6 +114,7 @@ class AndroidSmsInbox(context: Context, private val io: CoroutineDispatcher) : P
         val addressColumn = cursor.getColumnIndexOrThrow(Telephony.Sms.ADDRESS)
         val bodyColumn = cursor.getColumnIndexOrThrow(Telephony.Sms.BODY)
         val dateColumn = cursor.getColumnIndexOrThrow(Telephony.Sms.DATE)
+        val sentColumn = cursor.getColumnIndexOrThrow(Telephony.Sms.DATE_SENT)
         val rows = ArrayList<InboxSms>(cursor.count)
         var last: Pair<Long, Long>? = null
         var scanned = 0
@@ -125,7 +126,13 @@ class AndroidSmsInbox(context: Context, private val io: CoroutineDispatcher) : P
             // A message with no sender cannot be from a bank; it is left out but still moves the page on.
             val address = cursor.getString(addressColumn) ?: continue
             val body = cursor.getString(bodyColumn).orEmpty()
-            rows += InboxSms(providerId = id, message = SmsMessage(sender = address, body = body, receivedAtMillis = date))
+            // 0 or empty when the SMS app did not record when the service centre sent it.
+            val sent = if (cursor.isNull(sentColumn)) 0L else cursor.getLong(sentColumn)
+            rows += InboxSms(
+                providerId = id,
+                message = SmsMessage(sender = address, body = body, receivedAtMillis = date),
+                sentAt = if (sent > 0) Instant.ofEpochMilli(sent) else null,
+            )
         }
         return Page(rows, scanned, last)
     }
@@ -160,6 +167,12 @@ class AndroidSmsInbox(context: Context, private val io: CoroutineDispatcher) : P
     private class Page(val rows: List<InboxSms>, val scanned: Int, val last: Pair<Long, Long>?)
 
     private companion object {
-        val COLUMNS = arrayOf(Telephony.Sms._ID, Telephony.Sms.ADDRESS, Telephony.Sms.BODY, Telephony.Sms.DATE)
+        val COLUMNS = arrayOf(
+            Telephony.Sms._ID,
+            Telephony.Sms.ADDRESS,
+            Telephony.Sms.BODY,
+            Telephony.Sms.DATE,
+            Telephony.Sms.DATE_SENT,
+        )
     }
 }

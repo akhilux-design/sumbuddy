@@ -1,12 +1,14 @@
 # Changelog
 
-## 0.3.1: an SMS right after another is read at once
+## 0.3.1: an SMS right after another is read within seconds
 
 **Fixes**
 
 - An SMS that arrived seconds after another one (often a bank SMS and a UPI SMS for one payment) could be missed
-  until the next SMS came or the app was opened: no "Payment detected", and Home and card bills did not show it.
-  It is now read as it arrives.
+  until the next SMS came or the app next started: no "Payment detected", and Home and card bills did not show it.
+  It is now read within about 10 seconds of arriving.
+- A bank SMS whose sender comes without the hyphen (VMHDFCBK rather than VM-HDFCBK) is now known by its bank, so a
+  UPI payment whose text names no bank goes on the right account.
 
 ## 0.3.0: card bills and See the code
 

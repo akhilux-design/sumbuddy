@@ -21,6 +21,7 @@ import com.expenses.app.data.repository.TransactionRunner
 import com.expenses.app.ingest.InboxSms
 import com.expenses.app.ingest.IngestPipeline
 import com.expenses.app.ingest.IngestResult
+import com.expenses.app.ingest.SmsTimes
 import com.expenses.parser.Banks
 import com.expenses.parser.Confidence
 import com.expenses.parser.Direction
@@ -281,17 +282,20 @@ class SmsIngestPipeline(
         val cardBills = ArrayList<CardBill>()
         val reviewItems = ArrayList<ReviewItem>()
         val read = ArrayList<ReadSms>()
+        private val firstRead = ArrayList<SmsTimes>()
         private var duplicates = 0
         private var skipped = 0
 
         fun stored(sms: InboxSms, outcome: ReadOutcome) {
+            val receivedAt = Instant.ofEpochMilli(sms.message.receivedAtMillis)
             read += ReadSms(
                 smsId = sms.providerId,
-                receivedAt = Instant.ofEpochMilli(sms.message.receivedAtMillis),
+                receivedAt = receivedAt,
                 sender = sms.message.sender,
                 readAt = readAt,
                 outcome = outcome,
             )
+            firstRead += SmsTimes(receivedAt, sms.sentAt)
         }
 
         fun duplicate(sms: InboxSms) {
@@ -314,7 +318,7 @@ class SmsIngestPipeline(
             skipped = skipped,
             alreadyRead = alreadyRead,
             // Exactly the messages this call marks read: a message another reader marked meanwhile is not among them.
-            newestFirstRead = read.maxOfOrNull { it.receivedAt },
+            firstRead = firstRead.toList(),
         )
     }
 
@@ -329,10 +333,7 @@ class SmsIngestPipeline(
 private val InboxSms.key: SmsKey
     get() = SmsKey(providerId, Instant.ofEpochMilli(message.receivedAtMillis), message.sender)
 
-/**
- * The sum of two results, for a scan that ingests the inbox one page at a time. Lists keep their order; the newest
- * first read is the later of the two.
- */
+/** The sum of two results, for a scan that ingests the inbox one page at a time. Lists keep their order. */
 operator fun IngestResult.plus(other: IngestResult): IngestResult = IngestResult(
     detected = detected + other.detected,
     credits = credits + other.credits,
@@ -342,5 +343,5 @@ operator fun IngestResult.plus(other: IngestResult): IngestResult = IngestResult
     duplicates = duplicates + other.duplicates,
     skipped = skipped + other.skipped,
     alreadyRead = alreadyRead + other.alreadyRead,
-    newestFirstRead = listOfNotNull(newestFirstRead, other.newestFirstRead).maxOrNull(),
+    firstRead = firstRead + other.firstRead,
 )

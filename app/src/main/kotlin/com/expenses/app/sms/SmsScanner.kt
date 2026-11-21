@@ -33,8 +33,8 @@ class SmsScanner(private val inbox: PagedSmsInbox, private val pipeline: IngestP
 /**
  * What one [SmsScanner.scan] did.
  *
- * @param result everything the pages stored, added up. Its [IngestResult.newestFirstRead] is when the newest message
- * this scan read for the first time arrived; messages of the period read before are not in it.
+ * @param result everything the pages stored, added up. Its [IngestResult.firstRead] holds the times of the messages
+ * this scan read for the first time; messages of the period read before are not in it.
  * @param read how many inbox messages the period held, including ones read before.
  */
 data class ScanSummary(val result: IngestResult, val read: Int)

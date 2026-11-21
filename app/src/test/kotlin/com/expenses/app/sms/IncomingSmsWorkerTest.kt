@@ -32,6 +32,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.After
+import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -98,8 +99,11 @@ class IncomingSmsWorkerTest {
         block()
     }
 
-    /** One run of the read for an SMS that arrived at [arrivedAt] (a catch-up when null), its [attempt]th try. */
-    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0): ListenableWorker.Result {
+    /**
+     * One run of the read for an SMS that arrived at [arrivedAt] (a catch-up when null), its [attempt]th try. [sent]
+     * holds the service-centre times the broadcast gave.
+     */
+    private suspend fun run(arrivedAt: Instant?, attempt: Int = 0, sent: List<Instant> = emptyList()): ListenableWorker.Result {
         val builder = TestListenableWorkerBuilder<IncomingSmsWorker>(context)
             .setRunAttemptCount(attempt)
             .setWorkerFactory(
@@ -111,7 +115,7 @@ class IncomingSmsWorkerTest {
                     ): ListenableWorker = IncomingSmsWorker(appContext, workerParameters, parts)
                 },
             )
-        if (arrivedAt != null) builder.setInputData(IncomingSmsWorker.arrivalInput(arrivedAt))
+        if (arrivedAt != null) builder.setInputData(IncomingSmsWorker.arrivalInput(arrivedAt, sent))
         return builder.build().doWork()
     }
 
@@ -217,8 +221,92 @@ class IncomingSmsWorkerTest {
         assertEquals(listOf(SMS_54_AT), posted())
     }
 
+    @Test fun anUnreadMessageWithAnotherServiceCentreTimeIsNotTheNewSms() = workerTest {
+        // SMS 53 reached the inbox while nothing read it (an app update, say). The read for SMS 54 runs before the SMS
+        // app wrote SMS 54 and reads SMS 53 for the first time: its service-centre time is not SMS 54's.
+        inbox += SMS_53.sent(SMS_53_SENT)
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+        assertTrue(wasRead(SMS_53))
+
+        inbox += SMS_54.sent(SMS_54_SENT)
+        now = SMS_54_AT.plusSeconds(10)
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(listOf(SMS_53_AT, SMS_54_AT), posted())
+    }
+
+    @Test fun aMessageReadBeforeWithTheSameServiceCentreSecondIsNotTheNewSms() = workerTest {
+        // A bank SMS and a UPI SMS stamped in the same second: the first one was read by its own read.
+        inbox += SMS_53.sent(SMS_54_SENT)
+        now = SMS_53_AT.plusSeconds(1)
+        run(SMS_53_AT, sent = listOf(SMS_54_SENT))
+        dismissAll()
+
+        // Its time matches, but it was read before, so it says nothing about SMS 54.
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+
+        inbox += SMS_54.sent(SMS_54_SENT)
+        now = SMS_54_AT.plusSeconds(10)
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(listOf(SMS_54_AT), posted())
+    }
+
+    @Test fun theMatchingServiceCentreTimeIsEnoughHoweverEarlyTheInboxTime() = workerTest {
+        // An SMS app that stores the network's time as the arrival: 3 minutes before the broadcast.
+        val early = SMS_54_AT.minusSeconds(180)
+        inbox += sms(54, SMS_54.message.body, early).sent(early)
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, sent = listOf(early)))
+        assertEquals(listOf(early), posted())
+    }
+
+    @Test fun anyPartsServiceCentreTimeMatches() = workerTest {
+        // A long SMS in two parts, stamped a second apart; the SMS app recorded the second part's time.
+        inbox += SMS_54.sent(SMS_54_SENT.plusSeconds(1))
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(
+            ListenableWorker.Result.success(),
+            run(SMS_54_AT, sent = listOf(SMS_54_SENT, SMS_54_SENT.plusSeconds(1))),
+        )
+    }
+
+    @Test fun withNoServiceCentreTimeInTheInboxTheArrivalTimeDecides() = workerTest {
+        // The SMS app records no date_sent: the broadcast's time cannot be matched, so the two-minute rule decides.
+        now = SMS_54_AT.plusMillis(40)
+        assertEquals(ListenableWorker.Result.retry(), run(SMS_54_AT, sent = listOf(SMS_54_SENT)))
+
+        inbox += SMS_54
+        now = SMS_54_AT.plusSeconds(10)
+        assertEquals(ListenableWorker.Result.success(), run(SMS_54_AT, attempt = 1, sent = listOf(SMS_54_SENT)))
+        assertEquals(listOf(SMS_54_AT), posted())
+    }
+
+    @Test fun anSmsAppThatRecordsAnotherSentTimeCostsOnlyTries() = workerTest {
+        // The inbox's date_sent is not the broadcast's: the SMS is read and notified at once, the tries go on for nothing.
+        inbox += SMS_54.sent(SMS_54_SENT.minusSeconds(30))
+        val results = (0..IncomingSmsWorker.MAX_ATTEMPTS).map { attempt ->
+            now = SMS_54_AT.plusSeconds(10L * attempt)
+            run(SMS_54_AT, attempt, sent = listOf(SMS_54_SENT))
+        }
+        assertTrue(wasRead(SMS_54))
+        assertEquals(listOf(SMS_54_AT), posted())
+        assertEquals(IncomingSmsWorker.MAX_ATTEMPTS, results.count { it == ListenableWorker.Result.retry() })
+        assertEquals(ListenableWorker.Result.success(), results.last())
+    }
+
     @Test fun theWorkersInputIsOnlyTheArrivalTime() {
         assertEquals(mapOf("arrived_at" to SMS_54_AT.toEpochMilli()), IncomingSmsWorker.arrivalInput(SMS_54_AT).keyValueMap)
+    }
+
+    @Test fun theWorkersInputIsOnlyTimes() {
+        val input = IncomingSmsWorker.arrivalInput(SMS_54_AT, listOf(SMS_54_SENT, SMS_54_SENT.plusSeconds(1)))
+        assertEquals(setOf("arrived_at", "sent_at"), input.keyValueMap.keys)
+        assertEquals(SMS_54_AT.toEpochMilli(), input.getLong("arrived_at", 0))
+        assertArrayEquals(
+            longArrayOf(SMS_54_SENT.toEpochMilli(), SMS_54_SENT.plusSeconds(1).toEpochMilli()),
+            input.getLongArray("sent_at"),
+        )
     }
 
     /** An inbox that grows as the SMS app writes messages to it. */
@@ -255,6 +343,10 @@ class IncomingSmsWorkerTest {
         val SMS_53_AT: Instant = nov(16, 23, 0).plusSeconds(33)
         val SMS_54_AT: Instant = SMS_53_AT.plusSeconds(43)
 
+        /** When the service centre stamped them (the inbox's `date_sent`), a little before each arrived. */
+        val SMS_53_SENT: Instant = SMS_53_AT.minusSeconds(2)
+        val SMS_54_SENT: Instant = SMS_54_AT.minusSeconds(2)
+
         // Message texts follow the parser's samples; names and numbers are made up.
         val SMS_53 = sms(
             53,
@@ -271,5 +363,8 @@ class IncomingSmsWorkerTest {
             InboxSms(providerId = id, message = SmsMessage(sender = HDFC, body = body, receivedAtMillis = at.toEpochMilli()))
 
         fun InboxSms.key() = SmsKey(providerId, Instant.ofEpochMilli(message.receivedAtMillis), message.sender)
+
+        /** This message as an SMS app that records the service-centre time stores it. */
+        fun InboxSms.sent(at: Instant) = copy(sentAt = at)
     }
 }

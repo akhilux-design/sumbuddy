@@ -336,7 +336,8 @@ Each screen: a stateless `XScreen(state: XUiState, onEvent: (XEvent) -> Unit, ..
 ## Ingestion interfaces (`com.expenses.app.ingest`)
 
 ```kotlin
-data class InboxSms(val providerId: Long, val message: SmsMessage)
+data class InboxSms(val providerId: Long, val message: SmsMessage, val sentAt: Instant? = null)  // sentAt: date_sent
+data class SmsTimes(val receivedAt: Instant, val sentAt: Instant?)   // the two times of one message, nothing else
 
 interface SmsInbox {
     suspend fun read(since: Instant): List<InboxSms>     // inbox messages received at or after since, oldest first
@@ -350,7 +351,7 @@ data class IngestResult(
     val detected: List<Expense>, val credits: List<Expense>, val newAccounts: List<Account>,
     val cardBills: List<CardBill>, val reviewItems: List<ReviewItem>,
     val duplicates: Int, val skipped: Int, val alreadyRead: Int,
-    val newestFirstRead: Instant?,   // arrival time of the newest message this call marked read itself, else null
+    val firstRead: List<SmsTimes>,   // times of the messages this call marked read itself, oldest first
 )
 ```
 
@@ -381,9 +382,10 @@ data class IngestResult(
    new credit card is made and the `OTHER` account stays as it is.
 7. `Unreadable` → `ReviewRepository.add(ReviewItem(...body = text))`, `ReadSms(REVIEW)`.
 8. Each message's writes and its `ReadSms` row go in one `TransactionRunner.run { }`.
-9. `newestFirstRead` is the newest `receivedAt` among the `ReadSms` rows this call wrote, whatever their outcome (an
-   OTP counts). A message read before, or by another reader between the first check and the transaction, is not in
-   it. `IncomingSmsWorker` uses it to tell that its SMS has reached the inbox.
+9. `firstRead` holds the times (`receivedAt`, and `sentAt` from the inbox's `date_sent` when the SMS app recorded it)
+   of the messages this call wrote `ReadSms` rows for, whatever their outcome (an OTP counts). A message read before,
+   or by another reader between the first check and the transaction, is not in it. `IncomingSmsWorker` uses it to
+   tell that its SMS has reached the inbox.
 
 Payments found by the onboarding scan of past months start as DETECTED like any other; when more than one waits,
 Home's payment card offers "Review all N", which opens Review payments (swipe review and Add all, below).
@@ -607,14 +609,25 @@ stored data on show.
   again. Only a successful scan up to now stores `lastScanAt`.
 - `ScanWorker.startOlderScan(context, newStart, oldStart)` ("Add older payments"): reads `[newStart, oldStart)` and
   moves the tracking start to `newStart` only when it succeeded, even if the screen was closed.
-- `IncomingSmsWorker.enqueue(context, arrivedAt)` after each new SMS reads from `lastScanAt` (or the tracking start
-  when there is none) less 30 minutes, never before the tracking start. Its input is only the arrival time. The
-  default SMS app may write the message to the inbox a moment after the broadcast, so the worker may run first. It
-  takes the SMS as read only when this run read a message for the first time (`IngestResult.newestFirstRead`: the
-  messages this `ingest` call marked read itself) that arrived at most 2 minutes before the broadcast. A message read
-  before does not count, however close: a bank SMS and a UPI SMS for one payment often arrive seconds apart.
-  Otherwise it tries again up to 5 times, 10, 20, 30, 40 and 50 s apart (linear backoff, about 2.5 minutes in all),
-  then stops. When another read took the SMS first, those tries find nothing new and post nothing.
+- `IncomingSmsWorker.enqueue(context, arrivedAt, sentAt)` after each new SMS reads from `lastScanAt` (or the tracking
+  start when there is none) less 30 minutes, never before the tracking start. Its input is only times: the arrival
+  time, and the service-centre times of the SMS's parts (`SmsMessage.getTimestampMillis()` from the broadcast, the
+  time the default SMS app records as `date_sent`), which `SmsReceivedReceiver` takes from the broadcast without
+  keeping its text. The default SMS app may write the message to the inbox a moment after the broadcast, so the
+  worker may run first. It takes the SMS as read only when this run read for the first time (`IngestResult.firstRead`:
+  the messages this `ingest` call marked read itself) a message that is this SMS: the one whose `date_sent` is one of
+  the broadcast's service-centre times; or, when the inbox row has no `date_sent` or the broadcast gave none, one that
+  arrived at most 2 minutes before the broadcast. A message read before does not count, however close: a bank SMS and
+  a UPI SMS for one payment often arrive seconds apart. Nor does an unread message with no read of its own (it came
+  during an app update, or before onboarding was done) when the service-centre times tell it apart. Otherwise it
+  tries again up to 5 times, 10, 20, 30, 40 and 50 s apart (linear backoff, about 2.5 minutes in all; about 4 on the
+  emulator, where the system held the tries back), then stops. When another read took the SMS first, those tries find
+  nothing new and post no "Payment detected". On Android 11 and older each try still shows the quiet "Reading SMS"
+  notification while it runs: WorkManager runs every try of expedited work as a foreground service there.
+  Still open, all rare: when the service-centre times cannot tell two messages apart (no `date_sent`, no time from
+  the broadcast, or both stamped in the same second), an unread message with no read of its own that arrived within
+  the 2 minutes still ends the wait, and the SMS waits for the next SMS or app start. An SMS app that records another
+  time as `date_sent` costs only tries: the SMS is read and notified on the first try that finds it.
   `IncomingSmsWorker.catchUp(context)` (unique, KEEP) runs the same read without a new SMS and never tries again;
   `ExpensesApplication` queues it when the app starts with SMS tracking on and whenever tracking begins.
 - Turning SMS tracking on again (`turnSmsTrackingOn`) moves the tracking start and the last scan to now; the time

@@ -13,8 +13,18 @@ import java.time.Instant
  * @param providerId the `_id` of the message in the SMS content provider; unique on this phone. It is the key for
  * exactly-once reading ([com.expenses.app.data.model.ReadSms]).
  * @param message sender, text and time of the message.
+ * @param sentAt when the network's service centre stamped the message (the inbox's `date_sent`), or null when the SMS
+ * app did not record it. It only tells which inbox message a new SMS broadcast was about ([SmsTimes]).
  */
-data class InboxSms(val providerId: Long, val message: SmsMessage)
+data class InboxSms(val providerId: Long, val message: SmsMessage, val sentAt: Instant? = null)
+
+/**
+ * The two times of one inbox message, and nothing else of it.
+ *
+ * @param receivedAt when it arrived (the inbox's `date`), as in [SmsMessage.receivedAtMillis].
+ * @param sentAt when the service centre stamped it ([InboxSms.sentAt]), or null when not recorded.
+ */
+data class SmsTimes(val receivedAt: Instant, val sentAt: Instant?)
 
 /**
  * Reads SMS from the phone's inbox.
@@ -71,8 +81,8 @@ interface IngestPipeline {
  * @param skipped messages that were not about a payment and were not stored.
  * @param alreadyRead messages ignored because they had been read before, by an earlier call or by another reader
  * while this call ran.
- * @param newestFirstRead when the newest of the messages this call marked read arrived: the messages it read for the
- * first time, whether or not they gave anything to store (an OTP counts). Null when it marked none read, so every
+ * @param firstRead the times of the messages this call marked read itself: the messages it read for the first time,
+ * whether or not they gave anything to store (an OTP counts), oldest first. Empty when it marked none read, so every
  * message was read before or by another reader meanwhile. `IncomingSmsWorker` uses it to tell that its SMS has
  * reached the inbox.
  */
@@ -85,5 +95,5 @@ data class IngestResult(
     val duplicates: Int = 0,
     val skipped: Int = 0,
     val alreadyRead: Int = 0,
-    val newestFirstRead: Instant? = null,
+    val firstRead: List<SmsTimes> = emptyList(),
 )

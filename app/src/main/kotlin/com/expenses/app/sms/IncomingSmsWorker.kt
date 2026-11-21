@@ -17,6 +17,7 @@ import com.expenses.app.data.settings.TrackingMode
 import com.expenses.app.di.AppContainer
 import com.expenses.app.ingest.IngestPipeline
 import com.expenses.app.ingest.NewPaymentsHook
+import com.expenses.app.ingest.SmsTimes
 import com.expenses.app.ingest.runNewPaymentsHooks
 import java.time.Clock
 import java.time.Duration
@@ -28,18 +29,29 @@ import kotlinx.coroutines.flow.first
  * Reads new SMS after [SmsReceivedReceiver] saw one arrive, stores what they give and posts a "Payment detected"
  * notification for each new detected debit.
  *
- * The worker gets only the time the SMS arrived, never its text: WorkManager keeps its input on disk, and SMS text
- * may be stored only as the architecture allows. The message itself, with all its parts joined, is read from the SMS
- * inbox, which also gives the provider id that makes reading exactly-once.
+ * The worker gets only times, never the text: when the SMS arrived, and when the network's service centre stamped its
+ * parts ([SmsReceivedReceiver]). WorkManager keeps its input on disk, and SMS text may be stored only as the
+ * architecture allows. The message itself, with all its parts joined, is read from the SMS inbox, which also gives the
+ * provider id that makes reading exactly-once.
  *
  * The default SMS app may write the message to the inbox a moment after the broadcast, so the worker may run before
- * it is there. It takes the SMS as read only when this run read a message for the first time (it marked the message
- * read itself: [com.expenses.app.ingest.IngestResult.newestFirstRead]) that arrived at most two minutes before the
- * broadcast. A message read before does not count, however close: a bank SMS and a UPI SMS for one payment often
- * arrive seconds apart, and the first one read must not end the wait for the second. Otherwise it tries again
- * [MAX_ATTEMPTS] times, 10, 20, 30, 40 and 50 seconds apart (about two and a half minutes in all, longer when the
- * system holds the work back), and then stops. When another read took the SMS first, these tries find nothing new
- * and post nothing.
+ * it is there. It takes the SMS as read only when this run read for the first time (it marked the message read itself:
+ * [com.expenses.app.ingest.IngestResult.firstRead]) a message that is this SMS ([isTheSms]): the one whose
+ * service-centre time (`date_sent`) is the broadcast's; or, when the SMS app records no such time or the broadcast gave
+ * none, one that arrived at most two minutes before the broadcast. A message read before does not count, however
+ * close: a bank SMS and a UPI SMS for one payment often arrive seconds apart, and the first one read must not end the
+ * wait for the second. Nor does an unread message that had no read of its own (it came during an app update, or
+ * while onboarding was not done), when the service-centre times tell it apart. Otherwise it tries again
+ * [MAX_ATTEMPTS] times, 10, 20, 30, 40 and 50 seconds apart (about two and a half minutes in all, up to about four
+ * when the system holds the work back), and then stops. When another read took the SMS first, these tries find
+ * nothing new and post no "Payment detected"; on Android 11 and older each try still shows the quiet "Reading SMS"
+ * notification while it runs, because WorkManager runs every try of expedited work as a foreground service there.
+ *
+ * Still open, all rare: when the service-centre times cannot tell two messages apart (the SMS app records none, the
+ * broadcast gave none, or both carry the same second), an unread message with no read of its own that arrived within
+ * the two minutes still ends the wait, and the new SMS waits for the next SMS or app start. An SMS app that records
+ * another time as `date_sent` costs only tries: the SMS is read and notified on the first try that finds it, and the
+ * tries go on for nothing.
  *
  * It reads from the last scan (less a small overlap), so messages missed while the app could not run are caught up;
  * messages read before are skipped by the pipeline. With no last scan (the onboarding scan did not finish) it reads
@@ -67,6 +79,7 @@ class IncomingSmsWorker internal constructor(
         val now = app.clock.instant()
         val catchingUp = KEY_ARRIVED_AT !in inputData.keyValueMap
         val arrivedAt = Instant.ofEpochMilli(inputData.getLong(KEY_ARRIVED_AT, now.toEpochMilli()))
+        val sentAt = inputData.getLongArray(KEY_SENT_AT)?.map(Instant::ofEpochMilli)?.toSet().orEmpty()
         val lastScan = settings.lastScanAt ?: trackingStart
         val from = maxOf(trackingStart, minOf(lastScan, arrivedAt).minus(OVERLAP))
         val summary = SmsScanner(inbox, app.pipeline).scan(from, until = null)
@@ -88,10 +101,9 @@ class IncomingSmsWorker internal constructor(
             PaymentNotifications.show(applicationContext, expense, account)
         }
 
-        // The SMS is in only when this run read a message for the first time that arrived about when it did. A message
-        // read before (by an earlier run, or by another reader meanwhile) says nothing about this SMS, however close.
-        val firstRead = summary.result.newestFirstRead
-        val arrived = catchingUp || (firstRead != null && firstRead >= arrivedAt.minus(ARRIVAL_MARGIN))
+        // The SMS is in only when this run read it for the first time. A message read before (by an earlier run, or by
+        // another reader meanwhile) says nothing about this SMS, however close; nor does another message read now.
+        val arrived = catchingUp || summary.result.firstRead.any { isTheSms(it, arrivedAt, sentAt) }
         return if (!arrived && runAttemptCount < MAX_ATTEMPTS) Result.retry() else Result.success()
     }
 
@@ -116,6 +128,7 @@ class IncomingSmsWorker internal constructor(
         internal const val MAX_ATTEMPTS = 5
 
         private const val KEY_ARRIVED_AT = "arrived_at"
+        private const val KEY_SENT_AT = "sent_at"
         private const val FOREGROUND_ID = 7101
         private const val CATCH_UP = "sms_catch_up"
         private val OVERLAP: Duration = Duration.ofMinutes(30)
@@ -123,18 +136,47 @@ class IncomingSmsWorker internal constructor(
         private val NOTIFY_WINDOW: Duration = Duration.ofDays(1)
         private val RETRY_DELAY: Duration = Duration.ofSeconds(10)
 
-        /** Queues a read for an SMS that arrived at [arrivedAt], expedited when the quota allows. */
-        fun enqueue(context: Context, arrivedAt: Instant) {
+        /**
+         * Queues a read for an SMS that arrived at [arrivedAt], expedited when the quota allows. [sentAt] holds the
+         * service-centre times of its parts; empty when the broadcast gave none.
+         */
+        fun enqueue(context: Context, arrivedAt: Instant, sentAt: List<Instant> = emptyList()) {
             val request = OneTimeWorkRequestBuilder<IncomingSmsWorker>()
-                .setInputData(arrivalInput(arrivedAt))
+                .setInputData(arrivalInput(arrivedAt, sentAt))
                 .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
                 .setBackoffCriteria(BackoffPolicy.LINEAR, RETRY_DELAY.toMillis(), TimeUnit.MILLISECONDS)
                 .build()
             WorkManager.getInstance(context).enqueue(request)
         }
 
-        /** The worker's input for an SMS that arrived at [arrivedAt]: that time and nothing else. */
-        internal fun arrivalInput(arrivedAt: Instant): Data = workDataOf(KEY_ARRIVED_AT to arrivedAt.toEpochMilli())
+        /**
+         * The worker's input for an SMS that arrived at [arrivedAt] with the service-centre times [sentAt]: those
+         * times and nothing else. With no service-centre time it is the arrival time alone.
+         */
+        internal fun arrivalInput(arrivedAt: Instant, sentAt: List<Instant> = emptyList()): Data =
+            if (sentAt.isEmpty()) {
+                workDataOf(KEY_ARRIVED_AT to arrivedAt.toEpochMilli())
+            } else {
+                workDataOf(
+                    KEY_ARRIVED_AT to arrivedAt.toEpochMilli(),
+                    KEY_SENT_AT to sentAt.map(Instant::toEpochMilli).toLongArray(),
+                )
+            }
+
+        /**
+         * Whether [read], a message a run read for the first time, is the SMS that arrived at [arrivedAt] with the
+         * service-centre times [sentAt]. When both have a service-centre time, that decides: another message that
+         * arrived close by is not taken for this one. Otherwise the message must have arrived at most
+         * [ARRIVAL_MARGIN] before the broadcast.
+         */
+        internal fun isTheSms(read: SmsTimes, arrivedAt: Instant, sentAt: Set<Instant>): Boolean {
+            val readSentAt = read.sentAt
+            return if (readSentAt != null && sentAt.isNotEmpty()) {
+                readSentAt in sentAt
+            } else {
+                read.receivedAt >= arrivedAt.minus(ARRIVAL_MARGIN)
+            }
+        }
 
         /**
          * Queues a read from the last scan up to now without a new SMS, so messages that arrived while nothing read

@@ -11,6 +11,7 @@ import com.expenses.app.data.repository.TransactionRunner
 import com.expenses.app.data.repository.nov
 import com.expenses.app.ingest.InboxSms
 import com.expenses.app.ingest.IngestResult
+import com.expenses.app.ingest.SmsTimes
 import com.expenses.parser.Direction
 import com.expenses.parser.SmsMessage
 import com.expenses.parser.SmsParser
@@ -109,18 +110,21 @@ class SmsIngestPipelineTest {
         assertEquals(3, test.readSms.observeCounts().first().total)
     }
 
-    @Test fun newestFirstReadIsTheNewestMessageThisCallMarkedRead() = runTest {
-        // An OTP stores nothing but is read for the first time all the same.
-        val first = pipeline.ingest(listOf(sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
-        assertEquals(nov(16, 13, 5), first.newestFirstRead)
+    @Test fun firstReadHoldsTheMessagesThisCallMarkedRead() = runTest {
+        // An OTP stores nothing but is read for the first time all the same. The service-centre time comes along.
+        val sentAt = nov(16, 13, 4)
+        val first = pipeline.ingest(
+            listOf(sms(2, OTP_SENDER, OTP, nov(16, 13, 5)).copy(sentAt = sentAt), sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2))),
+        )
+        assertEquals(listOf(SmsTimes(nov(16, 13, 2), null), SmsTimes(nov(16, 13, 5), sentAt)), first.firstRead)
 
         // Read before: none of them counts, even the newest of the call.
         val again = pipeline.ingest(listOf(sms(1, HDFC, SWIGGY_BANK, nov(16, 13, 2)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
-        assertNull(again.newestFirstRead)
+        assertTrue(again.firstRead.isEmpty())
 
         // An older message read for the first time counts, though a newer one in the call was read before.
         val older = pipeline.ingest(listOf(sms(3, HDFC, CREDIT, nov(16, 12)), sms(2, OTP_SENDER, OTP, nov(16, 13, 5))))
-        assertEquals(nov(16, 12), older.newestFirstRead)
+        assertEquals(listOf(SmsTimes(nov(16, 12), null)), older.firstRead)
         assertEquals(1, older.alreadyRead)
     }
 
@@ -150,7 +154,7 @@ class SmsIngestPipelineTest {
 
         val result = late.ingest(listOf(message))
 
-        assertNull(result.newestFirstRead)
+        assertTrue(result.firstRead.isEmpty())
         assertEquals(1, result.alreadyRead)
         assertTrue(result.detected.isEmpty())
         assertEquals(1, count("expenses"))
@@ -341,7 +345,10 @@ class SmsIngestPipelineTest {
 
         assertEquals(listOf(2, 4, 5), progress)
         assertEquals(5, summary.read)
-        assertEquals(nov(16, 15), summary.result.newestFirstRead)
+        assertEquals(
+            listOf(nov(16, 13, 0), nov(16, 13, 1), nov(16, 13, 2), nov(16, 14), nov(16, 15)),
+            summary.result.firstRead.map { it.receivedAt },
+        )
         // The app copy came first and was replaced by the bank SMS on the next page, so it is one detected payment.
         assertEquals(1, summary.result.detected.size)
         assertEquals(1, count("expenses", "direction = 'DEBIT'"))
@@ -354,18 +361,17 @@ class SmsIngestPipelineTest {
         val again = SmsScanner(inbox, pipeline).scan(nov(16, 0), until = null)
         assertEquals(5, again.read)
         assertEquals(5, again.result.alreadyRead)
-        assertNull(again.result.newestFirstRead)
+        assertTrue(again.result.firstRead.isEmpty())
     }
 
     @Test fun resultsAddUp() {
         val sum = IngestResult(duplicates = 1, skipped = 2) + IngestResult(skipped = 3, alreadyRead = 4)
         assertEquals(IngestResult(duplicates = 1, skipped = 5, alreadyRead = 4), sum)
-        assertEquals(nov(16, 14), (IngestResult(newestFirstRead = nov(16, 14)) + IngestResult()).newestFirstRead)
-        assertEquals(nov(16, 14), (IngestResult() + IngestResult(newestFirstRead = nov(16, 14))).newestFirstRead)
-        assertEquals(
-            nov(16, 15),
-            (IngestResult(newestFirstRead = nov(16, 15)) + IngestResult(newestFirstRead = nov(16, 14))).newestFirstRead,
-        )
+        val two = SmsTimes(nov(16, 14), null)
+        val three = SmsTimes(nov(16, 15), nov(16, 15))
+        assertEquals(listOf(two), (IngestResult(firstRead = listOf(two)) + IngestResult()).firstRead)
+        assertEquals(listOf(two), (IngestResult() + IngestResult(firstRead = listOf(two))).firstRead)
+        assertEquals(listOf(two, three), (IngestResult(firstRead = listOf(two)) + IngestResult(firstRead = listOf(three))).firstRead)
     }
 
     private fun sms(id: Long, sender: String, body: String, at: Instant) =
