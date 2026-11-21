@@ -16,14 +16,14 @@ card due reminders); `parser/.../CardBills.kt`, `CardBillRepository`, `CardBillD
 | D4 | Scheduling uses WorkManager one-time work, no exact alarms. | WorkManager is already used, survives reboot by itself, and exact alarms need a special permission. A reminder a few minutes late is fine. |
 | D5 | Card bills, the reminder and its text stay on the phone. The server gets nothing new. | `docs/server.md` 12; README privacy table ("card bills ... Never"). |
 | D6 | The bill's cycle is estimated: statement date = the earlier of the bill's first SMS day and due date − 15 days; the cycle is the month that ends on it. | No SMS prints the statement period. A statement SMS arrives on the statement day; a due reminder alone needs the 15-day bound (Indian issuers give 15 to 25 days). |
-| D7 | `CardBillRepository.upsert` keeps the first SMS's `receivedAt` and `smsId`, and `remindedAt`, when a later SMS of the same bill replaces it. Amounts and account come from the newer SMS. | D6 needs when the bill first arrived; a reminder SMS must not reset the reminder. |
+| D7 | `CardBillRepository.upsert` keeps the first SMS's `receivedAt` and `smsId`, and `remindedAt`, when another SMS of the same bill replaces it. Amounts and account come from the newer SMS. This holds in either order: "add older payments" stores older SMS after newer ones. | D6 needs when the bill first arrived; a reminder SMS must not reset the reminder. |
 | D8 | New column `card_bills.remindedAt: Instant?`, database version 7, `AutoMigration(6 → 7)`. | "Already reminded" belongs to the bill and goes with it (delete, cascade). |
 | D9 | "Friends owe you X of it" per friend per group = min(their shares of this cycle's split card payments, what they owe the person in that group now). | Settlements are not tied to expenses (`docs/server.md` 6.2). Treating repayments as clearing the oldest debts first is what people expect, and min never shows more than is owed now. |
 | D10 | The pair amount is the Group page's (`pairBalance(myMemberId, memberId)`, the simplified transfer). Removed members and families never count. | Same number Remind and Settle up use; the server answers `nothing_owed` for a removed member. |
 | D11 | The heading shows the true sum; only the bar (at most full) and "your own" (at least ₹0) are bounded. | The cycle is an estimate and can reach a little into the next bill; no shown number is made up. |
 | D12 | The Insight bar is friends' part ÷ bill total, not money collected. | The drawn fill (100 of 293) is 8,200 ÷ 24,300; the bar and the amount share the yellow. |
 | D13 | Paid = credits on the card after the statement date, up to due date + 7 days, add up to the bill. A smaller sum (minimum due) changes nothing. | The issuer's "Payment of Rs … has been received on your … Card" is read as a CREDIT on the card (parser sample `ct-hdfc-cardmember-payment-received`). Strictly after the statement day, so a payment of the previous bill never marks this one paid. |
-| D14 | Only the latest bill of a card is current (latest due date; without due dates, latest first SMS). Older ones are "replaced": no Home row, no reminder. | A new statement means the old bill is history. |
+| D14 | Only the latest bill of a card is current (latest due date; without due dates, latest first SMS; a bill with no due date replaces a dated one only when its SMS arrived after that due date, so a bank's undated reminder inside the cycle does not). Older ones are "replaced": no Home row, no reminder. | A new statement means the old bill is history. |
 | D15 | Bills of a card the person switched off, and bills that name neither bank nor card (`accountId` null), are never shown or reminded. | The app's rule for switched-off accounts; with no card, nothing can be matched or marked paid. |
 | D16 | Manual mode: no Home rows and no reminders. The switch keeps its value. | Without SMS the app cannot see a bill paid or the next bill. |
 | D17 | Entry point: a "Card bills" list card on Home (Me side) above Latest, one row per card. No entry on You or Accounts and cards. | The design draws only the notification. Home is where due things are; on Accounts and cards a tap renames (`04-you/10`). |
@@ -81,7 +81,9 @@ All dates are India dates (`AppContainer.ZONE`).
   `totalDueMinor` (D13).
 - **State** (today `T`): `PAID(on)` if paid; else no due date → `NO_DATE`; `dueDate − T` = 0 → `DUE_TODAY`, 1 →
   `DUE_TOMORROW`, ≥ 2 → `DUE_IN(days)`, < 0 → `OVERDUE`.
-- **Current bill** of a card: latest due date, then latest `receivedAt` (D14).
+- **Current bill** of a card: latest due date, then latest `receivedAt` (D14). A bill without a due date ranks by
+  the date of its `receivedAt`, below a dated bill due that same day: it replaces a dated bill only when it arrived
+  after that bill's due date.
 - **On Home** (D15 to D18): current, `accountId` not null, account tracked, SMS mode, Me side; state not `PAID`; `OVERDUE` only until `dueDate + 7 days`; `NO_DATE` only until `S + 30 days`.
   Sorted by due date (no date last), then card name.
 - **Reminder time** `fireAt(dueDate, now)` (D3), `target` = `dueDate − 3 days` at 09:00:
@@ -109,7 +111,8 @@ Body (padding 8/16, gap 12), Footer.
 | Balance Row, `Owes you` | "Rahul", "Goa trip · 3 expenses", "+₹4,100", avatar | friend rows (2.2); detail = group name or for a direct split none, then the count; several groups: "2 groups · 4 expenses" |
 | Footer: Button Primary Large | "Remind everyone" | 2.6 |
 
-Insight card: `color/bg/surface`, stroke `color/accent/yellow` 1.5, radius 16, padding 16, gap 12. Rows: tap opens
+Insight card: `color/bg/surface`, stroke `color/accent/yellow` 1.5, radius 16, padding 16 inside the stroke (the
+frame counts the stroke in its layout, so the content starts 17.5 from the edge), gap 12. Rows: tap opens
 `GroupPage(targetGroupId)` (D20). The brand card is one accessibility node ("HDFC Millennia, card ending 2217. Bill
 due in 5 days. ₹24,300."); the bar has progress semantics and the caption says the same in words.
 
@@ -170,8 +173,10 @@ The push carries only group and member ids (`docs/server.md` 4.11). Nothing abou
 - `CardBillReminders.sync()`: reads every bill and enqueues, for each one that is due a reminder, unique work
   `card_bill_reminder_<billId>` (tag `card_bill_reminder`, `ExistingWorkPolicy.REPLACE`, initial delay
   `fireAt − now`, input `billId`); cancels the work of every other bill and the posted notification of bills now
-  paid, replaced, deleted or switched off. "Due a reminder": current, account tracked, `accountId` not null, due date
-  known, `remindedAt` null, `remindersOn`, SMS mode, state not `PAID`, `fireAt` not none.
+  paid, replaced, deleted or switched off. A bill's work that is running is neither cancelled nor replaced (REPLACE
+  would cancel it between its post and `remindedAt`, and the new work would post again). "Due a reminder": current,
+  account tracked, `accountId` not null, due date known, `remindedAt` null, `remindersOn`, SMS mode, state not
+  `PAID`, `fireAt` not none.
 - `CardBillReminderWorker` (`CoroutineWorker`): re-checks everything above at run time (the source of truth); if
   `fireAt(now)` is more than a minute away (late run into quiet hours), re-enqueues itself for it; if notifications
   are off (`areNotificationsEnabled` false), does nothing; else posts and sets `remindedAt = now`.
@@ -393,3 +398,6 @@ the `cardbill` packages, the route and `AppLink`), `docs/server.md` 13.15, `desi
 - A reminder SMS after a part payment that prints only what is left becomes the bill's total, so earlier part
   payments can mark it paid early.
 - WorkManager can run a reminder late while the phone is idle; the worker never posts in quiet hours.
+- D7 compares an SMS with the bill's first SMS only (no column keeps when the amounts' SMS came): an SMS stored
+  after a newer one of the same bill, but not older than the bill's first, gives the amounts. That needs two older
+  SMS of one bill read by "add older payments" after a newer one; banks' reminders mostly repeat the same total.

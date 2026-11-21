@@ -246,8 +246,9 @@ suspend fun deleteUnused()                                                  // a
 ```kotlin
 suspend fun upsert(bill: CardBill): Long        // replaces the bill of the same bank + cardLast4 + dueDate; a bill with
                                                 // no due date, or with neither bank nor card, is always a new row. A
-                                                // replaced bill keeps the first SMS's receivedAt and smsId, and
-                                                // remindedAt; amounts and account come from the newer SMS (D7)
+                                                // replaced bill keeps the earlier SMS's receivedAt and smsId, and
+                                                // remindedAt; amounts and account come from the later SMS, in
+                                                // whichever order they are stored (D7)
 suspend fun get(id: Long): CardBill?
 fun observe(id: Long): Flow<CardBill?>
 suspend fun all(): List<CardBill>
@@ -645,8 +646,8 @@ on the phone; the server gets nothing new.
   (one `OwedPart` per group and friend of the cycle's split payments), the session and the tracking mode.
 - `CardBillReminders`: `sync()` enqueues unique work `card_bill_reminder_<billId>` (tag `card_bill_reminder`, REPLACE,
   initial delay to `fireAt`, a `card_bill_fire_at_<millis>` tag so a second sync changes nothing) for each bill due a
-  reminder, cancels every other bill's work, and removes the posted notification of a bill now paid, replaced,
-  deleted or switched off. `remind(billId)` is what `CardBillReminderWorker` runs: it checks everything again, waits
+  reminder, cancels every other bill's work (a running one is left to finish, never cancelled or replaced), and
+  removes the posted notification of a bill now paid, replaced, deleted or switched off. `remind(billId)` is what `CardBillReminderWorker` runs: it checks everything again, waits
   again when it ran early or into quiet hours, posts, and sets `remindedAt`. `sync()` runs at every start and whenever
   the reminders switch, the tracking mode, a card's tracking or the bills change (`ExpensesApplication`, after
   onboarding), and after an SMS read that stored card bills or credits (`IncomingSmsWorker`, `ScanWorker`).

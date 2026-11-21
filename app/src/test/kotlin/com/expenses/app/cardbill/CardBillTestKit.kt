@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.work.Configuration
+import androidx.work.CoroutineWorker
 import androidx.work.ListenableWorker
 import androidx.work.WorkManager
 import androidx.work.WorkerFactory
@@ -31,6 +32,7 @@ import java.time.Clock
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.robolectric.Shadows.shadowOf
 
@@ -50,14 +52,24 @@ internal class CardBillTestKit {
 
     private var provided: CardBillReminders? = null
 
+    /** While set, a reminder's work started from now on waits for it and does nothing else (it shows RUNNING). */
+    var hold: CompletableDeferred<Unit>? = null
+
     val reader = CardBillReader(
         database.cardBills, database.accounts, database.expenses, { parts }, signedIn, settings, TestZone,
     )
 
     init {
         val factory = object : WorkerFactory() {
-            override fun createWorker(appContext: Context, workerClassName: String, workerParameters: WorkerParameters): ListenableWorker =
-                CardBillReminderWorker(appContext, workerParameters, provided ?: reminders())
+            override fun createWorker(appContext: Context, workerClassName: String, workerParameters: WorkerParameters): ListenableWorker {
+                val gate = hold ?: return CardBillReminderWorker(appContext, workerParameters, provided ?: reminders())
+                return object : CoroutineWorker(appContext, workerParameters) {
+                    override suspend fun doWork(): Result {
+                        gate.await()
+                        return Result.success()
+                    }
+                }
+            }
         }
         WorkManagerTestInitHelper.initializeTestWorkManager(
             context,

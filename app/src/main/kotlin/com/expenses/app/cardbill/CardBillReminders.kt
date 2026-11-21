@@ -80,12 +80,16 @@ class CardBillReminders(
         }
         val manager = workManager()
         val waiting = manager.getWorkInfosByTagFlow(TAG).first().filter { !it.state.isFinished }
+        // A reminder that is running finishes on its own checks (it posts, or waits again for its time). It is neither
+        // cancelled nor replaced: REPLACE would cancel it, and a cancel between its post and its "reminded" mark would
+        // let the new work post it a second time.
+        val running = waiting.filter { it.state == WorkInfo.State.RUNNING }.mapNotNullTo(HashSet()) { billIdOf(it) }
         for (info in waiting) {
             val billId = billIdOf(info) ?: continue
-            // A reminder that is running finishes on its own checks.
-            if (billId !in planned && info.state != WorkInfo.State.RUNNING) manager.cancelUniqueWork(uniqueName(billId))
+            if (billId !in planned && billId !in running) manager.cancelUniqueWork(uniqueName(billId))
         }
         for ((billId, at) in planned) {
+            if (billId in running) continue
             val same = waiting.any { billIdOf(it) == billId && it.state == WorkInfo.State.ENQUEUED && fireAtOf(it) == at.toEpochMilli() }
             if (!same) enqueue(manager, billId, at, now)
         }

@@ -6,6 +6,7 @@ import com.expenses.app.cardbill.CardBillTestKit.Companion.at
 import com.expenses.app.data.settings.TrackingMode
 import java.time.Duration
 import java.time.LocalDate
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -108,6 +109,41 @@ class CardBillRemindersTest {
         // Planned for now: the test WorkManager runs it at once, and the reminder is posted.
         assertEquals(listOf("HDFC Millennia bill due in 2 days"), kit.posted().map { it.extras.getString("android.title") })
         assertTrue(kit.database.cardBills.get(id)!!.remindedAt != null)
+    }
+
+    /**
+     * Inside the window in the day the planned time is "now", so it changes with every sync. A sync while the reminder
+     * runs must leave it alone: REPLACE would cancel it, and a cancel between its post and its "reminded" mark would
+     * let the new work post it again.
+     */
+    @Test fun aRunningReminderIsNeitherCancelledNorReplaced() = runTest {
+        val id = kit.bill(kit.card())
+        val gate = CompletableDeferred<Unit>()
+        kit.hold = gate
+        try {
+            kit.now = at(11, 19, 14)
+            kit.reminders().sync()
+            val running = runningWork(id)
+            kit.now = at(11, 19, 14, 5)
+            kit.reminders().sync()
+            assertEquals(listOf(running.id to WorkInfo.State.RUNNING), works(id).map { it.id to it.state })
+            // Switched off meanwhile: the running reminder still finishes on its own checks.
+            kit.settings.value = kit.settings.value.copy(remindersOn = false)
+            kit.reminders().sync()
+            assertEquals(listOf(running.id to WorkInfo.State.RUNNING), works(id).map { it.id to it.state })
+        } finally {
+            gate.complete(Unit)
+        }
+    }
+
+    /** Waits (up to 5 s) until the reminder work of [billId] is running, and returns it. */
+    private fun runningWork(billId: Long): WorkInfo {
+        val until = System.currentTimeMillis() + 5_000
+        while (System.currentTimeMillis() < until) {
+            works(billId).singleOrNull { it.state == WorkInfo.State.RUNNING }?.let { return it }
+            Thread.sleep(20)
+        }
+        throw AssertionError("the reminder did not start: ${works(billId).map { it.state }}")
     }
 
     @Test fun aBillPastItsDueDateIsNeverReminded() = runTest {

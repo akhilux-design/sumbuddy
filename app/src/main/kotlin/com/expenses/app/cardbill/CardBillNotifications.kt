@@ -83,7 +83,8 @@ object CardBillNotifications {
         createChannel(context)
         val billId = detail.bill.id
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_card_line)
+            // Payment detected's small icon (docs/card-bills.md 2.7): the status bar shows one icon for the app.
+            .setSmallIcon(R.drawable.ic_receipt_line)
             .setContentTitle(title(context, detail, dueDate, today))
             .setContentText(body(context, detail, dueDate))
             .setCategory(NotificationCompat.CATEGORY_REMINDER)

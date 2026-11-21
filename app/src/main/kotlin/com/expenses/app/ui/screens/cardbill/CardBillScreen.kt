@@ -226,6 +226,8 @@ private fun Insight(body: CardBillBody.FriendsOwe) {
             .clip(shape)
             .background(colors.bgSurface)
             .border(InsightStroke, colors.accentYellow, shape)
+            // The design counts the stroke inside the card: the content starts 16 in from the stroke, not the edge.
+            .padding(InsightStroke)
             .padding(Space.s16),
         verticalArrangement = Arrangement.spacedBy(Space.s12),
     ) {

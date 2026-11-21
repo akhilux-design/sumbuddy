@@ -218,18 +218,20 @@ object CardBillMath {
 
     /**
      * True when [bill] is the current bill of its card among [all] (D14): the latest due date, then the latest first
-     * SMS. A bill without a due date counts by its estimated due date (statement + 15 days), so a newer statement that
-     * printed none still takes over from an older bill.
+     * SMS. A bill without a due date takes over from a dated one only when its SMS arrived after that bill's due date
+     * (a newer statement that printed none); before it, it is the bank's reminder of the dated bill, which stays
+     * current and keeps its reminder.
      */
     fun isCurrent(bill: CardBill, all: List<CardBill>, zone: ZoneId): Boolean {
         val accountId = bill.accountId ?: return false
-        val order = compareBy<CardBill>({ dueKey(it, zone) }, { it.receivedAt }, { it.id })
+        val order = compareBy<CardBill>({ dueKey(it, zone) }, { it.dueDate != null }, { it.receivedAt }, { it.id })
         val latest = all.filter { it.accountId == accountId }.maxWithOrNull(order) ?: return true
         return latest.id == bill.id
     }
 
+    /** The day [isCurrent] ranks [bill] by: its due date, or without one the day its SMS arrived. */
     private fun dueKey(bill: CardBill, zone: ZoneId): LocalDate =
-        bill.dueDate ?: statementDate(bill, zone).plusDays(STATEMENT_GAP_DAYS)
+        bill.dueDate ?: bill.receivedAt.atZone(zone).toLocalDate()
 
     /**
      * True when [facts]' bill may show on Home or be reminded at all (D14 to D16): SMS mode, a card that is still

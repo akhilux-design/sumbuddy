@@ -16,20 +16,25 @@ class CardBillRepository(
      * replaced, so a reminder after the statement updates it instead of adding a second bill. A bill that prints no
      * due date, or names neither the bank nor the card, is always stored as a new bill, so no statement is lost.
      *
-     * The replacing SMS gives the amounts and the account; the stored bill keeps when it first arrived and that
-     * message's id ([CardBill.receivedAt], [CardBill.smsId]), and whether it was reminded ([CardBill.remindedAt]):
-     * the bill's cycle is counted from its first SMS, and a bank's own reminder must not reset the app's
-     * (docs/card-bills.md D7).
+     * The bill keeps the earlier SMS's arrival and id ([CardBill.receivedAt], [CardBill.smsId]) and takes the amounts
+     * and the account from the later one, whichever order they are stored in: "add older payments" reads SMS from
+     * before the tracking start after the newer ones were stored. It keeps whether it was reminded
+     * ([CardBill.remindedAt]). The bill's cycle is counted from its first SMS, and a bank's own reminder must not
+     * reset the app's (docs/card-bills.md D7).
      */
     suspend fun upsert(bill: CardBill): Long = transactions.run {
         val dueDate = bill.dueDate
         val identified = bill.bank != null || bill.cardLast4 != null
         val existing = if (dueDate != null && identified) bills.find(bill.bank, bill.cardLast4, dueDate) else null
         val toStore = if (existing != null) {
-            bill.copy(
+            // The stored row's receivedAt is its first SMS's; its amounts are from an SMS at or after that one.
+            val older = bill.receivedAt.isBefore(existing.receivedAt)
+            val first = if (older) bill else existing
+            val latest = if (older) existing else bill
+            latest.copy(
                 id = existing.id,
-                receivedAt = existing.receivedAt,
-                smsId = existing.smsId,
+                receivedAt = first.receivedAt,
+                smsId = first.smsId,
                 remindedAt = existing.remindedAt,
             )
         } else {
