@@ -27,7 +27,7 @@ First launch to a working home screen.
 
 1. `SCREEN` **Install and open** - Short intro: expenses track themselves, splitting is free.
 2. `SCREEN` `V3` **Your name** - Shown on Home. Kept on this phone: tracking needs no sign-in.
-3. `SCREEN` `V3` **Privacy promise** - Shown before the Android prompt: messages are read on the phone, never uploaded, and only payments are kept.
+3. `SCREEN` `V3` **Privacy promise** - Shown before the Android prompt: messages are read on the phone, never uploaded, only payments are kept, and the code that reads them is public.
 4. `DECISION` **Allow SMS access?** - Android permission prompt.
 5. `DECISION` **Allow notifications?** - Android 13 and later ask for this. Needed to show payment detected.
 6. `DECISION` `NEW` **How far back?** - User picks: start fresh (no past payments), this month (suggested), last 3 months, or from a date.
@@ -123,6 +123,7 @@ A payment is read from SMS and the user decides what it is.
 - `SCREEN` `NEW` **Group notifications (bundled)** - Several show under one header: the app name and a count. Tapping one opens its group and removes only that one. Sound, no pop-up.
 - `SCREEN` `NEW` **Paid back notifications** - Balance cleared, directly or in several groups. You paid Rahul. 'Was this Rahul paying you back?' when unsure.
 - `SCREEN` `NEW` **Reminders and background** - 'Rahul reminded you'. On Android 11 and older, quiet notes while SMS are read or groups sync.
+- `SCREEN` `NEW` **Card bill reminder** - 3 days before a card bill is due. Remind friends shows when friends owe part of it. Nothing goes to friends by itself.
 
 ### Branch: If Add
 
@@ -618,12 +619,26 @@ For people who pay for the group on their credit card.
 2. `SCREEN` `NEW` **Split as usual** - Through lane 03.
 3. `AUTOMATIC` `NEW` **Bill SMS detected** - Statement amount and due date read from the card issuer's message.
 4. `OUTCOME` `NEW` **Card page** - "Bill of ₹24,300 due in 5 days. Friends owe you ₹8,200 of it."
-5. `SCREEN` `NEW` **Remind everyone** - One tap sends each friend their amount and pay link.
+5. `SCREEN` `NEW` **Remind everyone** - One tap reminds each friend who owes part: a push on the app, or WhatsApp with their pay link.
 6. `OUTCOME` `NEW` **Paid back before the due date**
 
 ### Branch: If reminders are switched on
 
-1. `AUTOMATIC` `NEW` **Automatic reminders** - App sends the reminders itself, a set number of days before the due date.
+1. `AUTOMATIC` `NEW` **Automatic reminders** - A notification to you 3 days before the due date. You choose whether to remind friends.
+
+### Branch: Where it shows
+
+1. `SCREEN` `NEW` **Home row** - Each card's latest bill until it is paid. Tap for the card page.
+
+### Branch: Other states
+
+- `SCREEN` `NEW` **Nobody owes part**
+- `SCREEN` `NEW` **Signed out**
+- `SCREEN` `NEW` **Past due**
+- `SCREEN` `NEW` **Paid** - The card's payment SMS closes it.
+- `SCREEN` `NEW` **Reminder sent**
+- `SCREEN` `NEW` **No reminder sent**
+- `SCREEN` `NEW` **Offline**
 
 ## 07 Free and Plus
 
@@ -636,7 +651,7 @@ Everything designed so far is free. Plus will be a set of niche extras, still to
 - `FREE` `NEW` **Settling up** - UPI hand-off, repayment detection, friends without the app.
 - `FREE` `NEW` **Splitwise import** - So a whole group can switch.
 - `FREE` `NEW` **Card bill view** - Bill amount, due date and what friends owe of it.
-- `FREE` `NEW` **Automatic reminders** - Before a card due date or at month end.
+- `FREE` `NEW` **Automatic reminders** - Before a card due date.
 
 ### (blank label)
 

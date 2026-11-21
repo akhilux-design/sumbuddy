@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (0.3.0)
+## 0.3.0: card bills and See the code
 
 **Card bills**
 

@@ -18,8 +18,57 @@ Everything needed to build the SumBuddy Android app without opening Figma. Expor
 A screen `.json` holds `name`, `group`, `index`, `darkId` and `lightId` (Figma node ids of the two themes) and `tree`,
 the dump of the screen frame. Both themes share one tree: colours are token names, resolved per theme in `tokens.json`.
 
-There are 234 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
+There are 243 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
+
+## Card bills and See the code 2026-11-21
+
+The design additions of `docs/card-bills.md` 2.12 (Card bill view states, the Home entry, the reminder notification)
+and 3 (See the code), on both boards, the Flow page and `flow.md`.
+
+- New: `02-everyday/145` and `146`, `03-getting-paid-back/20` to `26`. Changed in place: `01-onboarding/05`.
+- `145` Home (card bill) is `52` with Label "Card bills" (Label, upper, `color/text/secondary`) and a `List card`
+  (You's: `color/bg/surface`, radius 16, padding 12, gap 12) under the Balance Card, above Latest. Two Info Rows with
+  Icon/card 3D: "HDFC Millennia bill" / "₹24,300 due in 5 days · friends owe ₹8,200" (wraps to two lines, row 64
+  high) and "ICICI Amazon Pay bill" / "₹6,480 due in 12 days". 52's third Latest row (Uber) is left out so nothing
+  shows cut. This is a new look: show it to the owner before it is built.
+- `146` Notification (card bill) is `54` with two notifications in place of its four, each `04`'s card bill
+  notification: "SumBuddy · now", "HDFC Millennia bill due in 3 days" / "Friends owe you ₹8,200 of the ₹24,300." and
+  an `Actions` row (54's) with Button Primary Medium "Remind friends"; then "SumBuddy · 2h", "ICICI Amazon Pay bill due
+  tomorrow" / "Pay ₹6,480 by 17 Nov." with no action. The clock stays Monday, 16 November, as on 54. `04` is unchanged
+  (its sample still reads "due in 5 days" with no action).
+- Card bill view states, each `04` with:
+  - `20` nothing owed: the brand card, then a `List card` with one Info Row (Icon/users 3D) "Nobody owes you for this
+    bill" / "Split a payment made with this card and what friends owe of it shows here." No Insight, no Who owes what,
+    no footer.
+  - `21` signed out: the brand card, then You's `Sign in card` (`04-you/06`: Icon/user 3D, "Sign in with Google" /
+    "To split with friends. Your SMS stay on this phone."). No footer.
+  - `22` overdue: the card label reads "Bill was due 14 Nov" and the Insight caption "Your own part of it is
+    ₹16,100." (one line, so the Insight is 135 high and the rows sit 18 higher). `23` paid: "Bill paid on 19 Nov" and
+    "Your own part of it was ₹16,100.". Both keep Remind everyone.
+  - `24` reminder sent, `25` no reminder sent, `26` offline: the Group page's banner frame (`02-everyday/87`, `110`,
+    `99`) at the top of the body. The body clips, so the last Balance Row runs under the footer, as on the Group
+    page.
+- Copy-only variants (`docs/card-bills.md` D24), not drawn: no due date (label "Latest bill", caption "Get it back
+  before it is due and you only pay your own ₹16,100."), due today and tomorrow ("Bill due today", "Bill due
+  tomorrow"), one friend (heading "Rahul owes you ₹4,100 of this"), several groups (row detail "2 groups · 4
+  expenses"), and the Problem banner ("Could not do that now" / "Try again in a moment.") in place of `26`'s. Home row
+  subtitles: "₹24,300 due today", "due tomorrow", "was due 14 Nov", "₹24,300 to pay" without a date, each followed by
+  " · friends owe ₹8,200" when friends owe part. Notification: "due in 2 days", "due tomorrow", "due today"; one
+  friend "Rahul owes you ₹4,100 of the ₹24,300."; nobody owes part or signed out "Pay ₹24,300 by 21 Nov." with no
+  action.
+- `01-onboarding/05` Privacy promise: a fourth Info Row, 16 under "What we keep stays here": Icon/receipt 3D, "Check
+  it yourself" / "The code that reads SMS is public." It is not a link. The Note sits 60 lower and nothing reaches the
+  footer.
+- See the code on You (`04-you/00`, `06`, `09`) and What we've read (`04`) was already drawn; no change.
+- Left as it was: `04`'s progress layer is still named "Collected", though its fill is the friends' share of the bill.
+- On the board: `20` to `26` sit right after `04` Card bill view, `145` after `52`, `146` after `54`.
+- Flow page and `flow.md`: lane 01 Privacy promise mentions the public code; lane 02 Other notifications gains Card bill
+  reminder; lane 06 Remind everyone and Automatic reminders have new text, and two new branches, Where it shows (Home
+  row) and Other states (seven cards side by side); lane 07 Automatic reminders reads "Before a card due date."
+- Exported: the JSON and both PNGs of the ten screens. Each JSON was checked by hash against a fresh `dump.js` dump of
+  its Dark frame, and the Dark and Light dumps are equal.
+- 243 screens per theme.
 
 ## Name: SumBuddy 2026-11-20
 
