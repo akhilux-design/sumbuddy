@@ -54,17 +54,55 @@ guidelines, which ask for it there. It is not covered by the GPL and may be used
 ## Proprietary libraries in the app
 
 The Android app links these libraries, which are distributed under the Android Software Development Kit License, not
-an open-source licence. The additional permission in [README.md](README.md#licence) allows conveying SumBuddy with
-them.
+an open-source licence. The additional permission in [README.md](README.md#licence) names the Google Play services
+client libraries, Firebase Cloud Messaging, the Google Identity Services library (googleid) and the Credential Manager
+Play services module. The two Firebase libraries at the end of this list come in with Firebase Cloud Messaging.
 
 - Google Play services client libraries (`play-services-auth`, `-auth-base`, `-auth-api-phone`,
   `-auth-blockstore`, `-fido`, `-identity-credentials`, `-base`, `-basement`, `-tasks`, `-cloud-messaging`,
   `-stats`), pulled in by the Credential Manager Play services module and Firebase Cloud Messaging;
-- Google Identity Services for Android (`com.google.android.libraries.identity.googleid:googleid`).
+- Google Identity Services for Android (`com.google.android.libraries.identity.googleid:googleid`);
+- two Firebase libraries, `com.google.firebase:firebase-iid-interop` and
+  `com.google.firebase:firebase-measurement-connector`, pulled in by Firebase Cloud Messaging.
 
-Firebase Cloud Messaging (`firebase-messaging`) and the Credential Manager modules are Apache-2.0 themselves. All
-other libraries the app and the server ship with are open source (Apache-2.0 or MIT); `gradle/libs.versions.toml`,
-`server/package.json` and `server/web/package.json` list them.
+Firebase Cloud Messaging (`firebase-messaging`) and the Credential Manager modules are Apache-2.0 themselves. Every
+other library in the app is open source under Apache-2.0, except one:
+`androidx.datastore:datastore-preferences-external-protobuf` carries a copy of Protocol Buffers (Copyright 2008 Google
+Inc.), which is under the BSD 3-Clause licence. Its licence text ships in the APK, in
+`META-INF/androidx/datastore/datastore-preferences-external-protobuf/LICENSE.txt`.
+
+```
+Copyright 2008 Google Inc.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+    * Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+The server's one runtime library, `jose`, is under MIT. `gradle/libs.versions.toml`, `server/package.json` and
+`server/web/package.json` list the direct dependencies.
 
 ## Names
 

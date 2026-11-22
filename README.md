@@ -5,7 +5,8 @@ payments in them, and asks you to add, split or ignore each one. Your SMS never 
 
 - **Your month, without typing.** Spending by category, this month against last month, and card bills: what is due,
   what friends owe you of it, and a reminder 3 days before.
-- **Private.** The SMS are read on the phone. There are no ads, no analytics and no tracking.
+- **Private.** The SMS are read on the phone. No ads and no analytics. Push messages for groups use Google's Firebase
+  Cloud Messaging, only after you sign in.
 - **Free and open source** (GPL-3.0-or-later). No subscription and no paid features.
 - **Split with friends.** Groups, who owes whom, settle up by UPI, cash or bank transfer, and a WhatsApp link for
   friends who don't have the app.
@@ -16,11 +17,11 @@ Made for India: rupees, Indian banks and UPI. Android 8.0 or later.
 
 ## Screenshots
 
-| Home | Review payments | Month |
-|---|---|---|
-| <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="240" alt="Home with a payment detected from SMS"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="240" alt="Review payments, one card at a time"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="240" alt="Month view by category"> |
-| **Group** | **Family month** | **Import from Splitwise** |
-| <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="240" alt="A group page with balances"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="240" alt="Family month on Home"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="240" alt="Import a group from Splitwise"> |
+| Home | Review payments | Card bills | A card bill |
+|---|---|---|---|
+| <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="200" alt="Home with a payment detected from SMS"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="200" alt="Review payments, one card at a time"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="200" alt="Home with card bills due and what friends owe"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="200" alt="A card bill with who owes what"> |
+| **Month** | **Group** | **Family month** | **Import from Splitwise** |
+| <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200" alt="Month view by category"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="200" alt="A group page with balances"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="200" alt="Family month on Home"> | <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/8.png" width="200" alt="Import a group from Splitwise"> |
 
 The screenshots use the app's made-up sample data.
 
@@ -181,6 +182,14 @@ numbers or UPI IDs into an issue. Security problems go privately: [SECURITY.md](
 
 akhilu.design@gmail.com, for questions, privacy requests (also from people who are not on GitHub) and anything that
 should not be in a public issue.
+
+## How this was made
+
+The maintainer decides what SumBuddy does and how it looks, and approves design changes from pictures. Claude Code,
+an AI coding tool from Anthropic, built most of the Figma design under that direction (`design/spec` is an export of
+it) and wrote nearly all of the code, tests and documentation. Changes are checked by the automated tests in this
+repository, by separate AI review passes, and on an Android emulator against the design pictures. Commits written
+with Claude carry a "Co-Authored-By: Claude" line.
 
 ## Licence
 

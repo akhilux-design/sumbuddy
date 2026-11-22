@@ -25,7 +25,7 @@ Private by design
 * SMS are read on the phone and never uploaded or logged
 * Without sign-in, nothing about you is stored on any server
 * Only the expenses you split or mark Family are shared, with the people in that group
-* No ads, no analytics, no tracking
+* No ads and no analytics. Push messages for groups use Google's Firebase Cloud Messaging, only after you sign in
 
 Made for India: rupees, Indian banks and UPI. Free and open source (GPL-3.0-or-later).
 

@@ -1,14 +1,15 @@
 # SumBuddy privacy policy
 
-Last updated: 20 November 2026
+Last updated: 22 November 2026
 
 SumBuddy is a free, open-source Android app that tracks your monthly spending from the bank and UPI SMS on your
 phone, and lets you split shared expenses with friends and family. It is made and run by its maintainer, akhilux
 (<https://github.com/akhilux-design>, akhilu.design@gmail.com). This policy says what the app and its server do with your information. The
 code that does all of this is public in this repository, so every statement here can be checked.
 
-**In short:** your SMS never leave your phone. Nothing is sent anywhere unless you sign in to split. There are no ads,
-no analytics, no tracking, and your data is never sold.
+**In short:** your SMS never leave your phone. Nothing about you is sent anywhere unless you sign in to split. No ads
+and no analytics. Push messages for groups use Google's Firebase Cloud Messaging, only after you sign in. Your data is
+never sold.
 
 ## 1. On your phone
 
@@ -68,11 +69,13 @@ The server stores only what you put in a shared place:
 - **Cloudflare** hosts the server (Cloudflare Workers, the D1 database and Durable Objects) and the friends' web page
   (Cloudflare Pages). Their privacy policy: <https://www.cloudflare.com/privacypolicy/>.
 - **Google** provides sign-in (Google Identity Services, through Android's Credential Manager) and push messages
-  (Firebase Cloud Messaging). Push messages carry only a group id and a version number; the phone then fetches the
-  change from our server and writes any notification itself, so no expense passes through Google. When push is on
-  (after you sign in), Google Play services on the phone registers a Firebase installation id with Google to get the
-  push token. Firebase Analytics is not included in the app, and Firebase's automatic start-up is switched off.
-  Google's privacy policy: <https://policies.google.com/privacy>.
+  (Firebase Cloud Messaging). Push messages carry only ids (a group id with a version number, or a group id and a member
+  id for a reminder), never names, amounts or text; the phone then fetches the change from our server and writes any
+  notification itself, so no expense passes through Google. The app sets up the Firebase library itself at start-up,
+  with Firebase's automatic start-up and automatic push token switched off, and asks for a push token only while you are
+  signed in. The phone then registers a Firebase installation id (Firebase's own, not the app's installation id above)
+  with Google and gets the push token through Google Play services. Signing out deletes the token. Firebase Analytics is
+  not included in the app. Google's privacy policy: <https://policies.google.com/privacy>.
 
 Nobody else receives your data. We do not sell or rent it, and we do not use it for advertising.
 

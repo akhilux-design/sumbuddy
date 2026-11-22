@@ -183,9 +183,11 @@ Spec: `docs/card-bills.md`. Design: `03-getting-paid-back/04` and `20` to `26`, 
 ## Distribution and privacy (2026-11-20)
 
 - SumBuddy is not on Google Play. It is open source (GPL-3.0-or-later) and ships as a signed APK on GitHub Releases
-  (`akhilux-design/sumbuddy`), which Obtainium and Orion Store read. F-Droid's main repository comes later, with a
-  build without Google sign-in and Firebase, which it does not allow. IzzyOnDroid is not a target: its policy rejects
-  apps made with generative AI. Steps: `docs/publishing.md`, `docs/releasing.md`.
+  (`akhilux-design/sumbuddy`), which Obtainium and Orion Store read. Checked again on 2026-11-22: Orion Store takes a
+  submission from its app; F-Droid's main repository needs a build without Google sign-in and Firebase and, since
+  2026-10-16, about 3 months of development (about 2027-02-20 at the earliest); IzzyOnDroid is not a target (its AI
+  policy, and it refuses a certificate named "Android Debug"); the release certificate's name is an open decision.
+  Steps: `docs/publishing.md`, `docs/releasing.md`.
 - The privacy policy is `PRIVACY.md` at the repository root. It is also the policy URL Google's sign-in branding
   needs (`docs/server-setup.md` 7.2).
 
