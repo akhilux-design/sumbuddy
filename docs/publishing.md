@@ -16,7 +16,8 @@ checked that day against the stores' own pages, code and issue trackers.
 
 ## 0. Before the first public release (done)
 
-Done on 2026-11-20 and 2026-11-21, except brand verification and one check on the friends' page. Kept as a record.
+Done on 2026-11-20 and 2026-11-21, and brand verification on 2026-11-24, except one check on the friends' page. Kept
+as a record.
 
 - **Signing key.** Decided 2026-11-20: releases are signed with the current key, the certificate with SHA-256
   `11d2e03b…9a8b` that `scripts/release.sh` checks ("CN=Android Debug, O=Android, C=US"). Installed apps can only
@@ -30,7 +31,9 @@ Done on 2026-11-20 and 2026-11-21, except brand verification and one check on th
   there is the one in this repository. Google refused the first address, `akhilux-design.github.io/sumbuddy/`, on
   2026-11-24 because no `github.io` site can be verified by DNS. Since 2026-11-24 `akhilux.design` is a Search Console
   Domain property of the Cloud project's Owner account and a verified GitHub Pages domain (`docs/server-setup.md`
-  7.2). Until brand verification passes, the sign-in sheet may show the domain instead of the name.
+  7.2). Google approved brand verification on 2026-11-24, so its sign-in step shows the name SumBuddy rather than
+  the domain (not yet checked on a phone). Any change to Branding (name, logo, URLs, authorized domains) or a new
+  scope needs a new review, and the DNS records for `akhilux.design` and `sumbuddy.akhilux.design` must stay.
 - **Push and sign-in for the release key.** Nothing to add: the release certificate is the one whose Android client
   is in `GOOGLE_ANDROID_CLIENT_IDS` and on the FCM API key (`docs/server-setup.md` 7.1). A new or rotated key changes
   this (section 9).
