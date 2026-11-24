@@ -185,11 +185,11 @@ should not be in a public issue.
 
 ## How this was made
 
-The maintainer decides what SumBuddy does and how it looks, and approves design changes from pictures. Claude Code,
-an AI coding tool from Anthropic, built most of the Figma design under that direction (`design/spec` is an export of
-it) and wrote nearly all of the code, tests and documentation. Changes are checked by the automated tests in this
-repository, by separate AI review passes, and on an Android emulator against the design pictures. Commits written
-with Claude carry a "Co-Authored-By: Claude" line.
+akhilux designed SumBuddy in Figma: what it does, its flows and how every screen looks (`design/spec` is an export of
+that file). It was developed by akhilux with Claude Code, an AI coding tool from Anthropic, which wrote most of the
+code, tests and documentation. Changes are checked by the automated tests in this repository, by separate AI review
+passes, and on an Android emulator against the design. Commits written with Claude carry a "Co-Authored-By: Claude"
+line.
 
 ## Licence
 
