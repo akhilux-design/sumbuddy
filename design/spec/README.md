@@ -11,6 +11,7 @@ Everything needed to build the SumBuddy Android app without opening Figma. Expor
 | `typography.json` | The 14 local text styles, in Figma order. |
 | `components/` | One `<Name>.json` (structure) and `<Name>.png` per component on the Design System page. |
 | `screens/<group>/` | One folder per group (`01-onboarding` to `06-family`). Per screen: `NN-name.json`, `NN-name.dark.png`, `NN-name.light.png`. |
+| `screens/07-website/` | The public website (Figma page "Website"): Home and Privacy at 1440 and 360 wide, and the skip link's focus state. Both PNGs per frame (desktop at half size); the JSON is a compact outline (ids, sections, sizes), because the built site (`index.html`, `assets/site/site.css`) is the detailed reference. |
 | `flow.md` | How the screens connect (from the Flow page). |
 | `motion.md` | Motion and haptics: spring, duration-target, distance and haptic tokens, rules and the 18 patterns (from `Section/Motion` on the Design System page). |
 | `../icons/` | Icon assets exported from the Design System page (the `Icon/*` components). |

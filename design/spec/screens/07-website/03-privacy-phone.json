@@ -1,0 +1,60 @@
+{
+  "name": "Privacy · Phone",
+  "group": "Website",
+  "index": 3,
+  "darkId": "523:5278",
+  "lightId": "532:6184",
+  "w": 360,
+  "h": 7793,
+  "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
+  "sections": [
+    {
+      "n": "Nav",
+      "y": 0,
+      "h": 82,
+      "pad": [
+        16,
+        0,
+        16,
+        0
+      ]
+    },
+    {
+      "n": "Header",
+      "y": 82,
+      "h": 770,
+      "pad": [
+        32,
+        0,
+        32,
+        0
+      ]
+    },
+    {
+      "n": "Policy",
+      "y": 852,
+      "h": 6508,
+      "pad": [
+        16,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Footer",
+      "y": 7360,
+      "h": 433,
+      "pad": [
+        32,
+        0,
+        32,
+        0
+      ]
+    }
+  ],
+  "content": 328,
+  "tocRow": 52,
+  "tocToFirstSection": 32,
+  "sectionGap": 48
+}

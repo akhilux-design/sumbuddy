@@ -1,0 +1,118 @@
+{
+  "name": "Home · Phone",
+  "group": "Website",
+  "index": 1,
+  "darkId": "504:530",
+  "lightId": "532:5553",
+  "w": 360,
+  "h": 7446,
+  "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
+  "sections": [
+    {
+      "n": "Nav",
+      "y": 0,
+      "h": 82,
+      "pad": [
+        16,
+        0,
+        16,
+        0
+      ]
+    },
+    {
+      "n": "Hero",
+      "y": 82,
+      "h": 1180,
+      "pad": [
+        32,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "How it works",
+      "y": 1262,
+      "h": 668,
+      "pad": [
+        32,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Features",
+      "y": 1930,
+      "h": 1660,
+      "pad": [
+        48,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Screens",
+      "y": 3590,
+      "h": 762,
+      "pad": [
+        48,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Privacy",
+      "y": 4352,
+      "h": 1065,
+      "pad": [
+        48,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Download",
+      "y": 5417,
+      "h": 1596,
+      "pad": [
+        48,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Footer",
+      "y": 7013,
+      "h": 433,
+      "pad": [
+        32,
+        0,
+        32,
+        0
+      ]
+    }
+  ],
+  "content": 328,
+  "heroArt": {
+    "h": 496,
+    "phones": [
+      {
+        "screen": "Home",
+        "w": 232,
+        "centred": true
+      }
+    ]
+  },
+  "grids": {
+    "steps": "rows: sticker beside text, gap 12",
+    "features": "one column, gap 24",
+    "screens": "swipeable row of 214 wide phones, gap 12, runs to the screen edge",
+    "options": "one column, gap 12"
+  },
+  "nav": "Download only"
+}

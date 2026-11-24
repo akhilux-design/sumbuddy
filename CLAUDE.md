@@ -41,6 +41,7 @@ Use `$ANDROID_HOME/platform-tools/adb`, not the Homebrew one.
 - `splitwise/` pure Kotlin module that reads a Splitwise export (CSV) into expenses, payments and balances for Import from Splitwise (`docs/splitwise-import.md` 4). No Android dependencies; the file never leaves the phone.
 - `server/` Cloudflare Worker (D1, Durable Objects, FCM push) for sign-in and splitting; `server/web/` is the friends' link page. Contract: `docs/server.md`.
 - `design/spec/` exported copy of the Figma design: tokens, typography, components, screens (JSON plus PNG in both themes), flow.
+- `index.html`, `_layouts/`, `_includes/`, `assets/site/` the public website, sumbuddy.akhilux.design (GitHub Pages from `main`; Figma page "Website"). `node scripts/site-assets.mjs` rebuilds its generated assets (`docs/publishing.md`, "Website").
 - `design/icons/` SVG sources of the icons. Converted drawables are `app/src/main/res/drawable/ic_<name>_line.xml` and `ic_<name>_3d.xml`.
 - `docs/product.md` product decisions and version 1 scope.
 

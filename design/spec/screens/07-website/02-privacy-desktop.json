@@ -1,0 +1,65 @@
+{
+  "name": "Privacy · Desktop",
+  "group": "Website",
+  "index": 2,
+  "darkId": "523:5081",
+  "lightId": "532:5987",
+  "w": 1440,
+  "h": 4179,
+  "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
+  "sections": [
+    {
+      "n": "Nav",
+      "y": 0,
+      "h": 82,
+      "pad": [
+        16,
+        0,
+        16,
+        0
+      ]
+    },
+    {
+      "n": "Header",
+      "y": 82,
+      "h": 532,
+      "pad": [
+        64,
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "n": "Policy",
+      "y": 614,
+      "h": 3440,
+      "pad": [
+        32,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Footer",
+      "y": 4054,
+      "h": 125,
+      "pad": [
+        32,
+        0,
+        32,
+        0
+      ]
+    }
+  ],
+  "content": 1200,
+  "columns": [
+    312,
+    64,
+    720
+  ],
+  "tocRow": 52,
+  "sectionGap": 48,
+  "text": "PRIVACY.md as Jekyll renders it (curly quotes); \"In short:\" box in brand soft with a 2px brand stroke and the brand edge"
+}

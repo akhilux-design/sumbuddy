@@ -6,9 +6,10 @@ their own licences.
 
 ## Fonts
 
-Bundled in the app (`app/src/main/res/font/`) and in the friends' page (`server/web/public/fonts/`). Each is under
+Bundled in the app (`app/src/main/res/font/`), in the friends' page (`server/web/public/fonts/`) and on the website
+(`assets/site/fonts/`). Each is under
 the SIL Open Font License, Version 1.1. The full licence texts are in `app/src/main/assets/licenses/` (shipped inside
-the APK) and `server/web/public/fonts/`.
+the APK), `server/web/public/fonts/` and `assets/site/fonts/`.
 
 | Font | Copyright | Licence text |
 |---|---|---|

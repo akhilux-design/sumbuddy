@@ -1,0 +1,11 @@
+{
+  "name": "Skip link (keyboard focus)",
+  "group": "Website",
+  "index": 4,
+  "darkId": "532:5097",
+  "lightId": "532:6380",
+  "w": 320,
+  "h": 128,
+  "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
+  "what": "Keyboard focus only: a 48 high brand pill \"Skip to content\" at the top left (16, 16) over the nav; focus ring 3px border/strong, 2px away."
+}

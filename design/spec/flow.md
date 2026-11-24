@@ -750,3 +750,16 @@ No connection, slow loading and failed loading.
 ### Branch: If a field is not right
 
 1. `SCREEN` `NEW` **Field errors** - 'That does not look right.' under the field: Add friend, Group settings (blank name), Import from Splitwise (blank group name), Set up Family (blank name), Your name, Account, Needs review, Expense detail edit. Add expense shows it under the amount.
+
+## 11 Website (sumbuddy.akhilux.design)
+
+Not part of the app. The public site, designed on the Figma page "Website" (`screens/07-website/`), in the app's design
+system; it follows the phone or computer's light or dark setting.
+
+- **Home** (`/`): nav (Privacy, Source code, Download), hero, How it works, What SumBuddy does, A look inside (the eight
+  store screens), Private by default, Get SumBuddy (APK, Obtainium, Orion Store, Installing an APK safely), footer.
+- **Privacy policy** (`/PRIVACY.html`): `PRIVACY.md` with the same nav and footer, the "In short:" box and an "On this
+  page" list of the sections.
+- Every "Download" goes to `github.com/akhilux-design/sumbuddy/releases/latest/download/sumbuddy.apk`; "Privacy" and
+  "Read the privacy policy" go to `/PRIVACY.html`, which Google's approved Branding uses.
+- Keyboard: "Skip to content" appears on the first Tab (`04-skip-link-focus`).

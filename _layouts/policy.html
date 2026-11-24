@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include site-head.html %}
+  <title>{{ page.title | default: "SumBuddy privacy policy" }}</title>
+  <meta name="description" content="What SumBuddy and its server do with your information.">
+  <link rel="canonical" href="https://sumbuddy.akhilux.design/PRIVACY.html">
+  <script src="/assets/site/policy.js" defer></script>
+</head>
+<body>
+{% include site-nav.html %}
+  <main id="main" class="policy-page">
+    <div class="wrap policy">
+      <p class="eyebrow type-label">Privacy</p>
+      <nav class="toc" aria-label="On this page" hidden>
+        <p class="type-label">On this page</p>
+        <ol></ol>
+      </nav>
+{{ content }}
+    </div>
+  </main>
+{% include site-footer.html %}
+</body>
+</html>

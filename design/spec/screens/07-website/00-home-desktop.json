@@ -1,0 +1,134 @@
+{
+  "name": "Home · Desktop",
+  "group": "Website",
+  "index": 0,
+  "darkId": "504:6",
+  "lightId": "532:5104",
+  "w": 1440,
+  "h": 5162,
+  "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
+  "sections": [
+    {
+      "n": "Nav",
+      "y": 0,
+      "h": 82,
+      "pad": [
+        16,
+        0,
+        16,
+        0
+      ]
+    },
+    {
+      "n": "Hero",
+      "y": 82,
+      "h": 784,
+      "pad": [
+        64,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "How it works",
+      "y": 866,
+      "h": 424,
+      "pad": [
+        48,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Features",
+      "y": 1290,
+      "h": 764,
+      "pad": [
+        64,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Screens",
+      "y": 2054,
+      "h": 1582,
+      "pad": [
+        64,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Privacy",
+      "y": 3636,
+      "h": 492,
+      "pad": [
+        64,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Download",
+      "y": 4128,
+      "h": 909,
+      "pad": [
+        64,
+        0,
+        64,
+        0
+      ]
+    },
+    {
+      "n": "Footer",
+      "y": 5037,
+      "h": 125,
+      "pad": [
+        32,
+        0,
+        32,
+        0
+      ]
+    }
+  ],
+  "content": 1200,
+  "heroColumns": [
+    560,
+    64,
+    560
+  ],
+  "heroArt": {
+    "h": 656,
+    "phones": [
+      {
+        "screen": "Review payments",
+        "x": 30,
+        "y": 64,
+        "w": 275
+      },
+      {
+        "screen": "Home",
+        "x": 255,
+        "y": 0,
+        "w": 275
+      }
+    ]
+  },
+  "grids": {
+    "steps": "3 x 384, gap 24",
+    "features": "3 x 384, column gap 24, row gap 40",
+    "screens": "4 x 282, gap 24, caption gap 12",
+    "options": "3 x 384, gap 24"
+  },
+  "privacyColumns": [
+    480,
+    64,
+    656
+  ]
+}

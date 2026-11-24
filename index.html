@@ -1,0 +1,187 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="en">
+<head>
+{% include site-head.html %}
+  <title>SumBuddy: expenses and splits, added for you</title>
+  <meta name="description" content="SumBuddy takes the typing out of tracking your month and splitting with friends. A free, open-source Android app made for India.">
+  <link rel="canonical" href="https://sumbuddy.akhilux.design/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SumBuddy">
+  <meta property="og:title" content="SumBuddy: expenses and splits, added for you">
+  <meta property="og:description" content="Track your month and split with friends without the typing. Free and open source, for Android.">
+  <meta property="og:url" content="https://sumbuddy.akhilux.design/">
+  <meta property="og:image" content="https://sumbuddy.akhilux.design/fastlane/metadata/android/en-US/images/icon.png">
+</head>
+<body>
+{% include site-nav.html %}
+  <main id="main">
+    <!-- Hero (Figma: Hero) -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-text">
+          <div class="tags">
+            <span class="tag type-label">Free and open source</span>
+            <span class="tag type-label">Android 8.0 or later</span>
+          </div>
+          <h1 class="type-display-xl">Expenses and splits, added for you</h1>
+          <p class="type-body-l muted">SumBuddy takes the typing out of tracking your month and splitting with friends. It picks up payments from your bank and UPI SMS, so you only choose to add, split or ignore each one.</p>
+          <div class="actions">
+            <a class="button is-primary is-large" href="https://github.com/akhilux-design/sumbuddy/releases/latest/download/sumbuddy.apk"><span class="face type-button">Download the APK</span></a>
+            <a class="button is-secondary is-large" href="https://github.com/akhilux-design/sumbuddy"><span class="face type-button">See the source on GitHub</span></a>
+          </div>
+          <p class="type-caption faint">Version 0.3.2 · Made for India: rupees, Indian banks and UPI · Not on Google Play</p>
+        </div>
+        <div class="hero-art">
+          <div class="phone is-back" aria-hidden="true">
+            <picture>
+              <source srcset="/assets/site/screens/review-payments-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="/assets/site/screens/review-payments-light.webp" width="540" height="1200" alt="" loading="lazy">
+            </picture>
+          </div>
+          <div class="phone is-front">
+            <picture>
+              <source srcset="/assets/site/screens/home-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="/assets/site/screens/home-light.webp" width="540" height="1200" alt="SumBuddy's Home screen: the month's spending and a payment it picked up, with Add, Split and Ignore" fetchpriority="high">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how section" aria-labelledby="how">
+      <div class="wrap stack">
+        <div class="heading">
+          <p class="type-label brand">How it works</p>
+          <h2 class="type-display-l" id="how">Your payments, picked up for you</h2>
+        </div>
+        <ol class="steps">
+          <li class="card">
+            <span class="sticker"><img src="/assets/site/icons/phone_3d.svg" alt=""></span>
+            <div class="text">
+              <h3 class="type-heading-m">1. Pay as usual</h3>
+              <p class="type-body-m muted">Your bank and UPI apps send their usual payment SMS.</p>
+            </div>
+          </li>
+          <li class="card">
+            <span class="sticker"><img src="/assets/site/icons/search_3d.svg" alt=""></span>
+            <div class="text">
+              <h3 class="type-heading-m">2. SumBuddy finds the payment</h3>
+              <p class="type-body-m muted">It reads those SMS on your phone and picks out the amount and where you paid. The SMS never leave the phone.</p>
+            </div>
+          </li>
+          <li class="card">
+            <span class="sticker"><img src="/assets/site/icons/split_3d.svg" alt=""></span>
+            <div class="text">
+              <h3 class="type-heading-m">3. Add, split or ignore</h3>
+              <p class="type-body-m muted">One tap adds it to your month or splits it with friends. Nothing is added without you.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- What SumBuddy does (Figma: Features) -->
+    <section class="section is-surface" id="features" aria-labelledby="features-title">
+      <div class="wrap stack">
+        <div class="heading">
+          <p class="type-label brand">What it does</p>
+          <h2 class="type-display-l" id="features-title">What SumBuddy does</h2>
+        </div>
+        <ul class="grid">
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/chart_3d.svg" alt=""></span><h3 class="type-heading-m">Spending by category</h3><p class="type-body-m muted">This month against last month, added up for you.</p></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/check_circle_3d.svg" alt=""></span><h3 class="type-heading-m">You decide each payment</h3><p class="type-body-m muted">Payments are picked up automatically. Add, split or ignore each one, with Add all and Undo.</p></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/card_3d.svg" alt=""></span><h3 class="type-heading-m">Card bills</h3><p class="type-body-m muted">What is due, what friends owe you of it, and a reminder 3 days before.</p></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/split_3d.svg" alt=""></span><h3 class="type-heading-m">Split with friends</h3><p class="type-body-m muted">Groups, who owes whom, settle up by UPI, cash or bank transfer, and a WhatsApp link for friends without the app.</p></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/heart_3d.svg" alt=""></span><h3 class="type-heading-m">Family month</h3><p class="type-body-m muted">Share one monthly total with your partner, with no owing between you.</p></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/file_3d.svg" alt=""></span><h3 class="type-heading-m">Import from Splitwise</h3><p class="type-body-m muted">Bring a group across from a Splitwise export file.</p></li>
+        </ul>
+        <p class="type-body-m muted">Splitting, Family month and Import from Splitwise need a Google sign-in. Tracking your month needs none.</p>
+      </div>
+    </section>
+
+    <!-- A look inside (Figma: Screens) -->
+    <section class="section" aria-labelledby="screens-title">
+      <div class="wrap stack">
+        <div class="heading">
+          <p class="type-label brand">Screens</p>
+          <h2 class="type-display-l" id="screens-title">A look inside</h2>
+          <p class="type-body-l muted measure">The screenshots use the app’s made-up sample data.</p>
+        </div>
+        <div>
+          <div class="shots" tabindex="0" role="group" aria-label="Screenshots">
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/home-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/home-light.webp" width="540" height="1200" loading="lazy" alt="Home with a payment picked up, ready to add, split or ignore"></picture></div><figcaption class="type-body-m-strong">Home</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/review-payments-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/review-payments-light.webp" width="540" height="1200" loading="lazy" alt="Review payments, one card at a time"></picture></div><figcaption class="type-body-m-strong">Review payments</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/card-bills-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/card-bills-light.webp" width="540" height="1200" loading="lazy" alt="Home with card bills due and what friends owe"></picture></div><figcaption class="type-body-m-strong">Card bills</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/card-bill-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/card-bill-light.webp" width="540" height="1200" loading="lazy" alt="A card bill with who owes what"></picture></div><figcaption class="type-body-m-strong">A card bill</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/month-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/month-light.webp" width="540" height="1200" loading="lazy" alt="Month view by category"></picture></div><figcaption class="type-body-m-strong">Month</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/group-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/group-light.webp" width="540" height="1200" loading="lazy" alt="A group page with balances"></picture></div><figcaption class="type-body-m-strong">Group</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/family-month-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/family-month-light.webp" width="540" height="1200" loading="lazy" alt="Family month on Home"></picture></div><figcaption class="type-body-m-strong">Family month</figcaption></figure>
+            <figure class="shot"><div class="phone"><picture><source srcset="/assets/site/screens/splitwise-dark.webp" media="(prefers-color-scheme: dark)"><img src="/assets/site/screens/splitwise-light.webp" width="540" height="1200" loading="lazy" alt="Import a group from Splitwise"></picture></div><figcaption class="type-body-m-strong">Import from Splitwise</figcaption></figure>
+          </div>
+          <p class="swipe-hint type-caption">Swipe for more</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private by default (Figma: Privacy) -->
+    <section class="section is-surface" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap split">
+        <div class="split-text">
+          <div class="heading">
+            <p class="type-label brand">Privacy</p>
+            <h2 class="type-display-l" id="privacy-title">Private by default</h2>
+          </div>
+          <p class="type-body-l muted">Payments are found on your phone, and the ones you don’t split stay there. No ads and no analytics. Signing in with Google is optional, only for splitting with friends, Family month and Import from Splitwise. Without it, nothing about you is stored on the server. Push messages for groups use Google’s Firebase Cloud Messaging, only after you sign in.</p>
+          <div><a class="button is-secondary is-large" href="/PRIVACY.html"><span class="face type-button">Read the privacy policy</span></a></div>
+        </div>
+        <div class="lists">
+          <div class="list-group">
+            <h3 class="type-label muted">Stays on your phone</h3>
+            <ul class="list-card">
+              <li class="info-row"><span class="bubble"><img src="/assets/site/icons/lock_3d.svg" alt=""></span><span class="text"><span class="type-title">Bank and UPI SMS</span><span class="type-body-m">Read on the phone to find payments. Never uploaded, never in logs.</span></span></li>
+              <li class="info-row"><span class="bubble"><img src="/assets/site/icons/receipt_3d.svg" alt=""></span><span class="text"><span class="type-title">Payments you don’t split</span><span class="type-body-m">With their accounts, cards, card bills and notes.</span></span></li>
+            </ul>
+          </div>
+          <div class="list-group">
+            <h3 class="type-label muted">Sent to the server only after you sign in</h3>
+            <ul class="list-card">
+              <li class="info-row"><span class="bubble"><img src="/assets/site/icons/split_3d.svg" alt=""></span><span class="text"><span class="type-title">An expense you split or mark Family</span><span class="type-body-m">Only that expense: description, category, amount, date, who paid and the shares.</span></span></li>
+              <li class="info-row"><span class="bubble"><img src="/assets/site/icons/user_3d.svg" alt=""></span><span class="text"><span class="type-title">Your name, phone number and UPI ID</span><span class="type-body-m">Your name from Google, and the phone number and UPI ID you add. Shown to people in your groups; your name and UPI ID also appear on a payment link you send.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get SumBuddy (Figma: Download) -->
+    <section class="section" id="download" aria-labelledby="download-title">
+      <div class="wrap stack">
+        <div class="heading">
+          <p class="type-label brand">Download</p>
+          <h2 class="type-display-l" id="download-title">Get SumBuddy</h2>
+          <p class="type-body-l muted measure">Free, with no subscription and no paid features. SumBuddy is not on Google Play: install it from GitHub.</p>
+        </div>
+        <ul class="grid options">
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/bank_3d.svg" alt=""></span><h3 class="type-heading-m">Download the APK</h3><p class="type-body-m muted">The latest release, straight from GitHub. Updates install over it only when they are signed with the same key.</p><a class="button is-primary is-medium is-fill" href="https://github.com/akhilux-design/sumbuddy/releases/latest/download/sumbuddy.apk"><span class="face type-button">Download sumbuddy.apk</span></a></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/repeat_3d.svg" alt=""></span><h3 class="type-heading-m">Obtainium</h3><p class="type-body-m muted">Installs SumBuddy from GitHub and keeps it up to date. In Obtainium: Add App, paste github.com/<wbr>akhilux-design/sumbuddy, then Add.</p><a class="button is-secondary is-medium is-fill" href="https://github.com/ImranR98/Obtainium"><span class="face type-button">Get Obtainium</span></a></li>
+          <li class="card"><span class="sticker"><img src="/assets/site/icons/box_3d.svg" alt=""></span><h3 class="type-heading-m">Orion Store</h3><p class="type-body-m muted">SumBuddy has been submitted and is waiting for review.</p><span class="tag type-label">Waiting for review</span></li>
+        </ul>
+        <div class="install">
+          <h3 class="type-heading-m">Installing an APK safely</h3>
+          <ul class="list-card">
+            <li class="info-row"><span class="bubble"><img src="/assets/site/icons/link_3d.svg" alt=""></span><span class="text"><span class="type-title">Download only from GitHub or Obtainium</span><span class="type-body-m">The download links here go to github.com/<wbr>akhilux-design/sumbuddy.</span></span></li>
+            <li class="info-row"><span class="bubble"><img src="/assets/site/icons/phone_3d.svg" alt=""></span><span class="text"><span class="type-title">Allow your browser or file manager to install apps</span><span class="type-body-m">Android asks once. You can turn it off again afterwards.</span></span></li>
+            <li class="info-row"><span class="bubble"><img src="/assets/site/icons/lock_3d.svg" alt=""></span><span class="text"><span class="type-title">Check the download if you like</span><span class="type-body-m">Compare its SHA-256 with SHA256SUMS on the release page.</span></span></li>
+            <li class="info-row"><span class="bubble"><img src="/assets/site/icons/alert_3d.svg" alt=""></span><span class="text"><span class="type-title">Play Protect may warn about a new app</span><span class="type-body-m">That is expected for apps from outside Google Play.</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+{% include site-footer.html %}
+</body>
+</html>

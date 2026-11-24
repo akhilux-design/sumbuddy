@@ -1,2 +1,10 @@
 title: SumBuddy
-description: Track your month from bank SMS, privately on your phone. Split with friends and share a Family month. Free and open source Android app.
+description: Track your month and split with friends without the typing. Free and open source Android app.
+
+# The website (sumbuddy.akhilux.design): index.html is the home page; PRIVACY.md is shown with the site's own layout.
+# Every other Markdown file keeps GitHub Pages' default look.
+defaults:
+  - scope:
+      path: "PRIVACY.md"
+    values:
+      layout: policy
