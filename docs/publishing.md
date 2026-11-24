@@ -24,11 +24,13 @@ Done on 2026-11-20 and 2026-11-21, except brand verification and one check on th
   (`com.akhilux.xpense.debug`), so a debug APK, although signed with the same certificate, installs as a separate app
   and can never replace the public one. The certificate's name is still an open question (section 9).
 - **Google sign-in for everyone.** Published on 2026-11-21 (Google Auth Platform > Audience: In production).
-  Branding: app name SumBuddy, home page <https://akhilux-design.github.io/sumbuddy/> and privacy policy
-  <https://akhilux-design.github.io/sumbuddy/PRIVACY.html>. GitHub Pages serves `README.md` and `PRIVACY.md` from
-  `main`, so the policy at that address is the one in this repository. Brand verification was started on 2026-11-21
-  and is not finished: Google's review is to be asked for again on or after 2026-11-22 (`docs/server-setup.md` 7.2).
-  Until then the sign-in sheet may show the domain instead of the name.
+  Branding: app name SumBuddy, home page <https://sumbuddy.akhilux.design/> and privacy policy
+  <https://sumbuddy.akhilux.design/PRIVACY.html>. GitHub Pages serves `README.md` and `PRIVACY.md` from `main` at
+  that address (the `CNAME` file; the old `akhilux-design.github.io/sumbuddy/` links redirect there), so the policy
+  there is the one in this repository. Google refused the first address, `akhilux-design.github.io/sumbuddy/`, on
+  2026-11-24 because no `github.io` site can be verified by DNS. Since 2026-11-24 `akhilux.design` is a Search Console
+  Domain property of the Cloud project's Owner account and a verified GitHub Pages domain (`docs/server-setup.md`
+  7.2). Until brand verification passes, the sign-in sheet may show the domain instead of the name.
 - **Push and sign-in for the release key.** Nothing to add: the release certificate is the one whose Android client
   is in `GOOGLE_ANDROID_CLIENT_IDS` and on the FCM API key (`docs/server-setup.md` 7.1). A new or rotated key changes
   this (section 9).

@@ -357,8 +357,10 @@ Fills: `FCM_PROJECT_ID` in `server/wrangler.toml`, the `FCM_SERVICE_ACCOUNT_JSON
 - **7.2 Publish the sign-in app and verify the brand** (Google Auth Platform).
   - Audience > **Publish app**. Only non-sensitive scopes are used, so no review is needed.
   - **Brand verification**, so the app name and logo appear on the Sign in with Google sheet. It needs a public home
-    page that says what the app does and a privacy policy (`PRIVACY.md` in this repository is SumBuddy's). Enter both
-    URLs in Branding and add their domain under Authorized domains. Verify ownership in Google Search Console.
+    page that says what the app does and a privacy policy (`PRIVACY.md` in this repository is SumBuddy's). Both must
+    be on a domain you control by DNS: Google wants a Search Console **Domain** property, verified with a DNS record,
+    by an account that is Owner of the Cloud project. A `github.io` address cannot pass (GitHub runs its DNS; Google
+    refused it on 2026-11-24). Enter both URLs in Branding and add the domain under Authorized domains.
   - Submit in Verification Center. The automated check usually takes minutes; a manual review usually takes 2-3
     business days.
 - **7.3 Last chance for the workers.dev subdomain** (1.5). If you change it, update `app.apiBaseUrl` and deploy the
