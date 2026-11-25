@@ -22,6 +22,19 @@ the dump of the screen frame. Both themes share one tree: colours are token name
 There are 244 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
 
+## Orion Store listed, 2026-11-25
+
+Orion Store approved SumBuddy on 2026-11-25. On the Website page, in the Home Desktop and Home Phone frames of both
+boards, the Orion Store card (`Option/Orion Store`) now reads "Listed under Productivity. Orion installs the same
+signed APK from GitHub." Its "Waiting for review" Tag is replaced by a Secondary Medium Button, "Get Orion Store",
+copied from the Obtainium card, with a link annotation to Orion Store's latest release. On Desktop the card's text
+fills the height, so the button lines up with the other two at the bottom, as `margin-top: auto` does in `site.css`.
+In "Installing an APK safely" the first row now reads "Download only from GitHub, Obtainium or Orion Store".
+
+- Nodes: Dark `504:405` (Desktop) and `504:912` (Phone); Light `532:5515` and `532:5948`.
+- The Phone frame is 25 taller (7,471): Download is 1,621 high and Footer starts at 7,038. Desktop keeps its size.
+- Exported: both PNGs of `07-website/00` and `01`, and the sizes in `01-home-phone.json`. Built in `index.html`.
+
 ## Hint contrast, 2026-11-25
 
 A contrast check of every visible text layer on both boards (4,357 per theme, Plus left out) found three under 4.5:1,

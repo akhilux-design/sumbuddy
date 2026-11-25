@@ -28,4 +28,4 @@ reports from automated scanners without a demonstrated problem.
 ## Supported versions
 
 Only the latest release gets fixes. Update through
-<https://github.com/akhilux-design/sumbuddy/releases/latest> or Obtainium.
+<https://github.com/akhilux-design/sumbuddy/releases/latest>, Obtainium or Orion Store.

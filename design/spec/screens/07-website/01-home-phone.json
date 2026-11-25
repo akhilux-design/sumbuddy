@@ -5,7 +5,7 @@
   "darkId": "504:530",
   "lightId": "532:5553",
   "w": 360,
-  "h": 7446,
+  "h": 7471,
   "note": "Website page (Figma page \"Website\", boards \"Website · Dark\" and \"Website · Light\"). Compact outline only: the built site (index.html, _layouts/policy.html, _includes/, assets/site/site.css) is the detailed reference, and \"screen\" blocks are copies of the app screens of that name. Sizes in CSS px.",
   "sections": [
     {
@@ -77,7 +77,7 @@
     {
       "n": "Download",
       "y": 5417,
-      "h": 1596,
+      "h": 1621,
       "pad": [
         48,
         0,
@@ -87,7 +87,7 @@
     },
     {
       "n": "Footer",
-      "y": 7013,
+      "y": 7038,
       "h": 433,
       "pad": [
         32,

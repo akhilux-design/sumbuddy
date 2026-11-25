@@ -4,8 +4,8 @@ Step by step for the maintainer: the public repository, a release, and the place
 2026-11-20; the stores were checked again on 2026-11-22:
 
 - SumBuddy is not on Google Play. It is open source (`GPL-3.0-or-later`) and ships as a signed APK on **GitHub
-  Releases**, which **Obtainium** and **Orion Store** read. These three are the targets now. GitHub Releases and
-  Obtainium work today; Orion Store takes a submission from its app (section 5).
+  Releases**, which **Obtainium** and **Orion Store** read. These three are the targets now, and all three work:
+  Orion Store has listed SumBuddy since 2026-11-25 (section 5).
 - **F-Droid**'s main repository comes later, with a `foss` flavour without Google sign-in and Firebase, and not before
   the project is about 3 months old (section 6).
 - **IzzyOnDroid** is not a target (section 7).
@@ -220,9 +220,11 @@ through an "App Update" issue generated in the app, not a new submission.
   it: the certificate began as the maintainer's own debug key, the key is private and kept off the repository, its
   SHA-256 is in `docs/releasing.md`, and the release APK is not debuggable.
 
-**After it is listed:** replace the "Orion Store: coming" line in the README with the listing's link, add Orion to the
-update routes in `SECURITY.md`, and if wanted add the "Get it on Orion Store" badge (Orion's Developer Mode gives the
-Markdown).
+**Listed on 2026-11-25.** The submission (RookieEnough/Orion-Data#3360) was approved and closed at 03:40 UTC, and the
+catalogue (`apps.json` in Orion-Data) has SumBuddy under Productivity with package `com.akhilux.xpense`. Done after it:
+the README's Download list links Orion Store, the website's Orion card says it is listed and links Orion Store's
+releases (Figma page "Website" too), and `SECURITY.md` names Orion as an update route. The "Get it on Orion Store"
+badge (Orion's Developer Mode gives the Markdown) is not added.
 
 ## 6. F-Droid (later)
 

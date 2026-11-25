@@ -32,7 +32,9 @@ The screenshots use the app's made-up sample data.
 - **[Obtainium](https://github.com/ImranR98/Obtainium)** (installs and updates apps straight from GitHub): Add App,
   paste `https://github.com/akhilux-design/sumbuddy`, then Add. Each release carries two APKs with the same content
   (`sumbuddy.apk` and `sumbuddy-<version>.apk`); if Obtainium asks, either one is fine.
-- **Orion Store:** coming; this list will link it once SumBuddy is listed.
+- **[Orion Store](https://github.com/RookieEnough/Orion-Store):** listed since 25 Nov 2026, under Productivity. Search for
+  SumBuddy in the app. Orion installs the same signed APK from these GitHub releases, so it updates with them. Orion may
+  call it a "debug build" because of the certificate's name; the key is private ([`docs/releasing.md`](docs/releasing.md)).
 - **F-Droid:** later. F-Droid's main repository does not allow Google Play services or Firebase, which SumBuddy uses
   for sign-in and push, so it needs a separate build without them (`docs/publishing.md`).
 
