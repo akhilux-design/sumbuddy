@@ -17,6 +17,9 @@ Figma node 20:81. Files: `Input.json` (full dump), `Input.png` (all states). The
 - `Label`: text style `Caption` (18 high), colour `color/text/secondary`.
 - `Field`: padding 16 on all sides, corner radius 12, fill `color/bg/surface-raised`, content clipped, value aligned to the start and centred vertically. No shadow (no edge) in any state.
 - `Value`: text style `Body/L` (24 high), colour `color/text/primary`.
+- Hint: while the field is empty, `Value` shows a hint (for example "Dinner, auto, chemist") in `color/text/secondary`,
+  as the app's `AppInput` draws it. Not `color/text/tertiary`: on the field's `color/bg/surface-raised` that is 4.14:1
+  in Light, under the 4.5:1 rule.
 - `Helper`: text style `Caption`, colour `color/status/negative`.
 
 **Field stroke per state**

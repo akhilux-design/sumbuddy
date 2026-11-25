@@ -22,6 +22,22 @@ the dump of the screen frame. Both themes share one tree: colours are token name
 There are 244 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
 
+## Hint contrast, 2026-11-25
+
+A contrast check of every visible text layer on both boards (4,357 per theme, Plus left out) found three under 4.5:1,
+all in Light: the hint in an empty `Input` drawn in `color/text/tertiary` on the field's `color/bg/surface-raised`
+(#68736C on #E8ECE9, 4.14:1). The app already draws hints in `color/text/secondary` (`AppInput`), so the design now
+matches it: the `Value` text of those inputs is `color/text/secondary` (#5C675F, 4.94:1 in Light; in Dark the same
+hints go from 4.55:1 to 7.51:1). Checked again after the change: no text under 4.5:1 in either theme. The lowest is
+4.58:1 in Light (the ₹0 amount hint on Add expense, Amount/XL) and 5.12:1 in Dark; no text is under 14 px.
+
+- `02-everyday/77` Add expense (split off) and `02-everyday/109` Add expense (amount not valid): "Dinner, auto,
+  chemist". Nodes: Dark `I215:15607;20:76`, `I217:17981;20:76`; Light `I218:20371;20:76`, `I218:21049;20:76`.
+- `04-you/10` Accounts and cards (rename): "HDFC Bank". Nodes: Dark `I218:18849;20:80`; Light `I218:21284;20:80`.
+- `components/Input.md` now names the hint colour. No component or token changed, and the app needs no change.
+- Exported: the JSON and both PNGs of the three frames. Each JSON was checked by hash against a fresh `dump.js` dump of
+  its Dark frame, and the Dark and Light dumps are identical.
+
 ## 0.3.2 design follow-ups, 2026-11-22
 
 Fixes from the device check of release 0.3.2, on both boards where a frame has both.
