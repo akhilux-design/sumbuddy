@@ -22,6 +22,25 @@ the dump of the screen frame. Both themes share one tree: colours are token name
 There are 244 screens per theme. File numbers never change: a screen added later gets the next number in its folder,
 so the numbers do not follow the order on the Figma board.
 
+## Screens page reorganised, 2026-11-25
+
+The owner asked for the Screens page (now "Android App Screens - Design") to be organised: each group was one long row
+(02 Everyday was 148 screens, about 60,000 px wide). Each group frame keeps its name and title, and its single `Row`
+is now a set of sub-sections that follow the flow. Each is a `Section/<name>` frame with a "Name · count" title
+(Heading/M) and a `Row/<name>` that wraps at 12 screens (gap 48, bound to `space/48`). The main screen comes first,
+then its states. Both boards have the same sections in the same order; the Light board now sits to the right of the
+Dark board.
+
+- 01 Onboarding: Welcome and sign in, Your name, Privacy and permissions, Reading your SMS, Confirm accounts.
+- 02 Everyday: Home, Notifications, Review payments, Add a payment, Split a payment, Add expense by hand, Expense
+  detail, Activity and month, Groups, Group page, Group settings, New group and friends, Join a group, Import from
+  Splitwise.
+- 03 Getting paid back: Settle up, Payment match, Remind on WhatsApp, Friend web page, Card bills.
+- 04 You: You, Account, Accounts and cards, Your data. 05 Plus: Plus. 06 Family: Set up Family, Join Family, Family
+  month, Family settings, Family expenses.
+- Screens were moved, not copied: every `darkId` and `lightId` in these files still resolves (checked for all 244),
+  names are unchanged, and file numbers stay as they are. No screen changed, so nothing was re-exported.
+
 ## Orion Store listed, 2026-11-25
 
 Orion Store approved SumBuddy on 2026-11-25. On the Website page, in the Home Desktop and Home Phone frames of both
